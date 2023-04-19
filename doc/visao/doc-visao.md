@@ -10,7 +10,7 @@
 
 ## 1. Objetivo do projeto
 
-Texto...
+Criar uma plataforma para conectar voluntários com projetos comunitários.
 
 ## 2. Descrição do problema
 
