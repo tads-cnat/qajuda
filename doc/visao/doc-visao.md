@@ -56,22 +56,23 @@ A Plataforma para Trabalho Voluntários será um produto de acesso para toda a s
 
 | Código              |  Nome               |          Descrição  |  Prioridade         |
 | -----------------   | -----------------   | -----------------   | -----------------   |
-|  F01  |  Efetuar Login  |  O admin/usuário tem acesso ao sistema.  | Alta  |
-| F02  | Cadastrar Ação | O usuário cadastra uma ação de trabalho voluntário  |  Alta |
-| F03  | Criar Ações | Usuário cria ações | Alta |
-| F04  | Cadastrar-se | Visitante pode se cadastrar na plataforma | Alta |
-| F05  | Criar Comentário | Usuário que participou da ação pode criar comentário | Média |
-| F06  | Gerenciar Ações | admin gerencia ações disponíveis e usuário gerencia a própria ação (atualizar e remover) | Alta | 
-| F07  | Gerenciar Usuários | Admin gerencia usuários da plataforma (atualizar e remover) | Alta |
-| F08  | Remover Comentários | Admin ou usuário removem comentários disponíveis | Média |
-| F09  | Visualizar Ações | Visitantes e usuários podem visualizar ações disponíveis | Alta | 
-| F10  | Visualizar Comentários | Visitantes e usuários podem visualizar comentários disponíveis das ações | Média |
-| F11  | Avaliar Ação | Permite que voluntários que participaram avaliem (com critérios a definir como resultados obtidos, pontualidade, efetividade, etc) a ação ocorrida | Baixa |
-| F12  | Denunciar Ação | Usuário alerta os admins sobre questões de segurança da ação elencadas na RN06 | Alta |
-| F13  | Denunciar Usuário | Usuário alerta os admins sobre questões de segurança elencadas na RN07 | Alta |
-| F14  | Autorizar voluntário em ação | Usuário proprietário da ação aceita os voluntários que se candidataram a participar da ação | Alta |
-| F15  | Cadastro do Voluntário em uma ação | Usuário pode solicitar aos proprietários da ação para participar | Alta |
-| F16  | Efetuar Logout | Usuário sai do sistema | Alta |
+|  F01  |  Efetuar Login  |  O admin/usuário tem acesso ao sistema.  | -  |
+| F02  | Cadastrar Ação | O usuário cadastra uma ação de trabalho voluntário  |  - |
+| F03  | Criar Ações | Usuário cria ações | - |
+| F04  | Cadastrar-se | Visitante pode se cadastrar na plataforma | - |
+| F05  | Criar Comentário | Usuário que participou da ação pode criar comentário | - |
+| F06  | Gerenciar Ações | admin gerencia ações disponíveis e usuário gerencia a própria ação (atualizar e remover) | - | 
+| F07  | Gerenciar Usuários | Admin gerencia usuários da plataforma (atualizar e remover) | - |
+| F08  | Remover Comentários | Admin ou usuário removem comentários disponíveis | - |
+| F09  | Buscar Ações | Visitantes e usuários pesquisam ações disponíveis | Alta | 
+| F10  | Visualizar Ações | Visitantes e usuários podem visualizar ações disponíveis | Alta | 
+| F11  | Visualizar Comentários | Visitantes e usuários podem visualizar comentários disponíveis das ações | - |
+| F12  | Avaliar Ação | Permite que voluntários que participaram avaliem (com critérios a definir como resultados obtidos, pontualidade, efetividade, etc) a ação ocorrida | Média |
+| F13  | Denunciar Ação | Usuário alerta os admins sobre questões de segurança da ação elencadas na RN06 | - |
+| F14  | Denunciar Usuário | Usuário alerta os admins sobre questões de segurança elencadas na RN07 | - |
+| F16  | Autorizar voluntário em ação | Usuário proprietário da ação aceita os voluntários que se candidataram a participar da ação | Alta |
+| F16  | Cadastro do Voluntário em uma ação | Usuário pode solicitar aos proprietários da ação para participar | Alta |
+| F17  | Efetuar Logout | Usuário sai do sistema | - |
 
 
 
