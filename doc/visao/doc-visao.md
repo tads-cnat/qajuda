@@ -85,3 +85,13 @@ A Plataforma para Trabalho Voluntários será um produto de acesso para toda a s
 | NF02 | Interface acessível | Espera-se que a interface e o design sejam construídos a partir de fontes, tamanhos, imagens, ícones, esquemas de cores  e outras ferramentas que possibilitem inclusão de pessoas com problemas de visão (ferramenta de lupa, alto contraste, leitura em voz alta, etc), prezando por uma comunicação clara com os usuários | Performance | Desejável |
 | NF03 | Usabilidade da plataforma | Espera-se que o uso da plataforma seja intuitivo para que vários tipos de usuários (iniciais, intermediários, avançados, admin) possam navegar pelo sistema sem grandes dificuldades | Performance | Desejável |
 | NF04 | Confiabilidade e credibilidade | Serão estabelecidos protocolos para que os usuários tanto possam denunciar ações e/ou usuários suspeitos, como será possível um sistema de avaliação entre voluntários na plataforma sobre confiança e credibilidade das ações | Segurança | Obrigatório|
+
+## 10. Regras de negócio
+
+| Código | Nome | Descrição |
+| :-------------: | :-------------: | :-------------: |
+| RN01 | Limitação de cadastro de ações | Um usuário não pode criar mais de três ações (provisório (?)) |
+| RN02 | Acesso a ações | Em ações "fechadas" (não-públicas), um voluntário precisa ter seu acesso permitido pelo criador da ação para ver informações sensíveis sobre ela |
+| RN03 | Requisito para avaliar ação | Um voluntário só pode avaliar uma ação em que participou |
+| RN04 | Impedimento de spamming por denúncia | Um usuário não pode fazer mais de 3 denúncias ao mesmo usuário/evento na mesma semana
+| RN05 | Impedimento de spamming por comentários | Um usuário não pode comentar mais de 3 vezes na mesma hora em uma ação | 
