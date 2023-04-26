@@ -24,9 +24,9 @@ Criar uma plataforma para conectar voluntários com projetos comunitários.
 
 | Nome                |  Descrição          |   Responsabilidade  |
 | -----------------   | -----------------   | -----------------   |
-| Admin | Os admin serão usuários com permissões para alterar ações, permissões e logins de usuários, e todos os outros requisitos | Os admins irão: - CRUD (Create, Read, Update, Delete), pesquisar, listar ações e usuários - Moderar o conteúdo postado - Validar denúncias sobre ações e usuários - Realizar manutenções e melhorias no sistema |
-| Usuário com login   | Os usuários cadastrados com login, que não são admin, poderão utilizar a plataforma para se voluntariar, interagir com outros usuários e criarem ações voluntárias nas quais eles serão proprietários/responsáveis. | Os usuários já cadastrados poderão: - CRUD pesquisar, listar ações e usuários (com limitações, sem acesso à dados de cadastro de outros usuários ou permissões para proprietários de ações de outros usuários, por exemplo) - Criar ação, se tornando proprietários de ações - Interagir e visualizar detalhes sobre categorias, interesses, ações que já participaram, outras informações disponíveis de outros usuários e ações. |
-| Usuário não cadastrado   | Os usuários que podem visualizar o site mas que, por não terem realizado cadastro ainda, não podem se voluntariar ou criar ações voluntárias na plataforma.   | Os usuários não cadastrados podem: - Visualizar ações e detalhes das ações - Se cadastrar na plataforma - Compartilhar ações existentes | 
+| Admin | Os admin serão usuários com permissões para alterar ações e perfis de usuários, e todos os outros requisitos | Gerenciar ações e usuários - Moderar o conteúdo postado - Validar denúncias sobre ações e usuários - Realizar manutenções e melhorias no sistema |
+| Usuário  | Os usuários cadastrados com login, que não são admin, poderão utilizar a plataforma para se voluntariar, interagir com outros usuários e criarem ações voluntárias nas quais eles serão proprietários/responsáveis. | Criar ações, se tornando proprietários da ação; Gerenciar os usuários das suas ações; Interagir e visualizar detalhes sobre categorias, interesses, ações que já participaram, outras informações disponíveis de outros usuários e ações; Inscrever-se em ações.  |
+| Visitante   | Os usuários que podem visualizar o site mas que, por não terem realizado cadastro ainda, não podem se voluntariar ou criar ações voluntárias na plataforma.   | Os usuários não cadastrados podem: - Visualizar ações e dados não sensíveis das ações - Se cadastrar na plataforma - Compartilhar ações existentes | 
 
 ## 4. Descrição do ambiente dos usuários
 
@@ -56,24 +56,22 @@ A Plataforma para Trabalho Voluntários será um produto de acesso para toda a s
 
 | Código              |  Nome               |          Descrição  |  Prioridade         |
 | -----------------   | -----------------   | -----------------   | -----------------   |
-|  F01  |  Efetuar login  |  O admin/usuário tem acesso ao sistema.  | Alta  |
-| F03  | Cadastrar ação | O usuário cadastra uma ação de trabalho voluntário  |  Alta |
-| F04  | Criar ações | Permite criar ações | Alta |
-| F05  | Criar usuários | Permite criar usuários (admin ou usuário comum sobre sua própria conta) | Alta |
-| F06  | Criar comentários | Permite criar comentários (admin ou usuário comum sobre seus próprios comentários)| Média |
-| F07  | Criar Categorias | Permite criar categorias (admin ou usuário comum sobre seus próprios categorias ) | Média |
-| F08  | Criar Interesses | Permite criar interesses (admin ou usuário comum sobre seus próprios interesses) | Média| 
-| F09  | Manter ações | Ações disponíveis (ler, atualizar e deletar) | Alta | 
-| F10  | Manter usuários | Usuários disponíveis (ler, atualizar e deletar) | Alta |
-| F11  | Manter comentários | Comentários disponíveis (ler, atualizar e deletar) | Média |
-| F12  | Manter categorias | Categorias disponíveis (ler, atualizar e deletar) | Média |
-| F13  | Manter interesses | Interesses disponíveis (ler, atualizar e deletar) | Média|
-| F14  | Avaliar ação | Permite que voluntários que participaram avaliem (com critérios a definir como resultados obtidos, pontualidade, efetividade, etc) a ação ocorrida | Baixa |
-| F15  | Denunciar ação | Permite alertar os admins para questões de segurança na plataforma | Alta |
-| F16  | Denunciar usuário | Permite alertar os admins para questões de segurança, comportamentos suspeitos, discurso de ódio na plataforma, entre outros | Alta |
-| F17  | Autorizar voluntário em ação | Permite aos admins e proprietários de ações aceitar os voluntários que se candidataram a participar da ação | Alta |
-| F18  | Cadastro do voluntário em uma ação | Usuários podem solicitar aos donos de ações para participar de ações da plataforma | Alta |
-| F19  | Efetuar logout | Sair do sistema | Alta |
+|  F01  |  Efetuar Login  |  O admin/usuário tem acesso ao sistema.  | Alta  |
+| F02  | Cadastrar Ação | O usuário cadastra uma ação de trabalho voluntário  |  Alta |
+| F03  | Criar Ações | Usuário cria ações | Alta |
+| F04  | Cadastrar-se | Visitante pode se cadastrar na plataforma | Alta |
+| F05  | Criar Comentário | Usuário que participou da ação pode criar comentário | Média |
+| F06  | Gerenciar Ações | admin gerencia ações disponíveis e usuário gerencia a própria ação (atualizar e remover) | Alta | 
+| F07  | Gerenciar Usuários | Admin gerencia usuários da plataforma (atualizar e remover) | Alta |
+| F08  | Remover Comentários | Admin ou usuário removem comentários disponíveis | Média |
+| F09  | Visualizar Ações | Visitantes e usuários podem visualizar ações disponíveis | Alta | 
+| F10  | Visualizar Comentários | Visitantes e usuários podem visualizar comentários disponíveis das ações | Média |
+| F11  | Avaliar Ação | Permite que voluntários que participaram avaliem (com critérios a definir como resultados obtidos, pontualidade, efetividade, etc) a ação ocorrida | Baixa |
+| F12  | Denunciar Ação | Usuário alerta os admins sobre questões de segurança da ação elencadas na RN06 | Alta |
+| F13  | Denunciar Usuário | Usuário alerta os admins sobre questões de segurança elencadas na RN07 | Alta |
+| F14  | Autorizar voluntário em ação | Usuário proprietário da ação aceita os voluntários que se candidataram a participar da ação | Alta |
+| F15  | Cadastro do Voluntário em uma ação | Usuário pode solicitar aos proprietários da ação para participar | Alta |
+| F16  | Efetuar Logout | Usuário sai do sistema | Alta |
 
 
 
@@ -82,16 +80,18 @@ A Plataforma para Trabalho Voluntários será um produto de acesso para toda a s
 | Código              |  Nome               |          Descrição  |  Categoria          |  Classificação      |
 | -----------------   | -----------------   | -----------------   | -----------------   | -----------------   |
 | NF01 | Segurança das informações pessoais | Os dados pessoais, endereços e outras informações dos bancos de dados da plataforma deverão estar asseguradas segundo a Lei Geral de Proteção de Dados Pessoais (LGPD). | Segurança | Obrigatório |
-| NF02 | Interface acessível | Espera-se que a interface e o design sejam construídos a partir de fontes, tamanhos, imagens, ícones, esquemas de cores  e outras ferramentas que possibilitem inclusão de pessoas com problemas de visão (ferramenta de lupa, alto contraste, leitura em voz alta, etc), prezando por uma comunicação clara com os usuários | Performance | Desejável |
-| NF03 | Usabilidade da plataforma | Espera-se que o uso da plataforma seja intuitivo para que vários tipos de usuários (iniciais, intermediários, avançados, admin) possam navegar pelo sistema sem grandes dificuldades | Performance | Desejável |
+| NF02 | Interface acessível | Espera-se que a interface e o design sejam construídos a partir de fontes, tamanhos, imagens, ícones, esquemas de cores  e outras ferramentas que possibilitem inclusão de pessoas com problemas de visão (ferramenta de lupa, alto contraste, leitura em voz alta, etc), prezando por uma comunicação clara com os usuários | Usabilidade | Desejável |
+| NF03 | Usabilidade da plataforma | Espera-se que o uso da plataforma seja intuitivo para que vários tipos de usuários (iniciais, intermediários, avançados, admin) possam navegar pelo sistema sem grandes dificuldades | Usabilidade | Desejável |
 | NF04 | Confiabilidade e credibilidade | Serão estabelecidos protocolos para que os usuários tanto possam denunciar ações e/ou usuários suspeitos, como será possível um sistema de avaliação entre voluntários na plataforma sobre confiança e credibilidade das ações | Segurança | Obrigatório|
 
 ## 10. Regras de negócio
 
 | Código | Nome | Descrição |
-| :-------------: | :-------------: | :-------------: |
-| RN01 | Limitação de cadastro de ações | Um usuário não pode criar mais de três ações (provisório (?)) |
-| RN02 | Acesso a ações | Em ações "fechadas" (não-públicas), um voluntário precisa ter seu acesso permitido pelo criador da ação para ver informações sensíveis sobre ela |
-| RN03 | Requisito para avaliar ação | Um voluntário só pode avaliar uma ação em que participou |
-| RN04 | Impedimento de spamming por denúncia | Um usuário não pode fazer mais de 3 denúncias ao mesmo usuário/evento na mesma semana
-| RN05 | Impedimento de spamming por comentários | Um usuário não pode comentar mais de 3 vezes na mesma hora em uma ação | 
+| ------------- | ------------- | ------------- |
+| RN01 | Limitação de cadastro de ações | Um usuário não pode criar mais de três ações |
+| RN02 | Acesso a ações | Em ações "fechadas" (não-públicas), um voluntário precisa ter seu acesso permitido pelo criador da ação para ver informações sensíveis sobre ela. |
+| RN03 | Requisito para avaliar ação | Um voluntário só pode avaliar uma ação em que participou. |
+| RN04 | Impedimento de spamming por denúncia | Um usuário não pode fazer mais de 3 denúncias ao mesmo usuário/evento na mesma semana.
+| RN05 | Impedimento de spamming por comentários | Um usuário não pode comentar mais de 3 vezes na mesma hora em uma ação. | 
+| RN06 | Critérios de denúncia do ação | Inverdade da proposta da ação,  entre outros. | 
+| RN07 | Critérios de denúncia do usuário | Discurso de ódio, comportamento suspeito, entre outros. | 
