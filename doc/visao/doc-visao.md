@@ -71,9 +71,9 @@ A Plataforma para Trabalho Voluntários será um produto de acesso para toda a s
 | F12  | Avaliar Ação | Permite que voluntários que participaram avaliem (com critérios a definir como resultados obtidos, pontualidade, efetividade, etc) a ação ocorrida | Média |
 | F13  | Denunciar Ação | Usuário alerta os admins sobre questões de segurança da ação elencadas na RN06 | - |
 | F14  | Denunciar Usuário | Usuário alerta os admins sobre questões de segurança elencadas na RN07 | - |
-| F16  | Autorizar voluntário em ação | Usuário proprietário da ação aceita os voluntários que se candidataram a participar da ação | Alta |
-| F17  | Cadastro do Voluntário em uma ação | Usuário pode solicitar aos proprietários da ação para participar | Alta |
-| F18  | Efetuar Logout | Usuário sai do sistema | - |
+| F15  | Autorizar voluntário em ação | Usuário proprietário da ação aceita os voluntários que se candidataram a participar da ação | Alta |
+| F16  | Cadastro do Voluntário em uma ação | Usuário pode solicitar aos proprietários da ação para participar | Alta |
+| F17  | Efetuar Logout | Usuário sai do sistema | - |
 
 
 
