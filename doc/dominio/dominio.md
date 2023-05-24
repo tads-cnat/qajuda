@@ -1,6 +1,7 @@
 # Modelo de Domínio
 
-Texto e imagem...
+![image](https://github.com/tads-cnat/trabalhos-voluntarios/assets/112821127/704d1b52-7e33-4b71-b713-ef5d87d7aaf7)
+
 
 ## Glossário (sugestão)
 
