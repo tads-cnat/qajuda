@@ -1,0 +1,28 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
+
+nav {
+    background-color: aliceblue;
+    height: 4em;
+    width: 100%;
+    margin: 0;
+    position: sticky;
+    top: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+form {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+form input {
+    width: 40%;
+    height: 2.5em;
+    border-radius: 10px;
+    border: solid 2px lightgrey;
+}
