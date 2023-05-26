@@ -1,8 +1,6 @@
 # Modelo de Domínio
 
-Link para projeto: https://app.diagrams.net/#G1qgmoOTVXNUszFUPEqU6Baejx-t4NiLi3
-
-![Diagrama ER ](https://github.com/tads-cnat/trabalhos-voluntarios/assets/112009958/b19f83e8-f3dd-46e4-9749-390e7e3914e1)
+![image](https://github.com/tads-cnat/trabalhos-voluntarios/assets/112009958/a879da1c-23d0-4cb6-a73a-79b80f243ed2)
 
 ## Glossário (sugestão)
 
