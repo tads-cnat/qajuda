@@ -6,6 +6,8 @@
 
 >Inserir pequena descrição do projeto
 
+Criar uma plataforma web para conectar pessoas e instituições interessadas em voluntariado, contando histórias para estimular a criação de ações e trabalhos voluntários e fortalecer a divulgação de ações já existentes.
+
 # Equipe e Formas de Contato
 
 1. Ana Célia Baía Araújo 
