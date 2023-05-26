@@ -11,9 +11,12 @@
 
 | Ações do ator | Ações do sistema |
 | :-----------------: | :-----------------: |
-| 1 - Voluntário seleciona uma ação que ele participou e que já foi encerrada. | Sistema exibe ação selecionada. |  
-| 2 - Voluntário seleciona a funcionalidade Avaliar Ação. | Sistema exibe diversos critérios de avaliação para que o voluntário possa avaliar a ação. |
-| 3 - Voluntário avalia ação. (Ver RN08). | Sistema valida, confirma e exibe avaliação ao voluntário. Caso de uso é finalizado.
+| 1 - Voluntário seleciona uma ação que ele participou e que já foi encerrada. |  |  
+|  | 2 -  Sistema exibe ação selecionada. |
+| 3 - Voluntário seleciona a funcionalidade Avaliar Ação. |  |
+| | 4 - Sistema exibe diversos critérios de avaliação para que o voluntário possa avaliar a ação. |
+| 5 - Voluntário avalia ação. (Ver RN08). | |
+| | 6 - Sistema valida, confirma e exibe avaliação ao voluntário. Caso de uso é finalizado. |
 
 ## Fluxo de Exceção - Validação de avaliação
 
