@@ -15,7 +15,7 @@
 | 2 - Voluntário seleciona a funcionalidade Avaliar Ação. | Sistema exibe diversos critérios de avaliação para que o voluntário possa avaliar a ação. |
 | 3 - Voluntário avalia ação. (Ver RN08). | Sistema valida, confirma e exibe avaliação ao voluntário. Caso de uso é finalizado.
 
-## Fluxo Alternativo I - Validação de avaliação
+## Fluxo de Exceção - Validação de avaliação
 
 | Ações do ator | Ações do sistema |
 | :-----------------: |:-----------------: |
