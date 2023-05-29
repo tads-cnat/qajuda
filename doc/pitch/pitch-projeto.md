@@ -10,6 +10,11 @@
 
 [Apresentação](https://www.canva.com/design/DAFkTPy_S98/k0w76HCr6bpI_jkApfdD_A/view?utm_content=DAFkTPy_S98&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink)
 
-
-1. Vilanir 40s
-2. 
+| ordem                |  Nome             |          tempo 1 |           tempo 2 |
+| -----------------   | -----------------   | -----------------   | -----------------   |
+| 1| Vilanir | 00:40| 00:33|
+| 2| Felipe | 01:30| 01:05|
+| 3| Romulo | | |
+| 4| Ana | 01:43| 01:20|
+| 5| Yuri| 01:11| 01:07|
+| 6| Vilanir| 01:34| 01:03|
