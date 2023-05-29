@@ -1,3 +1,7 @@
+:root {
+    --p1: lightblue;
+}
+
 body {
-    background-color: lightblue;
+    background-color: var(--p1);
 }

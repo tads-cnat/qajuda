@@ -1,0 +1,41 @@
+
+article {
+    margin-top: 10em;
+    background-color: rgb(209, 229, 236);
+    width: 70%;
+    margin: auto;
+    padding-top: 2em;
+}
+
+#cards {
+    display: grid;
+    grid-template-areas: 
+    "1 2 3"
+    "4 5 6"
+    ;
+    justify-items: center;
+    justify-content: space-evenly;
+    
+}
+
+.acao-card {
+    width: 15em;
+    height: 12em;
+    background-color: aliceblue;
+
+    margin: 1em;
+    border: 1px solid /*outset*/ lightgrey;
+    border-radius: 0.5em;
+}
+
+@media (max-width: 1166px) {
+    #cards {
+        grid-template-areas: 
+        "1 2"
+        "3 4"
+        "5 6"
+        ;
+        gap: 1em 1em;
+        
+    }
+}
