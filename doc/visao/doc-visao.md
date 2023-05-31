@@ -28,6 +28,7 @@ Criar uma plataforma para conectar voluntários com projetos comunitários.
 | Usuário  | Os usuários cadastrados com login, que não são admin, poderão utilizar a plataforma para se voluntariar, interagir com outros usuários e criarem ações voluntárias nas quais eles serão proprietários/responsáveis. | Criar ações, se tornando proprietários da ação; Gerenciar os usuários das suas ações; Interagir e visualizar detalhes sobre categorias, interesses, ações que já participaram, outras informações disponíveis de outros usuários e ações; Inscrever-se em ações.  |
 | Voluntário   | Os voluntários podem fazer determinadas ações, como por exemplo, avaliar uma ação.   | Os voluntários são os responsáveis por fazer determinadas ações que estão ligadas a ação que ele se inscreveu. | 
 | Visitante   | Os usuários que podem visualizar o site mas que, por não terem realizado cadastro ainda, não podem se voluntariar ou criar ações voluntárias na plataforma.   | Os usuários não cadastrados podem: - Visualizar ações e dados não sensíveis das ações - Se cadastrar na plataforma - Compartilhar ações existentes | 
+| Proprietário | Os proprietários serão usuários quando forem os criadores de uma ação ou forem adicionados como "proprietários" por outro proprietário em uma ação | Os proprietário poderão aceitar ou recusar a adesão usuários que enviarem pedido para se tornarem voluntários na ação que são proprietários, além de poder moderar comentários e editar informações da ação |
 
 ## 4. Descrição do ambiente dos usuários
 
