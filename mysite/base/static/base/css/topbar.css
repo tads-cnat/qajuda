@@ -4,7 +4,7 @@
 }
 
 nav {
-    background-color: aliceblue;
+    background-color: var(--p1);
     height: 4em;
     width: 100%;
     margin: 0;
@@ -12,17 +12,40 @@ nav {
     top: 0;
 
     display: flex;
-    justify-content: center;
+    
     align-items: center;
 }
+
+#area-util {
+    width: 70%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 form {
-    width: 100%;
     display: flex;
     justify-content: center;
 }
+
 form input {
-    width: 40%;
+    width: 30em;
     height: 2.5em;
     border-radius: 10px;
-    border: solid 2px lightgrey;
+    /*border: solid 2px lightgrey;*/
+    border: none;
+    color: #7c7c7c;
+    font-weight: 700;
+    
+}
+
+.topbar-button {
+    background-color: var(--b);
+    padding: .4em .6em;
+    border-radius: .5em;
+
+    color: var(--branco);
+    font-weight: 700;
+    font-size: 1.2em;
 }

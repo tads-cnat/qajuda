@@ -1,7 +1,27 @@
 :root {
-    --p1: lightblue;
+    --p1: #3F8CF5;
+    --b: #5CA0FF;
+    --aux: #0B2F61;
+    --aux2: #0b613d;
+    --branco: #f6f6f6;
+    --branco2: #e9e9e9;
+    font-family: Raleway;
 }
 
 body {
-    background-color: var(--p1);
+    background-color: var(--branco);
+}
+
+article {
+    margin-top: 10em;
+    background-color: var(--branco2);
+    width: 70%;
+    margin: auto;
+    padding-top: 2em;
+}
+
+a {
+    text-decoration: none;
+    padding: 0;
+    width: min-content;
 }
