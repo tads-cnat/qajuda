@@ -1,16 +1,67 @@
+{% extends 'base/main.html' %}
 {% load static %}
+{% block conteudo %}
+    <head>
+        <link rel="stylesheet" href="{% static 'base/css/index.css' %}">
+    </head>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Índice</title>
-    <link rel="stylesheet" href="{% static 'base/css/main.css' %}">
-</head>
-<body>
-    {% include 'base/topbar.html' %}
-    ueeepaaaaa
-</body>
-</html>
+    <main>
+        <article>
+            <h1 id="texto-1">AJUDE EM AÇÕES PERTO DE VOCÊ:</h1>
+            
+            <section id="cards">
+                <a href="{% url 'response' %}">
+                    <div class="acao-card">
+                        <div class="card-foto">
+                            <div class="acao-tag">Limpeza</div>
+                        </div>
+                        <div class="card-texto">Limpeza da prainha</div>
+                    </div>
+                </a>
+                <a href="{% url 'response' %}">
+                    <div class="acao-card">
+                        <div class="card-foto">
+                            <div class="acao-tag">Limpeza</div>
+                        </div>
+                        <div class="card-texto">Limpeza da prainha</div>
+                    </div>
+                </a>
+                <a href="{% url 'response' %}">
+                    <div class="acao-card">
+                        <div class="card-foto">
+                            <div class="acao-tag">Limpeza</div>
+                        </div>
+                        <div class="card-texto">Limpeza da prainha</div>
+                    </div>
+                </a>
+            </section>
+            <h1 id="texto-2">AÇÕES MAIS PROCURADAS DA SEMANA:</h1>
+            <section id="cards">
+                <a href="{% url 'response' %}">
+                    <div class="acao-card">
+                        <div class="card-foto">
+                            <div class="acao-tag">Limpeza</div>
+                        </div>
+                        <div class="card-texto">Limpeza da prainha</div>
+                    </div>
+                </a>
+                <a href="{% url 'response' %}">
+                    <div class="acao-card">
+                        <div class="card-foto">
+                            <div class="acao-tag">Limpeza</div>
+                        </div>
+                        <div class="card-texto">Limpeza da prainha</div>
+                    </div>
+                </a>
+                <a href="{% url 'response' %}">
+                    <div class="acao-card">
+                        <div class="card-foto">
+                            <div class="acao-tag">Limpeza</div>
+                        </div>
+                        <div class="card-texto">Limpeza da prainha</div>
+                    </div>
+                </a>
+            </section>
+        </article>
+    </main>
+{% endblock conteudo %}
