@@ -1,25 +1,26 @@
-# Título do Projeto
+# QAjuda: plataforma online para trabalho voluntário
 
 <img src="logo.png" width="200" height="200" />
 
->Inserir uma logo para o projeto
-
->Inserir pequena descrição do projeto
+>Nosso objetivo é criar uma plataforma web para conectar pessoas e instituições interessadas em voluntariado, contando histórias para estimular a criação de ações e trabalhos voluntários e fortalecer a divulgação de ações já existentes.
 
 # Equipe e Formas de Contato
 
-1. Nome...
-2. Nome...
+1. Ana Célia Baía Araújo
+2. Felipe Xavier de Carvalho
+3. José Vilanir de Souza Brito Neto
+4. Rômulo da Silva Cavalcanti 
+5. Yuri Thairony Feitosa de Oliveira
 
->Descrever as formas de contato da equipe - WhatsApp, Discord, etc.
+>A equipe se comunica diariamente por grupo do PDS Web no WhatsApp e utiliza o Discord para reuniões virtuais.
 
 # Horário de Reuniões
 
->Descrever dias, horários e local das reuniões da equipe
+>Quartas-feiras, 9h no IFRN e, frequentemente, à noite pelo Discord.
 
 # Tecnologias Utilizadas
 
->Enumerar as tecnoligas utilzadas no projeto
+>Django, HTML, CSS, Figma, Astah, ERDPlus, GitHub, Canva
 
 # Documentação
 
@@ -27,4 +28,4 @@
 
 # Manual da Desenvolvedor
 
->Descrever os comandos iniciais para começar a colaborar com o desenvolvimento do projeto
+>Inicialmente devem ser construídos os artefatos: Diagrama de Casos de Uso (CdU), templates (html/css) e interface gráfica para os principais CdU, Diagrama de Classes de domínio e Diagrama Entidade-Relacionamento.
