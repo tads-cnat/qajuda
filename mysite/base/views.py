@@ -10,3 +10,6 @@ def detail(request):
 
 def response(request):
     return render(request, 'base/response.html')
+
+def pva(request):
+    return render(request, 'base/pva.html')

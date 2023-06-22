@@ -34,7 +34,7 @@ class Usuarios(models.Model):
     data_nasc = models.DateTimeField('data de nascimento')
     biografia = models.TextField()
     incrito_em = models.DateTimeField(auto_now_add=True)
-    categoria = models.ForeignKey(Categoria, on_delete=models.SET_NULL)
+    categoria = models.ForeignKey(Categoria, null=True, on_delete=models.SET_NULL)
 
     def __self__(self):
         return self.nome
@@ -50,8 +50,8 @@ class Acao(models.Model):
     tema = models.CharField(max_length=10)
     num_max_voluntario = models.IntegerField()
     url = models.CharField(max_length=200)
-    ocorrencia = models.ForeignKey(Periodo, on_delete=models.SET_NULL)
-    categoria = models.ForeignKey(Categoria, on_delete=models.SET_NULL)
+    ocorrencia = models.ForeignKey(Periodo, null=True, on_delete=models.SET_NULL)
+    categoria = models.ForeignKey(Categoria, null=True, on_delete=models.SET_NULL)
 
     def __self__(self):
         return self.nome
