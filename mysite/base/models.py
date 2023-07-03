@@ -41,26 +41,18 @@ class Acao(models.Model):
         return self.nome
 
 class Status(Enum):
-    em_espera: 1
-    aceito: 2
-    rejeitado: 3
+    em_espera:  1
+    aceito:     2
+    rejeitado:  3
     participou: 4
 
-# user voluntaria em ação -> classe associativa voluntário é criada
-# baseado no Status da classe associativa Voluntário, as solicitações aparecem para os proprietários da ação
-# se um proprietário "mudar o status" (aceitar ou rejeitar a solicitação), é salvo como "Proprietário" na associativa Voluntário.
-
-# MUDAR OS NOMES DAS DUAS CLASSES ABAIXO (solicitação e resposta???)
-
 class Proprietario(models.Model):
-    proprietario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
+    usuario = models.OneToOneField(Usuario, on_delete=models.CASCADE)
 
-class Voluntario(models.Model):
+class Solicitacao(models.Model):
     voluntario = models.OneToOneField(Usuario, on_delete=models.CASCADE)
     status = Status
     proprietario = models.ForeignKey(Proprietario, blank=True, null=True, on_delete=models.SET_NULL) # esse atributo representa a classe acima.
-
-    
 
 class Foto(models.Model):
     foto = models.ImageField(upload_to='None', null=True)
