@@ -1,5 +1,6 @@
 from django.db import models
 from enum import Enum
+from django.utils.translation import gettext_lazy as _
 
 
 class Categoria(models.Model):
@@ -40,18 +41,18 @@ class Acao(models.Model):
     def __self__(self):
         return self.nome
 
-class Status(Enum):
-    em_espera:  1
-    aceito:     2
-    rejeitado:  3
-    participou: 4
-
 class Proprietario(models.Model):
     usuario = models.OneToOneField(Usuario, on_delete=models.CASCADE)
 
 class Solicitacao(models.Model):
+    class Status(models.TextChoices):
+        EM_ESPERA = "ESP", _("Em espera")
+        ACEITO = "ACC", _("Aceito")
+        REJEITADO = "REJ", _("Rejeitado")
+        PARTICIPOU = "PART", _("Participou")
+    
     voluntario = models.OneToOneField(Usuario, on_delete=models.CASCADE)
-    status = Status
+    status = models.CharField(max_length=4, choices=Status.choices, default=Status.EM_ESPERA)
     proprietario = models.ForeignKey(Proprietario, blank=True, null=True, on_delete=models.SET_NULL) # esse atributo representa a classe acima.
 
 class Foto(models.Model):
