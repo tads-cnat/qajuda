@@ -10,3 +10,6 @@ def detail(request):
 
 def response(request):
     return render(request, 'base/response.html')
+
+def voluntariar(request):
+    return render(request, 'base/voluntariar.html')
