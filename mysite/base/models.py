@@ -1,40 +1,24 @@
 from django.db import models
-
-
-
-class Periodo(models.Model):
-    data_inicio = models.DateTimeField()
-    data_fim = models.DateTimeField()
-    hora_inicio = models.TimeField()
-    hora_fim = models.TimeField()
-    dia_semana = models.CharField(max_length=15)
-
-
-class Endereco(models.Model):
-    cep = models.CharField(max_length=8)
-    logradouro = models.CharField(max_length=50)
-    numero = models.CharField(max_length=6)
-    cidade = models.CharField(max_length=15)
-    bairro = models.CharField(max_length=15)
-    referencia = models.CharField(max_length=15)
+from enum import Enum
+from django.utils.translation import gettext_lazy as _
 
 
 class Categoria(models.Model):
     nome = models.CharField(max_length=100)
 
 
-class Usuarios(models.Model):
+class Usuario(models.Model):
     nome = models.CharField(max_length=80)
-    email = models.EmailField(max_length=200, unique=True)
     senha = models.CharField(max_length=15)
-    #atributo foto
-    telefone = models.CharField(max_length=11)
+    email = models.EmailField(max_length=200, unique=True)
+    telefone1 = models.CharField(max_length=11)
+    telefone2 = models.CharField(max_length=11)
     cidade = models.CharField(max_length=15)
     bairro = models.CharField(max_length=15)
     data_nasc = models.DateTimeField('data de nascimento')
-    biografia = models.TextField()
+    bio = models.TextField()
     incrito_em = models.DateTimeField(auto_now_add=True)
-    categoria = models.ForeignKey(Categoria, null=True, on_delete=models.SET_NULL)
+    categoria = models.ManyToManyField(Categoria)
 
     def __self__(self):
         return self.nome
@@ -43,20 +27,36 @@ class Usuarios(models.Model):
 class Acao(models.Model):
     nome = models.CharField(max_length=200)
     status = models.BooleanField() #vai ser um enum
-    #atributo foto
-    descricao_acao = models.TextField()
-    criada_em = models.DateField(auto_now_add=True)
-    modalidade = models.CharField(max_length=10)
-    tema = models.CharField(max_length=10)
-    num_max_voluntario = models.IntegerField()
-    url = models.CharField(max_length=200)
-    ocorrencia = models.ForeignKey(Periodo, null=True, on_delete=models.SET_NULL)
-    categoria = models.ForeignKey(Categoria, null=True, on_delete=models.SET_NULL)
+    descricao = models.TextField()
+    criada_em = models.DateTimeField(auto_now_add=True)
+    modalidade = models.CharField(max_length=15)
+    local = models.CharField(max_length=50)
+    tema = models.CharField(max_length=20) ## Ñ seria melhor interpretar tema e categoria como se fosse uma só coisa? Ass. Rômulo
+    max_volunt = models.IntegerField(null=True, blank=True)
+    url = models.CharField(blank=True, max_length=200)
+    categoria = models.ForeignKey(Categoria, null=True, blank=True, on_delete=models.SET_NULL)
+    inicio = models.DateTimeField()
+    fim = models.DateTimeField()
 
     def __self__(self):
         return self.nome
 
+class Proprietario(models.Model):
+    usuario = models.OneToOneField(Usuario, on_delete=models.CASCADE)
 
+class Solicitacao(models.Model):
+    class Status(models.TextChoices):
+        EM_ESPERA = "ESP", _("Em espera")
+        ACEITO = "ACC", _("Aceito")
+        REJEITADO = "REJ", _("Rejeitado")
+        PARTICIPOU = "PART", _("Participou")
     
+    voluntario = models.OneToOneField(Usuario, on_delete=models.CASCADE)
+    status = models.CharField(max_length=4, choices=Status.choices, default=Status.EM_ESPERA)
+    proprietario = models.ForeignKey(Proprietario, blank=True, null=True, on_delete=models.SET_NULL) # esse atributo representa a classe acima.
+
+class Foto(models.Model):
+    foto = models.ImageField(upload_to='None', null=True)
+    acao = models.ForeignKey(Acao, on_delete=models.CASCADE)
 
 

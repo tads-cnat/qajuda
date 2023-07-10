@@ -2,7 +2,7 @@
 
 ## 1. Diagrama de Casos de Uso
 
-![image](https://github.com/tads-cnat/trabalhos-voluntarios/assets/112009958/7b7eb9f6-2ea0-4505-97b2-3fe93fa3608b)
+![image](https://github.com/tads-cnat/trabalhos-voluntarios/assets/112009958/d6cf05f3-cf6c-4e90-a63d-c50ad7f03137)
 
 ## 2. Listagem dos detalhamentos dos casos de uso
 
