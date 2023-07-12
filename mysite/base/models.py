@@ -35,10 +35,11 @@ class Acao(models.Model):
     tema = models.CharField(max_length=20) 
     max_volunt = models.IntegerField(null=True)
     url = models.CharField(blank=True, max_length=200)
-    categoria = models.ForeignKey(Categoria, null=True, blank=True, on_delete=models.SET_NULL)
     inicio = models.DateTimeField()
     fim = models.DateTimeField(null=True)
     avaliacao = models.IntegerField(null=True)
+    categoria = models.ForeignKey(Categoria, null=True, blank=True, on_delete=models.SET_NULL)
+    criador = models.ForeignKey(Usuario, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.nome
