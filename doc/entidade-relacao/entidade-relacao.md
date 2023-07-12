@@ -1,4 +1,4 @@
-# Modelo de Domínio
+# Diagrama Entidade Relação
 
 ![image](https://github.com/tads-cnat/trabalhos-voluntarios/assets/112009958/91560c9d-6ba5-42e5-beec-e3c8b7e0816b)
 
