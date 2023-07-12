@@ -18,17 +18,18 @@ CREATE TABLE Usuario
 
 CREATE TABLE Categoria
 (
+  id INT NOT NULL,
   nome VARCHAR(50) NOT NULL,
-  CONSTRAINT pk_categoria PRIMARY KEY (nome)
+  CONSTRAINT pk_categoria PRIMARY KEY (ID)
 );
 
 CREATE TABLE Preferencia
 (
   id INT NOT NULL,
-  categoria VARCHAR(50) NOT NULL,
+  categoria INT NOT NULL,
   usuario INT NOT NULL,
   CONSTRAINT pk_preferencia PRIMARY KEY (id),
-  CONSTRAINT fk_categoria FOREIGN KEY (categoria) REFERENCES Categoria(nome) ON DELETE CASCADE,
+  CONSTRAINT fk_categoria FOREIGN KEY (categoria) REFERENCES Categoria(ID) ON DELETE CASCADE,
   CONSTRAINT fk_usuario FOREIGN KEY (usuario) REFERENCES Usuario(id) ON DELETE CASCADE
 );
 
@@ -53,10 +54,10 @@ CREATE TABLE Acao
   descricao VARCHAR(50) NOT NULL,
   inicio DATE NOT NULL,
   fim DATE NOT NULL,
-  categoria VARCHAR NOT NULL,
+  categoria INT NOT NULL,
   criador INT NOT NULL,
   CONSTRAINT pk_acao PRIMARY KEY (id),
-  CONSTRAINT fk_categoria FOREIGN KEY (categoria) REFERENCES Categoria(nome) ON DELETE CASCADE,
+  CONSTRAINT fk_categoria FOREIGN KEY (categoria) REFERENCES Categoria(ID) ON DELETE CASCADE,
   CONSTRAINT fk_criador FOREIGN KEY (criador) REFERENCES Usuario(id) ON DELETE CASCADE
 );
 
