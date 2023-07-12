@@ -39,7 +39,7 @@ class Acao(models.Model):
     fim = models.DateTimeField(null=True)
     avaliacao = models.IntegerField(null=True)
     categoria = models.ForeignKey(Categoria, null=True, blank=True, on_delete=models.SET_NULL)
-    criador = models.ForeignKey(Usuario, on_delete=models.CASCADE)
+    criador = models.ForeignKey(Usuario, null=True, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.nome
