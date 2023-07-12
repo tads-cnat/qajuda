@@ -1,11 +1,46 @@
 {% extends 'base/main.html' %}
 {% load static %}
-{% block conteudo %}
-    <h1>Solicitações!</h1>
 
-    <ul>
-    {% for solic in acao.solicitacao_set.all %}
-        <li>{{solic.voluntario}} em {{solic.acao}} - {{solic.status}}</li>
-    {% endfor %}
-    </ul>
+{% block titulo %}
+    <title>{{acao}}</title>
+{% endblock titulo %}
+
+{% block csslinks %}
+    <link rel="stylesheet" href="{% static 'base/css/pva.css' %}">
+{% endblock csslinks %}
+
+{% block conteudo %}
+    <article>
+        <div id="topoconteudo">
+            <div></div>
+            <h1 id="titulopag">Lista de voluntários pendentes</h1>
+            <div id="backbutton"> <div>Voltar</div>  </div>
+        </div>
+        
+        
+        <table>
+            <tr>
+                <th>Perfil</th>
+                <th>Idade</th>
+                <th>Telefone 1</th>
+                <th>Telefone 2</th>
+                <th>Bairro</th>
+                <th></th>
+            </tr>
+            {% for solic in acao.solicitacao_set.all %}
+            <tr>
+                <td>
+                    {{solic.voluntario.user}}
+                </td>
+                <td></td>
+                <td>{{solic.voluntario.telefone1}}</td>
+                <td>{{solic.voluntario.telefone2}}</td>
+                <td>{{solic.voluntario.bairro}}</td>
+                <td><a href="#">Aceitar</a></td>
+                <td><a href="#">Rejeitar</a></td>
+            {% endfor %}
+        </table>
+
+
+    </article>
 {% endblock %}
