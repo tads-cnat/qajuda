@@ -1,0 +1,11 @@
+{% extends 'base/main.html' %}
+{% load static %}
+{% block conteudo %}
+    <h1>Solicitações!</h1>
+
+    <ul>
+    {% for solic in acao.solicitacao_set.all %}
+        <li>{{solic.voluntario}} em {{solic.acao}} - {{solic.status}}</li>
+    {% endfor %}
+    </ul>
+{% endblock %}
