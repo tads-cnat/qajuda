@@ -27,17 +27,17 @@ class Usuario(models.Model):
 
 class Acao(models.Model):
     nome = models.CharField(max_length=200)
-    status = models.BooleanField() #vai ser um enum
+    status = models.BooleanField() # Ativa: True, Inativa: False 
     descricao = models.TextField()
     criada_em = models.DateTimeField(auto_now_add=True)
-    modalidade = models.CharField(max_length=15)
+    modalidade = models.BooleanField() # Online: True: , Offline: False
     local = models.CharField(max_length=50)
-    tema = models.CharField(max_length=20) ## Ñ seria melhor interpretar tema e categoria como se fosse uma só coisa? Ass. Rômulo
-    max_volunt = models.IntegerField(null=True, blank=True)
+    tema = models.CharField(max_length=20) 
+    max_volunt = models.IntegerField(null=True)
     url = models.CharField(blank=True, max_length=200)
     categoria = models.ForeignKey(Categoria, null=True, blank=True, on_delete=models.SET_NULL)
     inicio = models.DateTimeField()
-    fim = models.DateTimeField()
+    fim = models.DateTimeField(null=True)
     avaliacao = models.IntegerField(null=True)
 
     def __str__(self):
