@@ -1,6 +1,7 @@
 # Modelo de Domínio
 
-![image_2023-06-02_19-57-51](https://github.com/tads-cnat/trabalhos-voluntarios/assets/112009958/9083b26f-480f-471b-9c79-a5d154207c63)
+![image](https://github.com/tads-cnat/trabalhos-voluntarios/assets/112009958/91560c9d-6ba5-42e5-beec-e3c8b7e0816b)
+
 
 ## Glossário (sugestão)
 
