@@ -13,16 +13,12 @@ class Categoria(models.Model):
 
 class Usuario(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, default=1)
-    nome = models.CharField(max_length=80)
-    senha = models.CharField(max_length=15)
-    email = models.EmailField(max_length=200, unique=True)
     telefone1 = models.CharField(max_length=11)
     telefone2 = models.CharField(max_length=11)
     cidade = models.CharField(max_length=15)
     bairro = models.CharField(max_length=15)
     data_nasc = models.DateTimeField('data de nascimento')
     bio = models.TextField()
-    incrito_em = models.DateTimeField(auto_now_add=True)
     categoria = models.ManyToManyField(Categoria, blank=True)
 
     def __str__(self):
@@ -42,6 +38,7 @@ class Acao(models.Model):
     categoria = models.ForeignKey(Categoria, null=True, blank=True, on_delete=models.SET_NULL)
     inicio = models.DateTimeField()
     fim = models.DateTimeField()
+    avaliacao = models.IntegerField(null=True)
 
     def __str__(self):
         return self.nome
