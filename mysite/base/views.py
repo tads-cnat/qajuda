@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
+from .models import Acao
 
 # Create your views here.
 
@@ -13,3 +14,9 @@ def response(request):
 
 def voluntariar(request):
     return render(request, 'base/voluntariar.html')
+
+def pva(request, acao_id):
+    acao = get_object_or_404(Acao, pk=acao_id)
+    context = {'acao':acao}
+    return render(request, 'base/pva.html', context)
+
