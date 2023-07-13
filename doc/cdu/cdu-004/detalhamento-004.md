@@ -1,5 +1,5 @@
 
-# CDU004. - Avaliar Ação
+# CDU004. Avaliar Ação
 
 - **Ator principal**: Voluntário
 - **Atores secundários**: ...

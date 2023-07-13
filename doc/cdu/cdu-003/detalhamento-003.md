@@ -1,4 +1,4 @@
-# CDU003. - Autorizar voluntário em ação
+# CDU003. Autorizar voluntário em ação
 
 - **Ator principal**: Voluntário
 - **Atores secundários**: ...

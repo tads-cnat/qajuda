@@ -1,62 +1,73 @@
 from django.db import models
-
-
-
-class Periodo(models.Model):
-    data_inicio = models.DateTimeField()
-    data_fim = models.DateTimeField()
-    hora_inicio = models.TimeField()
-    hora_fim = models.TimeField()
-    dia_semana = models.CharField(max_length=15)
-
-
-class Endereco(models.Model):
-    cep = models.CharField(max_length=8)
-    logradouro = models.CharField(max_length=50)
-    numero = models.CharField(max_length=6)
-    cidade = models.CharField(max_length=15)
-    bairro = models.CharField(max_length=15)
-    referencia = models.CharField(max_length=15)
+from enum import Enum
+from django.utils.translation import gettext_lazy as _
+from django.contrib.auth.models import User
 
 
 class Categoria(models.Model):
     nome = models.CharField(max_length=100)
 
+    def __str__(self):
+        return self.nome
 
-class Usuarios(models.Model):
-    nome = models.CharField(max_length=80)
-    email = models.EmailField(max_length=200, unique=True)
-    senha = models.CharField(max_length=15)
-    #atributo foto
-    telefone = models.CharField(max_length=11)
+
+class Usuario(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, default=1)
+    telefone1 = models.CharField(max_length=11)
+    telefone2 = models.CharField(max_length=11)
     cidade = models.CharField(max_length=15)
     bairro = models.CharField(max_length=15)
     data_nasc = models.DateTimeField('data de nascimento')
-    biografia = models.TextField()
-    incrito_em = models.DateTimeField(auto_now_add=True)
-    categoria = models.ForeignKey(Categoria, on_delete=models.SET_NULL)
+    bio = models.TextField()
+    categoria = models.ManyToManyField(Categoria, blank=True)
 
-    def __self__(self):
+    def __str__(self):
         return self.nome
 
 
 class Acao(models.Model):
     nome = models.CharField(max_length=200)
-    status = models.BooleanField() #vai ser um enum
-    #atributo foto
-    descricao_acao = models.TextField()
-    criada_em = models.DateField(auto_now_add=True)
-    modalidade = models.CharField(max_length=10)
-    tema = models.CharField(max_length=10)
-    num_max_voluntario = models.IntegerField()
-    url = models.CharField(max_length=200)
-    ocorrencia = models.ForeignKey(Periodo, on_delete=models.SET_NULL)
-    categoria = models.ForeignKey(Categoria, on_delete=models.SET_NULL)
+    status = models.BooleanField() # Ativa: True, Inativa: False 
+    descricao = models.TextField()
+    criada_em = models.DateTimeField(auto_now_add=True)
+    modalidade = models.BooleanField() # Online: True: , Offline: False
+    local = models.CharField(max_length=50)
+    tema = models.CharField(max_length=20) 
+    max_volunt = models.IntegerField(null=True)
+    url = models.CharField(blank=True, max_length=200)
+    inicio = models.DateTimeField()
+    fim = models.DateTimeField(null=True)
+    avaliacao = models.IntegerField(null=True)
+    categoria = models.ForeignKey(Categoria, null=True, blank=True, on_delete=models.SET_NULL)
+    criador = models.ForeignKey(Usuario, null=True, on_delete=models.CASCADE)
 
-    def __self__(self):
+    def __str__(self):
         return self.nome
 
+class Proprietario(models.Model):
+    acao = models.ForeignKey(Acao, on_delete=models.CASCADE, default=1)
+    usuario = models.OneToOneField(Usuario, on_delete=models.CASCADE)
 
+    def __str__(self):
+        return self.usuario.nome
+
+class Solicitacao(models.Model):
+    class Status(models.TextChoices):
+        EM_ESPERA = "ESP", _("Em espera")
+        ACEITO = "ACC", _("Aceito")
+        REJEITADO = "REJ", _("Rejeitado")
+        PARTICIPOU = "PART", _("Participou")
     
+    acao = models.ForeignKey(Acao, on_delete=models.CASCADE, default=1)
+    voluntario = models.OneToOneField(Usuario, on_delete=models.CASCADE)
+    status = models.CharField(max_length=4, choices=Status.choices, default=Status.EM_ESPERA)
+    proprietario = models.ForeignKey(Proprietario, blank=True, null=True, on_delete=models.SET_NULL) # esse atributo representa a classe acima.
+
+    def __str__(self):
+        return self.voluntario.nome + " ---> " + self.acao.nome
+
+class Foto(models.Model):
+    foto = models.ImageField(upload_to='None', null=True)
+    acao = models.ForeignKey(Acao, on_delete=models.CASCADE)
 
 
