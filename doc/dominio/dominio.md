@@ -1,14 +1,10 @@
 # Modelo de Domínio
 
+![image](https://github.com/tads-cnat/trabalhos-voluntarios/assets/112009958/a10d7ade-165b-4a23-8cc6-902014459d02)
 
-![image_2023-06-02_20-04-30](diagdominio.png)
-
-
-
-
-## Glossário (sugestão)
+## Glossário
 
 |  Termo  |  Explicação  |
 | ------- | ------------ |
-| Termo 1 | Explicação 1... |
-| Termo 2 | Explicação 2... |
+| Acao.status | Se refere se uma ação está ativa ou inativa |
+| Acao.modalidade | Se refere se a ação será virtual ou presencial  |
