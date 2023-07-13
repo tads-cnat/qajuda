@@ -1,14 +1,11 @@
-# Modelo de Domínio
+# Diagrama Entidade Relação
 
-![image](https://github.com/tads-cnat/trabalhos-voluntarios/assets/102562875/7eb6a0bd-72bd-45b1-ad9a-1b6b303afe93)
+![image](https://github.com/tads-cnat/trabalhos-voluntarios/assets/112009958/67592c09-d4da-4909-a6e4-f973bc34e0eb)
 
-# Entidade Relacional
+## Diagrama Entidade Relação intermediário
 
-![image](https://github.com/tads-cnat/trabalhos-voluntarios/assets/102562875/858feee3-1659-4900-a32a-a5173eda8343)
+![image](https://github.com/tads-cnat/trabalhos-voluntarios/assets/112009958/aebbf95e-dac4-4c67-aeda-c20c25e7f0ef)
 
-## Glossário (sugestão)
+## Diagrama Esquema Relacional
 
-|  Termo  |  Explicação  |
-| ------- | ------------ |
-| Termo 1 | Explicação 1... |
-| Termo 2 | Explicação 2... |
+![image](https://github.com/tads-cnat/trabalhos-voluntarios/assets/112009958/7e647a31-b48e-48a2-a0eb-54a9eacebf15)
