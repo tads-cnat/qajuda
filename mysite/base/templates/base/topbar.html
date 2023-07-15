@@ -2,10 +2,21 @@
 <head><link rel="stylesheet" href="{% static 'base/css/topbar.css' %}"></head>
 <nav>
     <div id="area-util">
+        <div class="logo">
+            <span>logo</span>
+        </div>
         <form action="#">
             <input type="text" placeholder="  busque ações aqui">
         </form>
         <div class="topbar-button">Quem&nbspsomos</div>
-        <div class="topbar-button">Voluntariado</div>
+        <div class="topbar-button">Criar Ação</div>
+        <div class="login">
+            {% if user.is_authenticated %}
+            <div>{{ user.username }}</div>
+            {% else %}
+            <div class="cadastrar">Cadastrar</div>
+            <div class="entrar">Entrar</div>
+            {% endif %}
+        </div>
     </div>
 </nav>

@@ -1,13 +1,13 @@
-{% load static %}
 {% extends 'base/main.html' %}
+{% load static %}
 {% block conteudo %}
 <head>
-    <link rel="stylesheet" href="{% static 'base/css/response.css' %}">
+    <link rel="stylesheet" href="{% static 'base/css/detalhe.css' %}">
 </head>
 <body>
     <article>
         <div id="contenido">
-            <img src="" id="acao-imagem"></img>
+            <img src="" id="acao-imagem">
             <div id="card-direita-sup">
                 <div id="people-card">
                     <div class="text">
@@ -40,32 +40,23 @@
                         </div>
                     </div>
                 </div>
-                {# transformei o voluntariar-me em um botão #}
-                <a href="{% url 'voluntariar' %}"> 
-                    <div id="botao-voluntariar">
-                        Voluntariar-me
+
+                <a href="{% url 'voluntariar' %}">
+                    <div class="buttom1">
+                        QUERO SER VOLUNTÁRIO
                     </div>
                 </a>
             </div>
             <div id="downblock">
                 <div id="texto-box">
-                    <h1>Mutirão de limpeza da praia de Ponta Negra</h1>
-                    <p> Publicada em: 10/05/2023
-                        Data início: 10/06/2023, 08:00
-                        Data fim: 10/06/2023, 10:00
-                        Local: Praia de Ponta Negra, Natal/RN
-                        Criada por: Maria da Silva
-                        Proprietários(as): Maria da Silva, Wesley Silva
-                        Descrição: Vamos nos reunir para limpar a praia de Ponta Negra. Teremos distribuição de luvas e sacos. Voluntários devem atender às orientações sobre acondicionamento, ponto de armazenamento para coleta e manuseio dos resíduos encontrados.
-                    </p>
+                    <h1>{{ acao.nome }}</h1>
+                    <br>
+                    <p> {{ acao.descricao }} </p>
                 </div>
 
                 <div id="tags-box">
                     <h1>Temas dessa ação:</h1>
-                    <div class="tema">#Limpeza</div>
-                    <div class="tema">#Limpeza</div>
-                    <div class="tema">#Limpeza</div>
-                    <div class="tema">#Limpeza</div>
+                    <div class="tema">{{ acao.tema }}</div>
                 </div>
             </div>
         </div>
