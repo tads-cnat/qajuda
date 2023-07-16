@@ -1,6 +1,6 @@
 # QAjuda: plataforma online para trabalho voluntário
 
-<img src="logoqajuda.png" width="200" height="200" />
+<img src="logoqajuda.png" width="200" height="300" />
 
 >Nosso objetivo é criar uma plataforma web para conectar pessoas e instituições interessadas em voluntariado, contando histórias para estimular a criação de ações e trabalhos voluntários e fortalecer a divulgação de ações já existentes.
 
