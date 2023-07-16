@@ -22,13 +22,13 @@ class Usuario(models.Model):
     categoria = models.ManyToManyField(Categoria, blank=True)
 
     def __str__(self):
-        return self.nome
+        return self.user.username
 
 
 class Acao(models.Model):
     nome = models.CharField(max_length=200)
     status = models.BooleanField() # Ativa: True, Inativa: False 
-    descricao = models.TextField()
+    descricao = models.TextField('descrição')
     criada_em = models.DateTimeField(auto_now_add=True)
     modalidade = models.BooleanField() # Online: True: , Offline: False
     local = models.CharField(max_length=50)
@@ -49,7 +49,7 @@ class Proprietario(models.Model):
     usuario = models.OneToOneField(Usuario, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.usuario.nome
+        return self.usuario.user.username
 
 class Solicitacao(models.Model):
     class Status(models.TextChoices):
@@ -64,7 +64,7 @@ class Solicitacao(models.Model):
     proprietario = models.ForeignKey(Proprietario, blank=True, null=True, on_delete=models.SET_NULL) # esse atributo representa a classe acima.
 
     def __str__(self):
-        return self.voluntario.nome + " ---> " + self.acao.nome
+        return self.voluntario.user.username + " ---> " + self.acao.nome
 
 class Foto(models.Model):
     foto = models.ImageField(upload_to='None', null=True)
