@@ -10,6 +10,11 @@
 
 [Apresentação](https://www.canva.com/design/DAFkTPy_S98/k0w76HCr6bpI_jkApfdD_A/view?utm_content=DAFkTPy_S98&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink)
 
+# Apresentações para o WTADS 2023.1
+
+[Apresentação do projeto para o WTADS](https://www.canva.com/design/DAFovLd_3LY/BanJx_8IcNMJU1Jna5VloQ/view?utm_content=DAFovLd_3LY&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink)
+[Vídeo de apresentação do protótipo do projeto para o WTADS](https://www.canva.com/design/DAFo1ai0HrA/etuVFn4SUMpsklTWYMAy_Q/watch?utm_content=DAFo1ai0HrA&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink)
+
 | ordem                |  Nome             |          tempo 1 |           tempo 2 |
 | -----------------   | -----------------   | -----------------   | -----------------   |
 | 1| Vilanir | 00:40| 00:33|
