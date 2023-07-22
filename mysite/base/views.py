@@ -1,9 +1,8 @@
 from django.shortcuts import get_object_or_404, render
 from django.views import View
 from django.views.generic.detail import DetailView
-
 from .daos import AcaoDAO
-from .models import Acao, Solicitacao
+from .models import Acao, Solicitacao, Foto
 
 # Create your views here.
 
@@ -23,20 +22,30 @@ def index(request):
 class DetalheViews(View):
     def get(self, request, *args, **kwargs):
         acao = get_object_or_404(Acao, pk=kwargs['pk'])
-        context = {'acao' : acao}
+        # foto = acao.foto_set.first()
+        context = {'acao': acao}
         return render(request, 'base/detalhe.html', context)
 
-# def detail(request):
-#     return render(request, 'base/detail.html')
+
 
 def response(request):
     return render(request, 'base/response.html')
 
-def voluntariar(request):
-    return render(request, 'base/voluntariar.html')
+class VoluntariarViews(View):
+    def get(self, request, *args, **kwargs):
+        acao = get_object_or_404(Acao, pk=kwargs['pk'])
+        context = {'acao' : acao}
+        return render(request, 'base/voluntariar.html', context)
+
+# def voluntariar(request):
+#     return render(request, 'base/voluntariar.html')
 
 def pva(request, acao_id):
     acao = get_object_or_404(Acao, pk=acao_id)
     context = {'acao':acao}
     return render(request, 'base/pva.html', context)
+
+
+
+
 

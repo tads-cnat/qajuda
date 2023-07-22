@@ -2,6 +2,7 @@
 {% load static %}
 {% block conteudo %}
 <head>
+    <title>Voluntariar na ação</title>
     <link rel="stylesheet" href="{% static 'base/css/voluntariar.css' %}">
 </head>
 <body>
@@ -11,7 +12,7 @@
         </div>
         <div id="termo-voluntariado">
             <p>
-                Confirmo o compartilhamento de alguns dos meus dados sensíveis com o(s) proprietário(s) dessa ação, bem com nome, contato, etc...
+                Eu, {{ user.username }}, Confirmo o compartilhamento de alguns dos meus dados sensíveis com o(s) proprietário(s) dessa ação {{ acao.nome }}, bem com nome, contato, etc...
             </p>
             <br>
             <p>
@@ -23,11 +24,40 @@
             </p>
         </div>
         
-        <a href="{% url 'response' %}">
-            <div class="buttom1">
+        <a href="{% url 'detalhes' acao.id %}">
+            <div class="buttom1" onclick="enviarSolicitacao({{ acao.id }})">
                 QUERO SER VOLUNTÁRIO
             </div>
         </a>
+
+        <script>
+            function enviarSolicitacao(acaoId) {
+                // Faça uma requisição AJAX ou use fetch() para enviar a solicitação ao servidor
+                // Aqui você pode usar bibliotecas como jQuery, axios ou o próprio fetch() do JavaScript
+        
+                // Exemplo usando fetch():
+                fetch('/solicitar-participacao/', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        // Adicione quaisquer outros cabeçalhos necessários, como headers de autenticação
+                    },
+                    body: JSON.stringify({ acao_id: acaoId }),
+                })
+                .then(response => {
+                    // Lógica para lidar com a resposta do servidor após enviar a solicitação
+                    if (response.ok) {
+                        alert('Solicitação enviada com sucesso!');
+                    } else {
+                        alert('Ocorreu um erro ao enviar a solicitação. Tente novamente.');
+                    }
+                })
+                .catch(error => {
+                    // Lógica para lidar com erros na requisição
+                    console.error('Erro na requisição:', error);
+                });
+            }
+        </script>
     </article>
 </body>
 {% endblock %}

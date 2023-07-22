@@ -2,50 +2,34 @@
 {% load static %}
 {% block conteudo %}
 <head>
+    <title>Detalhe da ação</title>
     <link rel="stylesheet" href="{% static 'base/css/detalhe.css' %}">
 </head>
 <body>
     <article>
         <div id="contenido">
-            <img src="" id="acao-imagem">
+            <img src="{{ MEDIA_URL }} {{ foto.acao.foto }}" id="acao-imagem" alt="Banner da ação">
             <div id="card-direita-sup">
                 <div id="people-card">
                     <div class="text">
-                        Pessoas que você conhece e são voluntárias nessa ação:
+                        <p>20 pessoas já ajudaram nessa ação</p>
                     </div>
-                    <div id="peoples">
-                        <div class="person">
-                            <img src="{% static 'base/img/homi.png' %}" alt="">
-                            <div class="persontext">
-                                Fulano de tal
-                            </div>
+
+                    {% comment %} botão "quero ajudar" {% endcomment %}
+                    <a href="{% url 'voluntariar' acao.id %}">
+                        <div class="buttom1">
+                            QUERO SER VOLUNTÁRIO
                         </div>
-                        <div class="person">
-                            <img src="{% static 'base/img/homi.png' %}" alt="">
-                            <div class="persontext">
-                                Fulano de tal
-                            </div>
-                        </div>
-                        <div class="person">
-                            <img src="{% static 'base/img/homi.png' %}" alt="">
-                            <div class="persontext">
-                                Fulano de tal
-                            </div>
-                        </div>
-                        <div class="person">
-                            <img src="{% static 'base/img/homi.png' %}" alt="">
-                            <div class="persontext">
-                                Fulano de tal
-                            </div>
-                        </div>
+                    </a>
+
+                    <div class="criador">
+                        <p>Criado por: {{ acao.criador }}</p>
+                        <p>X {{ acao.local }}</p>
+                        <p>X {{ acao.inicio }}</p>
                     </div>
+
                 </div>
 
-                <a href="{% url 'voluntariar' %}">
-                    <div class="buttom1">
-                        QUERO SER VOLUNTÁRIO
-                    </div>
-                </a>
             </div>
             <div id="downblock">
                 <div id="texto-box">
