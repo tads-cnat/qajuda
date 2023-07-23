@@ -24,40 +24,16 @@
             </p>
         </div>
         
-        <a href="{% url 'detalhes' acao.id %}">
-            <div class="buttom1" onclick="enviarSolicitacao({{ acao.id }})">
-                QUERO SER VOLUNTÁRIO
-            </div>
-        </a>
+        {% comment %} <a href="{% url 'detalhes' acao.id %}"> {% endcomment %}
+        <form method="post" action="{% url 'base:voluntariar_em_acao' acao_id=acao.id %}">
+            {% csrf_token %}
+            {% comment %} <div class="buttom1" onclick="enviarSolicitacao({{ acao.id }})"> {% endcomment %}
+                <input type="submit" value="Inscrever-se na Ação">
+            {% comment %} </div> {% endcomment %}
+        </from>
+        {% comment %} </a> {% endcomment %}
 
-        <script>
-            function enviarSolicitacao(acaoId) {
-                // Faça uma requisição AJAX ou use fetch() para enviar a solicitação ao servidor
-                // Aqui você pode usar bibliotecas como jQuery, axios ou o próprio fetch() do JavaScript
         
-                // Exemplo usando fetch():
-                fetch('/solicitar-participacao/', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        // Adicione quaisquer outros cabeçalhos necessários, como headers de autenticação
-                    },
-                    body: JSON.stringify({ acao_id: acaoId }),
-                })
-                .then(response => {
-                    // Lógica para lidar com a resposta do servidor após enviar a solicitação
-                    if (response.ok) {
-                        alert('Solicitação enviada com sucesso!');
-                    } else {
-                        alert('Ocorreu um erro ao enviar a solicitação. Tente novamente.');
-                    }
-                })
-                .catch(error => {
-                    // Lógica para lidar com erros na requisição
-                    console.error('Erro na requisição:', error);
-                });
-            }
-        </script>
     </article>
 </body>
 {% endblock %}

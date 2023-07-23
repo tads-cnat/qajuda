@@ -1,6 +1,9 @@
 from django.shortcuts import get_object_or_404, render
 from django.views import View
-from .models import Acao
+from .models import Acao, Solicitacao
+from django.contrib.auth.decorators import login_required
+from django.http import JsonResponse
+
 
 # Create your views here.
 
@@ -32,8 +35,28 @@ class VoluntariarViews(View):
         context = {'acao' : acao}
         return render(request, 'base/voluntariar.html', context)
 
-# def voluntariar(request):
-#     return render(request, 'base/voluntariar.html')
+    @staticmethod
+    def voluntariar_em_acao(request, acao_id):
+        if request.method == 'POST':
+            try:
+                acao = Acao.objects.get(pk=acao_id)
+            except Acao.DoesNotExist:
+                return JsonResponse({'success': False, 'message': 'Ação não encontrada.'}, status=404)
+
+            usuario = request.user.usuario  # Recupere o usuário logado do atributo "usuario" associado ao User
+
+            # Verifique se o usuário já possui uma solicitação para esta ação
+            if Solicitacao.objects.filter(acao=acao, voluntario=usuario).exists():
+                return JsonResponse({'success': False, 'message': 'Você já possui uma solicitação para esta ação.'}, status=400)
+
+            # Crie a solicitação
+            solicitacao = Solicitacao(acao=acao, voluntario=usuario)
+            solicitacao.save()
+
+            return JsonResponse({'success': True, 'message': 'Solicitação criada com sucesso!'})
+
+        return JsonResponse({'success': False, 'message': 'Método inválido.'}, status=405)
+    
 
 def pva(request, acao_id):
     acao = get_object_or_404(Acao, pk=acao_id)
