@@ -17,6 +17,18 @@ from django.http import JsonResponse
 def index(request):
     return render(request, 'base/index.html')
 
+class BuscarAcaoViews(View):
+    def get(self, request, *args, **kwargs):
+        q = request.GET.get('q')
+        if q:
+            acoes = Acao.objects.filter(nome__icontains=q)
+        else:
+            acoes = Acao.objects.all() #Caso não encontre uma ação ele retorna todas apenas para questão de TESTE
+        
+        context = {'acoes' : acoes, 'pesquisar_acao' : q}
+        return render(request, 'base/buscar_acao.html', context)
+
+
 class DetalheViews(View):
     def get(self, request, *args, **kwargs):
         acao = get_object_or_404(Acao, pk=kwargs['pk'])

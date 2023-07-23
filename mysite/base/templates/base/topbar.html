@@ -5,8 +5,8 @@
         <div class="logo">
             <span>logo</span>
         </div>
-        <form action="#">
-            <input type="text" placeholder="  busque ações aqui">
+        <form action="{% url 'base:buscar_acao' %}">
+            <input type="text" name="q" placeholder="busque ações aqui">
         </form>
         <div class="topbar-button">Quem&nbspsomos</div>
         <div class="topbar-button">Criar Ação</div>
