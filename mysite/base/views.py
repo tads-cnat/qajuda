@@ -1,17 +1,12 @@
 from django.shortcuts import get_object_or_404, render
 from django.views import View
-from django.views.generic.detail import DetailView
-from .daos import AcaoDAO
-from .models import Acao, Solicitacao, Foto
+from .models import Acao
 
 # Create your views here.
 
 # class IndexViews(View):
 #     def index(self, request):
-#         lista_acao = AcaoDAO.acao_list(request)
-#         solicitacao = Solicitacao.objects.filter(acao='lavarroupa').count()
-
-#         acao_destaque = lista_acao.order_by('-')
+#         lista_acao = Acao.objects.all()
 #         context = {'lista_acao': lista_acao}
 #         return render(request, 'base/index.html', context)
 
