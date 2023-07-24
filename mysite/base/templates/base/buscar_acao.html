@@ -1,6 +1,6 @@
 {% load static %}
-
 {% include 'base/topbar.html' %}
+<<<<<<< 41-reorganizacao-backend
 
 <h1>Resultados da Pesquisa</h1>
 
@@ -13,3 +13,25 @@
         <li>{{ acao.nome }}</li>
     {% endfor %}
 </ul>
+=======
+<html>
+<head>
+    <title>Buscar acao</title>
+</head>
+<body>
+    <h1>Buscar acao</h1>
+    <form method="GET">
+        <label for="search_query">Digite o nome da acao:</label>
+        <input type="text" name="search_query" id="search_query" required>
+        <button type="submit">Buscar</button>
+    </form>
+
+    <h2>Resultados da Busca:</h2>
+    <ul>
+        {% for acao in acoes %}
+        <li>{{ acao.nome }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
+>>>>>>> 42-mesclando-tudo

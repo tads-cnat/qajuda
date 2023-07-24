@@ -3,6 +3,7 @@ from . import views
 # from .business import solicitar_participacao
 from .views import VoluntariarViews
 
+
 app_name = 'base'
 urlpatterns = [
     path('', views.index),
