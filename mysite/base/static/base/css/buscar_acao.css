@@ -1,0 +1,45 @@
+h1 {
+    color: var(--aux);
+}
+
+.acao {
+    border-radius: 20px;
+    display: flex;
+    padding: .8em;
+    font-size: 1.2em;
+}
+
+.acao:hover {
+    background-color: #ECECEC;
+}
+
+.acao-painel {
+    min-width: 40%;
+    height: 15em;
+    background-color: antiquewhite;
+    margin-right: 1em;
+    
+}
+
+.acao-nome {
+    color: var(--aux);
+    font-size: 2em;
+}
+
+.acao-criador, .acao-local, .acao-data, .acao-hora {
+    color: grey;
+}
+
+.acao-right img {
+    height: 1em;
+}
+
+.acao-descricao {
+    color: grey;
+    margin-top: .2em;
+}
+
+.acao span {
+    font-weight: 900;
+    color: black;
+}
