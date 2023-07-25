@@ -14,6 +14,7 @@ nav {
     display: flex;
     
     align-items: center;
+    font-family: Roboto;
 }
 
 #area-util {
@@ -31,13 +32,14 @@ form {
 
 form input {
     width: 30em;
-    height: 2.5em;
+    height: 2em;
     border-radius: 10px;
     /*border: solid 2px lightgrey;*/
     border: none;
     color: #7c7c7c;
     font-weight: 700;
-    font-family: Raleway;
+    font-family: roboto;
+    padding-left: 1em;
     font-size: large;
     
 }
@@ -49,4 +51,8 @@ form input {
     color: var(--branco);
     font-weight: 700;
     font-size: 1.2em;
+}
+
+.logo {
+    height: 40px;
 }

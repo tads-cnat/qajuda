@@ -8,59 +8,36 @@
     <main>
         <article>
             <h1 id="texto-1">AJUDE EM AÇÕES PERTO DE VOCÊ:</h1>
-            
-            <section id="cards">
-                <a href="{% url 'response' %}">
-                    <div class="acao-card">
-                        <div class="card-foto">
-                            <div class="acao-tag">Limpeza</div>
+            <section id="cards">  
+                {% for acao in lista_acao1 %}
+                    <a href="{% url 'base:detalhes' acao.id %}">
+                        <div class="acao-card">
+                            <div class="card-foto" style="background: url({{acao.get_foto}}); background-size: cover;">
+                                <div class="acao-tag">{{acao.tema}}</div>
+                            </div>
+                            <div class="card-texto">{{acao.nome}}</div>
                         </div>
-                        <div class="card-texto">Limpeza da prainha</div>
-                    </div>
-                </a>
-                <a href="{% url 'response' %}">
-                    <div class="acao-card">
-                        <div class="card-foto">
-                            <div class="acao-tag">Limpeza</div>
-                        </div>
-                        <div class="card-texto">Limpeza da prainha</div>
-                    </div>
-                </a>
-                <a href="{% url 'response' %}">
-                    <div class="acao-card">
-                        <div class="card-foto">
-                            <div class="acao-tag">Limpeza</div>
-                        </div>
-                        <div class="card-texto">Limpeza da prainha</div>
-                    </div>
-                </a>
+                    </a>  
+
+                    
+                {% endfor %}
+
+                
             </section>
             <h1 id="texto-2">AÇÕES MAIS PROCURADAS DA SEMANA:</h1>
             <section id="cards">
-                <a href="{% url 'response' %}">
-                    <div class="acao-card">
-                        <div class="card-foto">
-                            <div class="acao-tag">Limpeza</div>
+                {% for acao in lista_acao2 %}
+                    <a href="{% url 'base:detalhes' acao.id %}">
+                        <div class="acao-card">
+                            <div class="card-foto" style="background: url({{acao.get_foto}}); background-size: cover;">
+                                <div class="acao-tag">{{acao.tema}}</div>
+                            </div>
+                            <div class="card-texto">{{acao.nome}}</div>
                         </div>
-                        <div class="card-texto">Limpeza da prainha</div>
-                    </div>
-                </a>
-                <a href="{% url 'response' %}">
-                    <div class="acao-card">
-                        <div class="card-foto">
-                            <div class="acao-tag">Limpeza</div>
-                        </div>
-                        <div class="card-texto">Limpeza da prainha</div>
-                    </div>
-                </a>
-                <a href="{% url 'response' %}">
-                    <div class="acao-card">
-                        <div class="card-foto">
-                            <div class="acao-tag">Limpeza</div>
-                        </div>
-                        <div class="card-texto">Limpeza da prainha</div>
-                    </div>
-                </a>
+                    </a>  
+
+                    
+                {% endfor %}
             </section>
         </article>
     </main>

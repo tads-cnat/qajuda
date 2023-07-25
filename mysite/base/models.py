@@ -2,7 +2,7 @@ from django.db import models
 from enum import Enum
 from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.models import User
-
+from django.utils.safestring import mark_safe
 
 class Categoria(models.Model):
     nome = models.CharField(max_length=100)
@@ -25,6 +25,7 @@ class Usuario(models.Model):
         return self.user.username
 
 
+
 class Acao(models.Model):
     nome = models.CharField(max_length=200)
     status = models.BooleanField() # Ativa: True, Inativa: False 
@@ -44,6 +45,14 @@ class Acao(models.Model):
     def __str__(self):
         return self.nome
 
+    def get_foto(self):
+        for foto in self.foto_set.all():
+            return foto.foto.url
+        return None
+
+    def get_descricao(self):
+        return str(self.descricao)[:230] + "..."
+
 class Proprietario(models.Model):
     acao = models.ForeignKey(Acao, on_delete=models.CASCADE, default=1)
     usuario = models.OneToOneField(Usuario, on_delete=models.CASCADE)
@@ -59,7 +68,7 @@ class Solicitacao(models.Model):
         PARTICIPOU = "PART", _("Participou")
     
     acao = models.ForeignKey(Acao, on_delete=models.CASCADE, default=1)
-    voluntario = models.OneToOneField(Usuario, on_delete=models.CASCADE)
+    voluntario = models.ForeignKey(Usuario, on_delete=models.CASCADE, default=1)
     status = models.CharField(max_length=4, choices=Status.choices, default=Status.EM_ESPERA)
     proprietario = models.ForeignKey(Proprietario, blank=True, null=True, on_delete=models.SET_NULL) # esse atributo representa a classe acima.
 
@@ -67,7 +76,10 @@ class Solicitacao(models.Model):
         return self.voluntario.user.username + " ---> " + self.acao.nome
 
 class Foto(models.Model):
-    foto = models.ImageField(upload_to='None', null=True)
+    foto = models.ImageField(upload_to='media/imagensacoes', null=True)
     acao = models.ForeignKey(Acao, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.acao.nome
 
 

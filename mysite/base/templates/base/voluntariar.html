@@ -23,11 +23,12 @@
             </p>
         </div>
         
-        <a href="{% url 'response' %}">
-            <div class="buttom1">
-                QUERO SER VOLUNTÁRIO
-            </div>
-        </a>
+        <form method="post" action="{% url 'base:voluntariar_em_acao' acao.id %}">
+            {% csrf_token %}
+            {% comment %} <div class="buttom1" onclick="enviarSolicitacao({{ acao.id }})"> {% endcomment %}
+                <input type="submit" value="Inscrever-se na Ação">
+            {% comment %} </div> {% endcomment %}
+        </from>
     </article>
 </body>
 {% endblock %}

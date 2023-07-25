@@ -1,3 +1,50 @@
+{% extends 'base/main.html' %}
 {% load static %}
 
 {% include 'base/topbar.html' %}
+
+{% block titulo %}
+<title>Resultados para "{{busca}}"</title>
+{% endblock titulo %}
+
+{% block csslinks %}
+<link rel="stylesheet" href="{% static 'base/css/buscar_acao.css' %}">
+{% endblock csslinks %}
+
+{% block conteudo %}
+
+<article>
+<h1>Resultados da Pesquisa</h1>
+
+{% if busca %}
+    <p>Resultados para: {{ busca }}</p>
+{% endif %}
+
+    <div id="acoes-container">
+    {% for acao in acoes %}
+    <a href="{% url 'base:detalhes' acao.id %}">
+        <div class="acao">
+            
+            <div class="acao-painel" style="background: url({{acao.get_foto}}); background-size: cover;">
+                
+            </div>
+            
+            <div class="acao-right">
+                <div class="acao-nome">{{ acao.nome }}</div>
+                <div class="acao-criador">Por {{acao.criador}}</div>
+                <div class="acao-local"> <img src="{% static 'base/img/mapa-pin.png' %}" alt=""> {{acao.local}}</div>
+                <div class="acao-data"> <img src="{% static 'base/img/calendario.png' %}" alt=""> {{acao.inicio}}</div>
+                <div class="acao-hora"></div>
+                <div class="acao-descricao">
+                    <span>Descrição</span>
+                    <p>{{acao.get_descricao}}</p>
+                </div>
+            </div>
+            
+        </div>
+    </a>
+    {% endfor %}
+    </div>
+</article>
+
+{% endblock conteudo %}
