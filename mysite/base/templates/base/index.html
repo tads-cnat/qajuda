@@ -8,9 +8,25 @@
     <main>
         <article>
             <h1 id="texto-1">AJUDE EM AÇÕES PERTO DE VOCÊ:</h1>
-            
-            <section id="cards">
-                <a href="{% url 'response' %}">
+            <section id="cards">  
+                {% for acao in lista_acao %}
+                    <a href="{% url 'base:detalhes' acao.id %}">
+                        <div class="acao-card">
+                            <img src="/{{acao.foto_set.first.foto}}" class="card-foto" alt="{{acao.nome}}"/>
+                            <div class="acao-tag">{{acao.tema}}</div>
+                            <div class="card-texto">{{acao.nome}}</div>
+                        </div>
+                    </a>
+                {% endfor %}
+                <a href="{% url 'base:response' %}">
+                    <div class="acao-card">
+                        <div class="card-foto">
+                            <div class="acao-tag">Limpeza</div>
+                        </div>
+                        <div class="card-texto">Limpeza da prainha</div>
+                    </div>
+                </a>  
+                <a href="{% url 'base:response' %}">
                     <div class="acao-card">
                         <div class="card-foto">
                             <div class="acao-tag">Limpeza</div>
@@ -18,7 +34,7 @@
                         <div class="card-texto">Limpeza da prainha</div>
                     </div>
                 </a>
-                <a href="{% url 'response' %}">
+                <a href="{% url 'base:response' %}">
                     <div class="acao-card">
                         <div class="card-foto">
                             <div class="acao-tag">Limpeza</div>
@@ -26,7 +42,7 @@
                         <div class="card-texto">Limpeza da prainha</div>
                     </div>
                 </a>
-                <a href="{% url 'response' %}">
+                <a href="{% url 'base:response' %}">
                     <div class="acao-card">
                         <div class="card-foto">
                             <div class="acao-tag">Limpeza</div>
@@ -37,7 +53,7 @@
             </section>
             <h1 id="texto-2">AÇÕES MAIS PROCURADAS DA SEMANA:</h1>
             <section id="cards">
-                <a href="{% url 'response' %}">
+                <a href="{% url 'base:response' %}">
                     <div class="acao-card">
                         <div class="card-foto">
                             <div class="acao-tag">Limpeza</div>
@@ -45,7 +61,7 @@
                         <div class="card-texto">Limpeza da prainha</div>
                     </div>
                 </a>
-                <a href="{% url 'response' %}">
+                <a href="{% url 'base:response' %}">
                     <div class="acao-card">
                         <div class="card-foto">
                             <div class="acao-tag">Limpeza</div>
@@ -53,7 +69,7 @@
                         <div class="card-texto">Limpeza da prainha</div>
                     </div>
                 </a>
-                <a href="{% url 'response' %}">
+                <a href="{% url 'base:response' %}">
                     <div class="acao-card">
                         <div class="card-foto">
                             <div class="acao-tag">Limpeza</div>

@@ -8,4 +8,9 @@ admin.site.register(Usuario)
 admin.site.register(Acao)
 admin.site.register(Proprietario)
 admin.site.register(Solicitacao)
-admin.site.register(Foto)
+#admin.site.register(Foto)
+
+class FotoAdmin(admin.ModelAdmin):
+    list_display = ["acao", "foto_tag"]
+
+admin.site.register(Foto, FotoAdmin)

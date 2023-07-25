@@ -2,7 +2,7 @@ from django.db import models
 from enum import Enum
 from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.models import User
-
+from django.utils.safestring import mark_safe
 
 class Categoria(models.Model):
     nome = models.CharField(max_length=100)
@@ -73,7 +73,8 @@ class Solicitacao(models.Model):
         return self.voluntario.user.username + " ---> " + self.acao.nome
 
 class Foto(models.Model):
-    foto = models.ImageField(upload_to='media/None', null=True)
+    foto = models.ImageField(upload_to='static/base/img/', null=True)
     acao = models.ForeignKey(Acao, on_delete=models.CASCADE)
-
+    def foto_tag(self):
+        return mark_safe('<img src="/%s" width="150" height="150" />' % (self.foto))
 
