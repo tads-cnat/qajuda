@@ -19,4 +19,4 @@ def solicitar_participacao(request):
 
         return JsonResponse({'success': True})
     
-    return JsonResponse({'success': False})# aqui estarão as classes de negócio
+    return JsonResponse({'success': False})
