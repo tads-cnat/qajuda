@@ -20,14 +20,15 @@
                         <div class="buttom1">
                             QUERO SER VOLUNTÁRIO
                         </div>
+                    </a>
+                    <div class="criador">
+                        <p>Criado por: {{ acao.criador }}</p>
+                        <p>X {{ acao.local }}</p>
+                        <p>X {{ acao.inicio }}</p>
                     </div>
+                    
                 </div>
 
-                <a href="{% url 'base:voluntariar' acao.id %}">
-                    <div class="buttom1">
-                        QUERO SER VOLUNTÁRIO
-                    </div>
-                </a>
             </div>
             <div id="downblock">
                 <div id="texto-box">

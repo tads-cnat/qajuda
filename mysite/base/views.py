@@ -7,8 +7,9 @@ from django.http import JsonResponse
 
 class IndexViews(View):
     def get(self, request):
-        lista_acao = Acao.objects.all()
-        context = {'lista_acao': lista_acao}
+        lista_acao1 = Acao.objects.all().order_by('-criada_em')[:3]
+        lista_acao2 = Acao.objects.all().order_by('criada_em')[:3]
+        context = {'lista_acao1': lista_acao1, 'lista_acao2':lista_acao2}
         return render(request, 'base/index.html', context)
 
 

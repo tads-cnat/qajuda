@@ -23,7 +23,7 @@
 
 .acao-card {
     width: 14em;
-    height: 13em;
+    height: fit-content;
     margin: 1em;
     border-radius: .5em;
     padding: .5em;
@@ -36,13 +36,11 @@
 }
 
 .card-foto {
-    width: 11em;
+    width: 100%;
     height: 11em;
     border: 1px solid /*outset*/ lightgrey;
     border-radius: 0.5em;
     background-color: var(--branco);
-    background: url(https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fempresasminister.com.br%2Fwp-content%2Fuploads%2F2018%2F02%2FLimpezadapraia.jpeg&f=1&nofb=1&ipt=2eb8244f2478b3ebf3e5cbe1ffbe9dd7069e97d915869a849d5f61bbade700f5&ipo=images);
-    background-size: cover;
 }
 
 .acao-tag {

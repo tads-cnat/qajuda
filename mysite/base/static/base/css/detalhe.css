@@ -17,6 +17,8 @@ article {
     width: 45%;
     border: 1px solid gray;
     border-radius: .7em;
+    max-height: 25em;
+    object-fit: cover;
 }
 #card-direita-sup {
     width: 50%;
