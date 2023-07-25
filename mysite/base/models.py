@@ -2,7 +2,7 @@ from django.db import models
 from enum import Enum
 from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.models import User
-
+from django.utils.safestring import mark_safe
 
 class Categoria(models.Model):
     nome = models.CharField(max_length=100)

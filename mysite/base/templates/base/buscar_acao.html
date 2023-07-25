@@ -1,9 +1,10 @@
 {% extends 'base/main.html' %}
 {% load static %}
+
 {% include 'base/topbar.html' %}
 
 {% block titulo %}
-<title>Resultados para "{{pesquisar_acao}}"</title>
+<title>Resultados para "{{busca}}"</title>
 {% endblock titulo %}
 
 {% block csslinks %}
@@ -15,8 +16,8 @@
 <article>
 <h1>Resultados da Pesquisa</h1>
 
-{% if pesquisar_acao %}
-    <p>Resultados para: {{ pesquisar_acao }}</p>
+{% if busca %}
+    <p>Resultados para: {{ busca }}</p>
 {% endif %}
 
     <div id="acoes-container">
@@ -43,9 +44,7 @@
         </div>
     </a>
     {% endfor %}
-
     </div>
 </article>
 
 {% endblock conteudo %}
-

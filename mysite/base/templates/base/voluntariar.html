@@ -2,7 +2,6 @@
 {% load static %}
 {% block conteudo %}
 <head>
-    <title>Voluntariar na ação</title>
     <link rel="stylesheet" href="{% static 'base/css/voluntariar.css' %}">
 </head>
 <body>
@@ -12,7 +11,7 @@
         </div>
         <div id="termo-voluntariado">
             <p>
-                Eu, {{ user.username }}, Confirmo o compartilhamento de alguns dos meus dados sensíveis com o(s) proprietário(s) dessa ação {{ acao.nome }}, bem com nome, contato, etc...
+                Confirmo o compartilhamento de alguns dos meus dados sensíveis com o(s) proprietário(s) dessa ação, bem com nome, contato, etc...
             </p>
             <br>
             <p>
@@ -24,16 +23,11 @@
             </p>
         </div>
         
-        {% comment %} <a href="{% url 'detalhes' acao.id %}"> {% endcomment %}
-        <form method="post" action="{% url 'base:voluntariar_em_acao' acao_id=acao.id %}">
-            {% csrf_token %}
-            {% comment %} <div class="buttom1" onclick="enviarSolicitacao({{ acao.id }})"> {% endcomment %}
-                <input type="submit" value="Inscrever-se na Ação">
-            {% comment %} </div> {% endcomment %}
-        </from>
-        {% comment %} </a> {% endcomment %}
-
-        
+        <a href="{% url 'base:response' %}">
+            <div class="buttom1">
+                QUERO SER VOLUNTÁRIO
+            </div>
+        </a>
     </article>
 </body>
 {% endblock %}

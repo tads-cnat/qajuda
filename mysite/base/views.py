@@ -5,43 +5,27 @@ from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 
 
-# Create your views here.
+class IndexViews(View):
+    def get(self, request):
+        lista_acao = Acao.objects.all()
+        context = {'lista_acao': lista_acao}
+        return render(request, 'base/index.html', context)
 
-# class IndexViews(View):
-#     def index(self, request):
-#         lista_acao = Acao.objects.all()
-#         context = {'lista_acao': lista_acao}
-#         return render(request, 'base/index.html', context)
-
-
-def index(request):
-    return render(request, 'base/index.html')
 
 class BuscarAcaoViews(View):
-    def get(self, request, *args, **kwargs):
-        q = request.GET.get('q')
-        if q:
-            acoes = Acao.objects.filter(nome__icontains=q)
-        else:
-            acoes = Acao.objects.all() #Caso não encontre uma ação ele retorna todas apenas para questão de TESTE
-        
-        context = {'acoes' : acoes, 'pesquisar_acao' : q}
+    def post(self, request, *args, **kwargs):
+        busca = request.POST['busca']
+        acoes = Acao.objects.filter(nome__icontains=busca)
+        context = {'acoes' : acoes, 'busca' : busca}
         return render(request, 'base/buscar_acao.html', context)
 
 
 class DetalheViews(View):
     def get(self, request, *args, **kwargs):
         acao = get_object_or_404(Acao, pk=kwargs['pk'])
-        # foto = acao.foto_set.first()
+        #foto = acao.foto_set.first()
         context = {'acao': acao}
         return render(request, 'base/detalhe.html', context)
-
-
-
-
-def response(request):
-    return render(request, 'base/response.html')
-
 
 class VoluntariarViews(View):
     def get(self, request, *args, **kwargs):
@@ -71,6 +55,10 @@ class VoluntariarViews(View):
 
         return JsonResponse({'success': False, 'message': 'Método inválido.'}, status=405)
     
+def response(request):
+    acao = Acao.objects.get(pk='1')
+    context = {'acao': acao}
+    return render(request, 'base/response.html', context)
 
 
 def pva(request, acao_id):
@@ -78,9 +66,3 @@ def pva(request, acao_id):
     context = {'acao':acao}
 
     return render(request, 'base/pva.html', context)
-
-
-
-
-
-
