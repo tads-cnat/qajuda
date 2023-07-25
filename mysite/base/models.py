@@ -25,6 +25,7 @@ class Usuario(models.Model):
         return self.user.username
 
 
+
 class Acao(models.Model):
     nome = models.CharField(max_length=200)
     status = models.BooleanField() # Ativa: True, Inativa: False 
@@ -43,6 +44,11 @@ class Acao(models.Model):
 
     def __str__(self):
         return self.nome
+
+    def get_foto(self):
+        for foto in self.foto_set.all():
+            return foto.foto.url
+        return None
 
 class Proprietario(models.Model):
     acao = models.ForeignKey(Acao, on_delete=models.CASCADE, default=1)
@@ -67,7 +73,7 @@ class Solicitacao(models.Model):
         return self.voluntario.user.username + " ---> " + self.acao.nome
 
 class Foto(models.Model):
-    foto = models.ImageField(upload_to='None', null=True)
+    foto = models.ImageField(upload_to='media/None', null=True)
     acao = models.ForeignKey(Acao, on_delete=models.CASCADE)
 
 

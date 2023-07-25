@@ -25,7 +25,7 @@ article {
     height: 100%;
 }
 #people-card {
-    padding: .3em;
+    padding: 1em;
     background-color: var(--branco);
     border-radius: .4em;
 }
