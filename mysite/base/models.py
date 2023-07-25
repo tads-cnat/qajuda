@@ -68,7 +68,7 @@ class Solicitacao(models.Model):
         PARTICIPOU = "PART", _("Participou")
     
     acao = models.ForeignKey(Acao, on_delete=models.CASCADE, default=1)
-    voluntario = models.OneToOneField(Usuario, on_delete=models.CASCADE)
+    voluntario = models.ForeignKey(Usuario, on_delete=models.CASCADE, default=1)
     status = models.CharField(max_length=4, choices=Status.choices, default=Status.EM_ESPERA)
     proprietario = models.ForeignKey(Proprietario, blank=True, null=True, on_delete=models.SET_NULL) # esse atributo representa a classe acima.
 
