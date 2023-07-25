@@ -38,8 +38,10 @@ class DetalheViews(View):
 
 
 
+
 def response(request):
     return render(request, 'base/response.html')
+
 
 class VoluntariarViews(View):
     def get(self, request, *args, **kwargs):
@@ -70,10 +72,13 @@ class VoluntariarViews(View):
         return JsonResponse({'success': False, 'message': 'Método inválido.'}, status=405)
     
 
+
 def pva(request, acao_id):
     acao = get_object_or_404(Acao, pk=acao_id)
     context = {'acao':acao}
+
     return render(request, 'base/pva.html', context)
+
 
 
 
