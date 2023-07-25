@@ -12,10 +12,17 @@
         <div class="topbar-button">Criar Ação</div>
         <div class="login">
             {% if user.is_authenticated %}
-            <div>{{ user.username }}</div>
+            <a href="/admin">
+                <div>
+                    {{ user.username }}
+                </div>
+            </a>
+            
             {% else %}
-            <div class="cadastrar">Cadastrar</div>
-            <div class="entrar">Entrar</div>
+            <a href="/admin">
+                <div class="cadastrar">Cadastrar</div>
+                <div class="entrar">Entrar</div>
+            </a>
             {% endif %}
         </div>
     </div>

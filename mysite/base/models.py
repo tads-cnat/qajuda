@@ -76,7 +76,10 @@ class Solicitacao(models.Model):
         return self.voluntario.user.username + " ---> " + self.acao.nome
 
 class Foto(models.Model):
-    foto = models.ImageField(upload_to='media/None', null=True)
+    foto = models.ImageField(upload_to='media/imagensacoes', null=True)
     acao = models.ForeignKey(Acao, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.acao.nome
 
 
