@@ -2,11 +2,16 @@
 <head><link rel="stylesheet" href="{% static 'base/css/topbar.css' %}"></head>
 <nav>
     <div id="area-util">
-        <div class="logo">
-            <span>logo</span>
+        <div>
+            <span>
+                <a href="{% url 'base:index' %}" alt="logo">
+                    <img class="logo" src="{% static 'base/img/LogoQ.png' %}" />
+                </a>
+            </span>
         </div>
-        <form action="#">
-            <input type="text" placeholder="  busque ações aqui">
+        <form action="{% url 'base:buscar_acao' %}" method="post">
+            {% csrf_token %}
+            <input type="text" placeholder=" busque ações aqui" name="busca"></input>
         </form>
         <div class="topbar-button">Quem&nbspsomos</div>
         <div class="topbar-button">Criar Ação</div>

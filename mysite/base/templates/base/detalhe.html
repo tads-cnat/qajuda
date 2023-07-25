@@ -6,8 +6,8 @@
 </head>
 <body>
     <article>
-        <div id="contenido">
-            <img src="" id="acao-imagem">
+        <div id="contenido">       
+            <img src="/{{acao.foto_set.first.foto}}" id="acao-imagem" alt="{{acao.nome}}">
             <div id="card-direita-sup">
                 <div id="people-card">
                     <div class="text">
@@ -41,7 +41,7 @@
                     </div>
                 </div>
 
-                <a href="{% url 'voluntariar' %}">
+                <a href="{% url 'base:voluntariar' acao.id %}">
                     <div class="buttom1">
                         QUERO SER VOLUNTÁRIO
                     </div>
