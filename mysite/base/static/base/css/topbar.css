@@ -32,13 +32,14 @@ form {
 
 form input {
     width: 30em;
-    height: 2.5em;
+    height: 2em;
     border-radius: 10px;
     /*border: solid 2px lightgrey;*/
     border: none;
     color: #7c7c7c;
     font-weight: 700;
-    font-family: Raleway;
+    font-family: roboto;
+    padding-left: 1em;
     font-size: large;
     
 }

@@ -50,6 +50,9 @@ class Acao(models.Model):
             return foto.foto.url
         return None
 
+    def get_descricao(self):
+        return str(self.descricao)[:230] + "..."
+
 class Proprietario(models.Model):
     acao = models.ForeignKey(Acao, on_delete=models.CASCADE, default=1)
     usuario = models.OneToOneField(Usuario, on_delete=models.CASCADE)

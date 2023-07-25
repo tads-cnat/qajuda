@@ -25,7 +25,7 @@
     <a href="{% url 'base:detalhes' acao.id %}">
         <div class="acao">
             
-            <div class="acao-painel" style="background=url({{acao.get_foto}})">
+            <div class="acao-painel" style="background: url({{acao.get_foto}}); background-size: cover;">
                 
             </div>
             
@@ -37,7 +37,7 @@
                 <div class="acao-hora"></div>
                 <div class="acao-descricao">
                     <span>Descrição</span>
-                    <p>{{acao.descricao}}</p>
+                    <p>{{acao.get_descricao}}</p>
                 </div>
             </div>
             
