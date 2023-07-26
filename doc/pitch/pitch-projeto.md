@@ -16,6 +16,10 @@
 
 [Vídeo de apresentação do protótipo do projeto para o WTADS](https://www.canva.com/design/DAFo1ai0HrA/etuVFn4SUMpsklTWYMAy_Q/watch?utm_content=DAFo1ai0HrA&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink)
 
+# Aprensentação para banca
+
+[Apresentação para a banca](https://www.canva.com/design/DAFpe1RsWqk/djIcUw94PY0al0WkRTyLWA/view?utm_content=DAFpe1RsWqk&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink)
+
 | ordem                |  Nome             |          tempo 1 |           tempo 2 |
 | -----------------   | -----------------   | -----------------   | -----------------   |
 | 1| Vilanir | 00:40| 00:33|
