@@ -96,3 +96,10 @@ A Plataforma QAjuda será um produto de acesso para toda a sociedade, com recurs
 | RN04 | Impedimento de spamming por denúncia | Um usuário não pode fazer mais de 3 denúncias ao mesmo usuário/evento na mesma semana.
 | RN05 | Critérios de denúncia do ação | Inverdade da proposta da ação,  entre outros. | 
 | RN06 | Critérios de denúncia do usuário | Discurso de ódio, comportamento suspeito, entre outros. | 
+
+## 11. Casos de uso principais
+
+1. [CDU-001 - Autorizar voluntário na ação](cdu-001/detalhamento-001.md)
+2. [CDU-002 - Cadastro do Voluntário em uma ação](cdu-002/detalhamento-002.md)
+3. [CDU-003 - Visualizar Ações](cdu-003/detalhamento-003.md)
+4. [CDU-004 - Buscar ações](cdu-004/detalhamento-004.md)
