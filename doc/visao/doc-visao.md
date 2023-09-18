@@ -59,7 +59,7 @@ A Plataforma QAjuda será um produto de acesso para toda a sociedade, com recurs
 
 | Código              |  Nome               |          Descrição  |  Prioridade         |
 | -----------------   | -----------------   | -----------------   | -----------------   |
-|  F01  |  Efetuar Login  |  O usuário tem acesso ao sistema.  | -  |
+|  F01  |  Login  |  O usuário tem acesso ao sistema.  | -  |
 | F02  | Cadastro de Ações | O Colaborador cadastra uma ação de trabalho voluntário  |  - |
 | F03  | Cadastro de colaboradores | Visitante pode se cadastrar na plataforma | - |
 | F04  | Gerenciamento de Ações | Administrador gerencia ações disponíveis e responsável gerencia a própria ação (atualizar e remover) | - | 
@@ -71,7 +71,7 @@ A Plataforma QAjuda será um produto de acesso para toda a sociedade, com recurs
 | F12  | Denuncia de Usuário | usuário alerta os administradores sobre questões de segurança elencadas na RN07 | - |
 | F13  | Autorização de colabborador em ação | Responsável da ação aceita os Colaboradores que solicitaram participar da ação | Alta |
 | F14  | Cadastro do Voluntário em uma ação | Colaborador solicita aos responsáveis de uma ação para participar da mesma | Alta |
-| F15  | Efetuar Logout | usuário sai do sistema | - |
+| F15  | Logout | usuário sai do sistema | - |
 
 
 
