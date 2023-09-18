@@ -108,13 +108,13 @@ A Plataforma QAjuda será um produto de acesso para toda a sociedade, com recurs
 
 |  Termo  |  Explicação  |
 | ------- | ------------ |
-| Administrador | Usuários com permissões para alterar ações, perfis dos usuários e fazer a moderação da plataforna |
-| Colaborador | Usuários cadastrados com login, que não são administradores |
-| Voluntário | Usuários que tem sua solicitação de participação em ação aceita por um Responsável da ação |
-| Visitante | Usuários não cadastrados na plataforma e que a utilizam |
-| Responsável | Usuários que criam ações ou são adicionados como responsáveis por outro Responsável de uma ação |
-| Atados | Plataforma de ações voluntárias focada em trabalhos específicos, com seção de ações, mas é ocasional, serve mais como banco de voluntários para ONGs cadastradas | 
-| Padrinhonota10 | Plataforma de ações voluntárias voltada para apadrinhamento de crianças e jovens em abrigos e afins, porém tem pouca aplicação para outros tipos de voluntariado |
-| Vakinha | Plataforma de ações voluntáras que promove financiamento coletivo, muito utilizado em campanhas para arrecadação financeira, porém é muito limitada à outros tipos de trabalhos |
-| Catarse | Plataforma de ações voluntáras que promove financiamento coletivo, muito utilizado em campanhas para arrecadação financeira, porém é muito limitada à outros tipos de trabalhos |
 | Ação | evento organizado por pessoas com objetivo de promover atividades que beneficiem a sociedade de forma gratuita |
+| Administrador | Usuários com permissões para alterar ações, perfis dos usuários e fazer a moderação da plataforna |
+| Avaliação | É a forma que um voluntário pode dar feedback de uma ação para o responsável e para os visitantes |
+| Colaborador | Usuários cadastrados com login, que não são administradores |
+| Responsável | Usuários que criam ações ou são adicionados como responsáveis por outro Responsável de uma ação |
+| Visitante | Usuários não cadastrados na plataforma e que a utilizam |
+| Voluntário | Usuários que tem sua solicitação de participação em ação aceita por um Responsável da ação |
+
+
+
