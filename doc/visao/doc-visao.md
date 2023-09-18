@@ -26,14 +26,14 @@ Criar uma plataforma para conectar voluntários com projetos comunitários.
 | Nome                |  Descrição          |   Responsabilidade  |
 | -----------------   | -----------------   | -----------------   |
 | Administrador | Os administradores serão usuários com permissões para alterar ações e perfis dos demais usuários, e todos os outros requisitos | Gerenciar ações e usuários - Moderar o conteúdo postado - Validar denúncias sobre ações e usuários - Realizar manutenções e melhorias no sistema |
-| Colaborador  | Os usuários cadastrados com login, que não são admin, poderão utilizar a plataforma para se voluntariar, interagir com outros usuários e criarem ações voluntárias nas quais eles serão responsáveis. | Criar ações, se tornando Responsável da ação; Gerenciar os colaboradores das suas ações; Interagir e visualizar detalhes sobre categorias, interesses, ações que já participaram, outras informações disponíveis de outros colaboradores e ações; Inscrever-se em ações.  |
-| Voluntário   | Os Voluntários são usuários que tem sua solicitação de participação em ação aceita por um responsável da ação.  | Os voluntários podem fazer determinadas ações, como por exemplo, avaliar uma ação. 
-| Visitante   | Os usuários que podem visualizar o site mas que, por não terem realizado cadastro ainda, não podem se voluntariar ou criar ações voluntárias na plataforma.   | Os usuários não cadastrados podem: - Visualizar ações e dados não sensíveis das ações - Se cadastrar na plataforma - Compartilhar ações existentes | 
+| Colaborador | Os usuários cadastrados com login, que não são administradores, poderão utilizar a plataforma para se voluntariar, interagir com outros usuários e criarem ações voluntárias nas quais eles serão responsáveis. | Criar ações, se tornando Responsável da ação; Gerenciar os colaboradores das suas ações; Interagir e visualizar detalhes sobre categorias, interesses, ações que já participaram, outras informações disponíveis de outros colaboradores e ações; Inscrever-se em ações.  |
+| Voluntário | Os Voluntários são usuários que tem sua solicitação de participação em ação aceita por um responsável da ação.  | Os voluntários podem fazer determinadas ações, como por exemplo, avaliar uma ação. 
+| Visitante | Os usuários que podem visualizar o site mas que, por não terem realizado cadastro ainda, não podem se voluntariar ou criar ações voluntárias na plataforma.   | Os usuários não cadastrados podem: - Visualizar ações e dados não sensíveis das ações - Se cadastrar na plataforma - Compartilhar ações existentes | 
 | Responsável | Os Colaboradores serão Responsáveis quando forem os criadores de uma ação ou forem adicionados como "responsáveis" por outro Responsável de uma ação | Os responsáveis poderão aceitar ou recusar a adesão Colaboradores que enviarem solicitação para se tornarem voluntários na ação que são responsáveis, além de poderem moderar comentários e editar informações da ação |
 
 ## 4. Descrição do ambiente dos usuários
 
-A plataforma terá como página inicial do usuário cadastrado uma visão de ações sugeridas, visão de outros voluntários para entrar em contato e opção de ver as ações em que já se voluntariou. Na plataforma, espera-se que o usuário possa interagir com outros voluntários, pesquisar ações tanto pelos proprietários quanto por categorias e interesses temáticos, localidade e período de execução, além de cadastrar ações voluntárias. A plataforma poderá ter suas ações e página do perfil de usuários compartilhadas com botões de compartilhamento com as redes sociais mais utilizadas atualmente.
+A plataforma terá como página inicial do visitante ações organizadas por tema, popularidade e avaliação. Já a página inicial do usuário cadastrado (Colaborador) tem uma visão de ações sugeridas, visão de outros colaboradores para entrar em contato e opção de ver as ações em que já se voluntariou. Na plataforma, espera-se que os colaboradores possam interagir uns com outros, pesquisar ações tanto pelos responsáveis quanto por categorias e interesses temáticos, localidade e período de execução, além de cadastrar ações voluntárias. A plataforma poderá ter suas ações e página do perfil de colaboradores compartilhadas com botões de compartilhamento com as redes sociais mais utilizadas atualmente.
 
 ## 5. Principais necessidades dos usuários
 
@@ -69,7 +69,7 @@ A Plataforma QAjuda será um produto de acesso para toda a sociedade, com recurs
 | F10  | Avaliação de Ações | Permite que Colaboradores que participaram avaliem (com critérios a definir como resultados obtidos, pontualidade, efetividade, etc) a ação ocorrida | Média |
 | F11  | Denuncia de Ações | usuário alerta os admins sobre questões de segurança da ação elencadas na RN06 | - |
 | F12  | Denuncia de Usuário | usuário alerta os administradores sobre questões de segurança elencadas na RN07 | - |
-| F13  | Autorização de colabborador em ação | Responsável da ação aceita os Colaboradores que solicitaram participar da ação | Alta |
+| F13  | Autorização de colaborador em ação | Responsável da ação aceita os Colaboradores que solicitaram participar da ação | Alta |
 | F14  | Cadastro do Voluntário em uma ação | Colaborador solicita aos responsáveis de uma ação para participar da mesma | Alta |
 | F15  | Logout | usuário sai do sistema | - |
 
@@ -103,3 +103,19 @@ A Plataforma QAjuda será um produto de acesso para toda a sociedade, com recurs
 2. [CDU-002 - Cadastro do Voluntário em uma ação](cdu-002/detalhamento-002.md)
 3. [CDU-003 - Visualizar Ações](cdu-003/detalhamento-003.md)
 4. [CDU-004 - Buscar ações](cdu-004/detalhamento-004.md)
+
+## 12. Glossário
+
+|  Termo  |  Explicação  |
+| ------- | ------------ |
+| Administrador | Usuários com permissões para alterar ações, perfis dos usuários e fazer a moderação da plataforna |
+| Colaborador | Usuários cadastrados com login, que não são administradores |
+| Voluntário | Usuários que tem sua solicitação de participação em ação aceita por um Responsável da ação |
+| Visitante | Usuários não cadastrados na plataforma e que a utilizam |
+| Responsável | Usuários que criam ações ou são adicionados como responsáveis por outro Responsável de uma ação |
+| Atados | Plataforma de ações voluntárias focada em trabalhos específicos, com seção de ações, mas é ocasional, serve mais como banco de voluntários para ONGs cadastradas | 
+| Padrinhonota10 | Plataforma de ações voluntárias voltada para apadrinhamento de crianças e jovens em abrigos e afins, porém tem pouca aplicação para outros tipos de voluntariado |
+| Vakinha | Plataforma de ações voluntáras que promove financiamento coletivo, muito utilizado em campanhas para arrecadação financeira, porém é muito limitada à outros tipos de trabalhos |
+| Catarse | Plataforma de ações voluntáras que promove financiamento coletivo, muito utilizado em campanhas para arrecadação financeira, porém é muito limitada à outros tipos de trabalhos |
+| Ação | evento organizado por pessoas com objetivo de promover atividades que beneficiem a sociedade de forma gratuita |
+|  |  |
