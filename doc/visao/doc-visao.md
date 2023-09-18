@@ -118,4 +118,3 @@ A Plataforma QAjuda será um produto de acesso para toda a sociedade, com recurs
 | Vakinha | Plataforma de ações voluntáras que promove financiamento coletivo, muito utilizado em campanhas para arrecadação financeira, porém é muito limitada à outros tipos de trabalhos |
 | Catarse | Plataforma de ações voluntáras que promove financiamento coletivo, muito utilizado em campanhas para arrecadação financeira, porém é muito limitada à outros tipos de trabalhos |
 | Ação | evento organizado por pessoas com objetivo de promover atividades que beneficiem a sociedade de forma gratuita |
-|  |  |
