@@ -2,8 +2,8 @@
 # CDU004. Buscar ações
 
 - **Ator principal**: Visitante
-- **Atores secundários**: Colaborador, proprietário, voluntário
-- **Resumo**: Usuário pesquisa por ação por nome que contenha no título.
+- **Atores secundários**: Colaborador, responsável, voluntário
+- **Resumo**: Colaborador pesquisa por ação por nome que contenha no título.
 - **Pré-condição**: 1 - existir ação cadastrada.
 - **Pós-Condição**: não há.
 
