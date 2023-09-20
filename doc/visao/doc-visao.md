@@ -99,22 +99,33 @@ A Plataforma QAjuda será um produto de acesso para toda a sociedade, com recurs
 
 ## 11. Casos de uso principais
 
-1. [CDU-001 - Autorizar voluntário na ação](cdu-001/detalhamento-001.md)
-2. [CDU-002 - Cadastro do Voluntário em uma ação](cdu-002/detalhamento-002.md)
-3. [CDU-003 - Visualizar Ações](cdu-003/detalhamento-003.md)
-4. [CDU-004 - Buscar ações](cdu-004/detalhamento-004.md)
+1. [CDU-001 - Autorizar voluntário na ação](../cdu/cdu-001/detalhamento-001.md)
+2. [CDU-002 - Cadastro do Voluntário em uma ação](../cdu/cdu-002/detalhamento-002.md)
+3. [CDU-003 - Visualizar Ações](../cdu/cdu-003/detalhamento-003.md)
+4. [CDU-004 - Buscar ações](../cdu/cdu-004/detalhamento-004.md)
+5. CDU-005 - Adicionar voluntário como responsável
+6. CDU-006 - Remover voluntário responsável
+7. CDU-007 - Remover voluntário da ação
+8. CDU-008 - Voluntário sair da ação
+9. CDU-009 - Responsável avalia voluntário
+10. CDU-010 - Voluntário avalia ação
+11. CDU-011 - Gerenciar ação
+12. CDU-012 - Gerenciar usuário
+13. CDU-013 - Criar ação
+14. CDU-014 - Denunciar ação
+15. CDU-015 - Denunciar usuário
 
 ## 12. Glossário
 
 |  Termo  |  Explicação  |
 | ------- | ------------ |
-| Administrador | Usuários com permissões para alterar ações, perfis dos usuários e fazer a moderação da plataforna |
-| Colaborador | Usuários cadastrados com login, que não são administradores |
-| Voluntário | Usuários que tem sua solicitação de participação em ação aceita por um Responsável da ação |
-| Visitante | Usuários não cadastrados na plataforma e que a utilizam |
-| Responsável | Usuários que criam ações ou são adicionados como responsáveis por outro Responsável de uma ação |
-| Atados | Plataforma de ações voluntárias focada em trabalhos específicos, com seção de ações, mas é ocasional, serve mais como banco de voluntários para ONGs cadastradas | 
-| Padrinhonota10 | Plataforma de ações voluntárias voltada para apadrinhamento de crianças e jovens em abrigos e afins, porém tem pouca aplicação para outros tipos de voluntariado |
-| Vakinha | Plataforma de ações voluntáras que promove financiamento coletivo, muito utilizado em campanhas para arrecadação financeira, porém é muito limitada à outros tipos de trabalhos |
-| Catarse | Plataforma de ações voluntáras que promove financiamento coletivo, muito utilizado em campanhas para arrecadação financeira, porém é muito limitada à outros tipos de trabalhos |
 | Ação | evento organizado por pessoas com objetivo de promover atividades que beneficiem a sociedade de forma gratuita |
+| Administrador | Usuários com permissões para alterar ações, perfis dos usuários e fazer a moderação da plataforna |
+| Avaliação | É a forma que um voluntário pode dar feedback de uma ação para o responsável e para os visitantes |
+| Colaborador | Usuários cadastrados com login, que não são administradores |
+| Responsável | Usuários que criam ações ou são adicionados como responsáveis por outro Responsável de uma ação |
+| Visitante | Usuários não cadastrados na plataforma e que a utilizam |
+| Voluntário | Usuários que tem sua solicitação de participação em ação aceita por um Responsável da ação |
+
+
+
