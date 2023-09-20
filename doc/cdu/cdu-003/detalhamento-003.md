@@ -1,8 +1,8 @@
 # CDU003. Visualizar Ações
 
 - **Ator principal**: Visitante
-- **Atores secundários**: Colaborador, voluntário, proprietário
-- **Resumo**: Usuário pode visualizar os detalhes de uma ação.
+- **Atores secundários**: Colaborador, voluntário, responsável
+- **Resumo**: Colaborador pode visualizar os detalhes de uma ação.
 - **Pré-condição**:
  1 - ação existir; 2 - ação estar ativa.
 - **Pós-Condição**: Caso visitante queira inscrever-se na ação.
