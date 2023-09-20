@@ -1,16 +1,24 @@
-# CDU003. Autorizar voluntário em ação
+# CDU003. Visualizar Ações
 
-- **Ator principal**: Voluntário
-- **Atores secundários**: ...
-- **Resumo**: Proprietário autoriza voluntário.
-- **Pré-condição**: 1 - O usuário deve estar cadastrado no sistema como um Proprietário para determinada ação. 2 - O proprietário deve ter criado a ação para a qual está autorizando a entrada de um voluntário.
-- **Pós-Condição**: Caso a ação seja privada, o voluntário deve ganhar acesso a dados não disponíveis anteriormente.
+- **Ator principal**: Visitante
+- **Atores secundários**: Colaborador, voluntário, responsável
+- **Resumo**: Colaborador pode visualizar os detalhes de uma ação.
+- **Pré-condição**:
+ 1 - ação existir; 2 - ação estar ativa.
+- **Pós-Condição**: Caso visitante queira inscrever-se na ação.
 
 ## Fluxo Principal
 
 | Ações do ator | Ações do sistema |
 | :-----------------: | :-----------------: |
-| 1 - Ator abre a visualização de uma ação criada por ele | |  
-|  | 2 - Sistema exibe, se houverem, requisições de participação de voluntários. |
-| 3 - Ator confirma/recusa a participação de voluntário(s) e o fluxo se encerra. | |
+| 1 - Visitante visualiza página com detalhe da ação | |  
+|  | 2 - Sistema exibe detalhes da ação |
 
+## Fluxo Secundário (visitante inscrever-se em ação)
+
+| Ações do ator | Ações do sistema |
+| :-----------------: | :-----------------: |
+| 1 - Visitante visualiza página com detalhe da ação | |  
+|  | 2 - Sistema exibe detalhes da ação |
+| 3 - Visitante clica no botão inscrever-se em ação | |  
+|  | 4 - Sistema inicia CDU002 |
