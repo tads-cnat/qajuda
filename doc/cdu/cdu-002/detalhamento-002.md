@@ -1,4 +1,4 @@
-# CDU002. Cadastro do Voluntário em uma ação
+# CDU002. Voluntariar em uma ação
 
 - **Ator principal**: Colaborador
 - **Atores secundários**: Responsável, voluntário
