@@ -2,7 +2,8 @@
 
 ## 1. Diagrama de Casos de Uso
 
-![image](https://github.com/tads-cnat/qajuda/assets/112009958/4ac424ed-756c-4feb-9ca9-17905e2b4e8f)
+![image](https://github.com/tads-cnat/qajuda/assets/112009958/345f5ae3-5c89-4f92-bc74-6eb347db7396)
+
 
 ## 2. Listagem dos detalhamentos dos casos de uso
 
