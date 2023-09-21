@@ -8,7 +8,6 @@
 | 13/09/2023 | 2.0 | Segunda Versão | Ana Célia Baía Araújo, Felipe Xavier de Carvalho, José Vilanir de Souza Brito Neto, Matheus Duarte de Medeiros e Yuri Thairony Feitosa de Oliveira |
 | 20/09/2023 | 2.1 | Terceira Versão | Ana Célia Baía Araújo, Felipe Xavier de Carvalho, José Vilanir de Souza Brito Neto, Matheus Duarte de Medeiros e Yuri Thairony Feitosa de Oliveira |
 
-
 ## 1. Objetivo do projeto
 
 Criar uma plataforma para conectar voluntários com projetos comunitários.
@@ -142,3 +141,4 @@ A Plataforma QAjuda será um produto de acesso para toda a sociedade, com recurs
 |Remoção de responsável| Você foi removido(a) da função de responsável nesta ação.|
 |Remoção de voluntário| Você foi removido(a) desta ação enquanto voluntário(a).|
 |Solicitação para desistir de ação como responsável| Recebemos sua solicitação para deixar de ser responsável nesta ação, que pena mas imprevistos acontecem! Aguardamos você na organização de outras ações em outras oportunidades... Continue ajudando, todos por um bem comum!|
+
