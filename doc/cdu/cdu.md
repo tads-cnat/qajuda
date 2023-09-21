@@ -15,9 +15,9 @@
 7. CDU-007 - Remover voluntário como responsável da ação
 8. CDU-008 - Remover a si próprio enquanto voluntário de uma ação
 9. CDU-009 - Remover voluntário da ação
-10.CDU-010 - Responsável avalia voluntário
-11.CDU-011 - Voluntário avalia ação
-12.CDU-012 - Gerenciar ação
-13.CDU-013 - Gerenciar usuário
-14.CDU-014 - Denunciar ação
-16.CDU-015 - Denunciar usuário
+10. CDU-010 - Responsável avalia voluntário
+11. CDU-011 - Voluntário avalia ação
+12. CDU-012 - Gerenciar ação
+13. CDU-013 - Gerenciar usuário
+14. CDU-014 - Denunciar ação
+16. CDU-015 - Denunciar usuário
