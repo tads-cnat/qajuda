@@ -109,12 +109,12 @@ A Plataforma QAjuda será um produto de acesso para toda a sociedade, com recurs
 7. CDU-007 - Remover voluntário como responsável da ação
 8. CDU-008 - Remover a si próprio enquanto voluntário de uma ação
 9. CDU-009 - Remover voluntário da ação
-10.CDU-010 - Responsável avalia voluntário
-11.CDU-011 - Voluntário avalia ação
-12.CDU-012 - Gerenciar ação
-13.CDU-013 - Gerenciar usuário
-14.CDU-014 - Denunciar ação
-15.CDU-015 - Denunciar usuário
+10. CDU-010 - Responsável avalia voluntário
+11. CDU-011 - Voluntário avalia ação
+12. CDU-012 - Gerenciar ação
+13. CDU-013 - Gerenciar usuário
+14. CDU-014 - Denunciar ação
+15. CDU-015 - Denunciar usuário
 
 ## 12. Glossário
 
@@ -129,39 +129,16 @@ A Plataforma QAjuda será um produto de acesso para toda a sociedade, com recurs
 | Voluntário | Usuários que tem sua solicitação de participação em ação aceita por um Responsável da ação |
 
 ## 13. Mensagens padrão
-###Criar ação
 
-Ação criada com sucesso!
-
-###Pesquisa sem resultados
-
-Não foi encontrado nenhum resultado para esta pesquisa.
-
-###Solicitação para participar de ação como voluntário(a)
-
-Que ótimo, recebemos sua solicitação para ser voluntário(a) nesta ação, será de grande ajuda. Em breve você receberá a resposta!
-
-###Resposta de aceite à solicitação para participar de ação como voluntário(a)
-
-Sua solicitação para participar de ação como voluntário(a) foi aceita! Estamos muito felizes com sua ajuda!
-
-###Resposta de recusa à solicitação para participar de ação como voluntário(a)
-
-Infelizmente sua solicitação para participar de ação como voluntário(a) foi recusada! Veja em "detalhes" os motivos para a recusa. Mas não fique triste, temos várias outras ações feitas para você, não desista de continuar ajudando! botão "Detalhes"
-
-###Convite para tornar voluntário um responsável na ação
-
-Você foi convidado(a) para se tornar uma das pessoas responsáveis por esta ação. Você aceita? botões "Sim"/"Não"
-
-###Ausência de solicitações pendentes para voluntários(as) em ação
-Não há novas solicitações para participação na ação.
-
-###Remoção de responsável
-Você foi removido(a) da função de responsável nesta ação.
-
-###Remoção de voluntário
-Você foi removido(a) desta ação enquanto voluntário(a).
-
-###Solicitação para desistir de ação como responsável
-
-Recebemos sua solicitação para deixar de ser responsável nesta ação, que pena mas imprevistos acontecem! Aguardamos você na organização de outras ações em outras oportunidades... Continue ajudando, todos por um bem comum!
+|   Contexto de uso  | Mensagem | 
+| ------------------ | ---------------------------- | 
+| Criar ação | Ação criada com sucesso!| 
+| Pesquisa sem resultados| Não foi encontrado nenhum resultado para esta pesquisa.|
+| Solicitação para participar de ação como voluntário(a)| Que ótimo, recebemos sua solicitação para ser voluntário(a) nesta ação, será de grande ajuda. Em breve você receberá a resposta!| 
+|Resposta de aceite à solicitação para participar de ação como voluntário(a)| Sua solicitação para participar de ação como voluntário(a) foi aceita! Estamos muito felizes com sua ajuda!|
+|Resposta de recusa à solicitação para participar de ação como voluntário(a)| Infelizmente sua solicitação para participar de ação como voluntário(a) foi recusada! Veja em "detalhes" os motivos para a recusa. Mas não fique triste, temos várias outras ações feitas para você, não desista de continuar ajudando! botão "Detalhes"|
+|Convite para tornar voluntário um responsável na ação| Você foi convidado(a) para se tornar uma das pessoas responsáveis por esta ação. Você aceita? botões "Sim"/"Não"|
+|Ausência de solicitações pendentes para voluntários(as) em ação| Não há novas solicitações para participação na ação.|
+|Remoção de responsável| Você foi removido(a) da função de responsável nesta ação.|
+|Remoção de voluntário| Você foi removido(a) desta ação enquanto voluntário(a).|
+|Solicitação para desistir de ação como responsável| Recebemos sua solicitação para deixar de ser responsável nesta ação, que pena mas imprevistos acontecem! Aguardamos você na organização de outras ações em outras oportunidades... Continue ajudando, todos por um bem comum!|
