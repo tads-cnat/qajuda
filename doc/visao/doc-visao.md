@@ -97,7 +97,7 @@ A Plataforma QAjuda será um produto de acesso para toda a sociedade, com recurs
 | RN05 | Critérios de denúncia do ação | Inverdade da proposta da ação,  entre outros. | 
 | RN06 | Critérios de denúncia do usuário | Discurso de ódio, comportamento suspeito, entre outros. | 
 
-## 11. Casos de uso principais
+## 11. Casos de uso por ordem de prioridade
 
 1. [CDU-001 - Autorizar voluntário na ação](cdu-001/detalhamento-001.md)
 2. [CDU-002 - Voluntariar em uma ação](cdu-002/detalhamento-002.md)
