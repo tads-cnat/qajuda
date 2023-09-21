@@ -2,7 +2,7 @@
 
 ## 1. Diagrama de Casos de Uso
 
-![image](https://github.com/tads-cnat/qajuda/blob/PDSD-revisao-cdu/doc/cdu/DiagramUC.png)
+![image](https://github.com/tads-cnat/qajuda/assets/112009958/4ac424ed-756c-4feb-9ca9-17905e2b4e8f)
 
 ## 2. Listagem dos detalhamentos dos casos de uso
 
