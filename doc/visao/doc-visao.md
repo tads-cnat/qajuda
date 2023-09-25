@@ -106,7 +106,7 @@ A Plataforma QAjuda será um produto de acesso para toda a sociedade, com recurs
 5. CDU-005 - Criar ação
 6. CDU-006 - Convidar responsável para uma ação
 7. CDU-007 - Remover responsável de uma ação
-8. CDU-008 - Desvoluntariar-se de uma ação
+8. CDU-008 - Desvoluntariar de uma ação
 9. CDU-009 - Remover voluntário de uma ação
 10. CDU-010 - Avaliar voluntário
 11. CDU-011 - Avaliar ação
@@ -114,7 +114,8 @@ A Plataforma QAjuda será um produto de acesso para toda a sociedade, com recurs
 13. CDU-013 - Gerenciar usuário
 14. CDU-014 - Denunciar ação
 15. CDU-015 - Denunciar usuário
-16. CDU-016 - Cadastrar Colaborador
+16. CDU-016 - Criar conta
+17. CDU-017 - notificar usuário
 
 ## 12. Glossário
 
