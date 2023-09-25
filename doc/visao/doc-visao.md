@@ -110,12 +110,11 @@ A Plataforma QAjuda será um produto de acesso para toda a sociedade, com recurs
 9. CDU-009 - Remover voluntário de uma ação
 10. CDU-010 - Avaliar voluntário
 11. CDU-011 - Avaliar ação
-12. CDU-012 - Notificar colaborador
-13. CDU-013 - Gerenciar ação
-14. CDU-014 - Gerenciar usuário
-15. CDU-015 - Denunciar ação
-16. CDU-016 - Denunciar usuário
-17. CDU-017 - Cadastrar Colaborador
+12. CDU-012 - Gerenciar ação
+13. CDU-013 - Gerenciar usuário
+14. CDU-014 - Denunciar ação
+15. CDU-015 - Denunciar usuário
+16. CDU-016 - Cadastrar Colaborador
 
 ## 12. Glossário
 
