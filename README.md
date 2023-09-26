@@ -9,18 +9,18 @@
 1. Ana Célia Baía Araújo
 2. Felipe Xavier de Carvalho
 3. José Vilanir de Souza Brito Neto
-4. Rômulo da Silva Cavalcanti 
+4.  Matheus Duarte de Medeiros
 5. Yuri Thairony Feitosa de Oliveira
 
 >A equipe se comunica diariamente por grupo do PDS Web no WhatsApp e utiliza o Discord para reuniões virtuais.
 
 # Horário de Reuniões
 
->Quartas-feiras, 9h no IFRN e, frequentemente, à noite pelo Discord.
+>Quartas-feiras, 10h30min no IFRN e, frequentemente, à noite pelo Discord.
 
 # Tecnologias Utilizadas
 
->Django, HTML, CSS, Figma, Astah, ERDPlus, GitHub, Canva
+>Django, HTML, CSS, Figma, Astah, ERDPlus, GitHub, Canva, React, SQLserver, Draw.io
 
 # Documentação
 
