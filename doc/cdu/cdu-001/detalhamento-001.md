@@ -1,4 +1,4 @@
-# CDU001. Autorizar voluntário em ação
+# CDU001. Autorizar voluntário na ação
 
 - **Ator principal**: Responsável	
 - **Atores secundários**: Voluntário, colaborador
