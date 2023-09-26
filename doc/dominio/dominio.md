@@ -1,11 +1,4 @@
 # Modelo de Domínio
 
-![image](https://github.com/tads-cnat/qajuda/assets/112009958/3aff0a50-3471-4a50-a2d2-440c6abf766f)
+![image](https://github.com/tads-cnat/qajuda/assets/112009958/2ed93380-b2b5-4d24-b304-cc669a3454a2)
 
-
-## Glossário
-
-|  Termo  |  Explicação  |
-| ------- | ------------ |
-| Acao.status | Se refere se uma ação está ativa ou inativa |
-| Acao.modalidade | Se refere se a ação será virtual ou presencial  |
