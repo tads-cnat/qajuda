@@ -99,10 +99,10 @@ A Plataforma QAjuda será um produto de acesso para toda a sociedade, com recurs
 
 ## 11. Casos de uso por ordem de prioridade
 
-1. [CDU-001 - Autorizar voluntário na ação](cdu-001/detalhamento-001.md)
-2. [CDU-002 - Voluntariar em uma ação](cdu-002/detalhamento-002.md)
-3. [CDU-003 - Visualizar Ação](cdu-003/detalhamento-003.md)
-4. [CDU-004 - Buscar ações](cdu-004/detalhamento-004.md)
+1. [CDU-001 - Autorizar voluntário na ação](../cdu/cdu-001/detalhamento-001.md)
+2. [CDU-002 - Voluntariar em uma ação](../cdu/cdu-002/detalhamento-002.md)
+3. [CDU-003 - Visualizar Ação](../cdu/cdu-003/detalhamento-003.md)
+4. [CDU-004 - Buscar ações](../cdu/cdu-004/detalhamento-004.md)
 5. CDU-005 - Criar ação
 6. CDU-006 - Convidar responsável para uma ação
 7. CDU-007 - Remover responsável de uma ação
