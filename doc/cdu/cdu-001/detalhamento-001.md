@@ -1,11 +1,11 @@
-# CDU001. Autorizar voluntário em ação
+# CDU001. Autorizar voluntário na ação
 
 - **Ator principal**: Responsável	
 - **Atores secundários**: Voluntário, colaborador
 - **Resumo**: Responsável da ação poderá autorizar voluntários em uma ação.
 - **Pré-condição**: 
  1 - ação existir;
- 2 - colaborador ser o proprietário da ação;
+ 2 - colaborador ser o responsável da ação;
  3 - colaborador ter solicitado ser voluntário para participar da ação.
 - **Pós-Condição**: Colaborador se torna voluntário da ação.
 
