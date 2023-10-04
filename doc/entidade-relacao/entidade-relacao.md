@@ -1,10 +1,10 @@
 # Diagrama Entidade Relação
 
-![image](https://github.com/tads-cnat/trabalhos-voluntarios/assets/112009958/67592c09-d4da-4909-a6e4-f973bc34e0eb)
+![image](https://github.com/tads-cnat/qajuda/assets/112009958/dcfc1175-80f0-445b-8d47-b84cf5e69e2c)
 
 ## Diagrama Entidade Relação intermediário
 
-![image](https://github.com/tads-cnat/trabalhos-voluntarios/assets/112009958/aebbf95e-dac4-4c67-aeda-c20c25e7f0ef)
+![image](https://github.com/tads-cnat/qajuda/assets/112009958/ee36f60e-d79d-4ccc-833b-baf7fb0e00b4)
 
 ## Diagrama Esquema Relacional
 
