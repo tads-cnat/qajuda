@@ -8,4 +8,4 @@
 
 ## Diagrama Esquema Relacional
 
-![image](https://github.com/tads-cnat/trabalhos-voluntarios/assets/112009958/7e647a31-b48e-48a2-a0eb-54a9eacebf15)
+![image](https://github.com/tads-cnat/qajuda/assets/112009958/6d0a17a3-ec18-415a-ab87-3b5069effac4)
