@@ -53,7 +53,7 @@ class Acao(models.Model):
     def get_descricao(self):
         return str(self.descricao)[:230] + "..."
 
-class Proprietario(models.Model):
+class Responsavel(models.Model):
     acao = models.ForeignKey(Acao, on_delete=models.CASCADE, default=1)
     Colaborador = models.OneToOneField(Colaborador, on_delete=models.CASCADE)
 
@@ -70,7 +70,7 @@ class Solicitacao(models.Model):
     acao = models.ForeignKey(Acao, on_delete=models.CASCADE, default=1)
     voluntario = models.ForeignKey(Colaborador, on_delete=models.CASCADE, default=1)
     status = models.CharField(max_length=4, choices=Status.choices, default=Status.EM_ESPERA)
-    proprietario = models.ForeignKey(Proprietario, blank=True, null=True, on_delete=models.SET_NULL) # esse atributo representa a classe acima.
+    Responsavel = models.ForeignKey(Responsavel, blank=True, null=True, on_delete=models.SET_NULL) # esse atributo representa a classe acima.
 
     def __str__(self):
         return self.voluntario.user.username + " ---> " + self.acao.nome
