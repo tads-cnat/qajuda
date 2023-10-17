@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include, re_path
-from APIQAjuda.views import SolicitacaoViewSet
+from APIQAjuda.views import SolicitacaoViewSet, AcaoViewSet
 from rest_framework import routers
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
@@ -31,6 +31,7 @@ schema_view = get_schema_view(
 
 router = routers.DefaultRouter()
 router.register(r'solicitacoes', SolicitacaoViewSet)
+router.register(r'acoes', AcaoViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),

@@ -1,8 +1,12 @@
 from rest_framework import viewsets, status
-from .models import Solicitacao
-from .serializers import SolicitacaoSerializer
+from .models import Solicitacao, Acao
+from .serializers import SolicitacaoSerializer, AcaoSerializer
 from rest_framework.decorators import action
 from rest_framework.response import Response
+
+class AcaoViewSet(viewsets.ModelViewSet):
+    queryset = Acao.objects.all()
+    serializer_class = AcaoSerializer
 
 class SolicitacaoViewSet(viewsets.ModelViewSet):
     queryset = Solicitacao.objects.all()
