@@ -1,0 +1,60 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+.menu {
+    background-color: #3F8CF5;
+    padding: 10px;
+}
+
+.menu-container {
+    max-width: 800px; /* Define a largura máxima do conteúdo do menu */
+    margin: 0 auto; /* Centraliza o conteúdo do menu na tela */
+}
+
+.menu-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: white;
+    font-size: 24px;
+}
+
+.search {
+    width: 320px;
+    height: 30px;
+    border-radius: 15px;
+    padding-left: 10px;
+}
+
+.buttons {
+    display: flex;
+}
+
+.button {
+    background-color: #5CA0FF;
+    color: white;
+    padding: 10px 20px;
+    margin: 0 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 15px;
+}
+
+.right-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.right-menu a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+}
