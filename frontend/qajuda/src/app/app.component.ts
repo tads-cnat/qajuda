@@ -7,4 +7,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'qajuda';
+
+  acoes = [
+    'um',
+    'dois',
+    'tres',
+    'quatro',
+    'cinco',
+    'seis'
+  ]
 }
