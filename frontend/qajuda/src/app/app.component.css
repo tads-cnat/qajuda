@@ -11,7 +11,7 @@ body {
 }
 
 .menu-container {
-    max-width: 800px; /* Define a largura máxima do conteúdo do menu */
+    max-width: 1080px; /* Define a largura máxima do conteúdo do menu */
     margin: 0 auto; /* Centraliza o conteúdo do menu na tela */
 }
 
@@ -19,15 +19,17 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 0px 10px;
 }
 
 .logo {
+    padding-left: 10px;
     color: white;
     font-size: 24px;
 }
 
 .search {
-    width: 320px;
+    width: 450px;
     height: 30px;
     border-radius: 15px;
     padding-left: 10px;
@@ -39,6 +41,7 @@ body {
 
 .button {
     background-color: #5CA0FF;
+    width: 150px;
     color: white;
     padding: 10px 20px;
     margin: 0 10px;
@@ -57,4 +60,16 @@ body {
     color: white;
     text-decoration: none;
     margin: 0 10px;
+}
+
+#corpo {
+    width: 1080px;
+    margin: 0 auto;
+}
+
+.banner {
+    width: 100%;
+    height: 400px;
+    background-color: red; /* cor só pra divisão */
+    
 }
