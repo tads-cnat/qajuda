@@ -1,5 +1,7 @@
 # Diagramas de atividade e estado
 
+Acesse o arquivo dos diagramas [aqui](https://viewer.diagrams.net/?tags=%7B%7D&highlight=0000ff&edit=_blank&layers=1&nav=1#G1oNFGzrBE95rkOJmCQqaHJ1245iXQ15uq)
+
 ## Diagrama de estado 
 
 ![QAjudaEstadoeAtividades-CdU01Estados](https://github.com/tads-cnat/qajuda/assets/112009958/59406740-76aa-41cc-a623-63627e13052b)
