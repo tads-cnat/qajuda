@@ -1,6 +1,6 @@
 from rest_framework import viewsets, status
-from .models import Colaborador_acao, Acao
-from .serializers import SolicitacaoSerializer, AcaoSerializer
+from .models import Colaborador_acao, Acao, Colaborador, Status
+from .serializers import SolicitacaoSerializer, AcaoSerializer, ColaboradorSerializer, SolicitacaoColaboradorSerializer
 from rest_framework.decorators import action
 from rest_framework.response import Response
 
@@ -8,9 +8,17 @@ class AcaoViewSet(viewsets.ModelViewSet):
     queryset = Acao.objects.all()
     serializer_class = AcaoSerializer
 
+class ColaboradorViewSet(viewsets.ModelViewSet):
+    queryset = Colaborador.objects.all()
+    serializer_class = ColaboradorSerializer
+
+class AcaoSolicitacaoViewSet(viewsets.ModelViewSet):
+    queryset = Colaborador_acao.objects.select_related('colaborador')
+    serializer_class = SolicitacaoColaboradorSerializer
+
 class SolicitacaoViewSet(viewsets.ModelViewSet):
-    queryset = Solicitacao.objects.all()
-    serializer_class = SolicitacaoSerializer
+    queryset = Colaborador_acao.objects.all()
+    serializer_class = SolicitacaoSerializer, ColaboradorSerializer
 
     @action(detail=True, methods=['POST'])
     def aceitar_solicitacao(self, request, pk=None):

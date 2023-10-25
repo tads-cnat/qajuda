@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include, re_path
-from APIQAjuda.views import SolicitacaoViewSet, AcaoViewSet
+from APIQAjuda.views import SolicitacaoViewSet, AcaoViewSet, ColaboradorViewSet, AcaoSolicitacaoViewSet
 from rest_framework import routers
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
@@ -32,6 +32,8 @@ schema_view = get_schema_view(
 router = routers.DefaultRouter()
 router.register(r'solicitacoes', SolicitacaoViewSet)
 router.register(r'acoes', AcaoViewSet)
+router.register(r'colaboradores', ColaboradorViewSet)
+router.register(r'acao_solicitacao_colaboradores', AcaoSolicitacaoViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -39,4 +41,5 @@ urlpatterns = [
     path('api-auth', include('rest_framework.urls', namespace='rest_framework')),
     re_path(r'^swagger(?P<format>\.json|\.yaml)$', schema_view.without_ui(cache_timeout=0), name='schema-json'),
     path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
+    path('api/acao/<int:acao_id>/solicitacao/', AcaoSolicitacaoViewSet.as_view(actions={"get": "acao_id"}), name='acao_solicitacao_colaboradores'),
 ]
