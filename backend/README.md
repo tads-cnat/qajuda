@@ -36,7 +36,7 @@ cd qajuda
 python -m venv venv
 
 # Faça a ativação do ambiente virtual
-venv\Script\activate.bat
+venv\Scripts\activate.bat
 
 # Instale as dependencias do projeto
 pip install -r requirements.txt
