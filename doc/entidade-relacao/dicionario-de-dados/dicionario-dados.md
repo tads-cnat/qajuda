@@ -44,10 +44,10 @@ Descrição:
 | id_acao | identificacao da acao (tabela acao) | int | | fk |
 | id_colaborador | identificacao da colaborador (tabela colaborador) | int | | fk |
 | convite | status do convite | int | | |
-| data_convite | data do convite | datetime | | not null |
-| data_solicitacao | data da solicitação | datetime | | not null |
+| data_convite | data do convite | datetime | | |
+| data_solicitacao | data da solicitação | datetime | | |
 | solicitacao | status da solicitação | int | | |
-| data_responsavel | data que se tornou responsavel | datetime | | not null |
+| data_responsavel | data que se tornou responsavel | datetime | | |
 | responsavel | status do responsavel | int | | |
 | criador | status do criador | int | | |
 
