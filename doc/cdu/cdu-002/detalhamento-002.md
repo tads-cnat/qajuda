@@ -1,4 +1,4 @@
-# CDU002. Cadastro do Voluntário em uma ação
+# CDU002. Voluntariar em uma ação
 
 - **Ator principal**: Colaborador
 - **Atores secundários**: Responsável, voluntário
@@ -11,7 +11,7 @@
 | Ações do ator | Ações do sistema |
 | :-----------------: | :-----------------: | 
 | 1 - Colaborador clica no botão para se tornar um voluntário | |  
-| | 2 - Sistema exibe nova página com o termo de aceitação do colaborador, confirmando que irá disponibilizar para o proprietário da ação alguns de seus dados | 
+| | 2 - Sistema exibe nova página com o termo de aceitação do colaborador, confirmando que irá disponibilizar para o responsável da ação alguns de seus dados | 
 | 3 - Colaborador clica no botão para confirmar que quer ser voluntário | |  
 | | 4 - Sistema registra a solicitação para aprovação e retorna para página inicial do caso de uso |
 

@@ -1,4 +1,4 @@
-# CDU003. Visualizar Ações
+# CDU003. Visualizar Ação
 
 - **Ator principal**: Visitante
 - **Atores secundários**: Colaborador, voluntário, responsável
