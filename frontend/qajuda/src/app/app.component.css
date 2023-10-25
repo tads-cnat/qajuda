@@ -1,0 +1,15 @@
+/* * {
+    box-sizing: border-box;
+    margin: 0;
+} */
+
+
+section h1 {
+    padding-left: 12px;
+}
+
+#destaques {
+    max-width: 1080px;
+    margin: 0 auto;
+}
+
