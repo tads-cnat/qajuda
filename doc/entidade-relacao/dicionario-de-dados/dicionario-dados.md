@@ -49,7 +49,7 @@ Descrição:
 | solicitacao | status da solicitação | int | | |
 | data_responsavel | data que se tornou responsavel | datetime | | |
 | responsavel | status do responsavel | int | | |
-| criador | status do criador | int | | |
+
 
 Tabela: Categoria  
 Descrição: Contém os tipos em que se enquadram as ações de voluntariado, como mutirões, aulas, etc.
