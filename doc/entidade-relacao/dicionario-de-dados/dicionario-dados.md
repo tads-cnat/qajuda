@@ -32,7 +32,7 @@ Descrição: Contém as informações sobre as ações de voluntariado
 | criada_em | data de criação da ação virtual no sistema | datetime | | not null |
 | descricao | detalha informações da ação | varchar | 200 | not null |
 | inicio | data de início | datetime | | not null |
-| fim | data de finalização | datetime | | not null |
+| fim | data de finalização | datetime | | |
 | categoria | indica (tabela) categoria que se enquadra a ação | int | | fk |
 | criador | indica usuario criador (tabela Usuario) | int | | fk |
 
@@ -56,7 +56,7 @@ Descrição: Contém os tipos em que se enquadram as ações de voluntariado, co
 | Nome | Descrição | Tipo de dados | Tamanho | Restrições de Integridade |
 | ----- | ----- | ----- | ----- | ----- | 
 | id | número de identificação do usuário | int | | pk |
-| nome | tipo de categoria | varchar | 15 | not null |
+| nome | tipo de categoria | varchar | 100 | not null |
 
 Tabela: Prefencia  
 Descrição: Contém as categorias e temas de ações de voluntariado de interesse do usuário
