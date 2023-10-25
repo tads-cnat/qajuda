@@ -35,14 +35,14 @@ cd qajuda
 # crie o ambiente virtual do python
 python -m venv venv
 
-# Faça a ativação do ambiente virtual
+# Faça a ativação do ambiente virtual (em caso de erro utilize o arquivo sem a extensão .bat)
 venv\Scripts\activate.bat
 
 # Instale as dependencias do projeto
-pip install -r requirements.txt
+pip install -r backend/requirements.txt
 
 # Entre na pasta raiz da aplicação
-cd QAjudaBackend
+cd backend/QAjudaBackend
 
 # Rode o servidor 
 python manage.py runserver
