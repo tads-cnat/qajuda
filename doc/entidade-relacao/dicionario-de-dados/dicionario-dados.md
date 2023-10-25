@@ -56,7 +56,7 @@ Descrição: Contém os tipos em que se enquadram as ações de voluntariado, co
 | Nome | Descrição | Tipo de dados | Tamanho | Restrições de Integridade |
 | ----- | ----- | ----- | ----- | ----- | 
 | id | número de identificação do usuário | int | | pk |
-| nome | tipo de categoria | varchar | 15 | not null |
+| nome | tipo de categoria | varchar | 100 | not null |
 
 Tabela: Prefencia  
 Descrição: Contém as categorias e temas de ações de voluntariado de interesse do usuário
