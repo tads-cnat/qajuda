@@ -1,5 +1,5 @@
 from django.http import JsonResponse
-from .models import Acao, Solicitacao, Usuario
+from .models import Acao, Colaborador_acao, Usuario
 
 
 

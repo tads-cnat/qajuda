@@ -1,5 +1,5 @@
 from rest_framework import viewsets, status
-from .models import Solicitacao, Acao
+from .models import Colaborador_acao, Acao
 from .serializers import SolicitacaoSerializer, AcaoSerializer
 from rest_framework.decorators import action
 from rest_framework.response import Response
