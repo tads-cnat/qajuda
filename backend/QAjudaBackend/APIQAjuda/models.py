@@ -1,3 +1,4 @@
+from django.utils import timezone
 from django.db import models
 from enum import Enum
 from django.utils.translation import gettext_lazy as _
@@ -15,7 +16,10 @@ class Categoria(models.Model):
 
 
 class Colaborador(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE, default=1)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, default=1) # type: ignore
+    # first_name = models.CharField(max_length=15)
+    # last_name = models.CharField(max_length=15)
+    # data_joined = models.DateTimeField(timezone.now()) # type: ignore
     telefone1 = models.CharField(max_length=11)
     telefone2 = models.CharField(max_length=11, null=True, blank=True)
     cidade = models.CharField(max_length=15)
@@ -51,7 +55,7 @@ class Acao(models.Model):
         return self.nome
 
     def get_foto(self):
-        for foto in self.foto_set.all():
+        for foto in self.foto_set.all(): # type: ignore
             return foto.foto.url
         return None
 

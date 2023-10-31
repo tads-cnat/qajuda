@@ -76,16 +76,16 @@ WSGI_APPLICATION = 'QAjudaBackend.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-#DATABASES = {
-#    'default': {
-#        'ENGINE': 'django.db.backends.mysql',
-#        'NAME': 'qajudadb',
-#        'USER': 'root',
-#        'PASSWORD': 'qajuda2021',
-#        'HOST':'localhost',
-#        'PORT':'3306',
-#    }
-#}
+'''DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'qajudadb',
+        'USER': 'root',
+        'PASSWORD': 'qajuda2021',
+        'HOST':'0.0.0.0',
+        'PORT':'3306',
+    }
+}'''
 
 # Database sqlite3
 DATABASES = {
