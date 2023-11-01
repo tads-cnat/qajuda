@@ -1,0 +1,32 @@
+.corpo {
+    min-width: 1280px;
+    max-width: 1600px;
+    margin: 0 auto;
+    /* background-color: rgba(128, 128, 128, 0.144); */
+    padding: 0 20px;
+}
+
+.display {
+    display: flex;
+}
+
+h1.titulo {
+    color: #0B2F61;
+    font-size: 2.5em;
+    text-align: center; /* Centraliza o texto horizontalmente */
+    margin: 0;
+    flex: 1; /* Faz com que o texto ocupe o espaço restante à esquerda */
+    padding-top: 50px;
+}
+
+input.botao-voltar {
+    /* Adicione margem direita para posicionar o botão à direita */
+    margin-right: 20px; /* Por exemplo, você pode ajustar a margem conforme necessário */
+    height: 50px;
+    width: 135px;
+    margin-top: 50px;
+    font-size: 1.5em;
+    background-color: #F4D599;
+    border-color: #F4D599;
+    border-radius: 20px;
+}

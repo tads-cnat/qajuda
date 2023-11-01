@@ -32,7 +32,7 @@ Descrição: Contém as informações sobre as ações de voluntariado
 | criada_em | data de criação da ação virtual no sistema | datetime | | not null |
 | descricao | detalha informações da ação | varchar | 200 | not null |
 | inicio | data de início | datetime | | not null |
-| fim | data de finalização | datetime | | not null |
+| fim | data de finalização | datetime | | |
 | categoria | indica (tabela) categoria que se enquadra a ação | int | | fk |
 | criador | indica usuario criador (tabela Usuario) | int | | fk |
 
@@ -44,19 +44,19 @@ Descrição:
 | id_acao | identificacao da acao (tabela acao) | int | | fk |
 | id_colaborador | identificacao da colaborador (tabela colaborador) | int | | fk |
 | convite | status do convite | int | | |
-| data_convite | data do convite | datetime | | not null |
-| data_solicitacao | data da solicitação | datetime | | not null |
+| data_convite | data do convite | datetime | | |
+| data_solicitacao | data da solicitação | datetime | | |
 | solicitacao | status da solicitação | int | | |
-| data_responsavel | data que se tornou responsavel | datetime | | not null |
+| data_responsavel | data que se tornou responsavel | datetime | | |
 | responsavel | status do responsavel | int | | |
-| criador | status do criador | int | | |
+
 
 Tabela: Categoria  
 Descrição: Contém os tipos em que se enquadram as ações de voluntariado, como mutirões, aulas, etc.
 | Nome | Descrição | Tipo de dados | Tamanho | Restrições de Integridade |
 | ----- | ----- | ----- | ----- | ----- | 
 | id | número de identificação do usuário | int | | pk |
-| nome | tipo de categoria | varchar | 15 | not null |
+| nome | tipo de categoria | varchar | 100 | not null |
 
 Tabela: Prefencia  
 Descrição: Contém as categorias e temas de ações de voluntariado de interesse do usuário

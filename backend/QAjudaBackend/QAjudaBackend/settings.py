@@ -76,6 +76,18 @@ WSGI_APPLICATION = 'QAjudaBackend.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+'''DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'qajudadb',
+        'USER': 'root',
+        'PASSWORD': 'qajuda2021',
+        'HOST':'0.0.0.0',
+        'PORT':'3306',
+    }
+}'''
+
+# Database sqlite3
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -106,9 +118,13 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+#LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+LANGUAGE_CODE = 'pt-br'
+
+TIME_ZONE = 'America/Sao_Paulo'
+
+#TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
