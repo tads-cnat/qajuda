@@ -6,11 +6,10 @@
         </div>
         <div class="info">{{ colab.nome }}</div>
         <div class="info">{{ colab.idade }}</div>
-        <div class="info">{{ colab.telefone }}</div>
         <div class="info">{{ colab.bairro }}</div>
         <div id="botao">
-            <button type="button" class="botao botao-aceitar" (click)="responderSolicitacao('aceito')"></button>
-            <button type="button" class="botao botao-recusar" (click)="responderSolicitacao('rejeitado')"></button>
+            <button type="button" class="botao botao-aceitar" (click)="responderSolicitacao('ACEITO')"></button>
+            <button type="button" class="botao botao-recusar" (click)="responderSolicitacao('REJEITADO')"></button>
         </div>
     </div>
 </div>
