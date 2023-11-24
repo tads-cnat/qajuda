@@ -46,6 +46,9 @@ cd backend/QAjudaBackend
 
 # Rode o servidor 
 python manage.py runserver
+
+# Acesse o Swagger
+
 ```
 
 Tecnologias
