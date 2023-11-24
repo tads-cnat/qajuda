@@ -14,3 +14,8 @@ class ColaboradorAcaoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Colaborador_acao
         fields = '__all__'
+
+class ColabAcaoSerialazer(serializers.ModelSerializer):
+    class Meta:
+        model = Colaborador_acao
+        fields = '__all__'
