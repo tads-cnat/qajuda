@@ -14,4 +14,8 @@ export class AcaoService {
   getAcao(id: number): Observable<Acao> {
     return this.http.get<Acao>(this.url + 'acao/' + id + '/');
   }
+
+  getAcoes(): Observable<Acao[]> {
+    return this.http.get<Acao[]>(this.url + 'acao');
+  }
 }

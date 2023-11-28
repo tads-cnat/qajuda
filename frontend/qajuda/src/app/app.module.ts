@@ -12,6 +12,7 @@ import { HomeComponent } from './views/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DetalheacaoComponent } from './views/detalheacao/detalheacao.component';
 import { AceiteComponent } from './views/aceite/aceite.component';
+import { BuscarComponent } from './views/buscar/buscar.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { AceiteComponent } from './views/aceite/aceite.component';
     HomeComponent,
     DetalheacaoComponent,
     AceiteComponent,
+    BuscarComponent,
   ],
   imports: [
     BrowserModule,
