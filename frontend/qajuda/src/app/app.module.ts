@@ -11,6 +11,7 @@ import { CardcolaboradorComponent } from './shared/cardcolaborador/cardcolaborad
 import { HomeComponent } from './views/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DetalheacaoComponent } from './views/detalheacao/detalheacao.component';
+import { AceiteComponent } from './views/aceite/aceite.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { DetalheacaoComponent } from './views/detalheacao/detalheacao.component'
     CardcolaboradorComponent,
     HomeComponent,
     DetalheacaoComponent,
+    AceiteComponent,
   ],
   imports: [
     BrowserModule,
