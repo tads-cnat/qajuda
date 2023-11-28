@@ -10,6 +10,7 @@ import { AprovarvoluntarioComponent } from './views/aprovarvoluntario/aprovarvol
 import { CardcolaboradorComponent } from './shared/cardcolaborador/cardcolaborador.component';
 import { HomeComponent } from './views/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
+import { DetalheacaoComponent } from './detalheacao/detalheacao.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { HttpClientModule } from '@angular/common/http';
     AprovarvoluntarioComponent,
     CardcolaboradorComponent,
     HomeComponent,
+    DetalheacaoComponent,
   ],
   imports: [
     BrowserModule,
