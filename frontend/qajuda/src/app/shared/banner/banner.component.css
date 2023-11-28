@@ -1,6 +1,7 @@
 section {
-    min-width: 1280px;
-    max-width: 1600px;
+    width: 1280;
+    /* min-width: 1080px;
+    max-width: 1400px; */
 }
 
 #corpo {
@@ -13,11 +14,15 @@ section {
 }
 
 .banner {
-    position: relative; /* Define a posição relativa para permitir o posicionamento absoluto das divs filhas */
+    display: flex; /* Adiciona display: flex; */
+    align-items: center; /* Centraliza verticalmente */
+    justify-content: center; /* Centraliza horizontalmente */
+    position: relative; 
     width: 100%;
-    height: 500px;
+    height: 550px; 
     background-image: url(../../../assets/mural/roupa.jpg);
     background-size: cover;
+    margin: 0 auto;
 }
 
 .detalhe-banner {

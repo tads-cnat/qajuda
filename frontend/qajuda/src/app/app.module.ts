@@ -7,7 +7,8 @@ import { MenuComponent } from './shared/menu/menu.component';
 import { BannerComponent } from './shared/banner/banner.component';
 import { CardDestaqueComponent } from './shared/card-destaque/card-destaque.component';
 import { AprovarvoluntarioComponent } from './views/aprovarvoluntario/aprovarvoluntario.component';
-import { CardcolaboradorComponent } from './views/cardcolaborador/cardcolaborador.component';
+import { CardcolaboradorComponent } from './shared/cardcolaborador/cardcolaborador.component';
+import { HomeComponent } from './views/home/home.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { CardcolaboradorComponent } from './views/cardcolaborador/cardcolaborado
     BannerComponent,
     CardDestaqueComponent,
     AprovarvoluntarioComponent,
-    CardcolaboradorComponent
+    CardcolaboradorComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

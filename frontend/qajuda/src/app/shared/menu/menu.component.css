@@ -11,15 +11,17 @@ body {
 }
 
 .menu-container {
-    max-width: 1080px; /* Define a largura máxima do conteúdo do menu */
-    margin: 0 auto; /* Centraliza o conteúdo do menu na tela */
+    width: 1280px;
+    /* min-width: 1080px;
+    max-width: 1400px; */
+    margin: 0 auto;
 }
 
 .menu-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0px 10px;
+    padding: 0 10px;
 }
 
 .logo {
