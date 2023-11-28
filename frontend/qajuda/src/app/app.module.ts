@@ -9,6 +9,11 @@ import { CardDestaqueComponent } from './shared/card-destaque/card-destaque.comp
 import { AprovarvoluntarioComponent } from './views/aprovarvoluntario/aprovarvoluntario.component';
 import { CardcolaboradorComponent } from './shared/cardcolaborador/cardcolaborador.component';
 import { HomeComponent } from './views/home/home.component';
+import { HttpClientModule } from '@angular/common/http';
+import { DetalheacaoComponent } from './views/detalheacao/detalheacao.component';
+import { AceiteComponent } from './views/aceite/aceite.component';
+import { BuscarComponent } from './views/buscar/buscar.component';
+import { RodapeComponent } from './shared/rodape/rodape.component';
 
 @NgModule({
   declarations: [
@@ -18,11 +23,16 @@ import { HomeComponent } from './views/home/home.component';
     CardDestaqueComponent,
     AprovarvoluntarioComponent,
     CardcolaboradorComponent,
-    HomeComponent
+    HomeComponent,
+    DetalheacaoComponent,
+    AceiteComponent,
+    BuscarComponent,
+    RodapeComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

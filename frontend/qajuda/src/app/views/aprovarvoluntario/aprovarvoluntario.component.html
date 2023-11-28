@@ -1,8 +1,23 @@
-<!-- <app-menu></app-menu> -->
-<article class="corpo display">
-    <h1 class="titulo">Lista de voluntários pendentes</h1>
-    <input type="button" class="botao-voltar" value="Voltar">
-</article>
-<section class="corpo lista-colaboradores">
-    <app-cardcolaborador></app-cardcolaborador>
+<section class="container">
+    <div class="d-flex align-items-center">
+        <h2 class="p-2 w-100">Lista de voluntários pendentes</h2>
+        <button type="button" class="btn btn-primary btn-lg p-2 flex-shrink-1">Voltar</button>
+    </div>
+        
+    <div>
+        <div class="d-flex justify-content-between align-items-center  cartao" *ngFor="let colab of colaboradores" >
+            <div class="foto col-1">
+                <!-- Sua imagem redonda aqui -->
+            </div>
+            <div class="info col-3">{{ colab.nome }}</div>
+            <div class="info col-3">{{ colab.idade }} anos</div>
+            <div class="info col-3">{{ colab.bairro }}</div>
+            <div id="botao col-2">
+                <button type="button" class="botao botao-aceitar"></button>
+                <button type="button" class="botao botao-recusar"></button>
+            </div>
+        </div>
+    </div>
 </section>
+
+

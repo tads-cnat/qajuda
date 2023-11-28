@@ -1,17 +1,19 @@
-<div class="menu">
-    <div class="menu-container">
-        <div class="menu-content">
-            <a routerLink="/"><div class="logo"></div></a>
-            <input type="text" class="search" placeholder="Procure por uma ação">
-            <div class="buttons">
-                <button class="button">Quem somos</button>
-                <button class="button">Criar Ação</button>
-                <div class="right-menu">
-                    <a href="#">Cadastro</a>
-                    <br>
-                    <a href="#">Login</a>
-                </div>
-            </div>
-        </div>
+<nav class="navbar bg-body-tertiary">
+    <div class="container">
+      <a class="navbar-brand" routerLink="/">
+        <img src="../../../assets/logo/logoqajuda.png" alt="Bootstrap" width="85" height="60">
+      </a>
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Procure por uma ação" aria-label="Search">
+        <!-- Botão buscar levando pra rota do buscar temporariamente -->
+        <button class="btn btn-outline-success" type="submit" routerLink="/buscar">procurar</button>
+      </form>
+      <button type="button" class="btn btn-primary btn-lg">Quem Somos</button>
+      <button type="button" class="btn btn-primary btn-lg">Criar Ação</button>
+      <div class="right-menu">
+        <a href="#">Cadastro</a>
+        <br>
+        <a href="#">Login</a>
     </div>
-  </div>
+    </div>
+  </nav>
