@@ -97,6 +97,18 @@
             "foto": "sem foto",
             "nome": "Aulas para idosos",
             "categoria": "Aula"
+        },
+        {
+            "id": 5,
+            "foto": "sem foto",
+            "nome": "Testando tamanho do título",
+            "categoria": "Teste"
+        },
+        {
+            "id": 6,
+            "foto": "sem foto",
+            "nome": "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+            "categoria": "Alfabeto"
         }
     ]
 }
