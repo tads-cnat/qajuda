@@ -13,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { DetalheacaoComponent } from './views/detalheacao/detalheacao.component';
 import { AceiteComponent } from './views/aceite/aceite.component';
 import { BuscarComponent } from './views/buscar/buscar.component';
+import { RodapeComponent } from './shared/rodape/rodape.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { BuscarComponent } from './views/buscar/buscar.component';
     DetalheacaoComponent,
     AceiteComponent,
     BuscarComponent,
+    RodapeComponent,
   ],
   imports: [
     BrowserModule,
