@@ -46,26 +46,28 @@
       <!-- Card de ações em destaques -->
 
       <div id="destaques" >
-            <h3>Ações em destaque</h3>
-            <div class="card-group grid pt-4">
-                <div class="card">
-                  <a href="#"><img src="../../../assets/mural/aula.jpg" class="card-img-top" style="height: 300px;" alt="..."></a>
-                  <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                  </div>
-                </div>
-                <div class="card">
-                  <a href="#"><img src="../../../assets/mural/alfabetizacao.jpg" class="card-img-top" style="height: 300px;" alt="..."></a>
-                  <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                  </div>
-                </div>
-                <div class="card">
-                  <a href="#"><img src="../../../assets/mural/limpeza-de-praia.jpg" class="card-img-top" style="height: 300px;" alt="..."></a>
-                  <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                  </div>
-                </div>
-              </div>
+        <h3>Ações em destaque</h3>
+        <div class="card-group grid pt-4" >
+          <div class="card" *ngFor="let acao of acoes.slice(0, 3)">
+            <a href="#"><img src="../../../assets/mural/aula.jpg" class="card-img-top" style="height: 300px;" alt="..."></a>
+            <div class="card-body">
+              <h5 class="card-title">{{ acao.nome }}</h5>
+              <h6>{{ acao.categoria }}</h6>
+            </div>
+          </div>
         </div>
+
+      <div id="destaques">
+        <h3>Novas iniciativas</h3>
+        <div class="card-group grid pt-4" >
+          <div class="card" *ngFor="let acao of acoes.slice(1, 4)">
+            <a href="#"><img src="../../../assets/mural/limpeza-de-praia.jpg" class="card-img-top" style="height: 300px;" alt="..."></a>
+            <div class="card-body">
+              <h5 class="card-title">{{ acao.nome }}</h5>
+              <h6>{{ acao.categoria }}</h6>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 </section>

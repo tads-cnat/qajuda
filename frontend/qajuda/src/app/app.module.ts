@@ -9,6 +9,7 @@ import { CardDestaqueComponent } from './shared/card-destaque/card-destaque.comp
 import { AprovarvoluntarioComponent } from './views/aprovarvoluntario/aprovarvoluntario.component';
 import { CardcolaboradorComponent } from './shared/cardcolaborador/cardcolaborador.component';
 import { HomeComponent } from './views/home/home.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,11 +19,12 @@ import { HomeComponent } from './views/home/home.component';
     CardDestaqueComponent,
     AprovarvoluntarioComponent,
     CardcolaboradorComponent,
-    HomeComponent
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
