@@ -109,6 +109,25 @@
             "foto": "sem foto",
             "nome": "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
             "categoria": "Alfabeto"
+        },
+        {
+            "id": 7,
+            "foto": "sem foto",
+            "nome": "Mutirão de doação de roupas de frio para o inverno",
+            "categoria": "Mutirão"
+        }
+    ], 
+    "acao": [
+        {
+            "id": 1,
+            "foto": "sem foto",
+            "nome": "Mutirão de doação de roupas de frio para o inverno",
+            "responsavel": "Tia lila",
+            "descricao": "O mutirão de doação de roupas de frio para o inverno surgiu  em 2016 na Igreja São José com o propósito de arrecadar roupas de frio para serem  doadas à pessoas em situação de rua. O projeto já ajudou mais de 350 pessoas em situação de rua a poder passar pelos dias frios e chuvosos dessa época com um pouco mais de conforto.",
+            "categoria": "Mutirão",
+            "local": "Instituto Federal de Ciência e Tecnologia do Rio Grande do Norte",
+            "data": "30/11/2023",
+            "hora": "09:00"
         }
     ]
 }

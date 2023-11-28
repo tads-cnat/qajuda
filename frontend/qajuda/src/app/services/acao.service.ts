@@ -1,19 +1,17 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { CardDestaque } from '../models/carddestaque';
 import { Observable } from 'rxjs';
+import { Acao } from '../models/acao';
 
 @Injectable({
   providedIn: 'root'
 })
-export class CardacoesService {
+export class AcaoService {
   url = 'http://localhost:3000/';
-
+  
   constructor(private http: HttpClient) { }
 
-  getAcoes(): Observable<CardDestaque[]> {
-    return this.http.get<CardDestaque[]>(this.url + 'carddestaque');
+  getAcao(id: number): Observable<Acao> {
+    return this.http.get<Acao>(this.url + 'acao/' + id + '/');
   }
-
-  
 }
