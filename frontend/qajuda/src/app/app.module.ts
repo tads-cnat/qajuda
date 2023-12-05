@@ -7,7 +7,13 @@ import { MenuComponent } from './shared/menu/menu.component';
 import { BannerComponent } from './shared/banner/banner.component';
 import { CardDestaqueComponent } from './shared/card-destaque/card-destaque.component';
 import { AprovarvoluntarioComponent } from './views/aprovarvoluntario/aprovarvoluntario.component';
-import { CardcolaboradorComponent } from './views/cardcolaborador/cardcolaborador.component';
+import { CardcolaboradorComponent } from './shared/cardcolaborador/cardcolaborador.component';
+import { HomeComponent } from './views/home/home.component';
+import { HttpClientModule } from '@angular/common/http';
+import { DetalheacaoComponent } from './views/detalheacao/detalheacao.component';
+import { AceiteComponent } from './views/aceite/aceite.component';
+import { BuscarComponent } from './views/buscar/buscar.component';
+import { RodapeComponent } from './shared/rodape/rodape.component';
 
 @NgModule({
   declarations: [
@@ -16,11 +22,17 @@ import { CardcolaboradorComponent } from './views/cardcolaborador/cardcolaborado
     BannerComponent,
     CardDestaqueComponent,
     AprovarvoluntarioComponent,
-    CardcolaboradorComponent
+    CardcolaboradorComponent,
+    HomeComponent,
+    DetalheacaoComponent,
+    AceiteComponent,
+    BuscarComponent,
+    RodapeComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
