@@ -1,0 +1,12 @@
+<div class="destaques-container">
+    <!-- Utilize o comando *ngFor para iterar sobre os itens da API -->
+
+    <!-- <div> Tem que criar uma div maior que receba o nome da ação abaixo-->
+        <div *ngFor="let acao of acoes" class="acao-item">
+            <div class="acao-imagem" [style.background-image]="'url(' + acao + ')'">imagem</div>
+            <div class="acao-info">
+                <div class="acao-tipo">{{ acao }} categoria</div>
+            </div>
+        </div>
+    <!-- </div> -->
+</div>

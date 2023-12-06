@@ -1,6 +1,6 @@
 from rest_framework import viewsets, status, generics
 from .models import Colaborador_acao, Acao, Colaborador, Status
-from .serializers import ColaboradorAcaoSerializer
+from .serializers import ColaboradorAcaoSerializer, ColabAcaoSerialazer
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from django.db.models import F, ExpressionWrapper, BooleanField
@@ -26,3 +26,8 @@ class SolicitacoesEmAbertoView(generics.ListAPIView):
             instance.solicitacao = 'R'
             instance.save()
             return Response({'status': 'Solicitação recusada'})
+
+class ColaboradorAcaoViewSet(viewsets.ModelViewSet):
+    queryset = Colaborador_acao.objects.all()
+    serializer_class = SolicitacaoColaboradorSerializer
+
