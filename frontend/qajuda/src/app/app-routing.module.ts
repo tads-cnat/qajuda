@@ -5,6 +5,7 @@ import { AprovarvoluntarioComponent } from './views/aprovarvoluntario/aprovarvol
 import { DetalheacaoComponent } from './views/detalheacao/detalheacao.component';
 import { AceiteComponent } from './views/aceite/aceite.component';
 import { BuscarComponent } from './views/buscar/buscar.component';
+import { CriaracaoComponent } from './views/criaracao/criaracao.component';
 
 const routes: Routes = [
   { path: "", component: HomeComponent },
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: "detalhe", component: DetalheacaoComponent }, //Implementar com caminho
   { path: "aceite", component: AceiteComponent},
   { path: "buscar", component: BuscarComponent },
+  { path: "criaracao", component: CriaracaoComponent  },
 ];
 
 @NgModule({
