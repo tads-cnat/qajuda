@@ -30,10 +30,11 @@ schema_view = get_schema_view(
 )
 
 router = routers.DefaultRouter()
-'''router.register(r'solicitacoes', SolicitacaoViewSet)
+#router.register(r'solicitacoes', SolicitacaoViewSet)
 router.register(r'acoes', AcaoViewSet)
-router.register(r'colaboradores', ColaboradorViewSet)
-router.register(r'acao_solicitacao_colaboradores', AcaoSolicitacaoViewSet)'''
+router.register(r'carddestaque', CardDestaqueSet)
+#router.register(r'colaboradores', ColaboradorViewSet)
+#router.register(r'acao_solicitacao_colaboradores', AcaoSolicitacaoViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
