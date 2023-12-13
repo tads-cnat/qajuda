@@ -12,7 +12,7 @@ export class CriaracaoComponent {
   acao: Acao = {nome:'', foto:'sem foto', responsavel:'', descricao:'', categoria:'', local:'', data:'', hora:''}
   acoes: Acao[] = [];
 
-  ngOnInitSubmit (acaoForm : NgForm){
+  OnSubmit (acaoForm : NgForm){
     this.acao.nome = acaoForm.value.nome;
     //this.acao.foto = acaoForm.value.foto;
     this.acao.responsavel = acaoForm.value.responsavel;
