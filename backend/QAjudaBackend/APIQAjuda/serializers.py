@@ -1,12 +1,6 @@
 from pyexpat import model
 from rest_framework import serializers
-from .models import Colaborador, Acao, Colaborador_acao, Foto, Categoria 
-
-class ColaboradorSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Colaborador
-        #fields = ('user', 'telefone1', 'bairro')
-        fields = '__all__'
+from .models import *
 
 class ColaboradorAcaoSerializer(serializers.ModelSerializer):
     aceitar_solicitacao = serializers.BooleanField(write_only=True, required=False)
@@ -14,32 +8,40 @@ class ColaboradorAcaoSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Colaborador_acao
-        fields = '__all__'
+        fields = '_all_'
+
+class CategoriaSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Categoria
+        fields = '_all_'
+
+class ColaboradorSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Colaborador
+        fields = '_all_'
 
 class AcaoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Acao
-        fields = '__all__'
+        fields = '_all_'
 
 class FotoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Foto
-        fields = '__all__'
+        fields = '_all_'
 
-class CardDestaqueSerializer(serializers.Serializer):
+class ColaboradorAcaoSerializer2(serializers.ModelSerializer):
     acao = AcaoSerializer()
     colaborador = ColaboradorSerializer()
 
-    def create(self, validated_data):
-        acao = validated_data.pop('acao_data')
-        colaborador = validated_data.pop('colaborador_data')
+    class Meta:
+        model = Colaborador_acao
+        fields = '_all_'
 
-        acao_instance = acao.objects.create(**acao)
-        colaborador_instance = colaborador.objects.create(**colaborador)
+class CardDestaqueSerializer(serializers.ModelSerializer):
+    criador = ColaboradorSerializer()
+    categoria = CategoriaSerializer()
 
-        # Faça o que for necessário com as instâncias criadas
-
-        return {
-            'acao_instance': acao_instance,
-            'colaborador_instance': colaborador_instance,
-        }
+    class Meta:
+        model = Acao
+        fields = '_all_'

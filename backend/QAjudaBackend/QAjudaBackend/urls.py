@@ -1,7 +1,7 @@
 """
 URL configuration for QAjudaBackend project.
 
-The `urlpatterns` list routes URLs to views. For more information please see:
+The urlpatterns list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.2/topics/http/urls/
 Examples:
 Function views
@@ -71,14 +71,6 @@ urlpatterns = [
     path('card_destaque/<int:id>/', CardDestaqueViewSet.as_view(
         {'get':'read', 'put':'update', 'patch':'update', 'delete':'delete'}
         ), name='card_destaque'),
-
-    # Rota CD
-    path('cd/', CDViewSet.as_view(
-        {'get':'list', 'post':'create'}
-        ), name='cd'),
-    path('cd/<int:id>/', CDViewSet.as_view(
-        {'get':'read', 'put':'update', 'patch':'update', 'delete':'delete'}
-        ), name='cd'),
     
     path('api-auth', include('rest_framework.urls', namespace='rest_framework')),
     re_path(r'^swagger(?P<format>\.json|\.yaml)$', schema_view.without_ui(cache_timeout=0), name='schema-json'),

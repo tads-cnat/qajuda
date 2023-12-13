@@ -7,8 +7,8 @@ from django.utils.safestring import mark_safe
 
 class Categoria(models.Model):
     nome = models.CharField(max_length=100)
-
-    def __str__(self):
+    
+    def _str_(self):
         return self.nome
 
     class Meta:
@@ -28,7 +28,7 @@ class Colaborador(models.Model):
     bio = models.TextField(max_length=100)
     categoria = models.ManyToManyField(Categoria, null=True, blank=True)
 
-    def __str__(self):
+    def _str_(self):
         return self.user.username
 
     class Meta:
@@ -51,7 +51,7 @@ class Acao(models.Model):
     categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
     criador = models.OneToOneField(Colaborador, on_delete=models.CASCADE)
 
-    def __str__(self):
+    def _str_(self):
         return self.nome
 
     def get_foto(self):
@@ -83,7 +83,7 @@ class Colaborador_acao(models.Model):
     data_responsavel = models.DateTimeField(null=True, blank=True)
     #criador = models.BooleanField(null=True, blank=True) # Criador: True, Não criador: False # removido por gerar conflito de integridade
 
-    def __str__(self):
+    def _str_(self):
         relacao = " -> não tem relação -> "
         status = ""
         if self.convite != None: 
@@ -105,7 +105,7 @@ class Foto(models.Model):
     foto = models.ImageField(upload_to='media/imagensacoes', null=True, blank=True)
     acao = models.ForeignKey(Acao, on_delete=models.CASCADE)
 
-    def __str__(self):
+    def _str_(self):
         return self.acao.nome
 
     class Meta:

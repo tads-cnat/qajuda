@@ -1,6 +1,6 @@
 from rest_framework import viewsets, status, generics
-from .models import Colaborador_acao, Acao, Colaborador, Status
-from .serializers import ColaboradorAcaoSerializer, AcaoSerializer, CardDestaqueSerializer
+from .models import *
+from .serializers import *
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from django.db.models import F, ExpressionWrapper, BooleanField
@@ -31,6 +31,14 @@ class AcaoViewSet(viewsets.ModelViewSet):
     queryset = Acao.objects.all()
     serializer_class = AcaoSerializer
 
-class CardDestaqueSet(viewsets.ModelViewSet):
-    queryset = Colaborador_acao.objects.all().select_related('acao').select_related('colaborador').filter(solicitacao=Status.EM_ESPERA.value)
+class ColaboradorViewSet(viewsets.ModelViewSet):
+    queryset = Colaborador.objects.all()
+    serializer_class = ColaboradorSerializer
+
+class ColaboradorAcaoViewSet2(viewsets.ModelViewSet):
+    queryset = Colaborador_acao.objects.all().select_related('colaborador').select_related('acao')#.filter(solicitacao=Status.EM_ESPERA.value)
+    serializer_class = ColaboradorAcaoSerializer2
+
+class CardDestaqueViewSet(viewsets.ModelViewSet):
+    queryset = Acao.objects.all().select_related('criador').select_related('categoria')
     serializer_class = CardDestaqueSerializer
