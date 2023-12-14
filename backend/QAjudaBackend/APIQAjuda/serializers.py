@@ -2,12 +2,22 @@ from pyexpat import model
 from rest_framework import serializers
 from .models import *
 
-class ColaboradorAcaoSerializer(serializers.ModelSerializer):
-    aceitar_solicitacao = serializers.BooleanField(write_only=True, required=False)
-    recusar_solicitacao = serializers.BooleanField(write_only=True, required=False)
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ['first_name', 'last_name', 'email']
+
+
+class FotoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Foto
+        fields = '__all__'
+
+class ColaboradorSerializer(serializers.ModelSerializer):
+    user = UserSerializer()
 
     class Meta:
-        model = Colaborador_acao
+        model = Colaborador
         fields = '__all__'
 
 class CategoriaSerializer(serializers.ModelSerializer):
@@ -15,33 +25,25 @@ class CategoriaSerializer(serializers.ModelSerializer):
         model = Categoria
         fields = '__all__'
 
-class ColaboradorSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Colaborador
-        fields = '__all__'
-
 class AcaoSerializer(serializers.ModelSerializer):
+    categoria = CategoriaSerializer()
+    foto = FotoSerializer()
     class Meta:
         model = Acao
         fields = '__all__'
 
-class FotoSerializer(serializers.ModelSerializer):
+class CardDestaqueSerializer(serializers.ModelSerializer):
+    categoria = CategoriaSerializer()
+    criador = ColaboradorSerializer()
+
     class Meta:
-        model = Foto
+        model = Acao
         fields = '__all__'
 
-class ColaboradorAcaoSerializer2(serializers.ModelSerializer):
+class ColaboradorAcaoSerializer(serializers.Serializer):
     acao = AcaoSerializer()
     colaborador = ColaboradorSerializer()
 
     class Meta:
         model = Colaborador_acao
-        fields = '__all__'
-
-class CardDestaqueSerializer(serializers.ModelSerializer):
-    criador = ColaboradorSerializer()
-    categoria = CategoriaSerializer()
-
-    class Meta:
-        model = Acao
         fields = '__all__'

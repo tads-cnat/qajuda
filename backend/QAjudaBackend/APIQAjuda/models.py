@@ -4,15 +4,27 @@ from enum import Enum
 from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.models import User, AbstractBaseUser, PermissionsMixin
 from django.utils.safestring import mark_safe
+from abc import ABC, abstractmethod
 
 class Categoria(models.Model):
     nome = models.CharField(max_length=100)
-    
-    def _str_(self):
+
+    def __str__(self):
         return self.nome
 
     class Meta:
         verbose_name_plural = 'Categorias'
+
+
+class Foto(models.Model):
+    foto = models.ImageField(upload_to='media', default='limpeza-praia.jpg')
+    nome = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.nome
+
+    class Meta:
+        verbose_name_plural = 'Fotos'
 
 
 class Colaborador(models.Model):
@@ -28,8 +40,11 @@ class Colaborador(models.Model):
     bio = models.TextField(max_length=100)
     categoria = models.ManyToManyField(Categoria, null=True, blank=True)
 
-    def _str_(self):
-        return self.user.username
+    def __str__(self):
+        if self.user.first_name == None:
+            return self.user.username
+        else:
+            return self.user.first_name
 
     class Meta:
         verbose_name_plural = 'Colaboradores'
@@ -50,8 +65,9 @@ class Acao(models.Model):
     avaliacao = models.IntegerField(null=True, blank=True)
     categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
     criador = models.OneToOneField(Colaborador, on_delete=models.CASCADE)
+    foto = models.ForeignKey(Foto, on_delete=models.CASCADE)
 
-    def _str_(self):
+    def __str__(self):
         return self.nome
 
     def get_foto(self):
@@ -83,7 +99,7 @@ class Colaborador_acao(models.Model):
     data_responsavel = models.DateTimeField(null=True, blank=True)
     #criador = models.BooleanField(null=True, blank=True) # Criador: True, Não criador: False # removido por gerar conflito de integridade
 
-    def _str_(self):
+    def __str__(self):
         relacao = " -> não tem relação -> "
         status = ""
         if self.convite != None: 
@@ -100,16 +116,6 @@ class Colaborador_acao(models.Model):
     
     class Meta:
         verbose_name_plural = 'Colaboradores_acões'
-
-class Foto(models.Model):
-    foto = models.ImageField(upload_to='media/imagensacoes', null=True, blank=True)
-    acao = models.ForeignKey(Acao, on_delete=models.CASCADE)
-
-    def _str_(self):
-        return self.acao.nome
-
-    class Meta:
-        verbose_name_plural = 'Fotos'
 
 class Notificacao(models.Model):
     titulo = models.CharField(max_length=100)
