@@ -4,8 +4,10 @@ export interface Acao {
     nome: string;
     responsavel: string;
     descricao: string;
-    categoria: string;
+    categoria: {
+        nome: string;
+    }
     local: string;
-    data: string;
-    hora: string;
+    inicio: string;
+    fim: string;
 }
