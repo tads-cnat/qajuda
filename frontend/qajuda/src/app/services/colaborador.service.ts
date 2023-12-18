@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ColaboradorService {
-  url = 'http://localhost:3000/';
+  url = 'http://localhost:3000/'; // trocar para 8000 quando usar api django
 
   constructor(private http: HttpClient) { }
 
