@@ -7,7 +7,7 @@ import { Acao } from '../models/acao';
   providedIn: 'root'
 })
 export class AcaoService {
-  url = 'http://localhost:3000/';
+  url = 'http://localhost:3000/'; // trocar para 8000 quando usar api django
   
   constructor(private http: HttpClient) { }
 

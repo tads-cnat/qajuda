@@ -7,12 +7,12 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class CardacoesService {
-  url = 'http://localhost:3000/';
+  url = 'http://localhost:3000/'; // trocar para 8000 quando usar api django
 
   constructor(private http: HttpClient) { }
 
   getAcoes(): Observable<CardDestaque[]> {
-    return this.http.get<CardDestaque[]>(this.url + 'carddestaque');
+    return this.http.get<CardDestaque[]>(this.url + 'card_destaque');
   }
 
   
