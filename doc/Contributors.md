@@ -65,7 +65,7 @@ Se o JSON Server não estiver instalado globalmente na sua máquina, instale-o u
 2 - Inicie o JSON Server:
 Navegue até o diretório onde está localizado o arquivo db.json (ou qualquer outro arquivo JSON que contenha seus dados simulados) e execute o seguinte comando para iniciar o JSON Server:
 
-`json-server --watch scr/assets/data.json`  
+`json-server --watch src/assets/data.json`  
 
 Certifique-se de ajustar o comando conforme necessário para corresponder ao nome do seu arquivo JSON.
 

@@ -101,7 +101,7 @@
 
     <h3>Ações em destaque</h3>
     <div class="row row-cols-1 row-cols-md-3 g-4">
-      <div class="col" *ngFor="let acao of acoes.slice(2, 5)">
+      <div class="col" *ngFor="let acao of acoes.slice(0, 5)">
         <div class="card">
           <a routerLink="/detalhe"><img src="../../../assets/mural/aula.jpg"
               class="card-img-top"
@@ -117,7 +117,7 @@
 
     <h3>Novas iniciativas</h3>
     <div class="row row-cols-1 row-cols-md-3 g-4">
-      <div class="col" *ngFor="let acao of acoes.slice(2, 7)">
+      <div class="col" *ngFor="let acao of acoes.slice(0, 7)">
         <div class="card">
           <a routerLink="/detalhe"><img src="../../../assets/mural/limpeza-de-praia.jpg"
               class="card-img-top"
