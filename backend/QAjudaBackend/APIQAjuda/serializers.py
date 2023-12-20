@@ -21,13 +21,14 @@ class ColaboradorSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class CategoriaSerializer(serializers.ModelSerializer):
-    class Meta:
+    class Meta:.
         model = Categoria
         fields = '__all__'
 
 class AcaoSerializer(serializers.ModelSerializer):
     categoria = CategoriaSerializer()
     foto = FotoSerializer()
+    criador = ColaboradorSerializer()
     class Meta:
         model = Acao
         fields = '__all__'
