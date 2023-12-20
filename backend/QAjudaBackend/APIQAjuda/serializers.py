@@ -40,7 +40,7 @@ class CardDestaqueSerializer(serializers.ModelSerializer):
         model = Acao
         fields = '__all__'
 
-class ColaboradorAcaoSerializer(serializers.Serializer):
+class ColaboradorAcaoSerializer(serializers.ModelSerializer):
     acao = AcaoSerializer()
     colaborador = ColaboradorSerializer()
 
