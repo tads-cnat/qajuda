@@ -33,47 +33,14 @@ schema_view = get_schema_view(
 
 router = routers.DefaultRouter()
 #router.register(r'solicitacoes', SolicitacaoViewSet)
-#router.register(r'acao', AcaoViewSet)
-#router.register(r'carddestaque', CardDestaqueViewSet)
-#router.register(r'colaborador', ColaboradorViewSet)
-#router.register(r'colaborador_acao2', ColaboradorAcaoViewSet)
+router.register(r'acao', AcaoViewSet)
+router.register(r'card_destaque', CardDestaqueViewSet)
+router.register(r'colaborador', ColaboradorViewSet)
+router.register(r'colaborador_acao', ColaboradorAcaoViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include(router.urls)),
-    
-    # Rota colaborador_acao
-    path('colaborador_acao/', ColaboradorAcaoViewSet.as_view(
-        {'get':'list', 'post':'create'}
-        ), name='colaborador_acao'),
-    path('colaborador_acao/<int:id>/', ColaboradorAcaoViewSet.as_view(
-        {'get':'read', 'put':'update', 'patch':'update', 'delete':'delete'}
-        ), name='colaborador_acao'),
-    
-    # Rota acao
-    path('acao/', AcaoViewSet.as_view(
-        {'get':'list', 'post':'create'}
-        ), name='acao'),
-    path('acao/<int:id>/', AcaoViewSet.as_view(
-        {'get':'read', 'put':'update', 'patch':'update', 'delete':'delete'}
-        ), name='acao'),
-
-    # Rota colaborador
-    path('colaborador/', ColaboradorViewSet.as_view(
-        {'get':'list', 'post':'create'}
-        ), name='colaborador'),
-    path('colaborador/<int:id>/', ColaboradorViewSet.as_view(
-        {'get':'read', 'put':'update', 'patch':'update', 'delete':'delete'}
-        ), name='colaborador'),
-
-    # Rota card_destaque
-    path('card_destaque/', CardDestaqueViewSet.as_view(
-        {'get':'list', 'post':'create'}
-        ), name='card_destaque'),
-    path('card_destaque/<int:id>/', CardDestaqueViewSet.as_view(
-        {'get':'read', 'put':'update', 'patch':'update', 'delete':'delete'}
-        ), name='card_destaque'),
-    
+    path('', include(router.urls)),  
     path('api-auth', include('rest_framework.urls', namespace='rest_framework')),
     re_path(r'^swagger(?P<format>\.json|\.yaml)$', schema_view.without_ui(cache_timeout=0), name='schema-json'),
     path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
