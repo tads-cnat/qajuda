@@ -63,8 +63,9 @@ class Acao(models.Model):
     inicio = models.DateTimeField()
     fim = models.DateTimeField(null=True, blank=True)
     avaliacao = models.IntegerField(null=True, blank=True)
+    qtd_volunt = models.IntegerField(null=True, blank=True, default=0)
     categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
-    criador = models.OneToOneField(Colaborador, on_delete=models.CASCADE)
+    criador = models.ForeignKey(Colaborador, on_delete=models.CASCADE)
     foto = models.ForeignKey(Foto, on_delete=models.CASCADE)
 
     def __str__(self):

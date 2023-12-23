@@ -21,7 +21,7 @@ class ColaboradorSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class CategoriaSerializer(serializers.ModelSerializer):
-    class Meta:.
+    class Meta:
         model = Categoria
         fields = '__all__'
 
