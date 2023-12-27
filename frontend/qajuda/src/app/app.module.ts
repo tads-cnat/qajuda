@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,6 +15,7 @@ import { DetalheacaoComponent } from './views/detalheacao/detalheacao.component'
 import { AceiteComponent } from './views/aceite/aceite.component';
 import { BuscarComponent } from './views/buscar/buscar.component';
 import { RodapeComponent } from './shared/rodape/rodape.component';
+import { CriaracaoComponent } from './views/criaracao/criaracao.component';
 
 @NgModule({
   declarations: [
@@ -28,11 +30,13 @@ import { RodapeComponent } from './shared/rodape/rodape.component';
     AceiteComponent,
     BuscarComponent,
     RodapeComponent,
+    CriaracaoComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule, 
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
