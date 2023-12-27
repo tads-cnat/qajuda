@@ -29,11 +29,21 @@ class SolicitacoesEmAbertoView(generics.ListAPIView):
 
 class AcaoViewSet(viewsets.ModelViewSet):
     queryset = Acao.objects.all()
-    serializer_class = AcaoSerializer
+
+    def get_serializer_class(self):
+        if self.request.method == 'POST' or self.request.method == 'PATCH' or self.request.method == 'PUT':
+            return AcaoBancoSerializer
+        else:
+            return AcaoSerializer
 
 class ColaboradorViewSet(viewsets.ModelViewSet):
     queryset = Colaborador.objects.all()
-    serializer_class = ColaboradorSerializer
+    
+    def get_serializer_class(self):
+        if self.request.method == 'POST' or self.request.method == 'PATCH' or self.request.method == 'PUT':
+            return ColaboradorBancoSerializer
+        else:
+            return ColaboradorSerializer
 
 class CardDestaqueViewSet(viewsets.ModelViewSet):
     queryset = Acao.objects.all().select_related('criador').select_related('categoria').select_related('foto')
@@ -43,4 +53,9 @@ class ColaboradorAcaoViewSet(viewsets.ModelViewSet):
     queryset = Colaborador_acao.objects.all().select_related('acao').select_related('colaborador')
     serializer_class = ColaboradorAcaoSerializer
 
+    def get_serializer_class(self):
+        if self.request.method == 'POST' or self.request.method == 'PATCH' or self.request.method == 'PUT':
+            return ColaboradorAcaoBancoSerializer
+        else:
+            return ColaboradorAcaoSerializer
 

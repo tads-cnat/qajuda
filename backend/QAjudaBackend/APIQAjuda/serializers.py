@@ -1,5 +1,5 @@
 from pyexpat import model
-from rest_framework import serializers
+from rest_framework import fields, serializers
 from .models import *
 
 class UserSerializer(serializers.ModelSerializer):
@@ -47,4 +47,22 @@ class ColaboradorAcaoSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Colaborador_acao
+        fields = '__all__'
+
+class ColaboradorBancoSerializer(serializers.ModelSerializer):
+    
+    class Meta:
+        model = Colaborador
+        fields = '__all__'
+
+class ColaboradorAcaoBancoSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Colaborador_acao
+        fields = '__all__'
+
+class AcaoBancoSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Acao
         fields = '__all__'
