@@ -10,7 +10,7 @@ import { CriaracaoComponent } from './views/criaracao/criaracao.component';
 const routes: Routes = [
   { path: "", component: HomeComponent },
   { path: "aprovarvoluntario", component: AprovarvoluntarioComponent },
-  { path: "detalhe", component: DetalheacaoComponent }, //Implementar com caminho
+  { path: "detalhe/:id", component: DetalheacaoComponent },
   { path: "aceite", component: AceiteComponent},
   { path: "buscar", component: BuscarComponent },
   { path: "criaracao", component: CriaracaoComponent  },
