@@ -19,4 +19,9 @@ export class AcaoService {
   getAcoes(): Observable<Acao[]> {
     return this.http.get<Acao[]>(this.url + 'acao');
   }
+
+  filtrarAcoesPorNome(nome: string): Observable<Acao[]> {
+    const url = `${this.url}acao/?nome__icontains=${nome}`;
+    return this.http.get<Acao[]>(url);
+  }
 }
