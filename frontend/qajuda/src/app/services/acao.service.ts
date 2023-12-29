@@ -16,11 +16,11 @@ export class AcaoService {
   }
 
   getAcoes(): Observable<Acao[]> {
-    return this.http.get<Acao[]>(this.url + 'acao');
+    return this.http.get<Acao[]>(this.url + 'acao/');
   }
 
   filtrarAcoesPorNome(nome: string): Observable<Acao[]> {
-    const url = `${this.url}acao/?nome__icontains=${nome}`;
+    const url = `${this.url}acao/busca/${nome}/`;
     console.log(url)
     return this.http.get<Acao[]>(url);
   }
