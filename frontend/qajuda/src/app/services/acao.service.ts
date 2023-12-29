@@ -7,7 +7,6 @@ import { Acao } from '../models/acao';
   providedIn: 'root'
 })
 export class AcaoService {
-  // url = 'http://localhost:3000/'; // trocar para 8000 quando usar api django
   url = 'http://localhost:8000/'; // url do back
   
   constructor(private http: HttpClient) { }
@@ -18,5 +17,11 @@ export class AcaoService {
 
   getAcoes(): Observable<Acao[]> {
     return this.http.get<Acao[]>(this.url + 'acao');
+  }
+
+  filtrarAcoesPorNome(nome: string): Observable<Acao[]> {
+    const url = `${this.url}acao/?nome__icontains=${nome}`;
+    console.log(url)
+    return this.http.get<Acao[]>(url);
   }
 }

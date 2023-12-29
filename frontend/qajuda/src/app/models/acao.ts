@@ -1,14 +1,12 @@
+import { Categoria } from "./categoria";
+import { Colaborador } from "./colaborador";
+import { Foto } from "./foto";
+
 export interface Acao {
     id: number;
-    categoria: {
-        id: number;
-        nome: string;
-    }
-    foto: {
-        id: number;
-        foto: string;
-        nome: string;
-    }
+    categoria: Categoria;
+    foto: Foto;
+    criador: Colaborador;
     nome: string;
     status: boolean;
     descricao: string;
@@ -19,7 +17,7 @@ export interface Acao {
     max_volunt: any;
     url: any;
     inicio: string;
-    fim: string;
+    fim: any;
     avaliacao: any;
-    criador: number
+    qtd_volunt: number;
 }
