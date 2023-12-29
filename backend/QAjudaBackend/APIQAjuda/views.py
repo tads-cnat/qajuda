@@ -27,6 +27,13 @@ class SolicitacoesEmAbertoView(generics.ListAPIView):
             instance.save()
             return Response({'status': 'Solicitação recusada'})
 
+class BuscaAcaoViewSet(generics.ListAPIView):
+    serializer_class = AcaoSerializer
+
+    def get_queryset(self):
+        nome = self.kwargs['nome']
+        return Acao.objects.filter(nome__icontains=nome)
+
 class AcaoViewSet(viewsets.ModelViewSet):
     queryset = Acao.objects.all()
 
