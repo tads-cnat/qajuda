@@ -3,11 +3,11 @@
       <a class="navbar-brand" routerLink="/">
         <img src="../../../assets/logo/logoqajuda.png" alt="Bootstrap" width="85" height="60">
       </a>
-      <form class="d-flex" role="search">
+      <div class="d-flex" role="search">
         <input class="form-control me-2" type="search" placeholder="Procure por uma ação" aria-label="Search" [(ngModel)]="termoBusca">
         <!-- Botão buscar levando pra rota do buscar temporariamente -->
         <button class="btn btn-outline-success" type="submit" (click)="buscarAcoes()">procurar</button>
-      </form>
+      </div>
       <button type="button" class="btn btn-primary btn-lg">Quem Somos</button>
       <button routerLink="/criaracao" type="button" class="btn btn-primary btn-lg">Criar Ação</button>
       <div class="right-menu">
