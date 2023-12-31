@@ -1,38 +1,37 @@
-<section class="container">
+<section class="container col-md-4">
     <h2>Criar ação de voluntariado</h2>
-    <form  #acaoForm="ngForm">
+    <form #acaoForm="ngForm">
         <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Nome</label>
-            <input type="text" name="nome" class="form-control" id="exampleInputEmail1">
+            <label class="form-label">Nome</label>
+            <input type="text" name="nome" class="form-control" ngModel required>
         </div>
         <div>
-            <label for="exampleInputEmail1" class="form-label">Categoria</label>
-            <select name="categoria" class="form-select" aria-label="Default select example">
-                <option selected>Escolha um tema</option>
-                <option value="1">Mutirão</option>
-                <option value="2">Aula</option>
-                <option value="3">Bazar</option>
-              </select>
+            <label class="form-label">Categoria</label>
+            <select name="categoria" class="form-select" aria-label="Default select example" ngModel required>
+                <option selected disabled>Escolha um tema</option>
+                <option *ngFor="let categoria of categorias" [value]="categoria.id">{{ categoria.nome }}</option>
+            </select>
         </div>
         <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Tema</label>
-            <input type="text" name="tema" class="form-control" id="exampleInputEmail1">
+            <label class="form-label">Início</label>
+            <input type="datetime-local" name="inicio" class="form-control" ngModel required>
         </div>
         <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Local</label>
-            <input type="text" name="Local" class="form-control" id="exampleInputEmail1">
+            <label class="form-label">Fim</label>
+            <input type="datetime-local" name="fim" class="form-control" ngModel required>
         </div>
         <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Início</label>
-            <input type="text" name="inicio" class="form-control" id="exampleInputEmail1">
+            <label class="form-label">Local</label>
+            <input type="text" name="local" class="form-control" ngModel required>
         </div>
         <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Fim</label>
-            <input type="text" name="fim" class="form-control" id="exampleInputEmail1">
+            <label class="form-label">Tema</label>
+            <input type="text" name="tema" class="form-control" ngModel required>
         </div>
         <div class="mb-3">
-            <label for="exampleFormControlTextarea1" class="form-label">Descrição da ação</label>
-            <textarea class="form-control" name="descricao" id="exampleFormControlTextarea1" rows="3"></textarea>
+            <label class="form-label">Descrição da ação</label>
+            <textarea class="form-control" name="descricao" rows="3" ngModel required></textarea>
         </div>
+        <button type="submit" class="btn btn-primary" (click)="criarAcao(acaoForm)">Criar Ação</button>
     </form>
 </section>

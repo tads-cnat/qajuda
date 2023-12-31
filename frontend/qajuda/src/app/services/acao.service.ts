@@ -24,4 +24,8 @@ export class AcaoService {
     console.log(url)
     return this.http.get<Acao[]>(url);
   }
+
+  createAcao(acao: Acao): Observable<Acao> {
+    return this.http.post<Acao>(this.url + 'acao/', acao);
+  }
 }

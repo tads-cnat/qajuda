@@ -20,7 +20,4 @@ export interface Acao {
     fim: any;
     avaliacao: any;
     qtd_volunt: number;
-    // tentar resolver o problema da busca
-    dataFormatada: string;
-    horaFormatada: string;
 }
