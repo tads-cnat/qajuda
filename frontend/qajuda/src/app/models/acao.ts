@@ -5,7 +5,7 @@ import { Foto } from "./foto";
 export interface Acao {
     id: number;
     categoria: Categoria;
-    foto: Foto;
+    foto?: Foto;
     criador: Colaborador;
     nome: string;
     status: boolean;
@@ -20,4 +20,7 @@ export interface Acao {
     fim: any;
     avaliacao: any;
     qtd_volunt: number;
+    // tentar resolver o problema da busca
+    dataFormatada: string;
+    horaFormatada: string;
 }
