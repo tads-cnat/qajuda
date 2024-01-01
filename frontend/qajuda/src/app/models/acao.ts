@@ -5,7 +5,7 @@ import { Foto } from "./foto";
 export interface Acao {
     id: number;
     categoria: Categoria;
-    foto: Foto;
+    foto?: Foto;
     criador: Colaborador;
     nome: string;
     status: boolean;
