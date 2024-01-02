@@ -1,15 +1,12 @@
+import { Categoria } from "./categoria";
+import { Foto } from "./foto";
+import { Pessoa } from "./pessoa";
+
 export interface Solicitacao {
     acao: {
         id: number;
-        categoria: {
-            id: number;
-            nome: string;
-        },
-        foto: {
-            id: number;
-            foto: string;
-            nome: string;
-        },
+        categoria: Categoria;
+        foto: Foto;
         nome: string;
         status: boolean;
         descricao: string;
@@ -23,14 +20,10 @@ export interface Solicitacao {
         fim: Date;
         avaliacao: any;
         criador: 1;
-    },
+    };
     colaborador: {
         id: number;
-        user: {
-            first_name: string;
-            last_name: string;
-            email: string;
-        },
+        user: Pessoa;
         telefone1: string;
         telefone2: string;
         cidade: string;
@@ -41,4 +34,10 @@ export interface Solicitacao {
             1
         ]
     }
+    convite: null;
+    data_convite: null;
+    solicitacao: string;
+    data_solicitacao: Date;
+    responsavel: null;
+    data_responsavel: null
 }
