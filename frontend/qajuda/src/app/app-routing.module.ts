@@ -9,7 +9,7 @@ import { CriaracaoComponent } from './views/criaracao/criaracao.component';
 
 const routes: Routes = [
   { path: "", component: HomeComponent },
-  { path: "aprovarvoluntario", component: AprovarvoluntarioComponent },
+  { path: "aprovarvoluntario/:id", component: AprovarvoluntarioComponent },
   { path: "detalhe/:id", component: DetalheacaoComponent },
   { path: "aceite", component: AceiteComponent},
   { path: "buscar", component: BuscarComponent },
