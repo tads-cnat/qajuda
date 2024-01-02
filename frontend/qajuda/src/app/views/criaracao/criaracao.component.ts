@@ -6,6 +6,7 @@ import { Colaborador } from 'src/app/models/colaborador';
 import { AcaoService } from 'src/app/services/acao.service';
 import { CategoriaService } from 'src/app/services/categoria.service';
 import { ColaboradorService } from 'src/app/services/colaborador.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-criaracao',
@@ -52,7 +53,7 @@ export class CriaracaoComponent implements OnInit{
     //criada_em: new Date(),
   };
 
-  constructor(private acaoService: AcaoService, private categoriaService: CategoriaService, private colaboradorService: ColaboradorService) {  }
+  constructor(private acaoService: AcaoService, private categoriaService: CategoriaService, private colaboradorService: ColaboradorService, private router: Router) {  }
 
 
   ngOnInit(): void {
@@ -95,6 +96,8 @@ export class CriaracaoComponent implements OnInit{
     this.acaoService.createAcao(this.acao).subscribe(
       (acao) => {
         console.log(acao);
+        alert("Sua ação foi criada com sucesso");
+        this.router.navigate(['/']);
         console.log('Acao criada');
       },
       (error) => {

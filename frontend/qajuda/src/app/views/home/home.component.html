@@ -1,3 +1,4 @@
+<script src="https://code.responsivevoice.org/responsivevoice.js"></script>
 <section class="container">
   <div id="carouselExampleCaptions"
     class="carousel slide">
@@ -85,14 +86,16 @@
     <h3>Suas ações</h3>
     <div class="row row-cols-1 row-cols-md-3 g-4">
       <!-- .slice é apenas para testes e limitações de ações -->
-      <div class="col" *ngFor="let acao of acoes.slice(0, 1)">
+      <div class="col"
+        *ngFor="let acao of acoes.slice(0, 1)">
         <div class="card">
           <a routerLink="/detalhe/{{acao.id}}"><img src="../../../assets/mural/alfabetizacao.jpg"
               class="card-img-top"
               style="height: 300px;"
               alt="..."></a>
           <div class="card-body">
-            <h5 class="card-title">{{ acao.nome }}</h5>
+            <h5 class="card-title"
+              id="suas-acoes">{{ acao.nome }}</h5>
             <h6>{{ acao.categoria.nome }}</h6>
           </div>
         </div>
@@ -101,7 +104,8 @@
 
     <h3>Ações em destaque</h3>
     <div class="row row-cols-1 row-cols-md-3 g-4">
-      <div class="col" *ngFor="let acao of acoes.slice(0, 5)">
+      <div class="col"
+        *ngFor="let acao of acoes.slice(0, 5)">
         <div class="card">
           <a routerLink="/detalhe/{{acao.id}}"><img src="../../../assets/mural/aula.jpg"
               class="card-img-top"
