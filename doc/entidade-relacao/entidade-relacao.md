@@ -1,6 +1,6 @@
 # Diagrama Entidade Relação
 
-![image](https://github.com/tads-cnat/qajuda/assets/112009958/dcfc1175-80f0-445b-8d47-b84cf5e69e2c)
+![image](![Diagrama Entidade Relacão](https://github.com/tads-cnat/qajuda/assets/104863215/d499f5f1-e43f-43cf-9dbe-856bfba16cd6)
 
 ## Diagrama Entidade Relação intermediário
 
