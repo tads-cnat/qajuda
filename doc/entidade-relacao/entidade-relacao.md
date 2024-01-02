@@ -8,4 +8,4 @@
 
 ## Diagrama Esquema Relacional
 
-![image](https://github.com/tads-cnat/qajuda/assets/112009958/6d0a17a3-ec18-415a-ab87-3b5069effac4)
+![image](https://ibb.co/xDwJYWr)
