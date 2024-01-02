@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Acao } from 'src/app/models/acao';
+import { AcaoBanco } from 'src/app/models/acaoBanco';
 import { Categoria } from 'src/app/models/categoria';
 import { Colaborador } from 'src/app/models/colaborador';
 import { AcaoService } from 'src/app/services/acao.service';
@@ -33,23 +33,23 @@ export class CriaracaoComponent implements OnInit{
   };
 
 
-  acao: Acao = {
-    id: 0,
-    categoria: { id: 0, nome: '' }, // Inicialize a categoria com valores padrão
-    criador: this.criadorDaAcao,
+  acao: AcaoBanco = { // Inicialize a categoria com valores padrão
     nome: '',
-    status: false,
+    status: true,
     descricao: '',
-    criada_em: new Date(),
-    modalidade: false,
+    modalidade: true,
     local: '',
     tema: '',
     max_volunt: 0,
     url: '',
-    inicio: '',
-    fim: '',
+    inicio: new Date(),
+    fim: new Date(),
     avaliacao: 0,
-    qtd_volunt: 0
+    qtd_volunt: 0,
+    categoria: 0,
+    criador: 1,
+    foto: 1,
+    //criada_em: new Date(),
   };
 
   constructor(private acaoService: AcaoService, private categoriaService: CategoriaService, private colaboradorService: ColaboradorService) {  }
@@ -74,19 +74,22 @@ export class CriaracaoComponent implements OnInit{
   criarAcao(acaoForm: NgForm) {
     // Preenchimento dos atributos
     this.acao.nome = acaoForm.value.nome;
-    this.acao.categoria = {
-      id: acaoForm.value.categoria,
-      nome: ''
-    };
+    //this.acao.status = acaoForm.value.status;
+    this.acao.descricao = acaoForm.value.descricao;
+    //this.acao.modalidade = acaoForm.value.modalidade;
+    this.acao.local = acaoForm.value.local;
     this.acao.tema = acaoForm.value.tema;
+    //this.acao.max_volunt = acaoForm.value.max_volunt;
+    this.acao.url = acaoForm.value.url;
     this.acao.inicio = acaoForm.value.inicio;
     this.acao.fim = acaoForm.value.fim;
-    this.acao.local = acaoForm.value.local;
-    this.acao.descricao = acaoForm.value.descricao;
-
-    this.acao.criada_em = new Date();
-    this.acao.status = true;
-    this.acao.modalidade = true;
+    //this.acao.avaliacao = acaoForm.value.avaliacao;
+    //this.acao.qtd_volunt = acaoForm.value.qtd_volunt;
+    this.acao.categoria = acaoForm.value.categoria;
+    //this.acao.criador = acaoForm.value.criador,
+    //this.acao.foto = acaoForm.value.foto;
+    console.log(this.acao);
+    console.log(acaoForm);
 
     // Post da ação e confirmação no console
     this.acaoService.createAcao(this.acao).subscribe(

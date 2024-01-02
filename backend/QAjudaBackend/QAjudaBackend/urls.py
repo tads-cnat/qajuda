@@ -34,7 +34,7 @@ schema_view = get_schema_view(
 router = routers.DefaultRouter()
 #router.register(r'solicitacoes', SolicitacaoViewSet)
 router.register(r'acao', AcaoViewSet)
-router.register(r'card_destaque', CardDestaqueViewSet)
+#router.register(r'card_destaque', CardDestaqueViewSet)
 router.register(r'colaborador', ColaboradorViewSet)
 router.register(r'colaborador_acao', ColaboradorAcaoViewSet)
 router.register(r'categoria', CategoriaViewSet)

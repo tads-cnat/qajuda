@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Acao } from '../models/acao';
+import { AcaoBanco } from '../models/acaoBanco';
 
 @Injectable({
   providedIn: 'root'
@@ -25,7 +26,7 @@ export class AcaoService {
     return this.http.get<Acao[]>(url);
   }
 
-  createAcao(acao: Acao): Observable<Acao> {
-    return this.http.post<Acao>(this.url + 'acao/', acao);
+  createAcao(acao: AcaoBanco): Observable<AcaoBanco> {
+    return this.http.post<AcaoBanco>(this.url + 'acao/', acao);
   }
 }
