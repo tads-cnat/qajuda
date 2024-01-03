@@ -16,11 +16,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include, re_path
-from APIQAjuda.views import SolicitacoesEmAbertoView
+from APIQAjuda.views import *
 from rest_framework import routers
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 from APIQAjuda.swagger import swagger_info
+from django.conf import settings
+from django.conf.urls.static import static 
 
 
 schema_view = get_schema_view(
@@ -30,16 +32,19 @@ schema_view = get_schema_view(
 )
 
 router = routers.DefaultRouter()
-'''router.register(r'solicitacoes', SolicitacaoViewSet)
-router.register(r'acoes', AcaoViewSet)
-router.register(r'colaboradores', ColaboradorViewSet)
-router.register(r'acao_solicitacao_colaboradores', AcaoSolicitacaoViewSet)'''
+#router.register(r'solicitacoes', SolicitacaoViewSet)
+router.register(r'acao', AcaoViewSet)
+#router.register(r'card_destaque', CardDestaqueViewSet)
+router.register(r'colaborador', ColaboradorViewSet)
+router.register(r'colaborador_acao', ColaboradorAcaoViewSet)
+router.register(r'categoria', CategoriaViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include(router.urls)),
+    path('', include(router.urls)),  
     path('api-auth', include('rest_framework.urls', namespace='rest_framework')),
     re_path(r'^swagger(?P<format>\.json|\.yaml)$', schema_view.without_ui(cache_timeout=0), name='schema-json'),
     path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
-    path('solicitacoes/<int:acao_id>/', SolicitacoesEmAbertoView.as_view(), name='solicitacoes-em-aberto'),
-]
+    path('acao/busca/<str:nome>/', BuscaAcaoViewSet.as_view(), name='busca_acao'),
+    path('colaborador_acao/acao/<int:acao_id>/', SolicitacaoViewSet.as_view(), name='solicitacao'),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

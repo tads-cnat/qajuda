@@ -1,32 +1,50 @@
-.corpo {
-    min-width: 1280px;
-    max-width: 1600px;
-    margin: 0 auto;
-    /* background-color: rgba(128, 128, 128, 0.144); */
-    padding: 0 20px;
+h2 {
+    text-align: center;
 }
 
-.display {
-    display: flex;
+.cartao {
+    background-color: #585FEB;
+    margin-bottom: 20px;
+    border-radius: 30px;
+    padding: 5px 15px 5px 0px;
+    text-align: center;
 }
 
-h1.titulo {
-    color: #0B2F61;
-    font-size: 2.5em;
-    text-align: center; /* Centraliza o texto horizontalmente */
-    margin: 0;
-    flex: 1; /* Faz com que o texto ocupe o espaço restante à esquerda */
-    padding-top: 50px;
+.colunas {
+    
+    text-align: center;
 }
 
-input.botao-voltar {
-    /* Adicione margem direita para posicionar o botão à direita */
-    margin-right: 20px; /* Por exemplo, você pode ajustar a margem conforme necessário */
-    height: 50px;
-    width: 135px;
-    margin-top: 50px;
+.botao {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%; /* Para criar um botão redondo */
+    border: none;
+    cursor: pointer;
+    /* Adicione a imagem (ícone de aceitar) como plano de fundo */
+}
+
+.botao-aceitar {
+    background-image: url(../../../assets/icones/aprovar.png);
+    background-size: cover;
+}
+
+.botao-recusar {
+    background-image: url(../../../assets/icones/rejeitado.png);
+    background-size: cover;
+    margin-left: 15px;
+}
+
+.foto {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%; /* Para criar uma imagem redonda */
+    background-color: #ccc; /* Cor de fundo da imagem (pode ser uma imagem real) */
+    margin-left: 20px;
+    background-image: url(../../../assets/icones/userpadrao.png);
+    background-size: cover;
+}
+
+.info {
     font-size: 1.5em;
-    background-color: #F4D599;
-    border-color: #F4D599;
-    border-radius: 20px;
 }

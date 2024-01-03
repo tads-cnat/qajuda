@@ -1,6 +1,6 @@
 # Modelo de Domínio
 
-![image](https://github.com/tads-cnat/qajuda/assets/112009958/0af96c5c-0aaf-4231-bdbe-d2333db08dd3)
+![diagrama_classe_dominio](https://github.com/tads-cnat/qajuda/assets/112821127/df75d96f-c3fe-4f17-8626-6337038fd207)
 
 
 
