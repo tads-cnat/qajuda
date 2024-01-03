@@ -67,18 +67,11 @@ class ColaboradorAcaoViewSet(viewsets.ModelViewSet):
             return ColaboradorAcaoSerializer
         
 class SolicitacaoViewSet(generics.ListAPIView):
-    queryset = Colaborador_acao.objects.all()
     serializer_class = ColaboradorAcaoSerializer
 
     def get_queryset(self):
         acao_id = self.kwargs['acao_id']
         return Colaborador_acao.objects.filter(acao=acao_id, solicitacao='E')
-    
-    def get_serializer_class(self):
-        if self.request.method == 'POST' or self.request.method == 'PATCH' or self.request.method == 'PUT':
-            return ColaboradorAcaoBancoSerializer
-        else:
-            return ColaboradorAcaoSerializer
 
 class CategoriaViewSet(viewsets.ModelViewSet):
     queryset = Categoria.objects.all()

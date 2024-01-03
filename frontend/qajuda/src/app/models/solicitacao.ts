@@ -3,6 +3,7 @@ import { Foto } from "./foto";
 import { Pessoa } from "./pessoa";
 
 export interface Solicitacao {
+    id : number;
     acao: {
         id: number;
         categoria: Categoria;
