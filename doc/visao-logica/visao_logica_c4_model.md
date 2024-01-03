@@ -1,14 +1,14 @@
 # Visão do projeto - Arquitetura C4 Model
 
 ## Diagrama de Contexto
-![Diagrama-light-Contexto drawio](https://github.com/tads-cnat/qajuda/assets/112821127/e1d32739-ddc1-4648-a5cd-de9fd1343eb8)
+![Contexto drawio](https://github.com/tads-cnat/qajuda/assets/112821127/29e63d69-0d67-4a6c-acbc-2a925a780ec7)
 
 ## Diagrama de Container
-![Diagrama-light-Container drawio](https://github.com/tads-cnat/qajuda/assets/112821127/dd37b44a-ec9e-487f-9365-f0cca20f3f3b)
+![Container drawio](https://github.com/tads-cnat/qajuda/assets/112821127/5b92f7d2-6ea3-45b3-951c-d33206efc8d7)
 
 ## Diagrama de Componente Back
-![Diagrama-light-Componente - Back drawio](https://github.com/tads-cnat/qajuda/assets/112821127/3dbbc7cb-8dca-4d94-8817-780ef48a71e0)
+![BACKComponente - Back drawio](https://github.com/tads-cnat/qajuda/assets/112821127/138d1f92-6aa6-4bc2-b155-d5443b802850)
 
 ## Diagrama de Componente Front
-![Diagrama-light-Componente - Front drawio](https://github.com/tads-cnat/qajuda/assets/112821127/f4364f4b-3288-4163-aa30-6a9eb1a2eefc)
+![FRONTComponente - Front drawio](https://github.com/tads-cnat/qajuda/assets/112821127/3167517d-13ef-45bc-ab07-4c68bd36aaa7)
 
