@@ -12,7 +12,7 @@ export interface AcaoBanco {
     max_volunt: number;
     url: string;
     inicio: Date;
-    fim: Date;
+    fim?: Date;
     avaliacao: any;
     qtd_volunt: number;
 }

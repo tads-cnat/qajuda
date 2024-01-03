@@ -13,7 +13,7 @@
             <div class="info col-3">{{calcularIdade(solic.colaborador.data_nasc)}} anos</div>
             <div class="info col-3">{{ solic.colaborador.bairro }}</div>
             <div id="botao col-2">
-                <button type="button" class="botao botao-aceitar"></button>
+                <button type="button" class="botao botao-aceitar" (click)="AceitarSolicitacao(solic.id, solic.acao.id, solic.colaborador.id)"></button>
                 <button type="button" class="botao botao-recusar"></button>
             </div>
         </div>
