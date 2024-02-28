@@ -9,8 +9,8 @@ import { AcaoBanco } from '../models/acaoBanco';
 })
 export class AcaoService {
   url = 'http://localhost:8000/'; // url do back
-  
-  constructor(private http: HttpClient) { }
+
+  constructor(private http: HttpClient) {}
 
   getAcao(id: number): Observable<Acao> {
     return this.http.get<Acao>(this.url + 'acao/' + id + '/');
@@ -22,7 +22,7 @@ export class AcaoService {
 
   filtrarAcoesPorNome(nome: string): Observable<Acao[]> {
     const url = `${this.url}acao/busca/${nome}/`;
-    console.log(url)
+    console.log(url);
     return this.http.get<Acao[]>(url);
   }
 

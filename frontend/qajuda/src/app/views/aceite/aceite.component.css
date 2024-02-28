@@ -1,9 +1,8 @@
 #termo {
     display: block;
-    
 }
 
-#termo h2{
+#termo h2 {
     text-align: center;
     margin: 30px;
 }
@@ -15,7 +14,7 @@
 }
 
 #termo button {
-    background-color: #F5B740;
+    background-color: #f5b740;
     width: 30%;
     height: 50px;
     border-radius: 30px;
