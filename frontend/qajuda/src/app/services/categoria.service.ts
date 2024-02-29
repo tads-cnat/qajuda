@@ -9,8 +9,7 @@ import { Categoria } from '../models/categoria';
 export class CategoriaService {
   private url = 'http://localhost:8000/categoria/';
 
-
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   getCategorias(): Observable<Categoria[]> {
     return this.http.get<Categoria[]>(this.url);

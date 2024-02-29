@@ -1,23 +1,36 @@
 <section class="container">
     <h3>Resultado da pesquisa</h3>
     <div *ngIf="semAcoes">
-        <h5 id="sem-acao"><i>Nenhuma ação encontrada com o resultado da pesquisa</i></h5>
+        <h5 id="sem-acao">
+            <i>Nenhuma ação encontrada com o resultado da pesquisa</i>
+        </h5>
     </div>
 
-    <div class="card mb-3"
-        style="max-width: 100%;"
-        *ngFor="let acao of acoes">
+    <div
+        class="card mb-3"
+        style="max-width: 100%"
+        *ngFor="let acao of acoes"
+    >
         <div class="row g-0">
             <div class="col-md-6">
-                <a routerLink="/detalhe/{{acao.id}}"><img src="../../../assets/mural/animais.jpg"
-                    class="img-fluid rounded-start"
-                    alt="...">
+                <a routerLink="/detalhe/{{ acao.id }}"
+                    ><img
+                        src="../../../assets/mural/animais.jpg"
+                        class="img-fluid rounded-start"
+                        alt="..."
+                    />
                 </a>
             </div>
             <div class="col-md-6">
-                <div class="card-body d-flex flex-column mb-4 align-items-center">
-                    <p class="card-text p-1"><strong>{{ acao.nome }}</strong></p>
-                    <p class="card-text p-1">Criada por: {{ acao.criador.user.first_name }}</p>
+                <div
+                    class="card-body d-flex flex-column mb-4 align-items-center"
+                >
+                    <p class="card-text p-1">
+                        <strong>{{ acao.nome }}</strong>
+                    </p>
+                    <p class="card-text p-1">
+                        Criada por: {{ acao.criador.user.first_name }}
+                    </p>
                     <p class="card-text p-1">Local: {{ acao.local }}</p>
                     <p class="card-text p-1">Data: {{ dataFormatada }}</p>
                     <p class="card-text p-1">Hora: {{ horaFormatada }}</p>

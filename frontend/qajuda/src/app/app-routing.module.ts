@@ -8,16 +8,19 @@ import { BuscarComponent } from './views/buscar/buscar.component';
 import { CriaracaoComponent } from './views/criaracao/criaracao.component';
 
 const routes: Routes = [
-  { path: "", component: HomeComponent },
-  { path: "colaborador_acao/acao/:acao_id", component: AprovarvoluntarioComponent },
-  { path: "detalhe/:id", component: DetalheacaoComponent },
-  { path: "aceite", component: AceiteComponent},
-  { path: "buscar", component: BuscarComponent },
-  { path: "criaracao", component: CriaracaoComponent  },
+  { path: '', component: HomeComponent },
+  {
+    path: 'colaborador_acao/acao/:acao_id',
+    component: AprovarvoluntarioComponent
+  },
+  { path: 'detalhe/:id', component: DetalheacaoComponent },
+  { path: 'aceite', component: AceiteComponent },
+  { path: 'buscar', component: BuscarComponent },
+  { path: 'criaracao', component: CriaracaoComponent }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

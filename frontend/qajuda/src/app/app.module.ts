@@ -30,15 +30,10 @@ import { CriaracaoComponent } from './views/criaracao/criaracao.component';
     AceiteComponent,
     BuscarComponent,
     RodapeComponent,
-    CriaracaoComponent,
+    CriaracaoComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule, 
-    FormsModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

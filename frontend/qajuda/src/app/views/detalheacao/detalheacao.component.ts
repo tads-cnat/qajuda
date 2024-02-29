@@ -8,23 +8,23 @@ import { AcaoService } from 'src/app/services/acao.service';
   templateUrl: './detalheacao.component.html',
   styleUrls: ['./detalheacao.component.css']
 })
-export class DetalheacaoComponent implements OnInit{
+export class DetalheacaoComponent implements OnInit {
   acao!: Acao;
   dataFormatada: string = '';
   horaFormatada: string = '';
 
-  constructor(private service: AcaoService, private route: ActivatedRoute) { }
+  constructor(private service: AcaoService, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
-    this.route.paramMap.subscribe(params => {
-      const idString  = params.get('id');
+    this.route.paramMap.subscribe((params) => {
+      const idString = params.get('id');
       if (idString !== null) {
         const id = +idString; // '+' converte o parâmetro para número
         this.carregarAcao(id);
       } else {
         console.error('ID da ação não encontrado na rota.');
       }
-    })
+    });
   }
 
   carregarAcao(id: number): void {
@@ -39,7 +39,7 @@ export class DetalheacaoComponent implements OnInit{
       }
     );
   }
-  
+
   formatarDataHora(): void {
     // Converte o DateTime do Django para um objeto Date
     const dataHoraInicio = new Date(this.acao.inicio);
@@ -53,6 +53,6 @@ export class DetalheacaoComponent implements OnInit{
     // Formatar a hora no formato hh:mm
     const horas = dataHoraInicio.getHours();
     const min = dataHoraInicio.getMinutes();
-    this.horaFormatada = `${horas}:${min}`; 
+    this.horaFormatada = `${horas}:${min}`;
   }
 }

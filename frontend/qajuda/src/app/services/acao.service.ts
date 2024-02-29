@@ -5,7 +5,7 @@ import { Acao } from '../models/acao';
 import { AcaoBanco } from '../models/acaoBanco';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class AcaoService {
   url = 'http://localhost:8000/'; // url do back

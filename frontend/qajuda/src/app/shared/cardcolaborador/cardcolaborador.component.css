@@ -13,10 +13,9 @@
     margin: 10px;
     height: 80px;
     width: 80%; /* Largura de cada card */
-    background-color: #585FEB;
+    background-color: #585feb;
     border-radius: 30px;
     padding: 10px;
-    
 }
 
 .foto {
