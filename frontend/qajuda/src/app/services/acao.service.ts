@@ -5,12 +5,12 @@ import { Acao } from '../models/acao';
 import { AcaoBanco } from '../models/acaoBanco';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AcaoService {
   url = 'http://localhost:8000/'; // url do back
-  
-  constructor(private http: HttpClient) { }
+
+  constructor(private http: HttpClient) {}
 
   getAcao(id: number): Observable<Acao> {
     return this.http.get<Acao>(this.url + 'acao/' + id + '/');
@@ -20,9 +20,9 @@ export class AcaoService {
     return this.http.get<Acao[]>(this.url + 'acao/');
   }
 
-  filtrarAcoesPorNome(nome: string): Observable<Acao[]> {
-    const url = `${this.url}acao/busca/${nome}/`;
-    console.log(url)
+  filtrarAcoesPorNome(query: string): Observable<Acao[]> {
+    const url = `${this.url}acao/?search=${query}`;
+    console.log(url);
     return this.http.get<Acao[]>(url);
   }
 
