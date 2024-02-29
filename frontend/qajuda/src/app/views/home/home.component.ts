@@ -7,12 +7,12 @@ import { Acao } from 'src/app/models/acao';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit{
+export class HomeComponent implements OnInit {
   acoes: Acao[] = [];
 
   constructor(private service: AcaoService) {}
 
   ngOnInit(): void {
-    this.service.getAcoes().subscribe(data => this.acoes = data);
+    this.service.getAcoes().subscribe((data) => (this.acoes = data));
   }
 }

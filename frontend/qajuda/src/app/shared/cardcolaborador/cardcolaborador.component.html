@@ -1,15 +1,28 @@
 <div id="container">
-    <div class="card" *ngFor="let colab of colaboradores" >
+    <div
+        class="card"
+        *ngFor="let colab of colaboradores"
+    >
         <!-- *ngIf="!colab.aceito" -->
         <div class="foto">
             <!-- Sua imagem redonda aqui -->
         </div>
-        <div class="info">{{ colab.user.first_name }} {{ colab.user.last_name }}</div>
+        <div class="info">
+            {{ colab.user.first_name }} {{ colab.user.last_name }}
+        </div>
         <div class="info">IDADE</div>
         <div class="info">{{ colab.bairro }}</div>
         <div id="botao">
-            <button type="button" class="botao botao-aceitar" (click)="responderSolicitacao('ACEITO')"></button>
-            <button type="button" class="botao botao-recusar" (click)="responderSolicitacao('REJEITADO')"></button>
+            <button
+                type="button"
+                class="botao botao-aceitar"
+                (click)="responderSolicitacao('ACEITO')"
+            ></button>
+            <button
+                type="button"
+                class="botao botao-recusar"
+                (click)="responderSolicitacao('REJEITADO')"
+            ></button>
         </div>
     </div>
 </div>

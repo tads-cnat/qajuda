@@ -17,9 +17,9 @@ section {
     display: flex; /* Adiciona display: flex; */
     align-items: center; /* Centraliza verticalmente */
     justify-content: center; /* Centraliza horizontalmente */
-    position: relative; 
+    position: relative;
     width: 100%;
-    height: 550px; 
+    height: 550px;
     background-image: url(../../../assets/mural/roupa.jpg);
     background-size: cover;
     margin: 0 auto;
@@ -44,12 +44,11 @@ section {
     right: 0;
     width: 250px;
     height: 60px;
-    background-color: #F5B740;
+    background-color: #f5b740;
     display: flex; /* Usa display: flex; */
     justify-content: center; /* Alinha horizontalmente ao centro */
     align-items: center; /* Alinha verticalmente ao centro */
     border-radius: 15px;
-    
-    color: #0B2F61;
+    color: #0b2f61;
     font-size: 2em;
 }

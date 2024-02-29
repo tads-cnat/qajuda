@@ -9,14 +9,13 @@ import { Router } from '@angular/router';
 export class MenuComponent {
   termoBusca: string = '';
 
-  constructor(private router: Router) { }
-  
+  constructor(private router: Router) {}
 
   buscarAcoes(): void {
-    this.router.navigate(
-      ['/buscar'], 
-      { queryParams: {
+    this.router.navigate(['/buscar'], {
+      queryParams: {
         termo: this.termoBusca
-    }});
+      }
+    });
   }
 }
