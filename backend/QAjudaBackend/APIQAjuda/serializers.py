@@ -9,6 +9,7 @@ class UserSerializer(serializers.ModelSerializer):
 
 
 class FotoSerializer(serializers.ModelSerializer):
+    foto = serializers.FileField()
     class Meta:
         model = Foto
         fields = '__all__'
