@@ -9,8 +9,6 @@ import { Colaborador } from 'src/app/models/colaborador';
 export class CardcolaboradorComponent {
   colaboradores: Colaborador[] = [];
 
-  
-
   // constructor() {
   //   // Crie exemplos de colaboradores e adicione à lista
   //   this.colaboradores.push({foto: 'sem foto' ,nome: 'Zezinho', idade: 30, bairro: 'Planalto', status: 'EM ESPERA' });
@@ -22,11 +20,10 @@ export class CardcolaboradorComponent {
   // }
 
   responderSolicitacao(resposta: 'ACEITO' | 'REJEITADO') {
-    if (resposta == 'ACEITO') { 
-        //chamar métodos aceitar_solicitação do backend
+    if (resposta == 'ACEITO') {
+      //chamar métodos aceitar_solicitação do backend
     } else {
       let recusado = true; //chamar métodos rejeitar_solicitação do backend
     }
   }
-
 }

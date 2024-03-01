@@ -1,0 +1,26 @@
+{
+  "singleAttributePerLine": true,
+  "bracketSpacing": true,
+  "arrowParens": "always",
+  "semi": true,
+  "singleQuote": true,
+  "printWidth": 80,
+  "trailingComma": "none",
+  "overrides": [
+    {
+      "files": ["*.html", "*.css"],
+      "options": {
+        "useTabs": false,
+        "tabWidth": 4
+      }
+    },
+
+    {
+      "files": "*.ts",
+      "options": {
+        "useTabs": false,
+        "tabWidth": 2
+      }
+    }
+  ]
+}

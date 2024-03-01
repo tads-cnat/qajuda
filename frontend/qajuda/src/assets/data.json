@@ -1,144 +1,144 @@
 {
-    "colaborador": [
-        {
-            "id": 1,
-            "foto": "sem foto",
-            "nome": "Feli pão",
-            "idade": 35,
-            "bairro": "Capim Macio",
-            "status": "E"
-        },
-        {
-            "id": 2,
-            "foto": "sem foto",
-            "nome": "Tia lila",
-            "idade": 25,
-            "bairro": "Lagoa Nova",
-            "status": "E"
-        },
-        {
-            "id": 3,
-            "foto": "sem foto",
-            "nome": "Coleguinson",
-            "idade": 39,
-            "bairro": "Parnamirim",
-            "status": "E"
-        },
-        {
-            "id": 4,
-            "foto": "sem foto",
-            "nome": "Juizinho",
-            "idade": 24,
-            "bairro": "Cidade da esperança",
-            "status": "E"
-        },
-        {
-            "id": 5,
-            "foto": "sem foto",
-            "nome": "Rainha Beth",
-            "idade": 1246,
-            "bairro": "Reino Unido",
-            "status": "E"
-        },
-        {
-            "id": 6,
-            "foto": "sem foto",
-            "nome": "Arthur Melo",
-            "idade": 20,
-            "bairro": "São José de Mipibu",
-            "status": "E"
-        },
-        {
-            "id": 7,
-            "foto": "sem foto",
-            "nome": "Xuxa",
-            "idade": 60,
-            "bairro": "Bairro de rico",
-            "status": "E"
-        },
-        {
-            "id": 8,
-            "foto": "sem foto",
-            "nome": "Tony Stark",
-            "idade": 55,
-            "bairro": "Nova York",
-            "status": "E"
-        },
-        {
-            "id": 9,
-            "foto": "sem foto",
-            "nome": "Barbara Millicent Roberts",
-            "idade": 83,
-            "bairro": "Barbielandia",
-            "status": "E"
-        }
-    ],
-    "carddestaque" : [
-        {
-            "id": 1,
-            "foto": "sem foto",
-            "nome": "Aula de braile para tutores",
-            "categoria": "Aula"
-        },
-        {
-            "id": 2,
-            "foto": "sem foto",
-            "nome": "Doação de roupas de frio",
-            "categoria": "Mutirão"
-        },
-        {
-            "id": 3,
-            "foto": "sem foto",
-            "nome": "Limpeza da orla da praia de miami",
-            "categoria": "Mutirão"
-        },
-        {
-            "id": 4,
-            "foto": "sem foto",
-            "nome": "Aulas para idosos",
-            "categoria": "Aula"
-        },
-        {
-            "id": 5,
-            "foto": "sem foto",
-            "nome": "Testando tamanho do título",
-            "categoria": "Teste"
-        },
-        {
-            "id": 6,
-            "foto": "sem foto",
-            "nome": "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
-            "categoria": "Alfabeto"
-        },
-        {
-            "id": 7,
-            "foto": "sem foto",
-            "nome": "Mutirão de doação de roupas de frio para o inverno",
-            "categoria": "Mutirão"
-        }
-    ], 
-    "acao": [
-        {
-            "id": 1,
-            "foto": "sem foto",
-            "nome": "Mutirão de doação de roupas de frio para o inverno",
-            "responsavel": "Tia lila",
-            "descricao": "O mutirão de doação de roupas de frio para o inverno surgiu  em 2016 na Igreja São José com o propósito de arrecadar roupas de frio para serem  doadas à pessoas em situação de rua. O projeto já ajudou mais de 350 pessoas em situação de rua a poder passar pelos dias frios e chuvosos dessa época com um pouco mais de conforto.",
-            "categoria": "Mutirão",
-            "local": "Instituto Federal de Ciência e Tecnologia do Rio Grande do Norte",
-            "data": "30/11/2023",
-            "hora": "09:00"
-        },
-        {
-            "id": 2,
-            "foto": "sem foto",
-            "nome": "Abaixo assinado para um bebedouro na diatinf",
-            "responsavel": "Alunos de TADS",
-            "descricao": "Queremos um bebedoudo na diatinf para blablablblabla blablablabla blablablabla blablabla blablablablabla blablablabla #AlunosDaDiatinfBebemAgua",
-            "categoria": "Mutirão",
-            "local": "Diatinf IFRN-CNAT",
-            "data": "01/12/2023",
-            "hora": "08:30"
-        }
-    ]
+  "colaborador": [
+    {
+      "id": 1,
+      "foto": "sem foto",
+      "nome": "Feli pão",
+      "idade": 35,
+      "bairro": "Capim Macio",
+      "status": "E"
+    },
+    {
+      "id": 2,
+      "foto": "sem foto",
+      "nome": "Tia lila",
+      "idade": 25,
+      "bairro": "Lagoa Nova",
+      "status": "E"
+    },
+    {
+      "id": 3,
+      "foto": "sem foto",
+      "nome": "Coleguinson",
+      "idade": 39,
+      "bairro": "Parnamirim",
+      "status": "E"
+    },
+    {
+      "id": 4,
+      "foto": "sem foto",
+      "nome": "Juizinho",
+      "idade": 24,
+      "bairro": "Cidade da esperança",
+      "status": "E"
+    },
+    {
+      "id": 5,
+      "foto": "sem foto",
+      "nome": "Rainha Beth",
+      "idade": 1246,
+      "bairro": "Reino Unido",
+      "status": "E"
+    },
+    {
+      "id": 6,
+      "foto": "sem foto",
+      "nome": "Arthur Melo",
+      "idade": 20,
+      "bairro": "São José de Mipibu",
+      "status": "E"
+    },
+    {
+      "id": 7,
+      "foto": "sem foto",
+      "nome": "Xuxa",
+      "idade": 60,
+      "bairro": "Bairro de rico",
+      "status": "E"
+    },
+    {
+      "id": 8,
+      "foto": "sem foto",
+      "nome": "Tony Stark",
+      "idade": 55,
+      "bairro": "Nova York",
+      "status": "E"
+    },
+    {
+      "id": 9,
+      "foto": "sem foto",
+      "nome": "Barbara Millicent Roberts",
+      "idade": 83,
+      "bairro": "Barbielandia",
+      "status": "E"
+    }
+  ],
+  "carddestaque": [
+    {
+      "id": 1,
+      "foto": "sem foto",
+      "nome": "Aula de braile para tutores",
+      "categoria": "Aula"
+    },
+    {
+      "id": 2,
+      "foto": "sem foto",
+      "nome": "Doação de roupas de frio",
+      "categoria": "Mutirão"
+    },
+    {
+      "id": 3,
+      "foto": "sem foto",
+      "nome": "Limpeza da orla da praia de miami",
+      "categoria": "Mutirão"
+    },
+    {
+      "id": 4,
+      "foto": "sem foto",
+      "nome": "Aulas para idosos",
+      "categoria": "Aula"
+    },
+    {
+      "id": 5,
+      "foto": "sem foto",
+      "nome": "Testando tamanho do título",
+      "categoria": "Teste"
+    },
+    {
+      "id": 6,
+      "foto": "sem foto",
+      "nome": "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+      "categoria": "Alfabeto"
+    },
+    {
+      "id": 7,
+      "foto": "sem foto",
+      "nome": "Mutirão de doação de roupas de frio para o inverno",
+      "categoria": "Mutirão"
+    }
+  ],
+  "acao": [
+    {
+      "id": 1,
+      "foto": "sem foto",
+      "nome": "Mutirão de doação de roupas de frio para o inverno",
+      "responsavel": "Tia lila",
+      "descricao": "O mutirão de doação de roupas de frio para o inverno surgiu  em 2016 na Igreja São José com o propósito de arrecadar roupas de frio para serem  doadas à pessoas em situação de rua. O projeto já ajudou mais de 350 pessoas em situação de rua a poder passar pelos dias frios e chuvosos dessa época com um pouco mais de conforto.",
+      "categoria": "Mutirão",
+      "local": "Instituto Federal de Ciência e Tecnologia do Rio Grande do Norte",
+      "data": "30/11/2023",
+      "hora": "09:00"
+    },
+    {
+      "id": 2,
+      "foto": "sem foto",
+      "nome": "Abaixo assinado para um bebedouro na diatinf",
+      "responsavel": "Alunos de TADS",
+      "descricao": "Queremos um bebedoudo na diatinf para blablablblabla blablablabla blablablabla blablabla blablablablabla blablablabla #AlunosDaDiatinfBebemAgua",
+      "categoria": "Mutirão",
+      "local": "Diatinf IFRN-CNAT",
+      "data": "01/12/2023",
+      "hora": "08:30"
+    }
+  ]
 }

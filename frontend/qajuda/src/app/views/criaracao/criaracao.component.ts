@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
   templateUrl: './criaracao.component.html',
   styleUrls: ['./criaracao.component.css']
 })
-export class CriaracaoComponent implements OnInit{
+export class CriaracaoComponent implements OnInit {
   categorias: Categoria[] = [];
 
   // Temporário até encontra a solução, foi feito apenas pra funcionar o CDU005
@@ -33,8 +33,8 @@ export class CriaracaoComponent implements OnInit{
     categoria: { id: 0, nome: '' }
   };
 
-
-  acao: AcaoBanco = { // Inicialize a categoria com valores padrão
+  acao: AcaoBanco = {
+    // Inicialize a categoria com valores padrão
     nome: '',
     status: true,
     descricao: '',
@@ -49,28 +49,32 @@ export class CriaracaoComponent implements OnInit{
     qtd_volunt: 0,
     categoria: 0,
     criador: 1,
-    foto: 1,
+    foto: 1
     //criada_em: new Date(),
   };
 
-  constructor(private acaoService: AcaoService, private categoriaService: CategoriaService, private colaboradorService: ColaboradorService, private router: Router) {  }
-
+  constructor(
+    private acaoService: AcaoService,
+    private categoriaService: CategoriaService,
+    private colaboradorService: ColaboradorService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.carregarCategorias();
   }
 
-
   carregarCategorias(): void {
-    this.categoriaService.getCategorias().subscribe(categorias => {
+    this.categoriaService.getCategorias().subscribe((categorias) => {
       this.categorias = categorias;
-    })
+    });
   }
 
   pegarColaborador(): void {
-    this.colaboradorService.getColaborador().subscribe(data => {this.criadorDaAcao = data})
+    this.colaboradorService.getColaborador().subscribe((data) => {
+      this.criadorDaAcao = data;
+    });
   }
-
 
   criarAcao(acaoForm: NgForm) {
     // Preenchimento dos atributos
@@ -96,7 +100,7 @@ export class CriaracaoComponent implements OnInit{
     this.acaoService.createAcao(this.acao).subscribe(
       (acao) => {
         console.log(acao);
-        alert("Sua ação foi criada com sucesso");
+        alert('Sua ação foi criada com sucesso');
         this.router.navigate(['/']);
         console.log('Acao criada');
       },
