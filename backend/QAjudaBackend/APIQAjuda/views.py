@@ -1,9 +1,8 @@
-from rest_framework import viewsets, status, generics, views
-from .models import *
-from .serializers import *
+from rest_framework import viewsets, status, generics, views, filters
 from rest_framework.response import Response
 from rest_framework.parsers import MultiPartParser
-from rest_framework import filters
+from .models import *
+from .serializers import *
 
 
 class SolicitacoesEmAbertoView(generics.ListAPIView):
