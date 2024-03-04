@@ -3,6 +3,8 @@ from .models import *
 from .serializers import *
 from rest_framework.response import Response
 from rest_framework.parsers import MultiPartParser
+from rest_framework import filters
+
 
 class SolicitacoesEmAbertoView(generics.ListAPIView):
     serializer_class = ColaboradorAcaoSerializer
@@ -28,7 +30,7 @@ class SolicitacoesEmAbertoView(generics.ListAPIView):
         
 class AcaoViewSet(viewsets.ModelViewSet):
     queryset = Acao.objects.all()
-    filter_backends = (SearchFilter,)
+    filter_backends = (filters.SearchFilter,)
     search_fields = ['nome', 'descricao']
 
     def get_serializer_class(self):
