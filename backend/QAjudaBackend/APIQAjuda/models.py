@@ -17,8 +17,9 @@ class Categoria(models.Model):
 
 
 class Foto(models.Model):
-    foto = models.ImageField(upload_to='media', default='limpeza-praia.jpg')
-    nome = models.CharField(max_length=100)
+    nome = models.TextField(max_length=100, blank=True)
+    foto = models.ImageField(
+        upload_to='fotos/', null=True, blank=True)
 
     def __str__(self):
         return self.nome
