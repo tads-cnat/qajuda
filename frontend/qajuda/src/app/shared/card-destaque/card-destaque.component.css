@@ -4,7 +4,9 @@
 }
 
 .acao-item {
-    width: calc(33.33% - 20px); /* Define a largura desejada para cada item e margem */
+    width: calc(
+        33.33% - 20px
+    ); /* Define a largura desejada para cada item e margem */
     margin: 10px;
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);

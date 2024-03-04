@@ -6,12 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./card-destaque.component.css']
 })
 export class CardDestaqueComponent {
-  acoes = [
-    'um',
-    'dois',
-    'tres',
-    'quatro',
-    'cinco',
-    'seis'
-  ]
+  acoes = ['um', 'dois', 'tres', 'quatro', 'cinco', 'seis'];
 }

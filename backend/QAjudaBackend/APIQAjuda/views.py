@@ -1,9 +1,8 @@
-from rest_framework import viewsets, status, generics
+from rest_framework import viewsets, status, generics, views
 from .models import *
 from .serializers import *
-from rest_framework.decorators import action
 from rest_framework.response import Response
-from django.db.models import F, ExpressionWrapper, BooleanField
+from rest_framework.parsers import MultiPartParser
 
 class SolicitacoesEmAbertoView(generics.ListAPIView):
     serializer_class = ColaboradorAcaoSerializer
@@ -26,22 +25,23 @@ class SolicitacoesEmAbertoView(generics.ListAPIView):
             instance.solicitacao = 'R'
             instance.save()
             return Response({'status': 'Solicitação recusada'})
-
-class BuscaAcaoViewSet(generics.ListAPIView):
-    serializer_class = AcaoSerializer
-
-    def get_queryset(self):
-        nome = self.kwargs['nome']
-        return Acao.objects.filter(nome__icontains=nome)
-
+        
 class AcaoViewSet(viewsets.ModelViewSet):
     queryset = Acao.objects.all()
+    filter_backends = (SearchFilter,)
+    search_fields = ['nome', 'descricao']
 
     def get_serializer_class(self):
-        if self.request.method == 'POST' or self.request.method == 'PATCH' or self.request.method == 'PUT':
+        if self.action == 'list':
             return AcaoBancoSerializer
         else:
             return AcaoSerializer
+    
+    def list(self, request, *args, **kwargs):
+        queryset = self.filter_queryset(self.get_queryset())
+        serializer = AcaoSerializer(queryset, many=True)
+        data = serializer.data
+        return Response(data)
 
 class ColaboradorViewSet(viewsets.ModelViewSet):
     queryset = Colaborador.objects.all()
@@ -76,5 +76,23 @@ class SolicitacaoViewSet(generics.ListAPIView):
 class CategoriaViewSet(viewsets.ModelViewSet):
     queryset = Categoria.objects.all()
     serializer_class = CategoriaSerializer
+
+class FotoViewSet(views.APIView):
+    parser_classes = (MultiPartParser,)
+
+    def get_serializer(self):
+        return FotoSerializer()
+
+    def post(self, request, format=None):
+        serializer = FotoSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+    def get(self, request, format=None):
+        images = Foto.objects.all()
+        serializer = FotoSerializer(images, many=True)
+        return Response(serializer.data)
 
     
