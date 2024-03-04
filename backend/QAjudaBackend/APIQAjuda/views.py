@@ -5,27 +5,13 @@ from .models import *
 from .serializers import *
 
 
-class SolicitacoesEmAbertoView(generics.ListAPIView):
+class SolicitacoesEmEsperaView(generics.ListAPIView):
     serializer_class = ColaboradorAcaoSerializer
 
     def get_queryset(self):
         acao_id = self.kwargs['acao_id']
         return ColaboradorAcao.objects.filter(acao_id=acao_id, solicitacao='E').select_related('colaborador')
 
-    def perfom_update(self, serializer):
-        instance = serializer.instance
-        aceitar_solicitacao = serializer.validated_data.get('aceitar_solicitacao')
-        recusar_solicitacao = serializer.validated_data.get('recusar_solicitacao')
-
-        if aceitar_solicitacao:
-            instance.solicitacao = 'A'
-            instance.save()
-            return Response({'status': 'Solicitação aceita'})
-
-        if recusar_solicitacao:
-            instance.solicitacao = 'R'
-            instance.save()
-            return Response({'status': 'Solicitação recusada'})
         
 class AcaoViewSet(viewsets.ModelViewSet):
     queryset = Acao.objects.all()
@@ -48,7 +34,7 @@ class ColaboradorViewSet(viewsets.ModelViewSet):
     queryset = Colaborador.objects.all()
     
     def get_serializer_class(self):
-        if self.request.method == 'POST' or self.request.method == 'PATCH' or self.request.method == 'PUT':
+        if self.action == 'list':
             return ColaboradorBancoSerializer
         else:
             return ColaboradorSerializer
