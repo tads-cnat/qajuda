@@ -11,7 +11,7 @@ class SolicitacoesEmAbertoView(generics.ListAPIView):
 
     def get_queryset(self):
         acao_id = self.kwargs['acao_id']
-        return Colaborador_acao.objects.filter(acao_id=acao_id, solicitacao='E').select_related('colaborador')
+        return ColaboradorAcao.objects.filter(acao_id=acao_id, solicitacao='E').select_related('colaborador')
 
     def perfom_update(self, serializer):
         instance = serializer.instance
@@ -59,7 +59,7 @@ class CardDestaqueViewSet(viewsets.ModelViewSet):
     serializer_class = CardDestaqueSerializer
     
 class ColaboradorAcaoViewSet(viewsets.ModelViewSet):
-    queryset = Colaborador_acao.objects.all().select_related('acao').select_related('colaborador')
+    queryset = ColaboradorAcao.objects.all().select_related('acao').select_related('colaborador')
     serializer_class = ColaboradorAcaoSerializer
 
     def get_serializer_class(self):
@@ -73,7 +73,7 @@ class SolicitacaoViewSet(generics.ListAPIView):
 
     def get_queryset(self):
         acao_id = self.kwargs['acao_id']
-        return Colaborador_acao.objects.filter(acao=acao_id, solicitacao='E')
+        return ColaboradorAcao.objects.filter(acao=acao_id, solicitacao='E')
 
 class CategoriaViewSet(viewsets.ModelViewSet):
     queryset = Categoria.objects.all()

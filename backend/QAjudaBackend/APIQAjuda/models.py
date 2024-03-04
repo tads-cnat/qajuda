@@ -1,10 +1,6 @@
-from django.utils import timezone
 from django.db import models
-from enum import Enum
 from django.utils.translation import gettext_lazy as _
-from django.contrib.auth.models import User, AbstractBaseUser, PermissionsMixin
-from django.utils.safestring import mark_safe
-from abc import ABC, abstractmethod
+from django.contrib.auth.models import User
 
 class Categoria(models.Model):
     nome = models.CharField(max_length=100)
@@ -29,15 +25,12 @@ class Foto(models.Model):
 
 
 class Colaborador(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE, default=1) # type: ignore
-    # first_name = models.CharField(max_length=15)
-    # last_name = models.CharField(max_length=15)
-    # data_joined = models.DateTimeField(timezone.now()) # type: ignore
+    user = models.OneToOneField(User, on_delete=models.CASCADE, default=1)
     telefone1 = models.CharField(max_length=11)
     telefone2 = models.CharField(max_length=11, null=True, blank=True)
     cidade = models.CharField(max_length=15)
     bairro = models.CharField(max_length=30)
-    data_nasc = models.DateTimeField('data de nascimento')
+    data_nascimento = models.DateTimeField('Data de Nascimento')
     bio = models.TextField(max_length=100)
     categoria = models.ManyToManyField(Categoria, null=True, blank=True)
 
@@ -53,10 +46,10 @@ class Colaborador(models.Model):
 
 class Acao(models.Model):
     nome = models.CharField(max_length=100)
-    status = models.BooleanField() # Ativa: True, Inativa: False 
+    status = models.BooleanField()
     descricao = models.TextField('descrição')
     criada_em = models.DateTimeField(auto_now_add=True)
-    modalidade = models.BooleanField() # Online: True: , Offline: False
+    modalidade = models.BooleanField()
     local = models.CharField(max_length=100)
     tema = models.CharField(max_length=20, null=True, blank=True) 
     max_volunt = models.IntegerField(null=True, blank=True)
@@ -73,7 +66,7 @@ class Acao(models.Model):
         return self.nome
 
     def get_foto(self):
-        for foto in self.foto_set.all(): # type: ignore
+        for foto in self.foto_set.all():
             return foto.foto.url
         return None
 
@@ -90,7 +83,7 @@ class Status(models.TextChoices):
     PARTICIPOU = "P", _("Participou")
     # CANCELADO = "C", _("Cancelado") # sugestão para PDS CORPORATIVO
 
-class Colaborador_acao(models.Model):
+class ColaboradorAcao(models.Model):
     acao = models.ForeignKey(Acao, on_delete=models.CASCADE)
     colaborador = models.ForeignKey(Colaborador, on_delete=models.CASCADE)
     convite = models.CharField(null=True, blank=True, max_length=1, choices=Status.choices)
@@ -122,7 +115,7 @@ class Colaborador_acao(models.Model):
 class Notificacao(models.Model):
     titulo = models.CharField(max_length=100)
     mensagem = models.TextField()
-    colaborador_acao = models.ForeignKey(Colaborador_acao, on_delete=models.CASCADE)
+    colaborador_acao = models.ForeignKey(ColaboradorAcao, on_delete=models.CASCADE)
 
     class Meta:
         verbose_name_plural = 'Notificações'
