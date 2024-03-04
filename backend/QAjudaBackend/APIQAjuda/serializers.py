@@ -47,7 +47,7 @@ class ColaboradorAcaoSerializer(serializers.ModelSerializer):
     colaborador = ColaboradorSerializer()
 
     class Meta:
-        model = Colaborador_acao
+        model = ColaboradorAcao
         fields = '__all__'
 
 class ColaboradorBancoSerializer(serializers.ModelSerializer):
@@ -59,7 +59,7 @@ class ColaboradorBancoSerializer(serializers.ModelSerializer):
 class ColaboradorAcaoBancoSerializer(serializers.ModelSerializer):
 
     class Meta:
-        model = Colaborador_acao
+        model = ColaboradorAcao
         fields = '__all__'
 
 class AcaoBancoSerializer(serializers.ModelSerializer):
