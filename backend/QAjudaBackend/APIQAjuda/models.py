@@ -32,7 +32,7 @@ class Colaborador(models.Model):
     bairro = models.CharField(max_length=30)
     data_nascimento = models.DateTimeField('Data de Nascimento')
     bio = models.TextField(max_length=100)
-    categoria = models.ManyToManyField(Categoria, null=True, blank=True)
+    categoria = models.ManyToManyField(Categoria, blank=True)
 
     def __str__(self):
         if self.user.first_name == None:
