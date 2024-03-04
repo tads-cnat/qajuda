@@ -63,7 +63,7 @@ CORS_ALLOWED_ORIGINS = [
     "https://seu-outro-dominio.com",
 ]
 
-ROOT_URLCONF = 'QAjudaBackend.urls'
+ROOT_URLCONF = 'config.urls'
 
 TEMPLATES = [
     {
@@ -81,7 +81,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'QAjudaBackend.wsgi.application'
+WSGI_APPLICATION = 'config.wsgi.application'
 
 
 # Database
