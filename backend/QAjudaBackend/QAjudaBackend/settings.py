@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'django_filters',
     'APIQAjuda.apps.ApiqajudaConfig',
     'drf_yasg',
     'corsheaders'

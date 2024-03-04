@@ -20,8 +20,8 @@ export class AcaoService {
     return this.http.get<Acao[]>(this.url + 'acao/');
   }
 
-  filtrarAcoesPorNome(nome: string): Observable<Acao[]> {
-    const url = `${this.url}acao/busca/${nome}/`;
+  filtrarAcoesPorNome(query: string): Observable<Acao[]> {
+    const url = `${this.url}acao/?search=${query}`;
     console.log(url);
     return this.http.get<Acao[]>(url);
   }
