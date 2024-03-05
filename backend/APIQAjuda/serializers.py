@@ -27,9 +27,15 @@ class CategoriaSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class AcaoSerializer(serializers.ModelSerializer):
-    categoria = CategoriaSerializer()
-    foto = FotoSerializer()
-    criador = ColaboradorSerializer()
+    class Meta:
+        model = Acao
+        fields = '__all__'
+        read_only_fields = ['criador']
+        
+class ListAcaoSerializer(serializers.ModelSerializer):
+    categoria = CategoriaSerializer(read_only=True)
+    foto = FotoSerializer(read_only=True)
+    criador = ColaboradorSerializer(read_only=True)
     class Meta:
         model = Acao
         fields = '__all__'
@@ -60,10 +66,4 @@ class ColaboradorAcaoBancoSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = ColaboradorAcao
-        fields = '__all__'
-
-class AcaoBancoSerializer(serializers.ModelSerializer):
-
-    class Meta:
-        model = Acao
         fields = '__all__'
