@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt',
     'django_filters',
     'APIQAjuda.apps.ApiqajudaConfig',
-    'drf_yasg',
+    'drf_spectacular',
     'corsheaders'
 ]
 
@@ -158,5 +158,14 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
-    )
+    ),
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+}
+
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'QAjuda API',
+    'DESCRIPTION': 'Documentação da API do QAjuda',
+    'VERSION': '1.0.0',
+    'SERVE_INCLUDE_SCHEMA': False,
 }
