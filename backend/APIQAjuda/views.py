@@ -19,16 +19,27 @@ class AcaoViewSet(viewsets.ModelViewSet):
     search_fields = ['nome', 'descricao']
 
     def get_serializer_class(self):
-        if self.action == 'list':
-            return AcaoBancoSerializer
+        if self.action == 'list' or self.action == 'retrieve':
+            return ListAcaoSerializer
         else:
             return AcaoSerializer
     
     def list(self, request, *args, **kwargs):
         queryset = self.filter_queryset(self.get_queryset())
-        serializer = AcaoSerializer(queryset, many=True)
+        serializer = ListAcaoSerializer(queryset, many=True)
         data = serializer.data
         return Response(data)
+    
+    def perform_create(self, serializer):
+        colaborador = Colaborador.objects.get(user=self.request.user)
+        serializer.save(criador=colaborador)
+
+    def create(self, request, *args, **kwargs):
+        if not request.user.is_authenticated:
+            return Response("Usuário não autenticado.", status=status.HTTP_401_UNAUTHORIZED)
+        return super().create(request, *args, **kwargs)
+    
+        
 
 class ColaboradorViewSet(viewsets.ModelViewSet):
     queryset = Colaborador.objects.all()
