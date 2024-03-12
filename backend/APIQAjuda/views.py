@@ -1,6 +1,7 @@
 from rest_framework import viewsets, status, generics, views, filters
 from rest_framework.response import Response
 from rest_framework.parsers import MultiPartParser
+from rest_framework.decorators import action
 from .models import *
 from .serializers import *
 
@@ -12,7 +13,24 @@ class SolicitacoesEmEsperaView(generics.ListAPIView):
         acao_id = self.kwargs['acao_id']
         return ColaboradorAcao.objects.filter(acao_id=acao_id, solicitacao='E').select_related('colaborador')
 
-        
+class AceitarRecusarSolicitacaoView(viewsets.ModelViewSet):
+    queryset = ColaboradorAcao.objects.all()
+    serializer_class = ColaboradorAcaoSerializer
+
+    @action(detail=True, methods=['post'])
+    def aceitar(self, request, pk=None):
+        solicitacao = self.get_object()
+        solicitacao.solicitacao = Status.ACEITO
+        solicitacao.save()
+        return Response({'status': 'Solicitação aceita'}, status=status.HTTP_200_OK)
+
+    @action(detail=True, methods=['post'])
+    def recusar(self, request, pk=None):
+        solicitacao = self.get_object()
+        solicitacao.solicitacao = Status.REJEITADO
+        solicitacao.save()
+        return Response({'status': 'Solicitação recusada'}, status=status.HTTP_200_OK)
+
 class AcaoViewSet(viewsets.ModelViewSet):
     queryset = Acao.objects.all()
     filter_backends = (filters.SearchFilter,)
