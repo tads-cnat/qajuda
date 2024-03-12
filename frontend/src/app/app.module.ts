@@ -16,6 +16,7 @@ import { AceiteComponent } from './views/aceite/aceite.component';
 import { BuscarComponent } from './views/buscar/buscar.component';
 import { RodapeComponent } from './shared/rodape/rodape.component';
 import { CriaracaoComponent } from './views/criaracao/criaracao.component';
+import { TelaloginComponent } from './views/telalogin/telalogin.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { CriaracaoComponent } from './views/criaracao/criaracao.component';
     AceiteComponent,
     BuscarComponent,
     RodapeComponent,
-    CriaracaoComponent
+    CriaracaoComponent,
+    TelaloginComponent
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],

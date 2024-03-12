@@ -6,6 +6,7 @@ import { DetalheacaoComponent } from './views/detalheacao/detalheacao.component'
 import { AceiteComponent } from './views/aceite/aceite.component';
 import { BuscarComponent } from './views/buscar/buscar.component';
 import { CriaracaoComponent } from './views/criaracao/criaracao.component';
+import { TelaloginComponent } from './views/telalogin/telalogin.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -16,7 +17,8 @@ const routes: Routes = [
   { path: 'detalhe/:id', component: DetalheacaoComponent },
   { path: 'aceite', component: AceiteComponent },
   { path: 'buscar', component: BuscarComponent },
-  { path: 'criaracao', component: CriaracaoComponent }
+  { path: 'criaracao', component: CriaracaoComponent },
+  { path: 'login', component: TelaloginComponent },
 ];
 
 @NgModule({
