@@ -20,17 +20,23 @@ class AceitarRecusarSolicitacaoView(viewsets.ModelViewSet):
     @action(detail=True, methods=['post'])
     def aceitar(self, request, pk=None):
         solicitacao = self.get_object()
-        solicitacao.solicitacao = Status.ACEITO
-        solicitacao.save()
-        return Response({'status': 'Solicitação aceita'}, status=status.HTTP_200_OK)
+        if solicitacao.solicitacao == Status.EM_ESPERA:
+            solicitacao.solicitacao = Status.ACEITO
+            solicitacao.save()
+            return Response({'status': 'Solicitação aceita'}, status=status.HTTP_200_OK)
+        else:
+            return Response({'error': 'A solicitação já foi processada.'})
 
     @action(detail=True, methods=['post'])
     def recusar(self, request, pk=None):
         solicitacao = self.get_object()
-        solicitacao.solicitacao = Status.REJEITADO
-        solicitacao.save()
-        return Response({'status': 'Solicitação recusada'}, status=status.HTTP_200_OK)
-
+        if solicitacao.solicitacao == Status.EM_ESPERA:
+            solicitacao.solicitacao = Status.REJEITADO
+            solicitacao.save()
+            return Response({'status': 'Solicitação recusada'}, status=status.HTTP_200_OK)
+         else:
+            return Response({'error': 'A solicitação já foi processada.'})
+            
 class AcaoViewSet(viewsets.ModelViewSet):
     queryset = Acao.objects.all()
     filter_backends = (filters.SearchFilter,)
