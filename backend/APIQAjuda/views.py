@@ -7,15 +7,16 @@ from .serializers import *
 
 
 class SolicitacoesEmEsperaView(generics.ListAPIView):
-    serializer_class = ColaboradorAcaoSerializer
+    serializer_class = SolicitacaoVoluntariadoSerializer
 
     def get_queryset(self):
         acao_id = self.kwargs['acao_id']
-        return ColaboradorAcao.objects.filter(acao_id=acao_id, solicitacao='E').select_related('colaborador')
+        return SolicitacaoVoluntariado.objects.filter(acao_id=acao_id, solicitacao='E').select_related('colaborador')
+
 
 class AceitarRecusarSolicitacaoView(viewsets.ModelViewSet):
-    queryset = ColaboradorAcao.objects.all()
-    serializer_class = ColaboradorAcaoSerializer
+    queryset = SolicitacaoVoluntariado.objects.all()
+    serializer_class = SolicitacaoVoluntariadoSerializer
 
     @action(detail=True, methods=['post'])
     def aceitar(self, request, pk=None):
@@ -47,7 +48,7 @@ class AcaoViewSet(viewsets.ModelViewSet):
             return ListAcaoSerializer
         else:
             return AcaoSerializer
-    
+
     def list(self, request, *args, **kwargs):
         queryset = self.filter_queryset(self.get_queryset())
         serializer = ListAcaoSerializer(queryset, many=True)
@@ -65,39 +66,47 @@ class AcaoViewSet(viewsets.ModelViewSet):
     
         
 
+
 class ColaboradorViewSet(viewsets.ModelViewSet):
     queryset = Colaborador.objects.all()
-    
+
     def get_serializer_class(self):
         if self.action == 'list':
             return ColaboradorBancoSerializer
         else:
             return ColaboradorSerializer
 
+
 class CardDestaqueViewSet(viewsets.ModelViewSet):
-    queryset = Acao.objects.all().select_related('criador').select_related('categoria').select_related('foto')
+    queryset = Acao.objects.all().select_related(
+        'criador').select_related('categoria').select_related('foto')
     serializer_class = CardDestaqueSerializer
-    
-class ColaboradorAcaoViewSet(viewsets.ModelViewSet):
-    queryset = ColaboradorAcao.objects.all().select_related('acao').select_related('colaborador')
-    serializer_class = ColaboradorAcaoSerializer
+
+
+class SolicitacaoVoluntariadoViewSet(viewsets.ModelViewSet):
+    queryset = SolicitacaoVoluntariado.objects.all().select_related(
+        'acao').select_related('colaborador')
+    serializer_class = SolicitacaoVoluntariadoSerializer
 
     def get_serializer_class(self):
         if self.request.method == 'POST' or self.request.method == 'PATCH' or self.request.method == 'PUT':
-            return ColaboradorAcaoBancoSerializer
+            return SolicitacaoVoluntariadoBancoSerializer
         else:
-            return ColaboradorAcaoSerializer
-        
+            return SolicitacaoVoluntariadoSerializer
+
+
 class SolicitacaoViewSet(generics.ListAPIView):
-    serializer_class = ColaboradorAcaoSerializer
+    serializer_class = SolicitacaoVoluntariadoSerializer
 
     def get_queryset(self):
         acao_id = self.kwargs['acao_id']
-        return ColaboradorAcao.objects.filter(acao=acao_id, solicitacao='E')
+        return SolicitacaoVoluntariado.objects.filter(acao=acao_id, solicitacao='E')
+
 
 class CategoriaViewSet(viewsets.ModelViewSet):
     queryset = Categoria.objects.all()
     serializer_class = CategoriaSerializer
+
 
 class FotoViewSet(views.APIView):
     parser_classes = (MultiPartParser,)
@@ -111,10 +120,8 @@ class FotoViewSet(views.APIView):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-    
+
     def get(self, request, format=None):
         images = Foto.objects.all()
         serializer = FotoSerializer(images, many=True)
         return Response(serializer.data)
-
-    
