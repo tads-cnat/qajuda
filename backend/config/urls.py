@@ -29,11 +29,9 @@ from rest_framework_simplejwt.views import (
 
 
 router = routers.DefaultRouter()
-#router.register(r'solicitacoes', SolicitacaoViewSet)
 router.register(r'acao', AcaoViewSet)
-#router.register(r'card_destaque', CardDestaqueViewSet)
 router.register(r'colaborador', ColaboradorViewSet)
-router.register(r'colaborador_acao', ColaboradorAcaoViewSet)
+router.register(r'solicitacao', SolicitacaoVoluntariadoViewSet)
 router.register(r'categoria', CategoriaViewSet)
 
 urlpatterns = [
@@ -47,6 +45,8 @@ urlpatterns = [
     path('api/schema/', SpectacularAPIView.as_view(), name='schema'),
     path('api/doc/', SpectacularSwaggerView.as_view(url_name='schema'), name='swagger-ui'),
 
+    path('solicitacoes/<int:pk>/aceitar/', AceitarRecusarSolicitacaoView.as_view({'post': 'aceitar'}), name='aceitar_solicitacao'),
+    path('solicitacoes/<int:pk>/recusar/', AceitarRecusarSolicitacaoView.as_view({'post': 'recusar'}), name='recusar_solicitacao'),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

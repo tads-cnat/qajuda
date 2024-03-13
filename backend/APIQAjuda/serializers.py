@@ -48,12 +48,12 @@ class CardDestaqueSerializer(serializers.ModelSerializer):
         model = Acao
         fields = '__all__'
 
-class ColaboradorAcaoSerializer(serializers.ModelSerializer):
+class SolicitacaoVoluntariadoSerializer(serializers.ModelSerializer):
     acao = AcaoSerializer()
     colaborador = ColaboradorSerializer()
 
     class Meta:
-        model = ColaboradorAcao
+        model = SolicitacaoVoluntariado
         fields = '__all__'
 
 class ColaboradorBancoSerializer(serializers.ModelSerializer):
@@ -62,8 +62,8 @@ class ColaboradorBancoSerializer(serializers.ModelSerializer):
         model = Colaborador
         fields = '__all__'
 
-class ColaboradorAcaoBancoSerializer(serializers.ModelSerializer):
+class SolicitacaoVoluntariadoBancoSerializer(serializers.ModelSerializer):
 
     class Meta:
-        model = ColaboradorAcao
+        model = SolicitacaoVoluntariado
         fields = '__all__'
