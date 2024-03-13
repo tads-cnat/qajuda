@@ -83,39 +83,23 @@ class Status(models.TextChoices):
     PARTICIPOU = "P", _("Participou")
     # CANCELADO = "C", _("Cancelado") # sugestão para PDS CORPORATIVO
 
-class ColaboradorAcao(models.Model):
+class SolicitacaoVoluntariado(models.Model):
     acao = models.ForeignKey(Acao, on_delete=models.CASCADE)
     colaborador = models.ForeignKey(Colaborador, on_delete=models.CASCADE)
-    convite = models.CharField(null=True, blank=True, max_length=1, choices=Status.choices)
-    data_convite = models.DateTimeField(null=True, blank=True)
-    solicitacao = models.CharField(null=True, blank=True, max_length=1, choices=Status.choices)
-    data_solicitacao = models.DateTimeField(null=True, blank=True)
-    responsavel = models.BooleanField(null=True, blank=True) # Responsável: True, Não Não responsável: False # Estudar a necessidade deste campo no futuro
-    data_responsavel = models.DateTimeField(null=True, blank=True)
-    #criador = models.BooleanField(null=True, blank=True) # Criador: True, Não criador: False # removido por gerar conflito de integridade
+    status = models.CharField(null=True, blank=True, max_length=1, choices=Status.choices)
+    solicitado_em = models.DateTimeField(auto_now_add=True)
+    modificado_em = models.DateTimeField(null=True, blank=True)
 
     def __str__(self):
-        relacao = " -> não tem relação -> "
-        status = ""
-        if self.convite != None: 
-            relacao = " -> convidado para administrar -> "
-            status = " -> " + Status(self.convite).label
-        elif self.solicitacao != None:
-            relacao = " -> solicitou participar -> "
-            status = " -> " + Status(self.solicitacao).label
-        elif self.responsavel != None:
-            relacao = " -> é responsável -> "
-            status = ""
-
-        return self.colaborador.user.first_name + relacao +  self.acao.nome + status
+        return f"[{self.get_status_display()}] {self.colaborador.user.first_name} solicitou participar de {self.acao.nome}"
     
     class Meta:
-        verbose_name_plural = 'Colaboradores_acões'
+        verbose_name_plural = 'Solicitações de Voluntariado'
 
 class Notificacao(models.Model):
     titulo = models.CharField(max_length=100)
     mensagem = models.TextField()
-    colaborador_acao = models.ForeignKey(ColaboradorAcao, on_delete=models.CASCADE)
+    colaborador_acao = models.ForeignKey(SolicitacaoVoluntariado, on_delete=models.CASCADE)
 
     class Meta:
         verbose_name_plural = 'Notificações'
