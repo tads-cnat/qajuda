@@ -39,7 +39,7 @@ class AceitarRecusarSolicitacaoView(viewsets.ModelViewSet):
             solicitacao.solicitacao = Status.REJEITADO
             solicitacao.save()
             return Response({'status': 'Solicitação recusada'}, status=status.HTTP_200_OK)
-         else:
+        else:
             return Response({'error': 'A solicitação já foi processada.'})
 
 
