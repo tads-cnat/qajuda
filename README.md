@@ -7,10 +7,11 @@
 # Equipe e Formas de Contato
 
 1. Ana Célia Baía Araújo
-2. Felipe Xavier de Carvalho
-3. José Vilanir de Souza Brito Neto
-4.  Matheus Duarte de Medeiros
-5. Yuri Thairony Feitosa de Oliveira
+2. Arthur de Melo Galvão
+3. Felipe Xavier de Carvalho
+4. Matheus Duarte de Medeiros
+5. Pedro Maure Frutuoso de Andrade
+6. Yuri Thairony Feitosa de Oliveira
 
 >A equipe se comunica diariamente por grupo do PDS Web no WhatsApp e utiliza o Discord para reuniões virtuais.
 
