@@ -30,3 +30,16 @@
 # Manual da Desenvolvedor
 
 >Inicialmente devem ser construídos os artefatos: Diagrama de Casos de Uso (CdU), templates (html/css) e interface gráfica para os principais CdU, Diagrama de Classes de domínio e Diagrama Entidade-Relacionamento.
+
+# Calendário dos Gerentes
+
+| Duração | Gerente |
+| --- | --- |
+| 07/03/24 - 20/03/24 | Maure |
+| 21/03/24 - 03/04/24 | Ana Célia |
+| 04/04/24 - 17/04/24 | Matheus |
+| 18/04/24 - 01/05/24 | Felipe |
+| 02/05/24 - 15/05/24 | Arthur |
+| 16/05/24 - 29/05/24 | Yuri |
+| 30/05/24 - 12/06/24 | Maure |
+| 13/06/24 - 19/06/24 | Ana Célia |
