@@ -2,6 +2,7 @@ from rest_framework import viewsets, status, generics, views, filters
 from rest_framework.response import Response
 from rest_framework.parsers import MultiPartParser
 from rest_framework.decorators import action
+import datetime
 
 from drf_spectacular.utils import extend_schema
 
@@ -25,8 +26,9 @@ class AceitarRecusarSolicitacaoView(viewsets.ModelViewSet):
     @action(detail=True, methods=['post'])
     def aceitar(self, request, pk=None):
         solicitacao = self.get_object()
-        if solicitacao.solicitacao == Status.EM_ESPERA:
-            solicitacao.solicitacao = Status.ACEITO
+        if solicitacao.status == Status.EM_ESPERA:
+            solicitacao.status = Status.ACEITO
+            solicitacao.modificado_em = datetime.datetime.now()
             solicitacao.save()
             return Response({'status': 'Solicitação aceita'}, status=status.HTTP_200_OK)
         else:
@@ -35,8 +37,9 @@ class AceitarRecusarSolicitacaoView(viewsets.ModelViewSet):
     @action(detail=True, methods=['post'])
     def recusar(self, request, pk=None):
         solicitacao = self.get_object()
-        if solicitacao.solicitacao == Status.EM_ESPERA:
-            solicitacao.solicitacao = Status.REJEITADO
+        if solicitacao.status == Status.EM_ESPERA:
+            solicitacao.status = Status.REJEITADO
+            solicitacao.modificado_em = datetime.datetime.now()
             solicitacao.save()
             return Response({'status': 'Solicitação recusada'}, status=status.HTTP_200_OK)
         else:
