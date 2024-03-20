@@ -4,6 +4,8 @@ import { Toaster } from "react-hot-toast";
 import "bootstrap";
 import { AuthProvider } from "./contexts/AuthContext";
 
+import Login from "./pages/Login"
+
 function App(): JSX.Element {
 	return (
 		<>
@@ -22,6 +24,10 @@ function App(): JSX.Element {
 						<Route
 							path="/cadastro"
 							element={<h1>Cadastro</h1>}
+						/>
+						<Route
+							path="/login"
+							element={<Login/>}
 						/>
 					</Routes>
 				</Router>
