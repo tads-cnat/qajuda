@@ -1,4 +1,10 @@
-.header{
-    background-color: #3F8CF5;
-    
+.header {
+	background-color: #3f8cf5;
+	/* display: flex; */
+	justify-content: center;
+	align-items: center;
+}
+
+.header-container {
+	max-width: 1020px;
 }
