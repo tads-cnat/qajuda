@@ -2,13 +2,17 @@ from rest_framework import viewsets, status, generics, views, filters
 from rest_framework.response import Response
 from rest_framework.parsers import MultiPartParser
 from rest_framework.decorators import action
+import datetime
+
+from drf_spectacular.utils import extend_schema
+
 from .models import *
 from .serializers import *
-import datetime
+from .permissions import *
 
 
 class SolicitacoesEmEsperaView(generics.ListAPIView):
-    serializer_class = SolicitacaoVoluntariadoSerializer
+    serializer_class = ListSolicitacaoVoluntariadoSerializer
 
     def get_queryset(self):
         acao_id = self.kwargs['acao_id']
@@ -17,14 +21,14 @@ class SolicitacoesEmEsperaView(generics.ListAPIView):
 
 class AceitarRecusarSolicitacaoView(viewsets.ModelViewSet):
     queryset = SolicitacaoVoluntariado.objects.all()
-    serializer_class = SolicitacaoVoluntariadoSerializer
+    serializer_class = ListSolicitacaoVoluntariadoSerializer
 
     @action(detail=True, methods=['post'])
     def aceitar(self, request, pk=None):
         solicitacao = self.get_object()
         if solicitacao.status == Status.EM_ESPERA:
             solicitacao.status = Status.ACEITO
-            solicitacao.modificado_em =datetime.datetime.now()
+            solicitacao.modificado_em = datetime.datetime.now()
             solicitacao.save()
             return Response({'status': 'Solicitação aceita'}, status=status.HTTP_200_OK)
         else:
@@ -35,16 +39,18 @@ class AceitarRecusarSolicitacaoView(viewsets.ModelViewSet):
         solicitacao = self.get_object()
         if solicitacao.status == Status.EM_ESPERA:
             solicitacao.status = Status.REJEITADO
-            solicitacao.modificado_em =datetime.datetime.now()
+            solicitacao.modificado_em = datetime.datetime.now()
             solicitacao.save()
             return Response({'status': 'Solicitação recusada'}, status=status.HTTP_200_OK)
         else:
             return Response({'error': 'A solicitação já foi processada.'})
-            
+
+
 class AcaoViewSet(viewsets.ModelViewSet):
     queryset = Acao.objects.all()
     filter_backends = (filters.SearchFilter,)
     search_fields = ['nome', 'descricao']
+    permission_classes = [ReadOnlyOrIsAuthenticated]
 
     def get_serializer_class(self):
         if self.action == 'list' or self.action == 'retrieve':
@@ -57,7 +63,7 @@ class AcaoViewSet(viewsets.ModelViewSet):
         serializer = ListAcaoSerializer(queryset, many=True)
         data = serializer.data
         return Response(data)
-    
+
     def perform_create(self, serializer):
         colaborador = Colaborador.objects.get(user=self.request.user)
         serializer.save(criador=colaborador)
@@ -66,8 +72,25 @@ class AcaoViewSet(viewsets.ModelViewSet):
         if not request.user.is_authenticated:
             return Response("Usuário não autenticado.", status=status.HTTP_401_UNAUTHORIZED)
         return super().create(request, *args, **kwargs)
-    
-        
+
+    @extend_schema(request=None)
+    @action(detail=True, methods=['post'])
+    def solicitacao(self, request, *args, **kwargs):
+        acao = self.get_object()
+        colaborador = Colaborador.objects.get(user=request.user)
+        status_espera = Status.EM_ESPERA
+        serializer_class = None
+
+        if SolicitacaoVoluntariado.objects.filter(acao=acao, colaborador=colaborador).exists():
+            return Response({"message": "Você já solicitou participação nesta ação."}, status=status.HTTP_400_BAD_REQUEST)
+
+        solicitacao = SolicitacaoVoluntariado.objects.create(
+            acao=acao,
+            colaborador=colaborador,
+            status=status_espera,
+        )
+
+        return Response({"message": "Solicitação de participação enviada com sucesso."}, status=status.HTTP_201_CREATED)
 
 
 class ColaboradorViewSet(viewsets.ModelViewSet):
@@ -84,26 +107,6 @@ class CardDestaqueViewSet(viewsets.ModelViewSet):
     queryset = Acao.objects.all().select_related(
         'criador').select_related('categoria').select_related('foto')
     serializer_class = CardDestaqueSerializer
-
-
-class SolicitacaoVoluntariadoViewSet(viewsets.ModelViewSet):
-    queryset = SolicitacaoVoluntariado.objects.all().select_related(
-        'acao').select_related('colaborador')
-    serializer_class = SolicitacaoVoluntariadoSerializer
-
-    def get_serializer_class(self):
-        if self.request.method == 'POST' or self.request.method == 'PATCH' or self.request.method == 'PUT':
-            return SolicitacaoVoluntariadoBancoSerializer
-        else:
-            return SolicitacaoVoluntariadoSerializer
-
-
-class SolicitacaoViewSet(generics.ListAPIView):
-    serializer_class = SolicitacaoVoluntariadoSerializer
-
-    def get_queryset(self):
-        acao_id = self.kwargs['acao_id']
-        return SolicitacaoVoluntariado.objects.filter(acao=acao_id, solicitacao='E')
 
 
 class CategoriaViewSet(viewsets.ModelViewSet):
@@ -128,3 +131,15 @@ class FotoViewSet(views.APIView):
         images = Foto.objects.all()
         serializer = FotoSerializer(images, many=True)
         return Response(serializer.data)
+
+
+class SolicitacaoVoluntariadoViewSet(viewsets.ModelViewSet):
+    queryset = SolicitacaoVoluntariado.objects.all()
+    serializer_class = SolicitacaoVoluntariadoSerializer
+
+
+"""     def get_serializer_class(self):
+        if self.action == 'list' or self.action == 'retrieve':
+            return ListSolicitacaoVoluntariadoSerializer
+        else:
+            return SolicitacaoVoluntariadoSerializer """
