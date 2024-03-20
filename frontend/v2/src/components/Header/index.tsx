@@ -22,7 +22,7 @@ function Header() {
                             alt="QAjuda"
                         />
                     </a>
-                    <SearchBar placeholder="Busque alguma coisa" />
+                    <SearchBar placeholder="Busque uma ação ou categoria" />
                 </div>
                 <div className="d-flex justify-content-evenly">
                     <div className="d-flex align-items-center">
