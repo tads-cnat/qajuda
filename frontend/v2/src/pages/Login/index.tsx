@@ -15,8 +15,8 @@ interface LoginInterface {
 	password: string
 }
 
-function Login () {
-    const { login } = useAuth();
+function Login() {
+	const { login } = useAuth();
 	const { register, handleSubmit } = useForm<LoginInterface>();
 	const [isLoading, setIsLoading] = useState<boolean>(false);
 
@@ -41,8 +41,8 @@ function Login () {
 				toast.error("Houve um erro na hora de efetuar seu login");
 			});
 	}
-    
-    return (
+
+	return (
 		<div>
 			<Header></Header>
 			<div className="login-page">
@@ -98,7 +98,7 @@ function Login () {
 				</div>
 			</div>
 		</div>
-    )
+	)
 }
 
 export default Login
