@@ -83,7 +83,7 @@ function Login() {
 					</form>
 				</div>
 				<div className="col-lg-6 right-login d-flex justify-content-center">
-					<img src={art} height="100%" />
+					<img src={art} style={{ maxWidth: "150%", height: "100%" }} />
 				</div>
 			</div>
 		</div>
