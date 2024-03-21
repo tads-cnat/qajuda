@@ -6,6 +6,7 @@ class AxiosSingleton {
 	private constructor() {}
 
 	static getInstance(): AxiosInstance {
+		console.log(import.meta.env.VITE_API_URL);
 		if (!AxiosSingleton.instance) {
 			AxiosSingleton.instance = axios.create({
 				baseURL: import.meta.env.VITE_API_URL,
