@@ -5,6 +5,7 @@ import "bootstrap";
 import { AuthProvider } from "./contexts/AuthContext";
 
 import Login from "./pages/Login"
+import VisualizarAcao from "./pages/VisualizarAcao";
 
 function App(): JSX.Element {
 	return (
@@ -28,6 +29,10 @@ function App(): JSX.Element {
 						<Route
 							path="/login"
 							element={<Login/>}
+						/>
+						<Route
+							path="/visualizar-acao"
+							element={<VisualizarAcao/>}
 						/>
 					</Routes>
 				</Router>
