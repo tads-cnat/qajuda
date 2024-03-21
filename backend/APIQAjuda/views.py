@@ -95,6 +95,7 @@ class AcaoViewSet(viewsets.ModelViewSet):
 
 class ColaboradorViewSet(viewsets.ModelViewSet):
     queryset = Colaborador.objects.all()
+    permission_classes = [IsAuthenticated]
 
     def get_serializer_class(self):
         if self.action == 'list':
@@ -104,8 +105,6 @@ class ColaboradorViewSet(viewsets.ModelViewSet):
 
     @action(detail=False, methods=['get'])
     def logado(self, request, *args, **kwargs):
-        if not request.user.is_authenticated:
-            return Response("Usuário não autenticado.", status=status.HTTP_401_UNAUTHORIZED)
         serializer = ColaboradorSerializer(
             request.user.colaborador, context={'request': request})
         return Response(serializer.data)
