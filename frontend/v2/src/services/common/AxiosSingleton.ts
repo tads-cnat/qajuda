@@ -6,7 +6,6 @@ class AxiosSingleton {
 	private constructor() {}
 
 	static getInstance(): AxiosInstance {
-		console.log(import.meta.env.VITE_API_URL);
 		if (!this.instance) {
 			this.instance = axios.create({
 				baseURL: import.meta.env.VITE_API_URL,
@@ -19,7 +18,6 @@ class AxiosSingleton {
 						config.headers.Authorization = `Bearer ${token}`;
 						config.headers.accept = "application/json";
 					}
-					console.log(config.headers.Authorization);
 					return config;
 				},
 				(error) => Promise.reject(error)
