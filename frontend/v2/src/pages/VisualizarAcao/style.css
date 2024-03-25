@@ -1,0 +1,24 @@
+.img-mural {
+    max-width: 530px;
+    max-height: 308px;
+}
+
+.main {
+    background-color: white;
+}
+
+.btn-voluntario {
+    max-width: 458px;
+    max-height: 68px;
+    background-color: #F5B740;
+    font-style: bold;
+}
+
+.info-mural {
+    
+}
+
+.icon {
+    max-width: 25px;
+    max-height: 25px;
+}
