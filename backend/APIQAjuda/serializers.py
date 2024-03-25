@@ -32,10 +32,12 @@ class CategoriaSerializer(serializers.ModelSerializer):
 
 
 class AcaoSerializer(serializers.ModelSerializer):
+
     class Meta:
         model = Acao
         fields = '__all__'
-        read_only_fields = ['criador']
+        read_only_fields = ['criador', 'status', 'criador', 'url',
+                            'qtd_volunt', 'avaliacao', 'modalidade', 'criada_em']
 
 
 class ListAcaoSerializer(serializers.ModelSerializer):
