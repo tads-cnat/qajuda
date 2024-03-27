@@ -31,7 +31,7 @@ function App(): JSX.Element {
 							element={<Login/>}
 						/>
 						<Route
-							path="/visualizar-acao"
+							path="/visualizar-acao/:id"
 							element={<VisualizarAcao/>}
 						/>
 					</Routes>
