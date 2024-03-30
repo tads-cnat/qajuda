@@ -2,10 +2,12 @@ import "./App.css";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 import "bootstrap";
+// import 'bootstrap/dist/css/bootstrap.min.css';
 import { AuthProvider } from "./contexts/AuthContext";
 
 import Login from "./pages/Login"
 import VisualizarAcao from "./pages/VisualizarAcao";
+import VoluntariarAcao from "./pages/VoluntariarAcao"
 
 function App(): JSX.Element {
 	return (
@@ -33,6 +35,10 @@ function App(): JSX.Element {
 						<Route
 							path="/visualizar-acao/:id"
 							element={<VisualizarAcao/>}
+						/>
+						<Route
+							path="/voluntariar-acao"
+							element={<VoluntariarAcao/>}
 						/>
 					</Routes>
 				</Router>
