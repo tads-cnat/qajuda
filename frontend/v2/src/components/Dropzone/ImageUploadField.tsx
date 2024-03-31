@@ -142,6 +142,7 @@ function ImageUploadField(props: ImageUploadFieldProps) {
 										Remover foto
 									</button>
 									<button
+										type="button"
 										className="btn btn-success"
 										onClick={upload}
 									>

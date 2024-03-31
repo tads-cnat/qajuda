@@ -105,11 +105,13 @@ export default function CriarAcao(): JSX.Element {
 										Decrição da ação
 									</label>
 								</div>
-								<ImageUploadField
-									placeholder="Clique para selecionar uma imagem."
-									control={control}
-									name="foto"
-								/>
+								<div className="col-12">
+									<ImageUploadField
+										placeholder="Clique para selecionar uma imagem."
+										control={control}
+										name="foto"
+									/>
+								</div>
 								<div className="col-6"></div>
 								<div className="col-6 d-grid">
 									<button className="btn btn-primary">
