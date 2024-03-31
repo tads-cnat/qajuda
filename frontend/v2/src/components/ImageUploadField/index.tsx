@@ -2,6 +2,7 @@ import FotoService from "@/services/FotoService";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { FileWithPath, useDropzone } from "react-dropzone";
 import { Controller } from "react-hook-form";
+import toast from "react-hot-toast";
 
 const baseStyle: React.CSSProperties = {
 	flex: 1,
@@ -108,6 +109,7 @@ function ImageUploadField(props: ImageUploadFieldProps) {
 							setIsLoading(false);
 							setUploadSuccess(true);
 							onChange(res.data.id);
+							toast.success("Imagem carregada com sucesso!");
 						})
 						.catch((err) => console.error(err));
 				}
