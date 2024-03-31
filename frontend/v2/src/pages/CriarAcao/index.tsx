@@ -1,8 +1,13 @@
-import ImageUploadField from "@/components/Dropzone/ImageUploadField";
+import ImageUploadField from "@/components/ImageUploadField";
 import Header from "@/components/Header";
+import AcaoService from "@/services/AcaoService";
+import CategoriaService from "@/services/CategoriaService";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 
 export default function CriarAcao(): JSX.Element {
+	const [categorias, setCategorias] = useState<any[]>([]);
+
 	const {
 		register,
 		handleSubmit,
@@ -11,9 +16,20 @@ export default function CriarAcao(): JSX.Element {
 		formState: { errors },
 	} = useForm();
 	const onSubmit = (data: any) => {
-		console.log(data);
+		AcaoService.post(data)
+			.then((res) => console.log(res))
+			.catch((err) => console.error(err));
+
 		reset();
 	};
+
+	useEffect(() => {
+		CategoriaService.getAll()
+			.then((res) => {
+				setCategorias(res.data);
+			})
+			.catch((err) => console.error(err));
+	}, []);
 	return (
 		<>
 			<Header />
@@ -37,29 +53,36 @@ export default function CriarAcao(): JSX.Element {
 								<div className="form-floating col-12 ">
 									<select
 										className="form-select"
-										id="tema"
-										aria-label="Tema da alção"
+										id="categoria"
+										aria-label="Categoria da ação"
 										defaultValue="#"
-										{...register("tema")}
+										{...register("categoria")}
 									>
 										<option value="#">
-											Selecione o tema da ação.
+											Selecione a categoria da ação.
 										</option>
-										<option value="1">One</option>
-										<option value="2">Two</option>
-										<option value="3">Three</option>
+										{categorias.map((c, key) => (
+											<option
+												key={key}
+												value={c.id}
+											>
+												{c.nome}
+											</option>
+										))}
 									</select>
-									<label htmlFor="tema">Tema da ação</label>
+									<label htmlFor="categoria">
+										Categoria da ação
+									</label>
 								</div>
 								<div className="form-floating col-12">
 									<input
 										type="text"
 										className="form-control"
-										placeholder="Digite a categoria"
-										id="categoria"
-										{...register("categoria")}
+										placeholder="Informe qual o tema"
+										id="tema"
+										{...register("tema")}
 									/>
-									<label htmlFor="categoria">Categoria</label>
+									<label htmlFor="tema">Tema</label>
 								</div>
 								<div className="form-floating col-12">
 									<input
