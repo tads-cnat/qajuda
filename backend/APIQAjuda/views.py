@@ -95,12 +95,19 @@ class AcaoViewSet(viewsets.ModelViewSet):
 
 class ColaboradorViewSet(viewsets.ModelViewSet):
     queryset = Colaborador.objects.all()
+    permission_classes = [IsAuthenticated]
 
     def get_serializer_class(self):
         if self.action == 'list':
             return ColaboradorBancoSerializer
         else:
             return ColaboradorSerializer
+
+    @action(detail=False, methods=['get'])
+    def logado(self, request, *args, **kwargs):
+        serializer = ColaboradorSerializer(
+            request.user.colaborador, context={'request': request})
+        return Response(serializer.data)
 
 
 class CardDestaqueViewSet(viewsets.ModelViewSet):

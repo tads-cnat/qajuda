@@ -6,24 +6,24 @@ class AxiosSingleton {
 	private constructor() {}
 
 	static getInstance(): AxiosInstance {
-		console.log(import.meta.env.VITE_API_URL);
-		if (!AxiosSingleton.instance) {
-			AxiosSingleton.instance = axios.create({
+		if (!this.instance) {
+			this.instance = axios.create({
 				baseURL: import.meta.env.VITE_API_URL,
 			});
 
-			AxiosSingleton.instance.interceptors.request.use(
+			this.instance.interceptors.request.use(
 				(config) => {
 					const token = localStorage.getItem("token");
 					if (token) {
 						config.headers.Authorization = `Bearer ${token}`;
+						config.headers.accept = "application/json";
 					}
 					return config;
 				},
 				(error) => Promise.reject(error)
 			);
 		}
-		return AxiosSingleton.instance;
+		return this.instance;
 	}
 }
 
