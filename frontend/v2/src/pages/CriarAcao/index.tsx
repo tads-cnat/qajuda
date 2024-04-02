@@ -8,17 +8,31 @@ import toast from "react-hot-toast";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import InputText from "@/components/InputText";
+import Select from "@/components/Select";
 
 const schema = yup.object().shape({
 	nome: yup.string().required("O campo nome é obrigatório"),
 	descricao: yup.string().required("O campo descrição é obrigatório"),
 	local: yup.string().required("O campo local é obrigatório"),
 	tema: yup.string().required("O campo tema é obrigatório"),
-	max_volunt: yup.number().required("O campo max_volunt é obrigatório"),
-	inicio: yup.date().required("O campo início é obrigatório"),
-	fim: yup.date().required("O campo fim é obrigatório"),
-	categoria: yup.number().required("O campo categoria é obrigatório"),
-	// foto: yup.number().required("O campo foto é obrigatório"),
+	max_volunt: yup
+		.number()
+		.integer("O campo deve ser um número inteiro")
+		.typeError("O campo deve ser um número")
+		.min(1, "Não é possível ter menos que 1 voluntário")
+		.required("O campo max_volunt é obrigatório"),
+	inicio: yup
+		.date()
+		.typeError("Informe uma data válida")
+		.required("O campo início é obrigatório"),
+	fim: yup
+		.date()
+		.typeError("Informe uma data válida")
+		.required("O campo fim é obrigatório"),
+	categoria: yup
+		.number()
+		.typeError("Selecione uma categoria válida")
+		.required("O campo categoria é obrigatório"),
 });
 
 export default function CriarAcao(): JSX.Element {
@@ -62,28 +76,11 @@ export default function CriarAcao(): JSX.Element {
 										/>
 									</div>
 									<div className="form-floating col-12 ">
-										<select
-											className="form-select"
-											id="categoria"
-											aria-label="Categoria da ação"
-											defaultValue="#"
-											{...methods.register("categoria")}
-										>
-											<option value="#">
-												Selecione a categoria da ação.
-											</option>
-											{categorias.map((c, key) => (
-												<option
-													key={key}
-													value={c.id}
-												>
-													{c.nome}
-												</option>
-											))}
-										</select>
-										<label htmlFor="categoria">
-											Categoria da ação
-										</label>
+										<Select
+											name="categoria"
+											label="Selecione uma categoria"
+											options={categorias}
+										/>
 									</div>
 									<div className="form-floating col-8">
 										<InputText

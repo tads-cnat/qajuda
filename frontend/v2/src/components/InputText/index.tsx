@@ -1,10 +1,4 @@
-import { useEffect } from "react";
-import {
-	DeepMap,
-	FieldError,
-	InputValidationRules,
-	useFormContext,
-} from "react-hook-form";
+import { useFormContext } from "react-hook-form";
 
 interface InputInterface
 	extends React.DetailedHTMLProps<
@@ -16,7 +10,7 @@ interface InputInterface
 }
 
 function InputText(props: InputInterface) {
-	const { name, label, placeholder } = props;
+	const { name, label, placeholder, type } = props;
 	const {
 		formState: { errors },
 		register,
@@ -25,7 +19,7 @@ function InputText(props: InputInterface) {
 	return (
 		<>
 			<input
-				type="text"
+				type={type}
 				className={`form-control ${errors[name] && "is-invalid"}`}
 				placeholder={placeholder}
 				{...register(name)}
