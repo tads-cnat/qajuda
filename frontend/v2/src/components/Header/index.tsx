@@ -2,9 +2,23 @@ import logo from "@/assets/img/logo/logo-invertido.png";
 import { Link, useNavigate } from "react-router-dom";
 import "./style.css";
 import SearchBar from "../SearchBar";
+import { useAuth } from "@/contexts/AuthContext";
+import toast from "react-hot-toast";
+import { Tooltip } from "bootstrap";
+import { useEffect, useRef } from "react";
 
 function Header() {
 	const navigate = useNavigate();
+	const { user, isAuthenticated, logout } = useAuth();
+
+	function handleLogout() {
+		logout();
+		toast.success("Usuário deslogado");
+		setTimeout(() => {
+			navigate("/");
+		}, 500);
+	}
+	console.log(user);
 
 	return (
 		<nav className="navbar header">
@@ -42,20 +56,35 @@ function Header() {
 						</Link>
 					</div>
 
-					<div className="d-flex flex-column">
-						<Link
-							to="/cadastro"
-							className="text-decoration-none text-white text-bold fw-bold"
+					{isAuthenticated ? (
+						<a
+							onClick={handleLogout}
+							className="text-decoration-none"
+							style={{ cursor: "pointer" }}
 						>
-							Cadastro
-						</Link>
-						<Link
-							to="/login"
-							className="text-decoration-none text-white"
-						>
-							Login
-						</Link>
-					</div>
+							<p className="text-md-end text-white lh-1 my-0">
+								Olá,
+							</p>
+							<p className="fw-bold text-white lh-1 my-0">
+								{user?.user.first_name}
+							</p>
+						</a>
+					) : (
+						<div className="d-flex flex-column">
+							<Link
+								to="/cadastro"
+								className="text-decoration-none text-white text-bold fw-bold"
+							>
+								Cadastro
+							</Link>
+							<Link
+								to="/login"
+								className="text-decoration-none text-white"
+							>
+								Login
+							</Link>
+						</div>
+					)}
 				</div>
 			</div>
 		</nav>
