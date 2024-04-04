@@ -1,0 +1,10 @@
+p {
+    text-align: justify;
+}
+
+@media only screen and (max-widht: 500px) {
+    section {
+        margin: 0 !important;
+        width: 100%;
+    }
+}
