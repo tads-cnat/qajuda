@@ -1,5 +1,5 @@
 import axiosInstance from "@/services/common/AxiosSingleton";
-import { Usuario } from "@/types/Usuario";
+import { Colaborador } from "@/types/Colaborador";
 import React, { createContext, useState, useEffect } from "react";
 import toast from "react-hot-toast";
 
@@ -9,7 +9,7 @@ interface AuthContextProps {
 	logout: () => void;
 	isAuthenticated: boolean;
 	isLoading: boolean;
-	user?: Usuario | null;
+	user?: Colaborador | null;
 }
 
 export const AuthContext = createContext<AuthContextProps>({
@@ -32,7 +32,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
 	const [token, setToken] = useState<string | null>(null);
 	const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
 	const [isLoading, setIsLoading] = useState<boolean>(true);
-	const [user, setUser] = useState<Usuario>();
+	const [user, setUser] = useState<Colaborador>();
 
 	useEffect(() => {
 		const getUser = async () => {
