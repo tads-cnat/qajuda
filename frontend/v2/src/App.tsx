@@ -1,13 +1,13 @@
 import "./App.css";
+import "bootstrap";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
-import "bootstrap";
-// import 'bootstrap/dist/css/bootstrap.min.css';
 import { AuthProvider } from "./contexts/AuthContext";
 
-import Login from "./pages/Login"
+import Login from "./pages/Login";
 import VisualizarAcao from "./pages/VisualizarAcao";
-import VoluntariarAcao from "./pages/VoluntariarAcao"
+import VoluntariarAcao from "./pages/VoluntariarAcao";
+import CriarAcao from "./pages/CriarAcao";
 
 function App(): JSX.Element {
 	return (
@@ -30,15 +30,19 @@ function App(): JSX.Element {
 						/>
 						<Route
 							path="/login"
-							element={<Login/>}
+							element={<Login />}
+						/>
+						<Route
+							path="/criar-acao"
+							element={<CriarAcao />}
 						/>
 						<Route
 							path="/visualizar-acao/:id"
-							element={<VisualizarAcao/>}
+							element={<VisualizarAcao />}
 						/>
 						<Route
 							path="/voluntariar-acao"
-							element={<VoluntariarAcao/>}
+							element={<VoluntariarAcao />}
 						/>
 					</Routes>
 				</Router>

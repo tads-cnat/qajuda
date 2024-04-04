@@ -1,7 +1,5 @@
 import BaseService from "./common/BaseService";
 
-class Acao extends BaseService {
+class AcaoService extends BaseService {}
 
-}
-
-export default new Acao("acao");
+export default new AcaoService("acao");
