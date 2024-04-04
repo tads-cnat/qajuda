@@ -1,0 +1,9 @@
+.carouselImg {
+    height: 100%;
+
+    left: 50%;
+    position: relative;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    object-fit: cover;
+}

@@ -6,6 +6,7 @@ import { AuthProvider } from "./contexts/AuthContext";
 
 import Login from "./pages/Login";
 import CriarAcao from "./pages/CriarAcao";
+import Homepage from "./pages/Homepage";
 
 function App(): JSX.Element {
 	return (
@@ -16,7 +17,7 @@ function App(): JSX.Element {
 					<Routes>
 						<Route
 							path="/"
-							element={<h1>Home</h1>}
+							element={<Homepage />}
 						/>
 						<Route
 							path="/sobre"
