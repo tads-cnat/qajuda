@@ -6,9 +6,9 @@ function VoluntariarAcao() {
 	return (
 		<>
 			<Header />
-			<section className="container">
-				<h2 className="my-4">Confirmação de voluntariado</h2>
-				<div className="d-grid gap-2 d-md-flex flex-column align-items-md-center">
+			<section className="container col-5">
+				<h2 className="my-4 text-center">Confirmação de voluntariado</h2>
+				<div className="d-grid gap-2 d-md-flex flex-column align-items-md-center texto-principal">
 					<p>
 						Confirmo o compartilhamento de alguns dos meus dados
 						sensíveis com o(s) proprietário(s) dessa ação, bem com
