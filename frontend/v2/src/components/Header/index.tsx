@@ -1,14 +1,29 @@
-import logo from "@/assets/img/logo/logo_header.svg";
+import logo from "@/assets/img/logo/logo-invertido.png";
 import { Link, useNavigate } from "react-router-dom";
 import "./style.css";
 import SearchBar from "../SearchBar";
+import { useAuth } from "@/contexts/AuthContext";
+import toast from "react-hot-toast";
 
 function Header() {
 	const navigate = useNavigate();
+	const { user, isAuthenticated, logout } = useAuth();
+
+	function handleLogout() {
+		logout();
+		toast.success("Usuário deslogado");
+		setTimeout(() => {
+			navigate("/");
+		}, 500);
+	}
+	console.log(user);
 
 	return (
-		<nav className="navbar  header">
-			<div className="w-100 d-flex align-items-center justify-content-between header-container">
+		<nav className="navbar header">
+			<div
+				className="w-100 d-flex align-items-center justify-content-between header-container"
+				style={{ maxHeight: "50px" }}
+			>
 				<div className="d-flex">
 					<a
 						className="navbar-brand"
@@ -18,6 +33,7 @@ function Header() {
 							src={logo}
 							className="logo me-4"
 							alt="QAjuda"
+							height="50px"
 						/>
 					</a>
 					<SearchBar placeholder="Busque uma ação ou categoria" />
@@ -38,20 +54,35 @@ function Header() {
 						</Link>
 					</div>
 
-					<div className="d-flex flex-column">
-						<Link
-							to="/cadastro"
-							className="text-decoration-none text-white text-bold fw-bold"
+					{isAuthenticated ? (
+						<a
+							onClick={handleLogout}
+							className="text-decoration-none"
+							style={{ cursor: "pointer" }}
 						>
-							Cadastro
-						</Link>
-						<Link
-							to="/login"
-							className="text-decoration-none text-white"
-						>
-							Login
-						</Link>
-					</div>
+							<p className="text-md-end text-white lh-1 my-0">
+								Olá,
+							</p>
+							<p className="fw-bold text-white lh-1 my-0">
+								{user?.user.first_name}
+							</p>
+						</a>
+					) : (
+						<div className="d-flex flex-column">
+							<Link
+								to="/cadastro"
+								className="text-decoration-none text-white text-bold fw-bold"
+							>
+								Cadastro
+							</Link>
+							<Link
+								to="/login"
+								className="text-decoration-none text-white"
+							>
+								Login
+							</Link>
+						</div>
+					)}
 				</div>
 			</div>
 		</nav>

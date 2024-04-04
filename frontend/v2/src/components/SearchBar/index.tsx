@@ -1,3 +1,4 @@
+import { useState } from "react";
 import "./style.css";
 
 interface SearchBarInterface {
@@ -6,6 +7,7 @@ interface SearchBarInterface {
 
 function SearchBar(props: SearchBarInterface) {
 	const { placeholder } = props;
+	const [_, setValue] = useState<string>("");
 
 	return (
 		<div
@@ -18,7 +20,8 @@ function SearchBar(props: SearchBarInterface) {
 						type="search"
 						placeholder={placeholder}
 						className="form-control border-0 bg-light rounded-pill rounded-end"
-						onChange={(event) => event.target.value}
+						value=""
+						onChange={(e) => setValue(e.target.value)}
 					/>
 					<div className="input-group-append bg-light rounded-pill rounded-start py-1 px-2">
 						<button
