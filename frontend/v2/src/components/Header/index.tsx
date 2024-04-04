@@ -12,9 +12,6 @@ function Header() {
 	function handleLogout() {
 		logout();
 		toast.success("Usuário deslogado");
-		setTimeout(() => {
-			navigate("/");
-		}, 500);
 	}
 	console.log(user);
 
