@@ -1,6 +1,6 @@
 import axiosInstance from "@/services/common/AxiosSingleton";
 import { Usuario } from "@/types/Usuario";
-import React, { createContext, useState, useContext, useEffect } from "react";
+import React, { createContext, useState, useEffect } from "react";
 import toast from "react-hot-toast";
 
 interface AuthContextProps {
@@ -12,18 +12,17 @@ interface AuthContextProps {
 	user?: Usuario | null;
 }
 
-const AuthContext = createContext<AuthContextProps>({
+export const AuthContext = createContext<AuthContextProps>({
 	token: null,
-	login: (token: string, refreshToken: string) => {},
+	login: (token: string, refreshToken: string) => {
+		token;
+		refreshToken;
+	},
 	logout: () => {},
 	isAuthenticated: false,
 	isLoading: true,
 	user: null,
 });
-
-export const useAuth = () => {
-	return useContext(AuthContext);
-};
 
 interface AuthProviderProps {
 	children: React.ReactNode;

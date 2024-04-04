@@ -2,8 +2,8 @@ import logo from "@/assets/img/logo/logo-invertido.png";
 import { Link, useNavigate } from "react-router-dom";
 import "./style.css";
 import SearchBar from "../SearchBar";
-import { useAuth } from "@/contexts/AuthContext";
 import toast from "react-hot-toast";
+import { useAuth } from "@/contexts/useAuth";
 
 function Header() {
 	const navigate = useNavigate();
