@@ -4,7 +4,8 @@ import { Toaster } from "react-hot-toast";
 import "bootstrap";
 import { AuthProvider } from "./contexts/AuthContext";
 
-import Login from "./pages/Login"
+import Login from "./pages/Login";
+import CriarAcao from "./pages/CriarAcao";
 
 function App(): JSX.Element {
 	return (
@@ -27,7 +28,11 @@ function App(): JSX.Element {
 						/>
 						<Route
 							path="/login"
-							element={<Login/>}
+							element={<Login />}
+						/>
+						<Route
+							path="/criar-acao"
+							element={<CriarAcao />}
 						/>
 					</Routes>
 				</Router>

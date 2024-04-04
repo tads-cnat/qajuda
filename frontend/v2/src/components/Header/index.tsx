@@ -4,8 +4,6 @@ import "./style.css";
 import SearchBar from "../SearchBar";
 import { useAuth } from "@/contexts/AuthContext";
 import toast from "react-hot-toast";
-import { Tooltip } from "bootstrap";
-import { useEffect, useRef } from "react";
 
 function Header() {
 	const navigate = useNavigate();

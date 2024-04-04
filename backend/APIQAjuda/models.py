@@ -2,6 +2,7 @@ from django.db import models
 from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.models import User
 
+
 class Categoria(models.Model):
     nome = models.CharField(max_length=100)
 
@@ -51,7 +52,7 @@ class Acao(models.Model):
     criada_em = models.DateTimeField(auto_now_add=True)
     modalidade = models.BooleanField()
     local = models.CharField(max_length=100)
-    tema = models.CharField(max_length=20, null=True, blank=True) 
+    tema = models.CharField(max_length=20, null=True, blank=True)
     max_volunt = models.IntegerField(null=True, blank=True)
     url = models.CharField(null=True, blank=True, max_length=200)
     inicio = models.DateTimeField()
@@ -76,6 +77,7 @@ class Acao(models.Model):
     class Meta:
         verbose_name_plural = 'Ações'
 
+
 class Status(models.TextChoices):
     EM_ESPERA = "E", _("Em espera")
     ACEITO = "A", _("Aceito")
@@ -83,23 +85,27 @@ class Status(models.TextChoices):
     PARTICIPOU = "P", _("Participou")
     # CANCELADO = "C", _("Cancelado") # sugestão para PDS CORPORATIVO
 
+
 class SolicitacaoVoluntariado(models.Model):
     acao = models.ForeignKey(Acao, on_delete=models.CASCADE)
     colaborador = models.ForeignKey(Colaborador, on_delete=models.CASCADE)
-    status = models.CharField(null=True, blank=True, max_length=1, choices=Status.choices)
+    status = models.CharField(null=True, blank=True,
+                              max_length=1, choices=Status.choices)
     solicitado_em = models.DateTimeField(auto_now_add=True)
     modificado_em = models.DateTimeField(null=True, blank=True)
 
     def __str__(self):
         return f"[{self.get_status_display()}] {self.colaborador.user.first_name} solicitou participar de {self.acao.nome}"
-    
+
     class Meta:
         verbose_name_plural = 'Solicitações de Voluntariado'
+
 
 class Notificacao(models.Model):
     titulo = models.CharField(max_length=100)
     mensagem = models.TextField()
-    colaborador_acao = models.ForeignKey(SolicitacaoVoluntariado, on_delete=models.CASCADE)
+    colaborador_acao = models.ForeignKey(
+        SolicitacaoVoluntariado, on_delete=models.CASCADE)
 
     class Meta:
         verbose_name_plural = 'Notificações'
