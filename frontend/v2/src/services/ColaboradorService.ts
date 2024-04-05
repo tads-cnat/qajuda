@@ -1,7 +1,5 @@
 import BaseService from "./common/BaseService";
 
-class Colaborador extends BaseService {
+class ColaboradorServices extends BaseService {}
 
-}
-
-export default new Colaborador('colaborador')
+export default new ColaboradorServices("colaborador");
