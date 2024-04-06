@@ -24,7 +24,9 @@ function Homepage() {
 			<div className="container">
 				<div className="row">
 					<div className="col-12">
-						<CarouselAcoes acoes={acoesCarousel} />
+						{acoesCarousel.length > 0 && (
+							<CarouselAcoes acoes={acoesCarousel} />
+						)}
 					</div>
 				</div>
 			</div>
