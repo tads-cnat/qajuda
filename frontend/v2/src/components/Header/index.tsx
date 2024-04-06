@@ -16,7 +16,6 @@ function Header() {
 			navigate("/");
 		}, 500);
 	}
-	console.log(user);
 
 	return (
 		<nav className="navbar header">

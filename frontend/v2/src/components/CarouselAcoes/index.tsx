@@ -1,14 +1,19 @@
 import styles from "./carousel.module.css";
 import { uniqueId } from "lodash";
 import { Acao } from "@/types/Acao";
+import { Carousel } from "bootstrap";
 
 interface CarouselAcoesProps {
 	acoes: Acao[];
 }
 
+const baseUrl = import.meta.env.VITE_API_URL;
+
 function CarouselAcoes(props: CarouselAcoesProps): JSX.Element {
 	const { acoes } = props;
 	const carouselId = uniqueId("carousel-");
+
+	// const carousel = new Carousel(carouselId);
 
 	return (
 		<div
@@ -20,6 +25,7 @@ function CarouselAcoes(props: CarouselAcoesProps): JSX.Element {
 				{acoes.map((_, key) => {
 					return (
 						<button
+							key={key}
 							type="button"
 							data-bs-target={`#${carouselId}`}
 							data-bs-slide-to={key}
@@ -30,17 +36,18 @@ function CarouselAcoes(props: CarouselAcoesProps): JSX.Element {
 				})}
 			</div>
 			<div className="carousel-inner">
-				{acoes.map((a: Acao) => {
+				{acoes.map((a: Acao, key) => {
+					const fotoUrl = baseUrl + a.foto?.foto;
 					return (
 						<div
-							className="carousel-item active"
+							className={`carousel-item ${
+								key == 0 ? "active" : ""
+							}`}
 							style={{ height: "40vh" }}
+							key={key}
 						>
 							<img
-								src={
-									a.foto.foto ??
-									"https://placehold.co/600x400"
-								}
+								src={fotoUrl}
 								className={`d-block w-100 ${styles.carouselImg}`}
 							/>
 							<div className="carousel-caption d-none d-md-block">
