@@ -15,7 +15,8 @@ class Categoria(models.Model):
 
 class Foto(models.Model):
     nome = models.TextField(max_length=100, blank=True)
-    foto = models.ImageField(upload_to='APIQAjuda/static/', null=True, blank=True)
+    foto = models.ImageField(
+        upload_to='APIQAjuda/static/', null=True, blank=True)
 
     def __str__(self):
         return self.nome
