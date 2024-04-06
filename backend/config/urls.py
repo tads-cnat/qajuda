@@ -32,12 +32,12 @@ router.register(r'acao', AcaoViewSet)
 router.register(r'colaborador', ColaboradorViewSet)
 router.register(r'solicitacao', SolicitacaoVoluntariadoViewSet)
 router.register(r'categoria', CategoriaViewSet)
+router.register(r'foto', FotoViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(router.urls)),
     path('api-auth', include('rest_framework.urls', namespace='rest_framework')),
-    path('foto/', FotoViewSet.as_view(), name='upload_foto'),
 
     path('login/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
