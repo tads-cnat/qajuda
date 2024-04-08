@@ -6,6 +6,7 @@ import { AuthProvider } from "./contexts/AuthContext";
 
 import Login from "./pages/Login";
 import CriarAcao from "./pages/CriarAcao";
+import AutorizarVoluntarioAcao from "./pages/AutorizarVoluntarioAcao";
 
 function App(): JSX.Element {
 	return (
@@ -33,6 +34,10 @@ function App(): JSX.Element {
 						<Route
 							path="/criar-acao"
 							element={<CriarAcao />}
+						/>
+						<Route
+							path="/autorizar-voluntario-acao"
+							element={<AutorizarVoluntarioAcao />}
 						/>
 					</Routes>
 				</Router>
