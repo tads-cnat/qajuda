@@ -1,10 +1,12 @@
 import "./App.css";
+import "bootstrap";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
-import "bootstrap";
 import { AuthProvider } from "./contexts/AuthContext";
 
 import Login from "./pages/Login";
+import VisualizarAcao from "./pages/VisualizarAcao";
+import VoluntariarAcao from "./pages/VoluntariarAcao";
 import CriarAcao from "./pages/CriarAcao";
 
 function App(): JSX.Element {
@@ -33,6 +35,14 @@ function App(): JSX.Element {
 						<Route
 							path="/criar-acao"
 							element={<CriarAcao />}
+						/>
+						<Route
+							path="/visualizar-acao/:id"
+							element={<VisualizarAcao />}
+						/>
+						<Route
+							path="/voluntariar-acao"
+							element={<VoluntariarAcao />}
 						/>
 					</Routes>
 				</Router>
