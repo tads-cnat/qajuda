@@ -6,7 +6,7 @@ COPY . .
 
 RUN yarn install
 
-EXPOSE 1234
+EXPOSE 5173
 
 CMD [ "npm", "run", "dev" ]
 
