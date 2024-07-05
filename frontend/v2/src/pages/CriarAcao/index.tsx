@@ -47,6 +47,7 @@ export default function CriarAcao(): JSX.Element {
 			})
 			.catch((err) => {
 				toast.error("Houve um erro ao cadastrar a ação!");
+				console.error(err);
 			});
 	};
 
