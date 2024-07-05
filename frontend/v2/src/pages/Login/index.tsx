@@ -22,7 +22,7 @@ function Login() {
 
 	function onSubmit(data: LoginInterface) {
 		setIsLoading(true);
-		LoginService.getToken(data)
+		LoginService.login(data)
 			.then((res) => {
 				setIsLoading(false);
 				toast.success("Logado com sucesso!");

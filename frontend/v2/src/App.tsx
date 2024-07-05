@@ -8,6 +8,7 @@ import Login from "./pages/Login";
 import VisualizarAcao from "./pages/VisualizarAcao";
 import VoluntariarAcao from "./pages/VoluntariarAcao";
 import CriarAcao from "./pages/CriarAcao";
+import Homepage from "./pages/Homepage";
 import ProtectedRoute from "./utils/ProtectedRoutes";
 
 function App(): JSX.Element {
@@ -19,7 +20,7 @@ function App(): JSX.Element {
 					<Routes>
 						<Route
 							path="/"
-							element={<h1>Home</h1>}
+							element={<Homepage />}
 						/>
 						<Route
 							path="/sobre"

@@ -13,7 +13,6 @@ function Header() {
 		logout();
 		toast.success("Usuário deslogado");
 	}
-	console.log(user);
 
 	return (
 		<nav className="navbar header">
