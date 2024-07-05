@@ -1,9 +1,7 @@
-/**
- * TODO Mudar para esse import depois de aprovar o PR #213
- * import { useAuth } from "@/contexts/useAuth";
- */
 
-import { useAuth } from "@/contexts/AuthContext";
+import { useAuth } from "@/contexts/useAuth";
+
+
 import { Navigate, Outlet } from "react-router-dom";
 
 const ProtectedRoute = () => {
