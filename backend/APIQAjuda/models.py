@@ -16,7 +16,7 @@ class Categoria(models.Model):
 class Foto(models.Model):
     nome = models.TextField(max_length=100, blank=True)
     foto = models.ImageField(
-        upload_to='fotos/', null=True, blank=True)
+        upload_to='APIQAjuda/static/', null=True, blank=True)
 
     def __str__(self):
         return self.nome
@@ -47,10 +47,10 @@ class Colaborador(models.Model):
 
 class Acao(models.Model):
     nome = models.CharField(max_length=100)
-    status = models.BooleanField()
+    status = models.BooleanField(default=True)
     descricao = models.TextField('descrição')
     criada_em = models.DateTimeField(auto_now_add=True)
-    modalidade = models.BooleanField()
+    modalidade = models.BooleanField(default=True)
     local = models.CharField(max_length=100)
     tema = models.CharField(max_length=20, null=True, blank=True)
     max_volunt = models.IntegerField(null=True, blank=True)

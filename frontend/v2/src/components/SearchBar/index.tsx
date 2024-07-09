@@ -7,7 +7,7 @@ interface SearchBarInterface {
 
 function SearchBar(props: SearchBarInterface) {
 	const { placeholder } = props;
-	const [_, setValue] = useState<string>("");
+	const [, setValue] = useState<string>("");
 
 	return (
 		<div

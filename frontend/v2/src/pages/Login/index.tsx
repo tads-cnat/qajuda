@@ -6,8 +6,7 @@ import logo from "@/assets/img/logo/logoqajuda.svg";
 import art from "@/assets/img/login-screen.svg";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
-
-import { useAuth } from "@/contexts/AuthContext";
+import { useAuth } from "@/contexts/useAuth";
 
 interface LoginInterface {
 	username: string;
@@ -23,7 +22,7 @@ function Login() {
 
 	function onSubmit(data: LoginInterface) {
 		setIsLoading(true);
-		LoginService.getToken(data)
+		LoginService.login(data)
 			.then((res) => {
 				setIsLoading(false);
 				toast.success("Logado com sucesso!");

@@ -8,6 +8,8 @@ import Login from "./pages/Login";
 import VisualizarAcao from "./pages/VisualizarAcao";
 import VoluntariarAcao from "./pages/VoluntariarAcao";
 import CriarAcao from "./pages/CriarAcao";
+import Homepage from "./pages/Homepage";
+import ProtectedRoute from "./utils/ProtectedRoutes";
 
 function App(): JSX.Element {
 	return (
@@ -18,7 +20,7 @@ function App(): JSX.Element {
 					<Routes>
 						<Route
 							path="/"
-							element={<h1>Home</h1>}
+							element={<Homepage />}
 						/>
 						<Route
 							path="/sobre"
@@ -33,10 +35,6 @@ function App(): JSX.Element {
 							element={<Login />}
 						/>
 						<Route
-							path="/criar-acao"
-							element={<CriarAcao />}
-						/>
-						<Route
 							path="/visualizar-acao/:id"
 							element={<VisualizarAcao />}
 						/>
@@ -44,6 +42,20 @@ function App(): JSX.Element {
 							path="/voluntariar-acao"
 							element={<VoluntariarAcao />}
 						/>
+						<Route element={<ProtectedRoute />}>
+							{/* Telas que só poderão ser acessadas por usuários logados devem ser colocadas aqui dentro */}
+							<Route
+								element={<CriarAcao />}
+								path="/criar-acao"
+							/>
+							{/* 
+							ex:
+							<Route
+								element={<AprovarSolicitacao />}
+								path="/aprovar-solicitacao"
+							/> 
+							*/}
+						</Route>
 					</Routes>
 				</Router>
 			</AuthProvider>

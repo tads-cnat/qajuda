@@ -1,6 +1,5 @@
-from rest_framework import viewsets, status, generics, views, filters
+from rest_framework import viewsets, status, generics, views, filters, parsers
 from rest_framework.response import Response
-from rest_framework.parsers import MultiPartParser
 from rest_framework.decorators import action
 import datetime
 
@@ -121,20 +120,20 @@ class CategoriaViewSet(viewsets.ModelViewSet):
     serializer_class = CategoriaSerializer
 
 
-class FotoViewSet(views.APIView):
-    parser_classes = (MultiPartParser,)
+class FotoViewSet(viewsets.ModelViewSet):
+    queryset = Foto.objects.all()
+    serializer_class = FotoSerializer
+    permission_classes = [ReadOnlyOrIsAuthenticated]
+    parser_classes = [parsers.MultiPartParser]
 
-    def get_serializer(self):
-        return FotoSerializer()
-
-    def post(self, request, format=None):
+    def create(self, request, format=None):
         serializer = FotoSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-    def get(self, request, format=None):
+    def list(self, request, format=None):
         images = Foto.objects.all()
         serializer = FotoSerializer(images, many=True)
         return Response(serializer.data)
