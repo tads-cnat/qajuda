@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-imjgtnd(tvhepmwz1f&!u@xvli$o8a%t-#3eb^o_a6v8s5d^nu
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["52.168.2.253", "localhost"]
 
 
 # Application definition
@@ -62,6 +62,7 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
     "http://localhost:8000",
     "https://seu-outro-dominio.com",
+    "http://52.168.2.253"
 ]
 
 ROOT_URLCONF = 'config.urls'
@@ -88,25 +89,16 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-'''DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'qajudadb',
-        'USER': 'root',
-        'PASSWORD': 'qajuda2021',
-        'HOST':'0.0.0.0',
-        'PORT':'3306',
-    }
-}'''
-
-# Database sqlite3
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'qajudadb',
+        'USER': 'qajuda',
+        'PASSWORD': 'qajuda-password',
+        'HOST': 'qajuda_postgres',
+        'PORT': '5432',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
