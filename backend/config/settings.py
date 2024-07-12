@@ -95,7 +95,7 @@ DATABASES = {
         'NAME': 'qajudadb',
         'USER': 'qajuda',
         'PASSWORD': 'qajuda-password',
-        'HOST': 'qajuda_postgres',
+        'HOST': 'qajuda-db',
         'PORT': '5432',
     }
 }
