@@ -1,6 +1,49 @@
+import datetime
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from django.contrib.auth.models import User
+from django.contrib.auth.models import AbstractUser, BaseUserManager
+
+
+class UserManager(BaseUserManager):
+    def create_user(self, username, password=None, data_nascimento=datetime.date.today().isoformat(), **extra_fields):
+        if not username:
+            raise ValueError("O campo 'username' é obrigatório.")
+        user = self.model(username=username,
+                          data_nascimento=data_nascimento, **extra_fields)
+        user.set_password(password)
+        user.save(using=self._db)
+        return user
+
+    def create_superuser(self, username, password=None, **extra_fields):
+        extra_fields.setdefault('is_staff', True)
+        extra_fields.setdefault('is_superuser', True)
+
+        if extra_fields.get('is_staff') is not True:
+            raise ValueError("O superusuário deve ter is_staff=True.")
+        if extra_fields.get('is_superuser') is not True:
+            raise ValueError("O superusuário deve ter is_superuser=True.")
+
+        return self.create_user(username, password, **extra_fields)
+
+
+class Colaborador(AbstractUser):
+    nome = models.CharField(max_length=150)
+    telefone = models.CharField(max_length=11)
+    cidade = models.CharField(max_length=15)
+    bairro = models.CharField(max_length=30)
+    data_nascimento = models.DateField()
+    bio = models.TextField(max_length=100)
+
+    objects = UserManager()
+
+    first_name = None
+    last_name = None
+
+    def __str__(self):
+        return self.username
+
+    class Meta:
+        verbose_name_plural = 'Colaboradores'
 
 
 class Categoria(models.Model):
@@ -25,54 +68,22 @@ class Foto(models.Model):
         verbose_name_plural = 'Fotos'
 
 
-class Colaborador(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE, default=1)
-    telefone1 = models.CharField(max_length=11)
-    telefone2 = models.CharField(max_length=11, null=True, blank=True)
-    cidade = models.CharField(max_length=15)
-    bairro = models.CharField(max_length=30)
-    data_nascimento = models.DateTimeField('Data de Nascimento')
-    bio = models.TextField(max_length=100)
-    categoria = models.ManyToManyField(Categoria, blank=True)
-
-    def __str__(self):
-        if self.user.first_name == None:
-            return self.user.username
-        else:
-            return self.user.first_name
-
-    class Meta:
-        verbose_name_plural = 'Colaboradores'
-
-
 class Acao(models.Model):
     nome = models.CharField(max_length=100)
-    status = models.BooleanField(default=True)
-    descricao = models.TextField('descrição')
-    criada_em = models.DateTimeField(auto_now_add=True)
-    modalidade = models.BooleanField(default=True)
-    local = models.CharField(max_length=100)
-    tema = models.CharField(max_length=20, null=True, blank=True)
-    max_volunt = models.IntegerField(null=True, blank=True)
-    url = models.CharField(null=True, blank=True, max_length=200)
+    ativa = models.BooleanField(default=True)
+    descricao = models.TextField()
+    endereco = models.CharField(max_length=100)
+    max_voluntarios = models.IntegerField(null=True, blank=True)
     inicio = models.DateTimeField()
     fim = models.DateTimeField(null=True, blank=True)
-    avaliacao = models.IntegerField(null=True, blank=True)
-    qtd_volunt = models.IntegerField(null=True, blank=True, default=0)
-    categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
-    criador = models.ForeignKey(Colaborador, on_delete=models.CASCADE)
+    qtd_voluntarios = models.IntegerField(null=True, blank=True, default=0)
     foto = models.ForeignKey(Foto, on_delete=models.CASCADE)
+    categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
+    criado_por = models.ForeignKey(Colaborador, on_delete=models.CASCADE)
+    criado_em = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.nome
-
-    def get_foto(self):
-        for foto in self.foto_set.all():
-            return foto.foto.url
-        return None
-
-    def get_descricao(self):
-        return str(self.descricao)[:230] + "..."
 
     class Meta:
         verbose_name_plural = 'Ações'
@@ -82,8 +93,6 @@ class Status(models.TextChoices):
     EM_ESPERA = "E", _("Em espera")
     ACEITO = "A", _("Aceito")
     REJEITADO = "R", _("Rejeitado")
-    PARTICIPOU = "P", _("Participou")
-    # CANCELADO = "C", _("Cancelado") # sugestão para PDS CORPORATIVO
 
 
 class SolicitacaoVoluntariado(models.Model):
@@ -92,20 +101,10 @@ class SolicitacaoVoluntariado(models.Model):
     status = models.CharField(null=True, blank=True,
                               max_length=1, choices=Status.choices)
     solicitado_em = models.DateTimeField(auto_now_add=True)
-    modificado_em = models.DateTimeField(null=True, blank=True)
+    modificado_em = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return f"[{self.get_status_display()}] {self.colaborador.user.first_name} solicitou participar de {self.acao.nome}"
+        return f"{self.colaborador.nome} solicitou participar de {self.acao.nome}"
 
     class Meta:
         verbose_name_plural = 'Solicitações de Voluntariado'
-
-
-class Notificacao(models.Model):
-    titulo = models.CharField(max_length=100)
-    mensagem = models.TextField()
-    colaborador_acao = models.ForeignKey(
-        SolicitacaoVoluntariado, on_delete=models.CASCADE)
-
-    class Meta:
-        verbose_name_plural = 'Notificações'
