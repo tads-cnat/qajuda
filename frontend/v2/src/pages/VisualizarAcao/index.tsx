@@ -1,46 +1,23 @@
+import { useEffect, useState } from "react";
 import "./style.css";
 import { Acao } from "@/types/Acao";
+import { useParams } from "react-router-dom";
 import AcaoService from "@/services/AcaoService";
-import ColaboradorService from "@/services/ColaboradorService";
-import { useEffect, useState } from "react";
-import { Colaborador } from "@/types/Colaborador";
 import Header from "@/components/Header";
 
-//import { useParams } from 'node_modules/react-router-dom/dist/index'
-//import { toast } from 'node_modules/react-hot-toast/dist/index'
+export default function VisualizarAcao() : JSX.Element {
+	const [acao, setAcao] = useState<Acao | undefined>(undefined);
 
-function VisualizarAcao() {
-	const [, setColaboradorCriador] = useState<Colaborador>();
-	const [acao, setAcao] = useState<Acao>();
-	//const { id } = useParams<{id: string}>();
-
-	const id = 1;
+	const { id } = useParams<{id : string}>();
 
 	useEffect(() => {
-		AcaoService.get(Number(id))
-			.then(({ data }: { data: Acao }) => {
-				console.log("Dados: ", data);
+		if (id) {
+			AcaoService.get(Number(id)).then((res) => {
+				const data : Acao = res.data;
 				setAcao(data);
 			})
-			.catch((err) => {
-				console.error(err);
-				//toast.error('Erro ao encontrar ação.')
-			});
+		}
 	}, [id]);
-
-	console.log("Criador: ", acao?.criador);
-
-	useEffect(() => {
-		ColaboradorService.get(Number(acao?.criador))
-			.then(({ data }: { data: Colaborador }) => {
-				console.log("Dados criador: ", data);
-				setColaboradorCriador(data);
-			})
-			.catch((err) => {
-				console.error(err);
-				//toast.error('Erro ao encontrar ação.')
-			});
-	}, [id, acao]);
 
 	return (
 		<>
@@ -63,23 +40,20 @@ function VisualizarAcao() {
                             Quero ser voluntário
                         </button>
                         <p className="card-text p-1">
-                            Criada por: PRIMEIRO NOME
-                            ULTIMO NOME
+                            Criada por: {acao?.criador}
                         </p>
-                        <p className="card-text p-1">Local: LOCAL</p>
+                        <p className="card-text p-1">Local: {acao?.local}</p>
                         <p className="card-text p-1">
-                            Data de início: DATA
+                            Data de início: {acao?.criada_em.getDay()}
                         </p>
                     </div>
                 </div>
 				</div>
 				<div>
-					<h2>NOME</h2>
-					<p>DESCRIÇÃO</p>
+					<h2>{acao?.nome}</h2>
+					<p>{acao?.descricao}</p>
 				</div>
 			</div>
 		</>
 	);
 }
-
-export default VisualizarAcao;
