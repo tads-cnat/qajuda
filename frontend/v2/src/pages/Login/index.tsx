@@ -24,17 +24,16 @@ function Login() {
 		setIsLoading(true);
 		LoginService.login(data)
 			.then((res) => {
-				setIsLoading(false);
 				toast.success("Logado com sucesso!");
 				const { access, refresh } = res.data;
 				login(access, refresh);
-				setTimeout(() => {
-					navigate("/");
-				}, 500);
+				navigate("/");
 			})
 			.catch(() => {
-				setIsLoading(false);
 				toast.error("Houve um erro na hora de efetuar seu login");
+			})
+			.finally(() => {
+				setIsLoading(false);
 			});
 	}
 
