@@ -1,7 +1,8 @@
-from rest_framework import viewsets, status, generics, views, filters, parsers
+from rest_framework import mixins, viewsets, status, filters, parsers
 from rest_framework.response import Response
 from rest_framework.decorators import action
 import datetime
+from django_filters.rest_framework import DjangoFilterBackend
 
 from drf_spectacular.utils import extend_schema
 
@@ -10,46 +11,12 @@ from .serializers import *
 from .permissions import *
 
 
-class SolicitacoesEmEsperaView(generics.ListAPIView):
-    serializer_class = ListSolicitacaoVoluntariadoSerializer
-
-    def get_queryset(self):
-        acao_id = self.kwargs['acao_id']
-        return SolicitacaoVoluntariado.objects.filter(acao_id=acao_id, solicitacao='E').select_related('colaborador')
-
-
-class AceitarRecusarSolicitacaoView(viewsets.ModelViewSet):
-    queryset = SolicitacaoVoluntariado.objects.all()
-    serializer_class = ListSolicitacaoVoluntariadoSerializer
-
-    @action(detail=True, methods=['post'])
-    def aceitar(self, request, pk=None):
-        solicitacao = self.get_object()
-        if solicitacao.status == Status.EM_ESPERA:
-            solicitacao.status = Status.ACEITO
-            solicitacao.modificado_em = datetime.datetime.now()
-            solicitacao.save()
-            return Response({'status': 'Solicitação aceita'}, status=status.HTTP_200_OK)
-        else:
-            return Response({'error': 'A solicitação já foi processada.'})
-
-    @action(detail=True, methods=['post'])
-    def recusar(self, request, pk=None):
-        solicitacao = self.get_object()
-        if solicitacao.status == Status.EM_ESPERA:
-            solicitacao.status = Status.REJEITADO
-            solicitacao.modificado_em = datetime.datetime.now()
-            solicitacao.save()
-            return Response({'status': 'Solicitação recusada'}, status=status.HTTP_200_OK)
-        else:
-            return Response({'error': 'A solicitação já foi processada.'})
-
-
 class AcaoViewSet(viewsets.ModelViewSet):
     queryset = Acao.objects.all()
-    filter_backends = (filters.SearchFilter,)
     search_fields = ['nome', 'descricao']
     permission_classes = [ReadOnlyOrIsAuthenticated]
+    filter_backends = (filters.SearchFilter, DjangoFilterBackend)
+    filterset_fields = ['inicio', 'fim', 'categoria', 'criado_por']
 
     def get_serializer_class(self):
         if self.action == 'list' or self.action == 'retrieve':
@@ -65,7 +32,7 @@ class AcaoViewSet(viewsets.ModelViewSet):
 
     def perform_create(self, serializer):
         colaborador = Colaborador.objects.get(user=self.request.user)
-        serializer.save(criador=colaborador)
+        serializer.save(criado_por=colaborador)
 
     def create(self, request, *args, **kwargs):
         if not request.user.is_authenticated:
@@ -74,7 +41,7 @@ class AcaoViewSet(viewsets.ModelViewSet):
 
     @extend_schema(request=None)
     @action(detail=True, methods=['post'])
-    def solicitacao(self, request, *args, **kwargs):
+    def solicitacoes(self, request, *args, **kwargs):
         acao = self.get_object()
         colaborador = Colaborador.objects.get(user=request.user)
         status_espera = Status.EM_ESPERA
@@ -92,27 +59,16 @@ class AcaoViewSet(viewsets.ModelViewSet):
         return Response({"message": "Solicitação de participação enviada com sucesso."}, status=status.HTTP_201_CREATED)
 
 
-class ColaboradorViewSet(viewsets.ModelViewSet):
+class ColaboradorViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Colaborador.objects.all()
     permission_classes = [IsAuthenticated]
-
-    def get_serializer_class(self):
-        if self.action == 'list':
-            return ColaboradorBancoSerializer
-        else:
-            return ColaboradorSerializer
+    serializer_class = ColaboradorSerializer
 
     @action(detail=False, methods=['get'])
     def logado(self, request, *args, **kwargs):
         serializer = ColaboradorSerializer(
-            request.user.colaborador, context={'request': request})
+            request.user, context={'request': request})
         return Response(serializer.data)
-
-
-class CardDestaqueViewSet(viewsets.ModelViewSet):
-    queryset = Acao.objects.all().select_related(
-        'criador').select_related('categoria').select_related('foto')
-    serializer_class = CardDestaqueSerializer
 
 
 class CategoriaViewSet(viewsets.ModelViewSet):
@@ -120,7 +76,11 @@ class CategoriaViewSet(viewsets.ModelViewSet):
     serializer_class = CategoriaSerializer
 
 
-class FotoViewSet(viewsets.ModelViewSet):
+class FotoViewSet(mixins.CreateModelMixin,
+                  mixins.ListModelMixin,
+                  mixins.RetrieveModelMixin,
+                  mixins.DestroyModelMixin,
+                  viewsets.GenericViewSet):
     queryset = Foto.objects.all()
     serializer_class = FotoSerializer
     permission_classes = [ReadOnlyOrIsAuthenticated]
@@ -143,9 +103,24 @@ class SolicitacaoVoluntariadoViewSet(viewsets.ModelViewSet):
     queryset = SolicitacaoVoluntariado.objects.all()
     serializer_class = SolicitacaoVoluntariadoSerializer
 
-
-"""     def get_serializer_class(self):
-        if self.action == 'list' or self.action == 'retrieve':
-            return ListSolicitacaoVoluntariadoSerializer
+    @action(detail=True, methods=['post'])
+    def aceitar(self, request, pk=None):
+        solicitacao = self.get_object()
+        if solicitacao.status == Status.EM_ESPERA:
+            solicitacao.status = Status.ACEITO
+            solicitacao.modificado_em = datetime.datetime.now()
+            solicitacao.save()
+            return Response({'status': 'Solicitação aceita'}, status=status.HTTP_200_OK)
         else:
-            return SolicitacaoVoluntariadoSerializer """
+            return Response({'error': 'A solicitação já foi processada.'})
+
+    @action(detail=True, methods=['post'])
+    def recusar(self, request, pk=None):
+        solicitacao = self.get_object()
+        if solicitacao.status == Status.EM_ESPERA:
+            solicitacao.status = Status.REJEITADO
+            solicitacao.modificado_em = datetime.datetime.now()
+            solicitacao.save()
+            return Response({'status': 'Solicitação recusada'}, status=status.HTTP_200_OK)
+        else:
+            return Response({'error': 'A solicitação já foi processada.'})
