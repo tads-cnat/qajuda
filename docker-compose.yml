@@ -1,0 +1,44 @@
+services:
+  django:
+    container_name: qajuda-api
+    build:
+      context: ./backend/
+    command: sh -c "python3 manage.py migrate && python3 manage.py runserver 0.0.0.0:8000"
+    volumes:
+      - imagens-api:/qajuda-api/app/backend/APIQAjuda/static/
+    ports:
+      - "8000:8000"
+    depends_on:
+      - postgres
+    environment:
+      POSTGRES_USER: qajuda
+      POSTGRES_PASSWORD: qajuda-password
+      POSTGRES_DB: qajudadb
+      POSTGRES_HOST: qajuda-db
+      POSTGRES_PORT: 5432
+
+  postgres:
+    container_name: qajuda-db
+    image: postgres:16
+    environment:
+      POSTGRES_USER: qajuda
+      POSTGRES_PASSWORD: qajuda-password
+      POSTGRES_DB: qajudadb
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  nginx:
+    container_name: qajuda-frontend
+    build:
+      context: ./frontend/v2/
+    ports:
+      - "80:80"
+    depends_on:
+      - django
+
+
+volumes:
+  imagens-api:
+  postgres-data:
