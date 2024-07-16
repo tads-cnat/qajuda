@@ -95,7 +95,7 @@ WSGI_APPLICATION = 'config.wsgi.application'
         'NAME': 'qajudadb',
         'USER': 'qajuda',
         'PASSWORD': 'qajuda-password',
-        'HOST': 'qajuda_postgres',
+        'HOST': 'qajuda-db',
         'PORT': '5432',
     }
 }'''
@@ -180,3 +180,6 @@ SPECTACULAR_SETTINGS = {
     'SERVE_INCLUDE_SCHEMA': False,
     'COMPONENT_SPLIT_REQUEST': True
 }
+
+
+AUTH_USER_MODEL = "APIQAjuda.Colaborador"
