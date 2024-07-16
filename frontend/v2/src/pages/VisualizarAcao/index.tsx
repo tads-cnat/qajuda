@@ -15,9 +15,10 @@ export default function VisualizarAcao() : JSX.Element {
 			AcaoService.get(Number(id)).then((res) => {
 				const data : Acao = res.data;
 				setAcao(data);
+				
 			})
 		}
-		console.log(acao);
+		console.log(acao?.criador.nome)
 	}, [id]);
 
 	return (
@@ -41,7 +42,7 @@ export default function VisualizarAcao() : JSX.Element {
                             Quero ser voluntário
                         </button>
                         <p className="card-text p-1">
-                            Criada por: {acao?.criador}
+                            Criada por: {acao?.criador.nome}
                         </p>
                         <p className="card-text p-1">Local: {acao?.endereco}</p>
                         <p className="card-text p-1">

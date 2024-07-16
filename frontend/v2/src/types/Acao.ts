@@ -1,3 +1,4 @@
+import { Colaborador } from "./Colaborador";
 import { Foto } from "./Foto";
 
 export interface Acao {
@@ -6,7 +7,7 @@ export interface Acao {
 	descricao: string;
 	criada_em: Date;
 	modalidade: number;
-	local: string;
+	endereco: string;
 	tema: string;
 	max_volunt: number;
 	inicio: Date;
@@ -15,5 +16,5 @@ export interface Acao {
 	categoria: number;
 	foto: Foto;
 	qtd_volunt: number;
-	criador: number;
+	criador: Colaborador;
 }
