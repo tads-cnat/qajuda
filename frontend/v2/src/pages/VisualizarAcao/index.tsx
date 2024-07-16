@@ -17,6 +17,7 @@ export default function VisualizarAcao() : JSX.Element {
 				setAcao(data);
 			})
 		}
+		console.log(acao);
 	}, [id]);
 
 	return (
@@ -42,9 +43,9 @@ export default function VisualizarAcao() : JSX.Element {
                         <p className="card-text p-1">
                             Criada por: {acao?.criador}
                         </p>
-                        <p className="card-text p-1">Local: {acao?.local}</p>
+                        <p className="card-text p-1">Local: {acao?.endereco}</p>
                         <p className="card-text p-1">
-                            Data de início: {acao?.criada_em.getDay()}
+                            Data de início: LALALALA MINHA CABEÇA TA PISCANDO
                         </p>
                     </div>
                 </div>
