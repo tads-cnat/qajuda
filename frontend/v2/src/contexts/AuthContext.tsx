@@ -37,11 +37,13 @@ export function AuthProvider({ children }: AuthProviderProps) {
 	useEffect(() => {
 		const getUser = async () => {
 			try {
-				const response = await axiosInstance.get("/colaborador/logado");
+				const response = await axiosInstance.get(
+					"/colaborador/logado/"
+				);
 				setUser(response.data);
 			} catch (error) {
 				console.error("Erro ao obter o usuário:", error);
-				toast.error("Erro ao obter o usuário!");
+				toast.error("Erro ao obter o usuário.");
 			}
 		};
 
