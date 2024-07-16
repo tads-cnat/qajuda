@@ -48,7 +48,7 @@ function Header() {
 							<Link
 								className="nav-link active"
 								aria-current="page"
-								to="/"
+								to="/criar-acao"
 							>
 								Criar Ação
 							</Link>
