@@ -1,4 +1,5 @@
 import datetime
+from django.core.exceptions import ValidationError
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.models import AbstractUser, BaseUserManager
@@ -84,6 +85,12 @@ class Acao(models.Model):
 
     def __str__(self):
         return self.nome
+
+    def clean(self):
+        if len(self.nome) > 20:
+            raise ValidationError({
+                'nome': _('O nome não pode ter mais que 20 caracteres.')
+            })
 
     class Meta:
         verbose_name_plural = 'Ações'
