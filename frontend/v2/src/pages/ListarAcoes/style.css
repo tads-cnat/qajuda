@@ -1,0 +1,10 @@
+.card-lista {
+    background-color: #f0f0f0;
+    padding: 10px;
+    transition: background-color 0.3s ease;
+    border-radius: 10px;
+}
+
+.card-lista:hover {
+    background-color: #ddd;
+}

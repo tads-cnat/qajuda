@@ -1,7 +1,8 @@
 import os
+
+from APIQAjuda.models import *
 from django.conf import settings
 from django.core.management.base import BaseCommand
-from APIQAjuda.models import *
 
 
 class Command(BaseCommand):
@@ -28,7 +29,7 @@ class Command(BaseCommand):
         acoes_data = [
             {
                 "nome": "Distribuição de Alimentos",
-                "descricao": "Vamos distribuir alimentos para moradores de rua na região central da cidade.",
+                "descricao": "Queridos amigos e amigas,\n Neste momento desafiador, unimos nossas forças para espalhar amor e esperança. A Campanha Solidária: Alimentando Corações tem como objetivo levar alimentos e carinho às famílias que mais precisam. Juntos, podemos fazer a diferença!\nComo você pode ajudar?\nDoações de Alimentos Não Perecíveis: Contribua com arroz, feijão, macarrão, enlatados e outros alimentos não perecíveis. Cada grão conta!\nVoluntariado: Seja parte ativa dessa corrente do bem. Doe seu tempo para embalar e distribuir os alimentos. Cada sorriso que compartilhamos é uma vitória!\nDivulgue a Campanha: Compartilhe nas redes sociais, fale com amigos e familiares. Quanto mais pessoas souberem, mais impacto teremos.\nEmpatia e Solidariedade: Lembre-se de que, por trás de cada doação, há uma história. Seja gentil e compreensivo com todos que cruzarem seu caminho.\nJuntos, podemos encher pratos vazios e aquecer corações famintos. Vamos alimentar a esperança e construir um mundo mais justo e solidário.",
                 "endereco": "Praça Central",
                 "max_voluntarios": 15,
                 "inicio": "2024-04-10T10:00:00.000Z",

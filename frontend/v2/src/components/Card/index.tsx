@@ -1,31 +1,36 @@
+import { useEffect, useState } from "react";
 import styles from "./card.module.css";
+import CategoriaService from "@/services/CategoriaService";
+import { Categoria } from "@/types/Categoria";
 
-function Card() {
+interface IProps {
+	foto : string,
+	categoria : string,
+	nome : string,
+	descricao : string,
+	nome_criador : string,
+}
+
+function Card(props : IProps) {
 	return (
 		<div className="col d-flex flex-column px-2">
 			<img
-				src="https://placehold.co/400x600"
+				src={props.foto}
 				className={`mb-4 ${styles.cardImg}`}
 			/>
 			<p
 				className="text-muted fw-lighter mb-0"
 				style={{ fontSize: "15px" }}
 			>
-				Categoria
+				{props.categoria}
 			</p>
-			<h5 className="fw-normal">Título do card</h5>
+			<h5 className="fw-normal">{props.nome}</h5>
 			<p className="text-muted">
-				Descrição do artigo vai aqui. Lorem ipsum dolor sit amet.
+				{props.descricao}
 			</p>
 			<div className="d-flex ">
-				<img
-					src="https://placehold.co/400x400"
-					alt=""
-					className="rounded-circle me-3"
-					style={{ height: "60px" }}
-				/>
 				<div className="d-flex align-items-center">
-					<p>Nome Completo do Autor</p>
+					<p>{props.nome_criador}</p>
 				</div>
 			</div>
 		</div>

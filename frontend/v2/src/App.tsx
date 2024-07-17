@@ -10,6 +10,7 @@ import VoluntariarAcao from "./pages/VoluntariarAcao";
 import CriarAcao from "./pages/CriarAcao";
 import Homepage from "./pages/Homepage";
 import ProtectedRoute from "./utils/ProtectedRoutes";
+import ListarAcoes from "./pages/ListarAcoes";
 
 function App(): JSX.Element {
 	return (
@@ -45,8 +46,8 @@ function App(): JSX.Element {
 						<Route element={<ProtectedRoute />}>
 							{/* Telas que só poderão ser acessadas por usuários logados devem ser colocadas aqui dentro */}
 							<Route
-								element={<CriarAcao />}
 								path="/criar-acao"
+								element={<CriarAcao />}
 							/>
 							{/* 
 							ex:
@@ -56,6 +57,10 @@ function App(): JSX.Element {
 							/> 
 							*/}
 						</Route>
+						<Route
+							path="/listar-acoes"
+							element={<ListarAcoes/>}
+						/>
 					</Routes>
 				</Router>
 			</AuthProvider>

@@ -58,9 +58,9 @@ function Homepage() {
 						</div>
 					</div>
 					<div className="row row-cols-3 ">
-						<Card />
-						<Card />
-						<Card />
+						<Card foto={"https://placehold.co/600x600"} categoria={"Categoria"} nome={"Ação 1"} descricao={"Descrição 1"} nome_criador={"Criador 1"} />
+						<Card foto={"https://placehold.co/600x600"} categoria={"Categoria"} nome={"Ação 2"} descricao={"Descrição 2"} nome_criador={"Criador 2"} />
+						<Card foto={"https://placehold.co/600x600"} categoria={"Categoria"} nome={"Ação 3"} descricao={"Descrição 3"} nome_criador={"Criador 3"} />
 					</div>
 					<div className="d-flex justify-content-end">
 						<button className="btn btn-outline-primary">
