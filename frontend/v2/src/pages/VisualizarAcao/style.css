@@ -7,15 +7,16 @@
     background-color: white;
 }
 
-.btn-voluntario {
-    max-width: 458px;
-    max-height: 68px;
-    background-color: #F5B740;
-    font-style: bold;
+.btn {
+    border-color: #3f8cf5;
 }
 
-.btn-voluntario:hover {
-    background-color: #eba422;
+.btn-warning {
+    background-color: #509ce6;
+}
+
+.btn-warning:hover {
+    background-color: #3f8cf5;
 }
 
 .info-mural {
