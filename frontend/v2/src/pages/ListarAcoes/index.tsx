@@ -22,12 +22,12 @@ export default function ListarAcoes () : JSX.Element {
             <div className="container d-flex justify-content-center">
                 <div>
                     {listAcao.map(acao => (
-                        <div key={acao.id} className="borda mt-5">
+                        <div key={acao.id} className="card-lista mt-5">
                             <Link
                                 className="navbar-brand"
                                 to={`/visualizar-acao/${acao.id}`}
                                 >
-                                <Card categoria={acao.categoria.nome} descricao={acao.descricao} foto={"https://placehold.co/600x600"} nome={acao.nome} nome_criador={acao.criado_por.nome}/>
+                                <Card categoria={acao.categoria.nome} descricao={acao.descricao} foto={acao.foto.foto} nome={acao.nome} nome_criador={acao.criado_por.nome}/>
                             </Link>
                             
                         </div>
