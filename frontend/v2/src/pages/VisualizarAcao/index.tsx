@@ -4,6 +4,7 @@ import { Acao } from "@/types/Acao";
 import { useParams } from "react-router-dom";
 import AcaoService from "@/services/AcaoService";
 import Header from "@/components/Header";
+import { formatDate } from "@/utils/formatDate";
 
 export default function VisualizarAcao() : JSX.Element {
 	const [acao, setAcao] = useState<Acao | undefined>(undefined);
@@ -15,10 +16,8 @@ export default function VisualizarAcao() : JSX.Element {
 			AcaoService.get(Number(id)).then((res) => {
 				const data : Acao = res.data;
 				setAcao(data);
-				
 			})
 		}
-		console.log(acao?.criador.nome)
 	}, [id]);
 
 	return (
@@ -28,7 +27,7 @@ export default function VisualizarAcao() : JSX.Element {
 				<div className="card mb-3" style={{ maxWidth: '100%' }}>
 					<div className="row g-0">
 						<div className="col-md-6">
-							IMAGEM
+							<img src={acao?.foto.foto} alt="" />
 						</div>
 					</div>
 					<div className="col-md-6">
@@ -41,13 +40,22 @@ export default function VisualizarAcao() : JSX.Element {
                         >
                             Quero ser voluntário
                         </button>
+						
                         <p className="card-text p-1">
-                            Criada por: {acao?.criador.nome}
+                            Criada por: {acao?.criado_por.nome}
                         </p>
+
                         <p className="card-text p-1">Local: {acao?.endereco}</p>
+
                         <p className="card-text p-1">
-                            Data de início: LALALALA MINHA CABEÇA TA PISCANDO
+							Data de início: {formatDate(acao?.inicio)}
                         </p>
+
+						{acao?.fim?
+						<p className="card-text p-1">
+							Data de fim: {formatDate(acao?.fim)}
+						</p>:
+						""}
                     </div>
                 </div>
 				</div>
