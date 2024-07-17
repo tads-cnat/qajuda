@@ -3,11 +3,14 @@ from .models import *
 
 
 class FotoSerializer(serializers.ModelSerializer):
-    foto = serializers.FileField()
+    foto = serializers.SerializerMethodField()
 
     class Meta:
         model = Foto
         fields = '__all__'
+
+    def get_foto(self, obj):
+        return obj.get_absolute_url()
 
 
 class ColaboradorSerializer(serializers.ModelSerializer):

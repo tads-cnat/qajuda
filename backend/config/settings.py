@@ -168,3 +168,6 @@ SPECTACULAR_SETTINGS = {
 
 
 AUTH_USER_MODEL = "APIQAjuda.Colaborador"
+
+
+BASE_URL = f"http://{os.getenv('HOST_ADDRESS', 'localhost')}:{os.getenv('HOST_PORT', '8000')}"

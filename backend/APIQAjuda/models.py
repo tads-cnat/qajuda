@@ -2,6 +2,7 @@ import datetime
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.models import AbstractUser, BaseUserManager
+from django.conf import settings
 
 
 class UserManager(BaseUserManager):
@@ -63,6 +64,11 @@ class Foto(models.Model):
 
     def __str__(self):
         return self.nome
+
+    def get_absolute_url(self):
+        if self.foto:
+            return settings.BASE_URL + self.foto.url
+        return ''
 
     class Meta:
         verbose_name_plural = 'Fotos'
