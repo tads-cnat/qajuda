@@ -31,19 +31,17 @@ class AcaoViewSet(viewsets.ModelViewSet):
         return Response(data)
 
     def perform_create(self, serializer):
-        colaborador = Colaborador.objects.get(user=self.request.user)
+        colaborador = Colaborador.objects.get(id=self.request.user.id)
         serializer.save(criado_por=colaborador)
 
     def create(self, request, *args, **kwargs):
-        if not request.user.is_authenticated:
-            return Response("Usuário não autenticado.", status=status.HTTP_401_UNAUTHORIZED)
         return super().create(request, *args, **kwargs)
 
     @extend_schema(request=None)
     @action(detail=True, methods=['post'])
     def solicitacoes(self, request, *args, **kwargs):
         acao = self.get_object()
-        colaborador = Colaborador.objects.get(user=request.user)
+        colaborador = Colaborador.objects.get(id=request.user.id)
         status_espera = Status.EM_ESPERA
         serializer_class = None
 
