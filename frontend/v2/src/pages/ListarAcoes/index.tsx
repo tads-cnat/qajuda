@@ -19,21 +19,27 @@ export default function ListarAcoes () : JSX.Element {
     return (
         <>
             <Header />
-            <div className="container d-flex justify-content-center">
-                <div>
+            <div className="container">
+                <div className="row justify-content-center">
                     {listAcao.map(acao => (
-                        <div key={acao.id} className="card-lista mt-5">
+                        <div key={acao.id} className="card-lista col-md-6 mt-5">
                             <Link
                                 className="navbar-brand"
                                 to={`/visualizar-acao/${acao.id}`}
-                                >
-                                <Card categoria={acao.categoria.nome} descricao={acao.descricao} foto={acao.foto.foto} nome={acao.nome} nome_criador={acao.criado_por.nome}/>
+                            >
+                                <Card
+                                    categoria={acao.categoria.nome}
+                                    descricao={acao.descricao}
+                                    foto={acao.foto.foto}
+                                    nome={acao.nome}
+                                    nome_criador={acao.criado_por.nome}
+                                />
                             </Link>
-                            
                         </div>
                     ))}
                 </div>
             </div>
+
         </>
     )
 }
