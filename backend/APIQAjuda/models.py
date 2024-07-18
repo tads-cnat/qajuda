@@ -87,9 +87,9 @@ class Acao(models.Model):
         return self.nome
 
     def clean(self):
-        if len(self.nome) > 20:
+        if len(self.nome) < 0 or len(self.nome) > 100:
             raise ValidationError({
-                'nome': _('O nome não pode ter mais que 20 caracteres.')
+                'nome': _('O nome deve estar entre 1 e 100')
             })
 
     class Meta:

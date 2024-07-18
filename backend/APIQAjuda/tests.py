@@ -33,8 +33,8 @@ class AcaoTestCase(TestCase):
         max_length = self.acao._meta.get_field('nome').max_length
         self.assertLessEqual(len(self.acao.nome), max_length)
     
-    def test_nome_exceeds_20_characters(self):
-            long_nome = 'EsseNomeDeveraSerConsideradoUmErroNoTest'
+    def test_nome_exceeds_100_characters(self):
+            long_nome = 'EsseNomeDeveraSerConsideradoUmErroNoTest1234567890qwertyuiopásdfghjkl\zxcvbnm,1234567890-=asfbnwmofuqhefy1ueqhf8heuioqfh1984hfueqn179fnb921v4fb7911nf94nyv49f4fy9f'
             with self.assertRaises(ValidationError):
                 acao = Acao(
                     nome=long_nome,
@@ -45,5 +45,19 @@ class AcaoTestCase(TestCase):
                     categoria=self.categoria,
                     criado_por=self.colaborador,
                 )
-                acao.full_clean()  # This will trigger the validation
+                acao.full_clean() 
                 acao.save()
+    def test_nome_vazio(self):
+        vazio_nome = ''
+        with self.assertRaises(ValidationError):
+            acao = Acao(
+                nome= vazio_nome,
+                descricao='Descrição da ação vazio',
+                endereco='Endereço da ação',
+                inicio=datetime.now(),
+                foto=self.foto,
+                categoria=self.categoria,
+                criado_por=self.colaborador,
+            )
+            acao.full_clean()
+            acao.save()
