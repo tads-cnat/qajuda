@@ -14,6 +14,7 @@ class AcaoTestCase(TestCase):
             nome='Ação de Teste',
             descricao='Descrição da ação de teste',
             endereco='Endereço da ação',
+            max_voluntarios = 2,
             inicio=datetime.now(),
             foto=self.foto,
             categoria=self.categoria,
@@ -34,7 +35,7 @@ class AcaoTestCase(TestCase):
         self.assertLessEqual(len(self.acao.nome), max_length)
     
     def test_nome_exceeds_100_characters(self):
-            long_nome = 'EsseNomeDeveraSerConsideradoUmErroNoTest1234567890qwertyuiopásdfghjkl\zxcvbnm,1234567890-=asfbnwmofuqhefy1ueqhf8heuioqfh1984hfueqn179fnb921v4fb7911nf94nyv49f4fy9f'
+            long_nome = 'a' * 101
             with self.assertRaises(ValidationError):
                 acao = Acao(
                     nome=long_nome,
@@ -59,5 +60,25 @@ class AcaoTestCase(TestCase):
                 categoria=self.categoria,
                 criado_por=self.colaborador,
             )
+            acao.full_clean()
+            acao.save()
+
+    def test_max_voluntario_valido(self):
+        voluntarios_validos = 2
+        self.assertLessEqual(self.acao.max_voluntarios, voluntarios_validos)
+        
+    def test_max_voluntario_invalido(self):
+        with self.assertRaises(ValueError):
+            acao = Acao(
+                nome= 'nome invalido',
+                descricao='Descrição da ação vazio',
+                endereco='Endereço da ação',
+                max_voluntarios = 2,
+                inicio=datetime.now(),
+                qtd_voluntarios = 3,
+                foto=self.foto,
+                categoria=self.categoria,
+                criado_por=self.colaborador,
+            )  
             acao.full_clean()
             acao.save()

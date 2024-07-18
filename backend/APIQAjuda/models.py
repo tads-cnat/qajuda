@@ -91,6 +91,10 @@ class Acao(models.Model):
             raise ValidationError({
                 'nome': _('O nome deve estar entre 1 e 100')
             })
+        if self.max_voluntarios != None and self.max_voluntarios < self.qtd_voluntarios:
+            raise ValueError({
+                'qtd_voluntarios': _('Quantidade de voluntarios execede o máximo')
+            })
 
     class Meta:
         verbose_name_plural = 'Ações'
