@@ -3,7 +3,8 @@ services:
     container_name: qajuda-api
     build:
       context: ./backend/
-    command: sh -c "python3 manage.py migrate && python3 manage.py runserver 0.0.0.0:8000"
+    command: sh -c "python3 manage.py migrate  && python3 manage.py runserver 0.0.0.0:8000"
+    image: qajuda/backend:azure
     volumes:
       - imagens-api:/qajuda-api/app/backend/APIQAjuda/static/
     ports:
@@ -31,6 +32,7 @@ services:
 
   nginx:
     container_name: qajuda-frontend
+    image: qajuda/frontend:azure
     build:
       context: ./frontend/v2/
     ports:
