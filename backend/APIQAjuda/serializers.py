@@ -45,7 +45,7 @@ class AcaoSerializer(serializers.ModelSerializer):
 
 class ListAcaoSerializer(serializers.ModelSerializer):
     categoria = CategoriaSerializer(read_only=True)
-    foto = FotoSerializer(read_only=True)
+    foto = ListFotoSerializer(read_only=True)
     criado_por = ColaboradorSerializer(read_only=True)
 
     class Meta:
