@@ -83,7 +83,7 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-'''DATABASES = {
+DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql' if os.getenv('POSTGRES_USER') else 'django.db.backends.sqlite3',
         'NAME': os.getenv('POSTGRES_DB', os.path.join(BASE_DIR, 'db.sqlite3')),
@@ -92,15 +92,9 @@ WSGI_APPLICATION = 'config.wsgi.application'
         'HOST': os.getenv('POSTGRES_HOST', 'localhost'),
         'PORT': os.getenv('POSTGRES_PORT', '5432'),
     }
-}'''
-
-# Database sqlite3
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
 }
+
+
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
@@ -178,4 +172,5 @@ SPECTACULAR_SETTINGS = {
 AUTH_USER_MODEL = "APIQAjuda.Colaborador"
 
 
-BASE_URL = f"http://{os.getenv('HOST_ADDRESS', 'localhost')}:{os.getenv('HOST_PORT', '8000')}"
+BASE_URL = f"http://{os.getenv('HOST_ADDRESS', 'localhost')
+                     }:{os.getenv('HOST_PORT', '8000')}"
