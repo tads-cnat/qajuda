@@ -80,7 +80,7 @@ class FotoViewSet(mixins.CreateModelMixin,
                   mixins.DestroyModelMixin,
                   viewsets.GenericViewSet):
     queryset = Foto.objects.all()
-    serializer_class = FotoSerializer
+    serializer_class = ListFotoSerializer
     permission_classes = [ReadOnlyOrIsAuthenticated]
     parser_classes = [parsers.MultiPartParser]
 
@@ -93,7 +93,7 @@ class FotoViewSet(mixins.CreateModelMixin,
 
     def list(self, request, format=None):
         images = Foto.objects.all()
-        serializer = FotoSerializer(images, many=True)
+        serializer = ListFotoSerializer(images, many=True)
         return Response(serializer.data)
 
 

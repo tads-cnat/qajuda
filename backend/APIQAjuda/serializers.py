@@ -3,6 +3,13 @@ from .models import *
 
 
 class FotoSerializer(serializers.ModelSerializer):
+    foto = serializers.FileField()
+
+    class Meta:
+        model = Foto
+        fields = '__all__'
+    
+class ListFotoSerializer(serializers.ModelSerializer):
     foto = serializers.SerializerMethodField()
 
     class Meta:
