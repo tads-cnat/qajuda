@@ -24,10 +24,7 @@ function Card(props : IProps) {
 			>
 				{props.categoria}
 			</p>
-			<h5 className="fw-normal">{props.nome}</h5>
-			<p className="text-muted">
-				{props.descricao}
-			</p>
+			<h5 className="fw-normal"><b>{props.nome}</b></h5>
 			<div className="d-flex ">
 				<div className="d-flex align-items-center">
 					<p>{props.nome_criador}</p>
