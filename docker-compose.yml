@@ -15,7 +15,7 @@ services:
       POSTGRES_USER: qajuda
       POSTGRES_PASSWORD: qajuda-password
       POSTGRES_DB: qajudadb
-      POSTGRES_HOST: postgres
+      POSTGRES_HOST: qajuda-db
       POSTGRES_PORT: 5432
       HOST_ADDRESS: '52.168.2.253'
       HOST_PORT: '8000'
