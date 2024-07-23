@@ -1,0 +1,15 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: postgres-service
+  namespace: qajuda-app
+  labels:
+    app: postgres-svc
+spec:
+  type: NodePort
+  ports:
+  - port:  5432
+    targetPort:  5432
+    nodePort: 30004
+  selector:
+    app: postgresdb
