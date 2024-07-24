@@ -1,24 +1,3 @@
-# Passo a passo para testar docker do banco
-
-- Em seguida monstre se quiser o status container executando o comando:
-docker ps
-
-- Desligue e religue o container para veficicar a persistencia dos dados com os comandos:
-docker-compose down
-docker-compose up -d
-
-- Conecte novamente no postgres do container com o comando:
-docker exec -it qajuda-db psql -U qajuda -d qajudadb 
-
-- Após a conexão veja se os dados constam no banco com o comando:
-SELECT * FROM qajuda_teste;
-
-- saia do cliente do postgres
-exit
-
-- exclua os dados do banco de dados
-docker exec -it qajuda-db psql -U qajuda -d qajudadb -f /teste_delete_drop.sql
-
 # Passo a Passo para testar docker compose com banco de dados PostgreSQL
 
 Este guia fornece instruções para testar o banco de dados PostgreSQL usando Docker.
