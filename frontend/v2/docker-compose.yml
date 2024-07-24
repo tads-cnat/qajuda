@@ -1,0 +1,7 @@
+services:
+    nginx:
+        container_name: qajuda-frontend
+    build:
+        context: .
+    ports:
+        - "80:80"
