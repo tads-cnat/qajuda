@@ -1,6 +1,7 @@
 services:
     nginx:
         container_name: qajuda-frontend
+        image: qajuda/frontend:azure
         build:
             context: .
         ports:

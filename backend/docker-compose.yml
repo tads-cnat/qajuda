@@ -3,6 +3,7 @@ version: "3.8"
 services:
   django:
     container_name: qajuda-api
+    image: qajuda/backend:azure
     build:
       context: .
     volumes:
