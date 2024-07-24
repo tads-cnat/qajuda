@@ -1,4 +1,4 @@
-version: '3.8'
+version: "3.8"
 
 services:
   postgres:
@@ -12,6 +12,11 @@ services:
       - postgres-data:/var/lib/postgresql/data
     ports:
       - "5432:5432"
+    networks:
+      - qajuda-network
 
 volumes:
   postgres-data:
+networks:
+  qajuda-network:
+    external: true

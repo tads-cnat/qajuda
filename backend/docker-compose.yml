@@ -1,36 +1,26 @@
-version: "3.9"
+version: "3.8"
+
 services:
   django:
     container_name: qajuda-api
     build:
-      context: ./
-      dockerfile: ./Dockerfile
-    command: sh -c "python3 manage.py migrate && python3 manage.py runserver 0.0.0.0:8000"
+      context: .
     volumes:
       - imagens-api:/qajuda-api/app/backend/APIQAjuda/static/
     ports:
       - "8000:8000"
-    depends_on:
-      - postgres
     environment:
       POSTGRES_USER: qajuda
       POSTGRES_PASSWORD: qajuda-password
       POSTGRES_DB: qajudadb
       POSTGRES_HOST: qajuda-db
       POSTGRES_PORT: 5432
-
-  postgres:
-    container_name: qajuda-db
-    image: postgres:16
-    environment:
-      POSTGRES_USER: qajuda
-      POSTGRES_PASSWORD: qajuda-password
-      POSTGRES_DB: qajudadb
-    volumes:
-      - postgres-data:/var/lib/postgresql/data
-    ports:
-      - "5432:5432"
+    networks:
+      - qajuda-network
 
 volumes:
   imagens-api:
-  postgres-data:
+
+networks:
+  qajuda-network:
+    external: true
