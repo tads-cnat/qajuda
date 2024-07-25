@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import "./style.css";
 import { Acao } from "@/types/Acao";
 import { useParams } from "react-router-dom";
 import AcaoService from "@/services/AcaoService";
@@ -36,7 +35,7 @@ export default function VisualizarAcao() : JSX.Element {
 						>
 							<button
 								type="button"
-								className="btn btn-warning w-75 p-3 m-3 mt-5"
+								className="btn btn-primary w-75 p-3 m-3 mt-5"
 							>
 								Quero ser voluntário
 							</button>

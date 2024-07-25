@@ -46,7 +46,7 @@ function VoluntariarAcao() {
 					<section>
 						<button
 							type="button"
-							className="btn btn-success"
+							className="btn btn-primary"
 						>
 							QUERO SER VOLUNTÁRIO
 						</button>
