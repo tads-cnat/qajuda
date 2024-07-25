@@ -8,7 +8,7 @@ class AxiosSingleton {
 	static getInstance(): AxiosInstance {
 		if (!this.instance) {
 			this.instance = axios.create({
-				baseURL: import.meta.env.VITE_API_URL,
+				baseURL: import.meta.env.VITE_API_URL ?? "/api",
 			});
 
 			this.instance.interceptors.request.use(
