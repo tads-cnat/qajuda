@@ -18,8 +18,16 @@ RUN yarn run build
 # Usa uma imagem pronta com nginx rodando
 FROM nginx:alpine
 
+WORKDIR /usr/share/nginx/html
+
+RUN rm -rf ./*	
+
 # Copia os arquivos do build da primeira imagem para o diretório publico do nginx na segunda imagem
-COPY --from=build /app/dist /usr/share/nginx/html
+COPY --from=build /app/dist .
+
+# Copia o arquivo de configuração do nginx para o diretório de configuração do nginx na segunda imagem
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
 EXPOSE 80
 
 # Abre o nginx em primeiro plano
