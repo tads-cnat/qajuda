@@ -1,0 +1,50 @@
+@import "./node_modules/bootstrap/scss/functions";
+
+$primary: #519ce6;
+$secondary: #8bdeff;
+$success: #50a273;
+$info: #2c45ad;
+$warning: #cd923b;
+$danger: #f44336;
+$body-bg: #f3f3f3;
+
+$accordion-button-active-bg: $body-bg;
+$font-family-sans-serif: "Poppins";
+
+// Importe os arquivos necessários do Bootstrap
+@import "./node_modules/bootstrap/scss/variables";
+@import "./node_modules/bootstrap/scss/mixins/buttons";
+
+.nav-item {
+	color: white !important;
+}
+
+.accordion-item {
+	background-color: #fff0;
+}
+
+.accordion-button:not(.collapsed) {
+	box-shadow: none !important;
+}
+
+@import "./node_modules/bootstrap/scss/bootstrap.scss";
+
+.btn-primary {
+	@include button-variant(
+		$primary,
+		$primary,
+		$color: white,
+		$hover-color: white,
+		$active-color: white
+	);
+}
+
+.btn-outline-primary {
+	@include button-outline-variant(
+		$primary,
+		$color-hover: shade-color($primary, $btn-hover-border-shade-amount),
+		$active-background: tint-color($primary, 90%),
+		$active-border: shade-color($primary, $btn-hover-border-shade-amount),
+		$active-color: shade-color($primary, 30%)
+	);
+}

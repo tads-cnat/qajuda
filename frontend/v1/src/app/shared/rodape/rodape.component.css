@@ -1,0 +1,22 @@
+footer {
+    height: 120px;
+    background-color: rgba(0, 0, 0, 0.5);
+    margin-top: 50px;
+}
+
+#copy {
+    display: flex;
+    margin: auto;
+    justify-content: center;
+}
+
+.developed {
+    display: flex;
+    justify-content: center;
+    width: 80%;
+    margin: auto;
+}
+
+p {
+    margin-left: 10px;
+}

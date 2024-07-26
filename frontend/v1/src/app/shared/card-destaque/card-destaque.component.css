@@ -1,0 +1,35 @@
+.destaques-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.acao-item {
+    width: calc(
+        33.33% - 20px
+    ); /* Define a largura desejada para cada item e margem */
+    margin: 10px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.acao-imagem {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+}
+
+.acao-info {
+    padding: 10px;
+}
+
+.acao-tipo {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.acao-inscritos {
+    font-size: 16px;
+    color: #555;
+}

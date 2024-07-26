@@ -1,0 +1,14 @@
+.login-page {
+	height: 100dvh;
+	overflow: hidden;
+}
+
+.right-login {
+	background-color: #c6d6eb;
+}
+
+@media only screen and (max-width: 990px) {
+	.right-login {
+		display: none !important;
+	}
+}

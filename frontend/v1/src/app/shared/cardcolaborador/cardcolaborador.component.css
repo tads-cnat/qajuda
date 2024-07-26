@@ -1,0 +1,57 @@
+#container {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente os cards */
+    align-items: center; /* Centraliza verticalmente os cards */
+    flex-direction: column; /* Coloca os cards um abaixo do outro */
+}
+
+.card {
+    display: flex; /* Usar flexbox para alinhar verticalmente */
+    justify-content: space-between; /* Alinha elementos à esquerda e à direita */
+    align-items: center; /* Centraliza verticalmente o conteúdo */
+    margin: 10px;
+    height: 80px;
+    width: 80%; /* Largura de cada card */
+    background-color: #585feb;
+    border-radius: 30px;
+    padding: 10px;
+}
+
+.foto {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%; /* Para criar uma imagem redonda */
+    background-color: #ccc; /* Cor de fundo da imagem (pode ser uma imagem real) */
+    margin-left: 50px;
+    background-image: url(../../../assets/icones/userpadrao.png);
+    background-size: cover;
+}
+
+.info {
+    font-size: 1.5em;
+}
+
+#botao {
+    margin-right: 50px;
+}
+
+.botao {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%; /* Para criar um botão redondo */
+    border: none;
+    cursor: pointer;
+    /* Adicione a imagem (ícone de aceitar) como plano de fundo */
+}
+
+.botao-aceitar {
+    background-image: url(../../../assets/icones/aprovar.png);
+    background-size: cover;
+}
+
+.botao-recusar {
+    background-image: url(../../../assets/icones/rejeitado.png);
+    background-size: cover;
+    margin-left: 15px;
+}
