@@ -11,6 +11,7 @@ import CriarAcao from "./pages/CriarAcao";
 import Homepage from "./pages/Homepage";
 import ProtectedRoute from "./utils/ProtectedRoutes";
 import ListarAcoes from "./pages/ListarAcoes";
+import Footer from "./components/Footer";
 
 function App(): JSX.Element {
 	return (
@@ -59,11 +60,12 @@ function App(): JSX.Element {
 						</Route>
 						<Route
 							path="/listar-acoes"
-							element={<ListarAcoes/>}
+							element={<ListarAcoes />}
 						/>
 					</Routes>
 				</Router>
 			</AuthProvider>
+			<Footer />
 		</>
 	);
 }
