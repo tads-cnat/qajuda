@@ -1,5 +1,6 @@
 FROM node:18 AS build
 
+
 # Define diretório de trabalho como /app
 WORKDIR /app
 
@@ -18,9 +19,21 @@ RUN yarn run build
 # Usa uma imagem pronta com nginx rodando
 FROM nginx:alpine
 
+WORKDIR /usr/share/nginx/html
+
 # Copia os arquivos do build da primeira imagem para o diretório publico do nginx na segunda imagem
-COPY --from=build /app/dist /usr/share/nginx/html
+COPY --from=build /app/dist .
+
+# Copia o arquivo de configuração do nginx para o diretório de configuração do nginx na segunda imagem
+
+COPY ./compose/nginx.conf /etc/nginx/nginx.conf.template
+
+# Adiciona o script de substituição
+COPY /compose/entrypoint.sh ./entrypoint.sh
+RUN chmod +x ./entrypoint.sh
+
 EXPOSE 80
 
-# Abre o nginx em primeiro plano
+ENTRYPOINT [ "./entrypoint.sh" ]
+
 CMD ["nginx", "-g", "daemon off;"]

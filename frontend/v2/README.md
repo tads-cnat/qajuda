@@ -1,13 +1,20 @@
 
 # QAjuda - React Frontend
 
-Este é um projeto front-end baseado em React.
-## Como rodar o projeto 
+Este é o projeto frontend do QAjuda, ainda está em desenvolvimento e atualizações ainda são aguardadas nas próximas semanas.
+
+
+## 💻 Pré-requisitos
+
+Antes de começar, verifique se você atendeu aos seguintes requisitos:
+
+- Verifique se você possuí a versão LTS mais recente do [NodeJS e o npm](https://nodejs.org/en/learn/getting-started/introduction-to-nodejs) instalados
+- [OPCIONAL] Verifique que você está com o Docker Engine aberta e funcionando em sua máquina
+
+## Como rodar o projeto localmente
 1. **Entre no diretório**
 
-Antes de iniciar, certifique-se de ter o Node.js e o npm instalados em sua máquina. Entre no diretório do projeto frontend.
-
-Partindo da raíz do repositório execute:
+Navegue até a pasta raíz do diretório frontend:
 
 ```bash
 cd frontend/v2
@@ -15,7 +22,7 @@ cd frontend/v2
 
 2. **Instalação das dependências** 
 
-Antes de iniciar, certifique-se de ter o Node.js e o npm instalados em sua máquina. Em seguida, execute o seguinte comando na raiz do projeto para instalar todas as dependências necessárias:
+Execute o seguinte comando na raiz do projeto para instalar todas as dependências necessárias:
 
 ```bash
 npm install
@@ -28,39 +35,20 @@ Para executar o projeto em modo de desenvolvimento, utilize o seguinte comando:
 ```bash
 npm run dev
 ```
-
 Isso iniciará o servidor de desenvolvimento Vite. O aplicativo será acessível em `http://localhost:5173`. 
 
-4. **Construir o projeto para produção** 
 
-Se desejar criar uma versão otimizada do aplicativo para implantação, execute o seguinte comando:
+## Como rodar o projeto usando Docker
 
-```bash
-npm run build
-```
-
-Isso compilará o projeto utilizando o TypeScript e, em seguida, criará uma versão otimizada do aplicativo na pasta `dist`. 
-
-5. **Executar linting** 
-
-Para garantir a consistência do código e seguir as práticas recomendadas, você pode executar o linting através do seguinte comando:
+Para iniciar a aplicação usando Docker, certifique-se de que a docker engine está rodando na sua máquina e execute o seguinte comando:
 
 ```bash
-npm run lint
-```
+docker compose -f docker-compose.local.yml up --build
+``` 
 
-Isso executará o ESLint em todos os arquivos TypeScript e JSX no projeto, aplicando as regras definidas no arquivo de configuração `.eslintrc.js`. 
+Isso iniciará um servidor nginx servindo a aplicação em `http://localhost/`
 
-6. **Visualizar a versão de produção localmente** 
-
-Para visualizar a versão de produção do aplicativo localmente, você pode usar o comando:
-
-```bash
-npm run preview
-```
-
-Isso servirá a versão de produção do aplicativo localmente, permitindo que você o visualize antes de implantá-lo em um servidor. 
-
+> Lembre-se de esvaziar o arquivo .env no diretório raiz do projeto frontend.
 
 ## Principais Dependências 
 - **React:**  Biblioteca JavaScript para criar interfaces de usuário. 
