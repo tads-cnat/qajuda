@@ -1,0 +1,45 @@
+.cartao {
+    background-color: #3f8bf5;
+    border-radius: 30px;
+    padding: 5px 15px 5px 0px;
+    text-align: center;
+}
+
+.colunas {
+    text-align: center;
+}
+
+.botao {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%; /* Para criar um botão redondo */
+    border: none;
+    cursor: pointer;
+}
+
+.botao-aceitar {
+    background-image: url(../../assets/img/icones/aprovar.png);
+    background-size: cover;
+}
+
+.botao-recusar {
+    background-image: url(../../assets/img/icones/rejeitado.png);
+    background-size: cover;
+    margin-left: 15px;
+}
+
+.foto {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%; /* Para criar uma imagem redonda */
+    background-color: #ccc; /* Cor de fundo da imagem (pode ser uma imagem real) */
+    margin-left: 20px;
+    /* SUBSTITUIR AQUI PELA FOTO DO USUÁRIO */
+    background-image: url(../../assets/img/icones/userpadrao.png);
+    background-size: cover;
+    cursor: pointer;
+}
+
+.info {
+    font-size: 1.5em;
+}
