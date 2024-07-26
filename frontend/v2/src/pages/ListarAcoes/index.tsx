@@ -26,8 +26,8 @@ export default function ListarAcoes(): JSX.Element {
 	}, []);
 
 	useEffect(() => {
-		const q = searchParams.get("q");
-		const filtro = q ? { search: q } : undefined;
+		const search = searchParams.get("q");
+		const filtro = search ? { search } : undefined;
 		fetchData(filtro);
 	}, [searchParams]);
 
