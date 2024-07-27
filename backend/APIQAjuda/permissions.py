@@ -1,4 +1,4 @@
-from rest_framework.permissions import IsAuthenticated, SAFE_METHODS
+from rest_framework.permissions import IsAuthenticated, SAFE_METHODS  # type: ignore
 
 
 class ReadOnlyOrIsAuthenticated(IsAuthenticated):
