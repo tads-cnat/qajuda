@@ -8,7 +8,8 @@ class FotoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Foto
         fields = '__all__'
-    
+
+
 class ListFotoSerializer(serializers.ModelSerializer):
     foto = serializers.SerializerMethodField()
 
@@ -16,7 +17,7 @@ class ListFotoSerializer(serializers.ModelSerializer):
         model = Foto
         fields = '__all__'
 
-    def get_foto(self, obj):
+    def get_foto(self, obj) -> str:
         return obj.get_absolute_url()
 
 
