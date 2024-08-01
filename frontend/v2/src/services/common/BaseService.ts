@@ -7,8 +7,10 @@ class BaseService {
 		this.serviceUrl = serviceUrl;
 	}
 
-	async getAll(): Promise<any> {
-		const response = await axiosInstance.get(`${this.serviceUrl}/`);
+	async getAll(filters?: any): Promise<any> {
+		const response = await axiosInstance.get(`${this.serviceUrl}/`, {
+			params: filters,
+		});
 		return response;
 	}
 
