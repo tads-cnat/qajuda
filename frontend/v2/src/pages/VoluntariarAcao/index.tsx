@@ -1,8 +1,32 @@
 import Header from "@/components/Header";
 import "./style.css";
+import { useAuth } from "@/contexts/useAuth";
+import SolicitacaoService from "@/services/SolicitacaoService";
+import { Solicitacao } from "@/types/Solicitacao";
+import { useParams } from "react-router-dom";
 
 // Importar o componente da barra de menu
 function VoluntariarAcao() {
+	const { user } = useAuth();
+	var solicitacao : Solicitacao;
+
+	const { id } = useParams<{id : string}>();
+
+	const handleVoluntariar = () => {
+		if(!user) {
+			console.error("Usuário não logado");
+			return;
+		}
+		// Seta valores de solicitação
+		solicitacao.acao = Number(id);
+		solicitacao.modificado_em = new Date();
+		solicitacao.solicitado_em = new Date();
+		solicitacao.status = "em_espera";
+		solicitacao.colaborador = user;
+
+		SolicitacaoService.post(solicitacao);
+	}
+
 	return (
 		<>
 			<Header />
@@ -47,6 +71,7 @@ function VoluntariarAcao() {
 						<button
 							type="button"
 							className="btn btn-primary"
+							onClick={handleVoluntariar}
 						>
 							QUERO SER VOLUNTÁRIO
 						</button>
