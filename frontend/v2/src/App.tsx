@@ -12,6 +12,7 @@ import Homepage from "./pages/Homepage";
 import ProtectedRoute from "./utils/ProtectedRoutes";
 import ListarAcoes from "./pages/ListarAcoes";
 import AprovarSolicitacao from "./pages/AprovarSolicitacao";
+import Footer from "./components/Footer";
 
 function App(): JSX.Element {
 	return (
@@ -55,14 +56,15 @@ function App(): JSX.Element {
 						<Route
 							element={<AprovarSolicitacao />}
 							path="/aprovar-solicitacao"
-						/> 
+						/>
 						<Route
 							path="/listar-acoes"
-							element={<ListarAcoes/>}
+							element={<ListarAcoes />}
 						/>
 					</Routes>
 				</Router>
 			</AuthProvider>
+			<Footer />
 		</>
 	);
 }

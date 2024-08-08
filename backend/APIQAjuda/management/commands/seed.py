@@ -9,6 +9,7 @@ class Command(BaseCommand):
     help = 'Populate database with categories, actions, photos, and a user'
 
     def handle(self, *args, **kwargs):
+        SolicitacaoVoluntariado.objects.all().delete()
         Categoria.objects.all().delete()
 
         categorias_data = [
@@ -25,6 +26,8 @@ class Command(BaseCommand):
         for categoria_data in categorias_data:
             Categoria.objects.create(
                 id=categoria_data['id'], nome=categoria_data['nome'])
+
+        Acao.objects.all().delete()
 
         acoes_data = [
             {
@@ -119,10 +122,8 @@ class Command(BaseCommand):
             "data_nascimento": datetime.date.today().isoformat()
         }
 
-        colaborador = Colaborador.objects.create_superuser(  # type: ignore
+        colaborador = Colaborador.objects.create_superuser(
             **colaborador_data)
-
-        Acao.objects.all().delete()
 
         for acao_data in acoes_data:
             categoria_id = acao_data.pop('categoria_id')
@@ -134,6 +135,17 @@ class Command(BaseCommand):
             acao_data['foto'] = foto
             acao_data['criado_por'] = colaborador
             Acao.objects.create(**acao_data)
+
+        colaborador_data = {
+            "nome": "Joana Alguém",
+            "username": "joana",
+            "password": "joana",
+            "email": "joana@gmail.com",
+            "data_nascimento": datetime.date.today().isoformat()
+        }
+
+        colaborador = Colaborador.objects.create_user(
+            **colaborador_data)
 
         self.stdout.write(self.style.SUCCESS(
             'Database populated successfully'))
