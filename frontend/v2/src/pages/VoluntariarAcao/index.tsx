@@ -1,14 +1,14 @@
 import Header from "@/components/Header";
 import "./style.css";
 import { useAuth } from "@/contexts/useAuth";
-import SolicitacaoService from "@/services/SolicitacaoService";
-import { Solicitacao } from "@/types/Solicitacao";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import AcaoService from "@/services/AcaoService";
+import toast from "react-hot-toast";
 
 // Importar o componente da barra de menu
 function VoluntariarAcao() {
 	const { user } = useAuth();
-	var solicitacao : Solicitacao;
+	const navigate = useNavigate();
 
 	const { id } = useParams<{id : string}>();
 
@@ -18,13 +18,14 @@ function VoluntariarAcao() {
 			return;
 		}
 		// Seta valores de solicitação
-		solicitacao.acao = Number(id);
-		solicitacao.modificado_em = new Date();
-		solicitacao.solicitado_em = new Date();
-		solicitacao.status = "em_espera";
-		solicitacao.colaborador = user;
-
-		SolicitacaoService.post(solicitacao);
+		AcaoService.solicitarParticipacao(Number(id))
+			.then((res) => {
+				toast.success(res.data);
+				navigate('/minhas-solicitacoes/');
+			})
+			.catch((err) => {
+				toast.error(err.response.data.message);
+			})
 	}
 
 	return (

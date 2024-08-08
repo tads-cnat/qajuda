@@ -21,7 +21,7 @@ export default function VisualizarAcao() : JSX.Element {
 	}, [id]);
 
 	const navigateVoluntariar = () => {
-		navigate('/voluntariar-acao'+id);
+		navigate('/voluntariar-acao/'+id);
 	}
 
 	return (
