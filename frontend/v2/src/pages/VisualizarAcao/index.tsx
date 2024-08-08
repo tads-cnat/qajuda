@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import { Acao } from "@/types/Acao";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import AcaoService from "@/services/AcaoService";
 import Header from "@/components/Header";
 import { formatDate } from "@/utils/formatDate";
 
 export default function VisualizarAcao() : JSX.Element {
 	const [acao, setAcao] = useState<Acao | undefined>(undefined);
+	const navigate = useNavigate();
 
 	const { id } = useParams<{id : string}>();
 
@@ -18,6 +19,10 @@ export default function VisualizarAcao() : JSX.Element {
 			})
 		}
 	}, [id]);
+
+	const navigateVoluntariar = () => {
+		navigate('/voluntariar-acao/'+id);
+	}
 
 	return (
 		<>
@@ -36,6 +41,7 @@ export default function VisualizarAcao() : JSX.Element {
 							<button
 								type="button"
 								className="btn btn-primary w-75 p-3 m-3 mt-5"
+								onClick={navigateVoluntariar}
 							>
 								Quero ser voluntário
 							</button>

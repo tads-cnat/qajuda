@@ -1,3 +1,4 @@
+import axiosInstance from "./common/AxiosSingleton";
 import BaseService from "./common/BaseService";
 
 export interface AcaoFilters {
@@ -8,6 +9,11 @@ export interface AcaoFilters {
 	search?: string;
 }
 
-class AcaoService extends BaseService {}
+class AcaoService extends BaseService {
+	async solicitarParticipacao(id : number): Promise<any> {
+		const response = await axiosInstance.post(`acao/${id}/solicitacao/`);
+		return response;
+	}
+}
 
 export default new AcaoService("acao");
