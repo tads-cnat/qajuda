@@ -27,8 +27,6 @@
     border-radius: 50%; /* Para criar uma imagem redonda */
     background-color: #ccc; /* Cor de fundo da imagem (pode ser uma imagem real) */
     margin-left: 20px;
-    /* SUBSTITUIR AQUI PELA FOTO DO USUÁRIO */
-    background-image: url(../../assets/img/icones/userpadrao.png);
     background-size: cover;
     cursor: pointer;
 }

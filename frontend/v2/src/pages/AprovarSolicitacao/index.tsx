@@ -1,8 +1,16 @@
 import Header from "@/components/Header";
 import "./style.css";
 import CardAprovacao from "@/components/CardAprovacao";
+import { useState } from "react";
+import { Colaborador } from "@/types/Colaborador";
 
 function AprovarSolicitacao() {
+    const [listVoluntario, setListVoluntario] = useState<Colaborador[]>([]);
+
+    function fetchData() : void {
+        
+    }
+
     return (
         <>
             <Header />
@@ -18,7 +26,7 @@ function AprovarSolicitacao() {
                 </div>
 
                 <div className="mb-4">
-                    <CardAprovacao />
+                    <CardAprovacao foto="../../assets/img/icones/userpadrao.png" endereco="Mipibu" idade={21} nome="Arthur" />
                 </div>
             </section>
 

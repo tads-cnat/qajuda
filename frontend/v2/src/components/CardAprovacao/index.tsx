@@ -1,13 +1,23 @@
+import { useEffect } from "react";
 import "./style.css";
 
-function CardAprovacao() {
+interface IProps {
+	foto : string,
+	nome : string,
+	idade : number,
+	endereco : string,
+}
+
+function CardAprovacao(props : IProps) {
 	return (
 		<>
 			<div className="d-flex justify-content-between align-items-center bg-primary rounded-pill py-3 px-1">
-				<div className="foto">{/* FOTO AQUI */}</div>
-				<div className="fs-5 ">Fulaninho das Quintas</div>
-				<div className="fs-5">27 anos</div>
-				<div className="fs-5">Alecrim</div>
+				<div className="foto">
+					<img src={props.foto} alt="Foto de perfil" />
+				</div>
+				<div className="fs-5 ">{props.nome}</div>
+				<div className="fs-5">{props.idade}</div>
+				<div className="fs-5">{props.endereco}</div>
 				<div className="d-flex g-2 pe-3">
 					<button
 						type="button"
