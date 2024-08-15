@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
 import { Acao } from "@/types/Acao";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import AcaoService from "@/services/AcaoService";
 import Header from "@/components/Header";
 import { formatDate } from "@/utils/formatDate";
 
+
 export default function VisualizarAcao() : JSX.Element {
 	const [acao, setAcao] = useState<Acao | undefined>(undefined);
+	const navigate = useNavigate();
 
 	const { id } = useParams<{id : string}>();
 

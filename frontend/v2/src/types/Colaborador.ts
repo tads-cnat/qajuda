@@ -6,4 +6,6 @@ export interface Colaborador {
 	bairro: string;
 	data_nascimento: Date;
 	bio: string;
+	foto: string;
+	endereco: string;
 }

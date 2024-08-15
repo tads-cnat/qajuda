@@ -1,7 +1,7 @@
-import { useEffect } from "react";
 import "./style.css";
 
 interface IProps {
+	id : number | undefined,
 	foto : string,
 	nome : string,
 	idade : number,
