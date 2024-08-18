@@ -55,7 +55,7 @@ function App(): JSX.Element {
 						{/* Colocar rota na protegida por login */}
 						<Route
 							element={<AprovarSolicitacao />}
-							path="/aprovar-solicitacao"
+							path="/aprovar-solicitacao/:id"
 						/>
 						<Route
 							path="/listar-acoes"

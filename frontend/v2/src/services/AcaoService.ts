@@ -12,6 +12,8 @@ export interface AcaoFilters {
 class AcaoService extends BaseService {
 	async solicitarParticipacao(id : number): Promise<any> {
 		const response = await axiosInstance.post(`acao/${id}/solicitacao/`);
+		return response;
+	}
 		
 	async getSolicitacoes(id: number): Promise<any> {
 		const response = await axiosInstance.get(`acao/${id}/solicitacoes/`);

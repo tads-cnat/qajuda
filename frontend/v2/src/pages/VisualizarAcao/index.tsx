@@ -4,11 +4,13 @@ import { useNavigate, useParams } from "react-router-dom";
 import AcaoService from "@/services/AcaoService";
 import Header from "@/components/Header";
 import { formatDate } from "@/utils/formatDate";
+import { useAuth } from "@/contexts/useAuth";
 
 
 export default function VisualizarAcao() : JSX.Element {
 	const [acao, setAcao] = useState<Acao | undefined>(undefined);
 	const navigate = useNavigate();
+	const { user } = useAuth();
 
 	const { id } = useParams<{id : string}>();
 
@@ -25,6 +27,10 @@ export default function VisualizarAcao() : JSX.Element {
 		navigate('/voluntariar-acao/'+id);
 	}
 
+	const navigateAprovar = () => {
+		navigate('/aprovar-solicitacao/'+id);
+	}
+
 	return (
 		<>
 			<Header />
@@ -39,13 +45,25 @@ export default function VisualizarAcao() : JSX.Element {
 						<div
 							className="card-body d-flex flex-column mb-4 align-items-center"
 						>
-							<button
-								type="button"
-								className="btn btn-primary w-75 p-3 m-3 mt-5"
-								onClick={navigateVoluntariar}
-							>
-								Quero ser voluntário
-							</button>
+						{
+							(acao?.criado_por.id == user?.id) ? (
+								<button
+									type="button"
+									className="btn btn-primary w-75 p-3 m-3 mt-5"
+									onClick={navigateAprovar}
+								>
+									Aprovar voluntários
+								</button>
+							) : (
+								<button
+									type="button"
+									className="btn btn-primary w-75 p-3 m-3 mt-5"
+									onClick={navigateVoluntariar}
+								>
+									Quero ser voluntário
+								</button>
+							)
+						}
 							
 							<p className="card-text p-1">
 								<b>Criada por:</b> {acao?.criado_por.nome}
