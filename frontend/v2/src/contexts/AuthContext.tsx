@@ -9,7 +9,7 @@ interface AuthContextProps {
 	logout: () => void;
 	isAuthenticated: boolean;
 	isLoading: boolean;
-	user?: Colaborador | null;
+	user?: Colaborador;
 }
 
 export const AuthContext = createContext<AuthContextProps>({

@@ -21,6 +21,10 @@ export default function VisualizarAcao() : JSX.Element {
 		}
 	}, [id]);
 
+	const navigateVoluntariar = () => {
+		navigate('/voluntariar-acao/'+id);
+	}
+
 	return (
 		<>
 			<Header />
@@ -38,6 +42,7 @@ export default function VisualizarAcao() : JSX.Element {
 							<button
 								type="button"
 								className="btn btn-primary w-75 p-3 m-3 mt-5"
+								onClick={navigateVoluntariar}
 							>
 								Quero ser voluntário
 							</button>

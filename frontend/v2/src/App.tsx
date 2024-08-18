@@ -42,8 +42,8 @@ function App(): JSX.Element {
 							element={<VisualizarAcao />}
 						/>
 						<Route
-							path="/voluntariar-acao"
-							element={<VoluntariarAcao />}
+							path="/voluntariar-acao/:id"
+							element={<VoluntariarAcao/>}
 						/>
 						<Route element={<ProtectedRoute />}>
 							{/* Telas que só poderão ser acessadas por usuários logados devem ser colocadas aqui dentro */}
