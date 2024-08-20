@@ -1,4 +1,5 @@
 import "./style.css";
+import { calcAge } from "@/utils/calcAge";
 
 interface IProps {
 	id : number | undefined,
@@ -9,17 +10,6 @@ interface IProps {
 }
 
 function CardAprovacao(props : IProps) {
-	function calcularIdade(dataNascimento: Date): number {
-		const hoje = new Date();
-		const aniversario = new Date(dataNascimento);
-
-		const diferencaAnos = hoje.getFullYear() - aniversario.getFullYear();
-	  
-		const aniversarioEsteAno = new Date(hoje.getFullYear(), aniversario.getMonth(), aniversario.getDate());
-
-		return hoje >= aniversarioEsteAno ? diferencaAnos : diferencaAnos - 1;
-	  }
-
 	const handleAceitar = () => {
 		console.log('Aceito, id = '+props.id);
 	}
@@ -35,7 +25,7 @@ function CardAprovacao(props : IProps) {
 					<img src={props.foto} alt="Foto de perfil" />
 				</div>
 				<div className="fs-5 ">{props.nome}</div>
-				<div className="fs-5 ">{calcularIdade(props.dataNascimento)}</div>
+				<div className="fs-5 ">{calcAge(props.dataNascimento)}</div>
 				<div className="fs-5">{props.endereco}</div>
 				<div className="d-flex g-2 pe-3">
 					<button

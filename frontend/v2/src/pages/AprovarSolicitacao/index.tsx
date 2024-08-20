@@ -44,11 +44,16 @@ function AprovarSolicitacao() {
                         Voltar
                     </button>
                 </div>
-                {listSolicitacao.map((solicitacao) => (
-                    <div className="mb-4" key={solicitacao.id}>
-                        <CardAprovacao id={solicitacao.id} foto={solicitacao.colaborador.foto} dataNascimento={solicitacao.colaborador.data_nascimento} endereco={solicitacao.colaborador.endereco} nome={solicitacao.colaborador.nome} />
-                    </div>
-                ))}
+                {
+                    (listSolicitacao.length == 0) ? (
+                        <h5 className="p-2 w-100">Nenhuma solicitação pendente.</h5>
+                    ) : 
+                    listSolicitacao.map((solicitacao) => (
+                        <div className="mb-4" key={solicitacao.id}>
+                            <CardAprovacao id={solicitacao.id} foto={solicitacao.colaborador.foto} dataNascimento={solicitacao.colaborador.data_nascimento} endereco={solicitacao.colaborador.endereco} nome={solicitacao.colaborador.nome} />
+                        </div>
+                    ))
+                }
             </section>
 
         </>

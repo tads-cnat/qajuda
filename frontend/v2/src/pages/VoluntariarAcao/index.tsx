@@ -21,7 +21,7 @@ function VoluntariarAcao() {
 		AcaoService.solicitarParticipacao(Number(id))
 			.then((res) => {
 				toast.success(res.data);
-				navigate('/minhas-solicitacoes/');
+				navigate('/');
 			})
 			.catch((err) => {
 				toast.error(err.response.data.message);
