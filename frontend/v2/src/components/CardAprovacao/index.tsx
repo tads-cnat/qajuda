@@ -1,5 +1,7 @@
+import SolicitacaoService from "@/services/SolicitacaoService";
 import "./style.css";
 import { calcAge } from "@/utils/calcAge";
+import toast from "react-hot-toast";
 
 interface IProps {
 	id : number | undefined,
@@ -11,11 +13,17 @@ interface IProps {
 
 function CardAprovacao(props : IProps) {
 	const handleAceitar = () => {
-		console.log('Aceito, id = '+props.id);
+		SolicitacaoService.aceitar(Number(props.id)).then((res) => {
+			toast.success(res.data);
+			window.location.reload();
+		});
 	}
 
 	const handleRecusar = () => {
-		console.log('Recusado, id = '+props.id);
+		SolicitacaoService.rejeitar(Number(props.id)).then((res) => {
+			toast.success(res.data);
+			window.location.reload();
+		});
 	}
 
 	return (
