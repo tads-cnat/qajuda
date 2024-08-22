@@ -11,7 +11,7 @@ function Header() {
 
 	function handleLogout() {
 		logout();
-		navigate("/login");
+		navigate("/");
 		toast.success("Usuário deslogado");
 	}
 
