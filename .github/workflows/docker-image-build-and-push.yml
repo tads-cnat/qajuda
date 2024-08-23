@@ -2,7 +2,7 @@ name: Build and deploy images to Docker Hub
 on:
   push:
     branches:
-      - main
+      - 284-implementa-cicd-da-disciplina-de-testes-no-github-actions
   workflow_dispatch:
 jobs:
   build_and_push:
