@@ -20,10 +20,6 @@ jobs:
         run: |
           docker build -t ${{ secrets.DOCKER_USERNAME }}/backend-teste:latest -f backend/Dockerfile .
           docker push ${{ secrets.DOCKER_USERNAME }}/backend-teste:latest
-      - name: Build and push frontend Docker image
-        run: |
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/frontend-teste:latest -f frontend/v2/Dockerfile .
-          docker push ${{ secrets.DOCKER_USERNAME }}/frontend-teste:latest
       - name: Upload Docker Compose file for deployment
         uses: actions/upload-artifact@v4
         with:
