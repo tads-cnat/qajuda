@@ -6,6 +6,8 @@ from rest_framework.test import APIClient
 from rest_framework import status
 from django.urls import reverse
 from rest_framework_simplejwt.tokens import RefreshToken
+from django.core.files.uploadedfile import SimpleUploadedFile
+import os
 
 class AcaoTestCase(TestCase):
     def setUp(self):
@@ -176,3 +178,80 @@ class AcaoCreateTestCase(TestCase):
         response = self.client.get(self.url)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(len(response.data), 1)
+
+
+class FotoTestCase(TestCase):
+    def setUp(self):
+        self.client = APIClient()
+
+        #cria um user e um token de acesso
+        self.user = Colaborador.objects.create_user(username='testuser', password='12345')
+        self.refresh = RefreshToken.for_user(self.user)
+        self.client.credentials(HTTP_AUTHORIZATION=f'Bearer  {self.refresh.access_token}')
+
+        self.url = reverse('foto-list')
+
+    def test_create_foto(self):        
+        # Imagem qualquer para teste
+        imagem_teste = SimpleUploadedFile(            
+            name='imagem_teste.jpg',
+            content=b'\x47\x49\x46\x38\x39\x61\x02\x00\x02\x00\x80\x00\x00\x00\x00\x00\xFF\xFF\xFF\x21\xF9\x04\x00\x00\x00\x00\x00\x2C\x00\x00\x00\x00\x02\x00\x02\x00\x00\x02\x02\x44\x01\x00\x3B', 
+            content_type='image/jpeg'
+        )                
+        data = {
+            'foto': imagem_teste,
+        }
+
+        # Faz o POST usando multipart/form-data como acontece no formulario
+        response = self.client.post(reverse('foto-list'), data, format='multipart')
+        
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+        self.assertEqual(Foto.objects.count(), 1)
+        self.assertEqual(Foto.objects.get().foto.name, 'APIQAjuda/static/imagem_teste.jpg')
+        
+        # remove a imagem após teste
+        self.remove_imagem(f'./{Foto.objects.get().foto.name}')
+   
+    def test_create_foto_sem_imagem(self):
+        data = {}
+
+        # Faz o POST usando multipart/form-data como acontece no formulario
+        response = self.client.post(reverse('foto-list'), data, format='multipart')
+        
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+        self.assertEqual(Foto.objects.count(), 0)
+    
+    def test_list_fotos(self):
+        response = self.client.get(self.url)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(len(response.data), 0)
+        self.assertEqual(Foto.objects.count(), 0)
+        
+        # Imagem qualquer para teste
+        imagem_teste = SimpleUploadedFile(            
+            name='imagem_teste.jpg',
+            content=b'\x47\x49\x46\x38\x39\x61\x02\x00\x02\x00\x80\x00\x00\x00\x00\x00\xFF\xFF\xFF\x21\xF9\x04\x00\x00\x00\x00\x00\x2C\x00\x00\x00\x00\x02\x00\x02\x00\x00\x02\x02\x44\x01\x00\x3B', 
+            content_type='image/jpeg'
+        )                
+        data = {
+            'foto': imagem_teste,
+        }
+
+        # Faz o POST usando multipart/form-data como acontece no formulario
+        response = self.client.post(reverse('foto-list'), data, format='multipart')
+        
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+        self.assertEqual(Foto.objects.count(), 1)
+        self.assertEqual(Foto.objects.get().foto.name, 'APIQAjuda/static/imagem_teste.jpg')
+
+        response = self.client.get(self.url)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(len(response.data), 1)
+        
+        # remove a imagem após teste
+        self.remove_imagem(f'./{Foto.objects.get().foto.name}')
+        
+    def remove_imagem(self, caminho):
+        image_path = caminho
+        if os.path.exists(image_path):
+            os.remove(image_path)
