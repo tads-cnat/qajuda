@@ -87,6 +87,13 @@ class ColaboradorViewSet(viewsets.ReadOnlyModelViewSet):
             request.user, context={'request': request})
         return Response(serializer.data)
 
+    @action(detail=False, methods=['get'])
+    def acoes(self, request, *args, **kwargs):
+        colaborador = request.user
+        acoes = colaborador.acoes.all()
+        serializer = ListAcaoSerializer(acoes, many=True)
+        return Response(serializer.data)
+
 
 class CategoriaViewSet(viewsets.ModelViewSet):
     queryset = Categoria.objects.all()
@@ -132,8 +139,16 @@ class SolicitacaoVoluntariadoViewSet(viewsets.ModelViewSet):
         if solicitacao.status == Status.EM_ESPERA:
             solicitacao.status = Status.ACEITO
             solicitacao.modificado_em = datetime.datetime.now()
+
+            solicitacao.colaborador.acoes.add(acao)
+
+            acao.qtd_voluntarios += 1
+
+            solicitacao.colaborador.save()
+            acao.save()
             solicitacao.save()
-            return Response({'status': 'Solicitação aceita'}, status=status.HTTP_200_OK)
+
+            return Response({'status': 'Solicitação aceita e ação adicionada ao colaborador.'}, status=status.HTTP_200_OK)
         else:
             return Response({'error': 'A solicitação já foi processada.'}, status=status.HTTP_400_BAD_REQUEST)
 

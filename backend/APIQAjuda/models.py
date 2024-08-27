@@ -35,6 +35,7 @@ class Colaborador(AbstractUser):
     bairro = models.CharField(max_length=30)
     data_nascimento = models.DateField()
     bio = models.TextField(max_length=100)
+    acoes = models.ManyToManyField('Acao', related_name='colaboradores')
 
     objects = UserManager()  # type: ignore
 
