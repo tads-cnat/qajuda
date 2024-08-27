@@ -1,0 +1,17 @@
+.card-lista {
+    background-color: #f0f0f0;
+    padding: 10px;
+    transition: background-color 0.3s ease;
+    border-radius: 10px;
+    width: 40%;
+    margin-bottom: 1rem;
+}
+
+.card-lista:hover {
+    background-color: #3f8bf573;
+}
+
+
+.painel { 
+    width: 100%;
+}

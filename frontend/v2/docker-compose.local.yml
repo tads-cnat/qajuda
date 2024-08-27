@@ -1,0 +1,10 @@
+services:
+    nginx:
+        container_name: qajuda-frontend
+        build:
+            context: .
+            dockerfile: ./Dockerfile
+        ports:
+            - "80:80"
+        env_file:
+            - ./compose/.env/.local

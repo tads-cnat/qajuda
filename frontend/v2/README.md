@@ -1,30 +1,64 @@
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# QAjuda - React Frontend
 
-Currently, two official plugins are available:
+Este é o projeto frontend do QAjuda, ainda está em desenvolvimento e atualizações ainda são aguardadas nas próximas semanas.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
+## 💻 Pré-requisitos
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Antes de começar, verifique se você atendeu aos seguintes requisitos:
 
-- Configure the top-level `parserOptions` property like this:
+- Verifique se você possuí a versão LTS mais recente do [NodeJS e o npm](https://nodejs.org/en/learn/getting-started/introduction-to-nodejs) instalados
+- [OPCIONAL] Verifique que você está com o Docker Engine aberta e funcionando em sua máquina
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+## Como rodar o projeto localmente
+1. **Entre no diretório**
+
+Navegue até a pasta raíz do diretório frontend:
+
+```bash
+cd frontend/v2
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+2. **Instalação das dependências** 
+
+Execute o seguinte comando na raiz do projeto para instalar todas as dependências necessárias:
+
+```bash
+npm install
+``` 
+
+3. **Executar em modo de desenvolvimento** 
+
+Para executar o projeto em modo de desenvolvimento, utilize o seguinte comando:
+
+```bash
+npm run dev
+```
+Isso iniciará o servidor de desenvolvimento Vite. O aplicativo será acessível em `http://localhost:5173`. 
+
+
+## Como rodar o projeto usando Docker
+
+Para iniciar a aplicação usando Docker, certifique-se de que a docker engine está rodando na sua máquina e execute o seguinte comando:
+
+```bash
+docker compose -f docker-compose.local.yml up --build
+``` 
+
+Isso iniciará um servidor nginx servindo a aplicação em `http://localhost/`
+
+> Lembre-se de esvaziar o arquivo .env no diretório raiz do projeto frontend.
+
+## Principais Dependências 
+- **React:**  Biblioteca JavaScript para criar interfaces de usuário. 
+- **React Router Dom:**  Roteamento para aplicativos React. 
+- **React Hook Form:**  Biblioteca para gerenciar formulários em React. 
+- **Axios:**  Cliente HTTP baseado em Promises para fazer requisições. 
+- **Bootstrap:**  Framework CSS para desenvolvimento rápido de interfaces. 
+- **Yup:**  Biblioteca de validação de esquema. 
+- **Vite:**  Servidor de desenvolvimento rápido e ferramenta de compilação. 
+- **TypeScript:**  Superset JavaScript com tipagem estática opcional para aplicações JavaScript/React. 
+- **ESLint:**  Ferramenta de análise de código estática para identificar padrões problemáticos no código JavaScript/TypeScript.
+
+Certifique-se de consultar a documentação oficial de cada uma dessas dependências para obter mais detalhes sobre como usá-las em seu projeto.

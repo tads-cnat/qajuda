@@ -13,7 +13,7 @@ import Select from "@/components/Select";
 const schema = yup.object().shape({
 	nome: yup.string().required("O campo nome é obrigatório"),
 	descricao: yup.string().required("O campo descrição é obrigatório"),
-	local: yup.string().required("O campo local é obrigatório"),
+	endereco: yup.string().required("O campo endereco é obrigatório"),
 	tema: yup.string().required("O campo tema é obrigatório"),
 	max_volunt: yup
 		.number()
@@ -47,6 +47,7 @@ export default function CriarAcao(): JSX.Element {
 			})
 			.catch((err) => {
 				toast.error("Houve um erro ao cadastrar a ação!");
+				console.error(err);
 			});
 	};
 
@@ -100,10 +101,10 @@ export default function CriarAcao(): JSX.Element {
 									</div>
 									<div className="form-floating col-12">
 										<InputText
-											placeholder="Informe o local da ação"
-											label="Local"
+											placeholder="Informe o endereco da ação"
+											label="Endereço"
 											type="text"
-											name="local"
+											name="endereco"
 										/>
 									</div>
 									<div className="form-floating col-6">

@@ -1,11 +1,8 @@
 from django.contrib import admin
-from .models import Categoria, Colaborador, Acao, SolicitacaoVoluntariado, Notificacao, Foto
+from .models import *
 
-# Register your models here.
-
-admin.site.register(Categoria)
 admin.site.register(Colaborador)
+admin.site.register(Categoria)
+admin.site.register(Foto)
 admin.site.register(Acao)
 admin.site.register(SolicitacaoVoluntariado)
-admin.site.register(Notificacao)
-admin.site.register(Foto)

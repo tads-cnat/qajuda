@@ -1,12 +1,5 @@
-from pyexpat import model
-from rest_framework import fields, serializers
+from rest_framework import serializers
 from .models import *
-
-
-class UserSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = User
-        fields = ['first_name', 'last_name', 'email']
 
 
 class FotoSerializer(serializers.ModelSerializer):
@@ -17,12 +10,23 @@ class FotoSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
+class ListFotoSerializer(serializers.ModelSerializer):
+    foto = serializers.SerializerMethodField()
+
+    class Meta:
+        model = Foto
+        fields = '__all__'
+
+    def get_foto(self, obj) -> str:
+        return obj.get_absolute_url()
+
+
 class ColaboradorSerializer(serializers.ModelSerializer):
-    user = UserSerializer()
 
     class Meta:
         model = Colaborador
-        fields = '__all__'
+        fields = ('id', 'nome', 'telefone', 'cidade',
+                  'bairro', 'data_nascimento', 'bio')
 
 
 class CategoriaSerializer(serializers.ModelSerializer):
@@ -36,14 +40,14 @@ class AcaoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Acao
         fields = '__all__'
-        read_only_fields = ['criador', 'status', 'criador', 'url',
-                            'qtd_volunt', 'avaliacao', 'modalidade', 'criada_em']
+        read_only_fields = ['status', 'url',
+                            'qtd_voluntarios', 'criado_em', 'criado_por']
 
 
 class ListAcaoSerializer(serializers.ModelSerializer):
     categoria = CategoriaSerializer(read_only=True)
-    foto = FotoSerializer(read_only=True)
-    criador = ColaboradorSerializer(read_only=True)
+    foto = ListFotoSerializer(read_only=True)
+    criado_por = ColaboradorSerializer(read_only=True)
 
     class Meta:
         model = Acao
@@ -56,13 +60,6 @@ class CardDestaqueSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Acao
-        fields = '__all__'
-
-
-class ColaboradorBancoSerializer(serializers.ModelSerializer):
-
-    class Meta:
-        model = Colaborador
         fields = '__all__'
 
 

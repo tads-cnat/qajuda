@@ -1,6 +1,6 @@
 import axiosInstance from "@/services/common/AxiosSingleton";
-import { Usuario } from "@/types/Usuario";
-import React, { createContext, useState, useContext, useEffect } from "react";
+import { Colaborador } from "@/types/Colaborador";
+import React, { createContext, useState, useEffect } from "react";
 import toast from "react-hot-toast";
 
 interface AuthContextProps {
@@ -9,21 +9,20 @@ interface AuthContextProps {
 	logout: () => void;
 	isAuthenticated: boolean;
 	isLoading: boolean;
-	user?: Usuario | null;
+	user?: Colaborador;
 }
 
-const AuthContext = createContext<AuthContextProps>({
+export const AuthContext = createContext<AuthContextProps>({
 	token: null,
-	login: (token: string, refreshToken: string) => {},
+	login: (token: string, refreshToken: string) => {
+		token;
+		refreshToken;
+	},
 	logout: () => {},
 	isAuthenticated: false,
 	isLoading: true,
 	user: null,
 });
-
-export const useAuth = () => {
-	return useContext(AuthContext);
-};
 
 interface AuthProviderProps {
 	children: React.ReactNode;
@@ -33,16 +32,18 @@ export function AuthProvider({ children }: AuthProviderProps) {
 	const [token, setToken] = useState<string | null>(null);
 	const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
 	const [isLoading, setIsLoading] = useState<boolean>(true);
-	const [user, setUser] = useState<Usuario>();
+	const [user, setUser] = useState<Colaborador>();
 
 	useEffect(() => {
 		const getUser = async () => {
 			try {
-				const response = await axiosInstance.get("/colaborador/logado");
+				const response = await axiosInstance.get(
+					"/colaborador/logado/"
+				);
 				setUser(response.data);
 			} catch (error) {
 				console.error("Erro ao obter o usuário:", error);
-				toast.error("Erro ao obter o usuário!");
+				toast.error("Erro ao obter o usuário.");
 			}
 		};
 

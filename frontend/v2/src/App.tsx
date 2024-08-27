@@ -1,12 +1,18 @@
 import "./App.css";
+import "bootstrap";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
-import "bootstrap";
 import { AuthProvider } from "./contexts/AuthContext";
 
 import Login from "./pages/Login";
+import VisualizarAcao from "./pages/VisualizarAcao";
+import VoluntariarAcao from "./pages/VoluntariarAcao";
 import CriarAcao from "./pages/CriarAcao";
 import AutorizarVoluntarioAcao from "./pages/AutorizarVoluntarioAcao";
+import Homepage from "./pages/Homepage";
+import ProtectedRoute from "./utils/ProtectedRoutes";
+import ListarAcoes from "./pages/ListarAcoes";
+import Footer from "./components/Footer";
 
 function App(): JSX.Element {
 	return (
@@ -17,7 +23,7 @@ function App(): JSX.Element {
 					<Routes>
 						<Route
 							path="/"
-							element={<h1>Home</h1>}
+							element={<Homepage />}
 						/>
 						<Route
 							path="/sobre"
@@ -32,8 +38,30 @@ function App(): JSX.Element {
 							element={<Login />}
 						/>
 						<Route
-							path="/criar-acao"
-							element={<CriarAcao />}
+							path="/visualizar-acao/:id"
+							element={<VisualizarAcao />}
+						/>
+						<Route
+							path="/voluntariar-acao/:id"
+							element={<VoluntariarAcao/>}
+						/>
+						<Route element={<ProtectedRoute />}>
+							{/* Telas que só poderão ser acessadas por usuários logados devem ser colocadas aqui dentro */}
+							<Route
+								path="/criar-acao"
+								element={<CriarAcao />}
+							/>
+							{/* 
+							ex:
+							<Route
+								element={<AprovarSolicitacao />}
+								path="/aprovar-solicitacao"
+							/> 
+							*/}
+						</Route>
+						<Route
+							path="/listar-acoes"
+							element={<ListarAcoes />}
 						/>
 						<Route
 							path="/autorizar-voluntario-acao"
@@ -42,6 +70,7 @@ function App(): JSX.Element {
 					</Routes>
 				</Router>
 			</AuthProvider>
+			<Footer />
 		</>
 	);
 }
