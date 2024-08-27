@@ -1,6 +1,7 @@
 services:
     nginx:
         container_name: qajuda-frontend
+        image: qajuda/frontend-web
         build:
             context: .
             dockerfile: ./Dockerfile

@@ -2,6 +2,7 @@ version: "3.9"
 services:
   django:
     container_name: qajuda-api
+    image: qajuda/backend-api
     build:
       context: ./
       dockerfile: ./Dockerfile
@@ -12,20 +13,14 @@ services:
       - "8000:8000"
     depends_on:
       - postgres
-    environment:
-      POSTGRES_USER: qajuda
-      POSTGRES_PASSWORD: qajuda-password
-      POSTGRES_DB: qajudadb
-      POSTGRES_HOST: qajuda-db
-      POSTGRES_PORT: 5432
+    env_file:
+      - ./compose/.env
 
   postgres:
     container_name: qajuda-db
     image: postgres:16
-    environment:
-      POSTGRES_USER: qajuda
-      POSTGRES_PASSWORD: qajuda-password
-      POSTGRES_DB: qajudadb
+    env_file:
+      - ./compose/.env
     volumes:
       - postgres-data:/var/lib/postgresql/data
     ports:
