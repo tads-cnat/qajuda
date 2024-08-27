@@ -38,7 +38,7 @@ function Homepage() {
 					</div>
 					<div className="col-6 d-flex justify-content-center">
 						<img
-							src="https://placehold.co/600x600"
+							src="/src/assets/img/mural/alfabetizacao-pcd.jpg"
 							alt=""
 							className="img-fluid"
 						/>
@@ -59,21 +59,21 @@ function Homepage() {
 					</div>
 					<div className="row row-cols-3 ">
 						<Card
-							foto={"https://placehold.co/600x600"}
+							foto={"/src/assets/img/mural/alfabetizacao.jpg"}
 							categoria={"Categoria"}
 							nome={"Ação 1"}
 							descricao={"Descrição 1"}
 							nome_criador={"Criador 1"}
 						/>
 						<Card
-							foto={"https://placehold.co/600x600"}
+							foto={"/src/assets/img/mural/animais.jpg"}
 							categoria={"Categoria"}
 							nome={"Ação 2"}
 							descricao={"Descrição 2"}
 							nome_criador={"Criador 2"}
 						/>
 						<Card
-							foto={"https://placehold.co/600x600"}
+							foto={"/src/assets/img/mural/aula.jpg"}
 							categoria={"Categoria"}
 							nome={"Ação 3"}
 							descricao={"Descrição 3"}
