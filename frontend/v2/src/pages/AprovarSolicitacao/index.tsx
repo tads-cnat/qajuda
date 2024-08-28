@@ -50,7 +50,7 @@ function AprovarSolicitacao() {
                     ) : 
                     listSolicitacao.map((solicitacao) => (
                         <div className="mb-4" key={solicitacao.id}>
-                            <CardAprovacao id={solicitacao.id} foto={solicitacao.colaborador.foto} dataNascimento={solicitacao.colaborador.data_nascimento} endereco={solicitacao.colaborador.endereco} nome={solicitacao.colaborador.nome} />
+                            <CardAprovacao id={solicitacao.id} foto={solicitacao.colaborador.foto} dataNascimento={solicitacao.colaborador.data_nascimento} endereco={solicitacao.colaborador.endereco} nome={solicitacao.colaborador.nome} situacao={solicitacao.status}/>
                         </div>
                     ))
                 }

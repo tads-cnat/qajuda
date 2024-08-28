@@ -8,7 +8,7 @@ class SolicitacaoService extends BaseService {
 	}
 
     async rejeitar(id: any): Promise<any> {
-		const response = await axiosInstance.post(`solicitacao/${id}/rejeitar/`);
+		const response = await axiosInstance.post(`solicitacao/${id}/recusar/`);
 		return response;
 	}
 }

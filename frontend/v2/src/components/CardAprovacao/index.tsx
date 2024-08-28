@@ -9,6 +9,7 @@ interface IProps {
 	nome : string,
 	dataNascimento : Date,
 	endereco : string,
+	situacao : string,
 }
 
 function CardAprovacao(props : IProps) {
@@ -30,23 +31,29 @@ function CardAprovacao(props : IProps) {
 		<>
 			<div className="d-flex justify-content-between align-items-center bg-primary rounded-pill py-3 px-1">
 				<div className="foto">
-					<img src={props.foto} alt="Foto de perfil" />
 				</div>
 				<div className="fs-5 ">{props.nome}</div>
 				<div className="fs-5 ">{calcAge(props.dataNascimento)}</div>
 				<div className="fs-5">{props.endereco}</div>
-				<div className="d-flex g-2 pe-3">
-					<button
-						type="button"
-						className="botao botao-aceitar"
-						onClick={handleAceitar}
-					/>
-					<button
-						type="button"
-						className="botao botao-recusar"
-						onClick={handleRecusar}
-					/>
-				</div>
+				{
+					(props.situacao == 'em_espera') ? (
+						<div className="d-flex g-2 pe-3">
+							<button
+								type="button"
+								className="botao botao-aceitar"
+								onClick={handleAceitar}
+							/>
+							<button
+								type="button"
+								className="botao botao-recusar"
+								onClick={handleRecusar}
+							/>
+						</div>
+					) : (
+						<div className="fs-5">{props.situacao}</div>
+					)
+				}
+				
 			</div>
 		</>
 	);
