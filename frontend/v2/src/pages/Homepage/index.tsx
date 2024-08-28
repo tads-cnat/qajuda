@@ -4,6 +4,10 @@ import Card from "@/components/Card";
 import Header from "@/components/Header";
 import Contato from "./contato";
 import Footer from "@/components/Footer";
+import alfabetizacaopcd from "@/assets/img/mural/alfabetizacao-pcd.jpg";
+import alfabetizacao from "@/assets/img/mural/alfabetizacao.jpg";
+import animais from "@/assets/img/mural/animais.jpg";
+import aula from "@/assets/img/mural/aula.jpg";
 
 function Homepage() {
 	return (
@@ -38,7 +42,7 @@ function Homepage() {
 					</div>
 					<div className="col-6 d-flex justify-content-center">
 						<img
-							src="https://placehold.co/600x600"
+							src={alfabetizacaopcd}
 							alt=""
 							className="img-fluid"
 						/>
@@ -59,21 +63,21 @@ function Homepage() {
 					</div>
 					<div className="row row-cols-3 ">
 						<Card
-							foto={"https://placehold.co/600x600"}
+							foto={alfabetizacao}
 							categoria={"Categoria"}
 							nome={"Ação 1"}
 							descricao={"Descrição 1"}
 							nome_criador={"Criador 1"}
 						/>
 						<Card
-							foto={"https://placehold.co/600x600"}
+							foto={animais}
 							categoria={"Categoria"}
 							nome={"Ação 2"}
 							descricao={"Descrição 2"}
 							nome_criador={"Criador 2"}
 						/>
 						<Card
-							foto={"https://placehold.co/600x600"}
+							foto={aula}
 							categoria={"Categoria"}
 							nome={"Ação 3"}
 							descricao={"Descrição 3"}
