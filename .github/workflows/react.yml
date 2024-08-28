@@ -6,8 +6,8 @@ on:
       - main
   pull_request:
     branches:
-      - main
       - dev
+      - main
 
 jobs:
   build:
@@ -24,6 +24,8 @@ jobs:
 
       - name: Install dependencies
         run: yarn install
+        working-directory: ./frontend/v2/
 
       - name: Build the project
         run: yarn build
+        working-directory: ./frontend/v2/
