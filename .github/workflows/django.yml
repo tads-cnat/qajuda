@@ -2,13 +2,12 @@ name: Django CI
 
 on:
   push:
-    branches: [ "284-implementa-cicd-da-disciplina-de-testes-no-github-actions" ]
+    branches: ["dev", "main"]
   pull_request:
-    branches: [ "dev" ]
+    branches: ["dev", "main"]
 
 jobs:
   testes:
-
     runs-on: ubuntu-latest
     strategy:
       max-parallel: 4
@@ -16,21 +15,25 @@ jobs:
         python-version: [3.12]
 
     steps:
-    - uses: actions/checkout@v4
-    - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v3
-      with:
-        python-version: ${{ matrix.python-version }}
-    - name: Install Dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install -r backend/requirements.txt
-    - name: Run Migrations and Seed
-      run: |
-        cd backend
-        python manage.py migrate
-        python manage.py seed
-    - name: Run Tests Coverage
-      run: |
-        cd backend
-        coverage run manage.py test
+      - uses: actions/checkout@v4
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v3
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r backend/requirements.txt
+
+      - name: Run Migrations and Seed
+        run: |
+          cd backend
+          python manage.py migrate
+          python manage.py seed
+
+      - name: Run Tests Coverage
+        run: |
+          cd backend
+          coverage run manage.py test
