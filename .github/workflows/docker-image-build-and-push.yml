@@ -21,8 +21,13 @@ jobs:
 
       - name: Build and push backend Docker image
         run: |
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/backend-teste:latest -f backend/Dockerfile .
-          docker push ${{ secrets.DOCKER_USERNAME }}/backend-teste:latest
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/backend-api:latest -f backend/Dockerfile .
+          docker push ${{ secrets.DOCKER_USERNAME }}/backend-api:latest
+
+      - name: Build and push frontend Docker image
+        run: |
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/frontend-web:latest -f ./frontend/v2/Dockerfile .
+          docker push ${{ secrets.DOCKER_USERNAME }}/frontend-web:latest
 
       - name: Upload Docker Compose file for deployment
         uses: actions/upload-artifact@v4
