@@ -11,6 +11,8 @@ import CriarAcao from "./pages/CriarAcao";
 import Homepage from "./pages/Homepage";
 import ProtectedRoute from "./utils/ProtectedRoutes";
 import ListarAcoes from "./pages/ListarAcoes";
+import AprovarSolicitacao from "./pages/AprovarSolicitacao";
+import Footer from "./components/Footer";
 
 function App(): JSX.Element {
 	return (
@@ -40,8 +42,8 @@ function App(): JSX.Element {
 							element={<VisualizarAcao />}
 						/>
 						<Route
-							path="/voluntariar-acao"
-							element={<VoluntariarAcao />}
+							path="/voluntariar-acao/:id"
+							element={<VoluntariarAcao/>}
 						/>
 						<Route element={<ProtectedRoute />}>
 							{/* Telas que só poderão ser acessadas por usuários logados devem ser colocadas aqui dentro */}
@@ -49,21 +51,20 @@ function App(): JSX.Element {
 								path="/criar-acao"
 								element={<CriarAcao />}
 							/>
-							{/* 
-							ex:
-							<Route
-								element={<AprovarSolicitacao />}
-								path="/aprovar-solicitacao"
-							/> 
-							*/}
 						</Route>
+						{/* Colocar rota na protegida por login */}
+						<Route
+							element={<AprovarSolicitacao />}
+							path="/aprovar-solicitacao/:id"
+						/>
 						<Route
 							path="/listar-acoes"
-							element={<ListarAcoes/>}
+							element={<ListarAcoes />}
 						/>
 					</Routes>
 				</Router>
 			</AuthProvider>
+			<Footer />
 		</>
 	);
 }

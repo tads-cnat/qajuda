@@ -1,13 +1,43 @@
 import Header from "@/components/Header";
 import "./style.css";
+import { useAuth } from "@/contexts/useAuth";
+import { useNavigate, useParams } from "react-router-dom";
+import AcaoService from "@/services/AcaoService";
+import toast from "react-hot-toast";
 
 // Importar o componente da barra de menu
 function VoluntariarAcao() {
+	const { user } = useAuth();
+	const navigate = useNavigate();
+
+	const { id } = useParams<{ id: string }>();
+
+	const handleVoluntariar = () => {
+		if (!user) {
+			console.error("Usuário não logado");
+			return;
+		}
+		// Seta valores de solicitação
+		AcaoService.solicitarParticipacao(Number(id))
+			.then((res) => {
+				toast.success(res.data.message);
+			})
+			.catch((err) => {
+				toast.error(err.response.data.message);
+			})
+			.finally(() => {
+				navigate("/visualizar-acao/" + id);
+			});
+
+	};
+
 	return (
 		<>
 			<Header />
 			<section className="container col-5">
-				<h2 className="my-4 text-center">Confirmação de voluntariado</h2>
+				<h2 className="my-4 text-center">
+					Confirmação de voluntariado
+				</h2>
 				<div className="d-grid gap-2 d-md-flex flex-column align-items-md-center texto-principal">
 					<p>
 						Confirmo o compartilhamento de alguns dos meus dados
@@ -47,6 +77,7 @@ function VoluntariarAcao() {
 						<button
 							type="button"
 							className="btn btn-primary"
+							onClick={handleVoluntariar}
 						>
 							QUERO SER VOLUNTÁRIO
 						</button>

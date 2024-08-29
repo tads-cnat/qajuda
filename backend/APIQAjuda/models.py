@@ -35,8 +35,9 @@ class Colaborador(AbstractUser):
     bairro = models.CharField(max_length=30)
     data_nascimento = models.DateField()
     bio = models.TextField(max_length=100)
+    acoes = models.ManyToManyField('Acao', related_name='colaboradores')
 
-    objects = UserManager()
+    objects = UserManager()  # type: ignore
 
     first_name = None
     last_name = None
@@ -97,7 +98,7 @@ class Acao(models.Model):
             raise ValidationError({
                 'nome': _('O nome deve estar entre 1 e 100')
             })
-        if self.max_voluntarios != None and self.max_voluntarios < self.qtd_voluntarios:
+        if self.max_voluntarios != None and self.max_voluntarios < self.qtd_voluntarios:  # type: ignore
             raise ValueError({
                 'qtd_voluntarios': _('Quantidade de voluntarios execede o máximo')
             })
@@ -107,16 +108,16 @@ class Acao(models.Model):
 
 
 class Status(models.TextChoices):
-    EM_ESPERA = "E", _("Em espera")
-    ACEITO = "A", _("Aceito")
-    REJEITADO = "R", _("Rejeitado")
+    EM_ESPERA = "em_espera", _("Em espera")
+    ACEITO = "aceito", _("Aceito")
+    REJEITADO = "rejeitado", _("Rejeitado")
 
 
 class SolicitacaoVoluntariado(models.Model):
     acao = models.ForeignKey(Acao, on_delete=models.CASCADE)
     colaborador = models.ForeignKey(Colaborador, on_delete=models.CASCADE)
     status = models.CharField(null=True, blank=True,
-                              max_length=1, choices=Status.choices)
+                              max_length=9, choices=Status.choices)
     solicitado_em = models.DateTimeField(auto_now_add=True)
     modificado_em = models.DateTimeField(auto_now=True)
 
