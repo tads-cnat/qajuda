@@ -29,7 +29,7 @@ COPY --from=build /app/dist .
 COPY ./compose/nginx.conf /etc/nginx/nginx.conf.template
 
 # Adiciona o script de substituição
-COPY /compose/entrypoint.sh ./entrypoint.sh
+COPY ./compose/entrypoint.sh ./entrypoint.sh
 RUN chmod +x ./entrypoint.sh
 
 EXPOSE 80
