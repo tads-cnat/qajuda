@@ -29,7 +29,7 @@ function CardAprovacao(props : IProps) {
 
 	return (
 		<>
-			<div className="d-flex justify-content-between align-items-center bg-primary rounded-pill py-3 px-1">
+			<div className="d-flex justify-content-between align-items-center bg-primary rounded-pill py-3 px-1 text-white bold">
 				<div className="foto">
 				</div>
 				<div className="fs-5 ">{props.nome}</div>
@@ -50,7 +50,12 @@ function CardAprovacao(props : IProps) {
 							/>
 						</div>
 					) : (
-						<div className="fs-5">{props.situacao}</div>
+						(props.situacao == 'aceito') ? (
+							<div className="fs-5 me-5" ><span className="badge rounded-pill bg-success p-3">Aceita</span></div>
+						) : (
+							<div className="fs-5 me-5" ><span className="badge rounded-pill bg-danger p-3">Rejeitada</span></div>
+						)
+						
 					)
 				}
 				
