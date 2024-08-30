@@ -34,7 +34,7 @@ export default function VisualizarAcao(): JSX.Element {
 	return (
 		<>
 			<Header />
-			<div className="container">
+			<div className="container vh-100">
 				<div className="card mb-3 mt-5" style={{ maxWidth: '100%' }}>
 					<div className="row g-0">
 						<div className="col-md-6">

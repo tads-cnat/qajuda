@@ -1,4 +1,5 @@
 import logo from "@/assets/img/logo/logo-completo-invertido.png";
+import "./style.css";
 
 function Footer() {
 	return (

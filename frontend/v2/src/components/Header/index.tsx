@@ -16,7 +16,7 @@ function Header() {
 	}
 
 	return (
-		<nav className="navbar navbar-expand-lg bg-primary navbar-dark bg-primary">
+		<nav className="navbar navbar-expand-lg bg-primary navbar-dark bg-primary sticky-top">
 			<div className="container">
 				<Link
 					className="navbar-brand"

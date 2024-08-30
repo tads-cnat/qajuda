@@ -17,6 +17,8 @@ import Footer from "./components/Footer";
 function App(): JSX.Element {
 	return (
 		<>
+		<div className="min-vh-100">
+
 			<AuthProvider>
 				<Toaster />
 				<Router>
@@ -28,15 +30,15 @@ function App(): JSX.Element {
 						<Route
 							path="/sobre"
 							element={<h1>Sobre</h1>}
-						/>
+							/>
 						<Route
 							path="/cadastro"
 							element={<h1>Cadastro</h1>}
-						/>
+							/>
 						<Route
 							path="/login"
 							element={<Login />}
-						/>
+							/>
 						<Route
 							path="/visualizar-acao/:id"
 							element={<VisualizarAcao />}
@@ -44,19 +46,19 @@ function App(): JSX.Element {
 						<Route
 							path="/voluntariar-acao/:id"
 							element={<VoluntariarAcao/>}
-						/>
+							/>
 						<Route element={<ProtectedRoute />}>
 							{/* Telas que só poderão ser acessadas por usuários logados devem ser colocadas aqui dentro */}
 							<Route
 								path="/criar-acao"
 								element={<CriarAcao />}
-							/>
+								/>
 						</Route>
 						{/* Colocar rota na protegida por login */}
 						<Route
 							element={<AprovarSolicitacao />}
 							path="/aprovar-solicitacao/:id"
-						/>
+							/>
 						<Route
 							path="/listar-acoes"
 							element={<ListarAcoes />}
@@ -64,6 +66,7 @@ function App(): JSX.Element {
 					</Routes>
 				</Router>
 			</AuthProvider>
+		</div>
 			<Footer />
 		</>
 	);

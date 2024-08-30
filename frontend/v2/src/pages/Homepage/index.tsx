@@ -94,16 +94,16 @@ function Homepage() {
 					className="p-5"
 					id="contato"
 				>
-					<div className="row mb-5">
+					<div className="row mb-5 justify-content-center">
 						<div className="col-7">
-							<h2 className="fw-bold">Entre em contato</h2>
-							<p>
+							<h2 className="fw-bold text-center mb-4">Entre em contato</h2>
+							<p className="text-center">
 								Estamos aqui para ajudar você. Entre em contato
 								conosco para obter suporte e atendimento.
 							</p>
 						</div>
 					</div>
-					<div className="row row-cols-2 ">
+					<div className="row row-cols-2 text-center">
 						<Contato
 							title="E-mail"
 							contact="hello@qajuda.com"
@@ -136,7 +136,7 @@ function Homepage() {
 								com suas informações pessoais.
 							</AccordionItem>
 							<AccordionItem label="Quais são os requisitos?">
-								POs requisitos para ser voluntário podem variar
+								Os requisitos para ser voluntário podem variar
 								de acordo com cada projeto. Geralmente, é
 								necessário ter mais de 18 anos e disposição para
 								ajudar.
